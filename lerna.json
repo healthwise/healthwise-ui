@@ -1,9 +1,6 @@
 {
-  "lerna": "2.11.0",
   "packages": [
-    "src/archetypes/*",
-    "src/components/*",
-    "src/structured-content/*"
+    "packages/*"
   ],
   "version": "independent",
   "command": {

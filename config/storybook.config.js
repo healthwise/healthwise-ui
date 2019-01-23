@@ -16,7 +16,7 @@ const setup = () => {
     <div
       style={{
         padding: theme['spacing-m'],
-        minHeight: '100vh'
+        minHeight: '100vh',
       }}
     >
       <CssBaseline />

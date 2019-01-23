@@ -1,20 +1,7 @@
 {
-  "name": "@healthwise/ui",
-  "version": "10.0.0",
-  "author": "Healthwise",
-  "description": "Healthwise Atomic UI Assets",
-  "license": "MIT",
-  "homepage": "https://github.com/healthwise/healthwise-ui#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/healthwise/healthwise-ui.git"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
+  "private": true,
   "scripts": {
-    "postinstall": "npm run bootstrap",
-    "bootstrap": "lerna bootstrap && npm link src/archetypes/Theme && npm link src/archetypes/CssBaseline",
+    "postinstall": "lerna bootstrap",
     "updated": "lerna updated",
     "clean": "lerna clean",
     "exec": "lerna exec",
@@ -34,7 +21,6 @@
     ]
   },
   "devDependencies": {
-    "@healthwise/react-app-config": "^4.0.2",
     "@storybook/addon-actions": "^3.4.11",
     "@storybook/addon-info": "^3.4.11",
     "@storybook/addon-knobs": "^3.4.11",
@@ -45,7 +31,7 @@
     "eslint": "^4.19.1",
     "husky": "^0.14.3",
     "jest-fetch-mock": "^1.6.6",
-    "lerna": "^2.11.0",
+    "lerna": "^3.10.7",
     "lint-staged": "^7.3.0",
     "lodash": "^4.17.11",
     "react": "^16.5.2",

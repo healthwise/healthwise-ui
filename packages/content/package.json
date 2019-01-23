@@ -1,0 +1,20 @@
+{
+  "name": "@healthwise-ui/content",
+  "version": "0.0.1",
+  "description": "Shared React UI library to use with Healthwise content.",
+  "main": "dist/index.js",
+  "keywords": [
+    "react",
+    "ui",
+    "component library",
+    "healthwise"
+  ],
+  "author": "Healthwise",
+  "license": "MIT",
+  "repository": "healthwise/healthwise-ui",
+  "bugs": "https://github.com/healthwise/healthwise-ui/issues",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}
