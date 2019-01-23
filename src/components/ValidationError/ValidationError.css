@@ -1,0 +1,30 @@
+.error_label {
+  display: none;
+}
+
+.validation_box {
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 500;
+  position: relative;
+  border: 1px solid #fbcfcd;
+  color: #b20b04;
+  background-color: #fde7e6;
+  padding: 7px;
+  width: auto;
+  box-sizing: border-box;
+}
+
+.validation_text {
+  display: inline-block;
+  padding-left: 23px;
+}
+
+.validation_glyph {
+  display: block;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 8px;
+}
+

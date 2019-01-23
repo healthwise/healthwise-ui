@@ -1,0 +1,19 @@
+{
+  "name": "@healthwise/likert-scale",
+  "version": "1.0.6",
+  "author": "Healthwise",
+  "description": "Healthwise UI Assets - likert-scale assets",
+  "license": "MIT",
+  "homepage": "https://github.com/healthwise/healthwise-ui#readme",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@healthwise/radio": "^2.0.0",
+    "prop-types": "^15.5.7"
+  },
+  "peerDependencies": {
+    "react": ">=15.4.2"
+  }
+}

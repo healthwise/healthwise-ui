@@ -1,0 +1,21 @@
+{
+  "name": "@healthwise/content-video",
+  "version": "1.0.4",
+  "author": "Healthwise",
+  "description": "Healthwise UI Assets - video js assets",
+  "license": "MIT",
+  "homepage": "https://github.com/healthwise/healthwise-ui#readme",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@healthwise/insights": "^1.0.4",
+    "@healthwise/media-credits": "^1.0.6",
+    "prop-types": "^15.5.7",
+    "video.js": "^6.8.0"
+  },
+  "peerDependencies": {
+    "react": ">=15.4.2"
+  }
+}

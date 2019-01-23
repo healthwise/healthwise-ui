@@ -1,0 +1,21 @@
+{
+  "name": "@healthwise/svg-image",
+  "version": "2.0.0",
+  "author": "Healthwise",
+  "description": "Healthwise UI Assets - component that takes a link to an svg image and returns the xml equivelent for inline svg",
+  "license": "MIT",
+  "homepage": "https://github.com/healthwise/healthwise-ui#readme",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@healthwise/css-parser": "^1.0.3",
+    "@healthwise/key-gen": "^1.0.3",
+    "prop-types": "^15.5.7"
+  },
+  "peerDependencies": {
+    "@healthwise/theme": "^4.0.0",
+    "react": ">=15.4.2"
+  }
+}

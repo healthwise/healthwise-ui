@@ -1,0 +1,62 @@
+.checkbox_wrapper {
+  position: relative;
+  display: block;
+}
+
+.checkbox {
+  position: absolute;
+  display: block;
+  width: 1em;
+  height: 1em;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  opacity: 0;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.checkbox:disabled {
+  cursor: not-allowed;
+}
+
+.icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+
+.checkbox:focus ~ .icon {
+  outline: var(--focus-indicator);
+  outline-offset: var(--focus-indicator-offset);
+}
+
+.checkbox:disabled ~ .icon {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.icon svg {
+  fill: var(--color-text-primary);
+}
+
+.checkbox:invalid ~ .icon svg {
+  fill: var(--color-error);
+}
+
+.checked {
+  display: none;
+}
+
+.unchecked {
+  display: block;
+}
+
+.checkbox:checked ~ .checked {
+  display: block;
+}
+
+.checkbox:checked ~ .unchecked {
+  display: none;
+}

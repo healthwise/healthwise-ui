@@ -1,0 +1,14 @@
+{
+  "lerna": "2.11.0",
+  "packages": [
+    "src/archetypes/*",
+    "src/components/*",
+    "src/structured-content/*"
+  ],
+  "version": "independent",
+  "command": {
+    "publish": {
+      "allowBranch": "master"
+    }
+  }
+}

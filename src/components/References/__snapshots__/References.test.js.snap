@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Referencess /> Demonstrates rendering of references 1`] = `
+<div>
+  <p>
+    Before
+  </p>
+  <fieldset
+    className="refs_wrapper"
+  >
+    <legend
+      className="refs_label"
+    >
+      References
+    </legend>
+    <ol>
+      <li>
+        title1
+      </li>
+      <li>
+        title2
+      </li>
+      <li>
+        title3
+      </li>
+    </ol>
+  </fieldset>
+  <p>
+    After
+  </p>
+</div>
+`;
+
+exports[`<Referencess /> Demonstrates rendering of references with a different label 1`] = `
+<div>
+  <p>
+    Before
+  </p>
+  <fieldset
+    className="refs_wrapper"
+  >
+    <legend
+      className="refs_label"
+    >
+      Works Cited
+    </legend>
+    <ol>
+      <li>
+        title1
+      </li>
+      <li>
+        title2
+      </li>
+      <li>
+        title3
+      </li>
+    </ol>
+  </fieldset>
+  <p>
+    After
+  </p>
+</div>
+`;

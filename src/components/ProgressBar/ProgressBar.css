@@ -1,0 +1,23 @@
+.progress_bar {
+  width: 100%;
+  position: relative;
+  height: 2em;
+}
+
+.progress_bar_container {
+  background: transparent;
+  width: 100%;
+  height: 7px;
+  position: absolute;
+  bottom: 0;
+}
+
+.progress_bar_fill {
+  bottom: 0;
+}
+
+.progress_bar_number {
+  position: absolute;
+  bottom: 7px;
+  font-size: 1em;
+}

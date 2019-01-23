@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoadingIndicator /> renders correctly inverted 1`] = `
+<div
+  className="hw-loading-indicator-wrapper wrapper inverted"
+>
+  <div
+    className="hw-screen-reader-only ScreenReaderOnly"
+  >
+    Loading page
+  </div>
+  <span
+    className="hw-loading-indicator LoadingIndicator"
+  >
+    <span
+      className="hw-loading-indicator-inner inner"
+    />
+  </span>
+</div>
+`;
+
+exports[`<LoadingIndicator /> renders correctly with defaults 1`] = `
+<div
+  className="hw-loading-indicator-wrapper wrapper"
+>
+  <div
+    className="hw-screen-reader-only ScreenReaderOnly"
+  >
+    Loading page
+  </div>
+  <span
+    className="hw-loading-indicator LoadingIndicator"
+  >
+    <span
+      className="hw-loading-indicator-inner inner"
+    />
+  </span>
+</div>
+`;
+
+exports[`<LoadingIndicator /> renders correctly with hidden text 1`] = `
+<div
+  className="hw-loading-indicator-wrapper wrapper"
+>
+  <div
+    className="hw-screen-reader-only ScreenReaderOnly"
+  >
+    this is the text that will be read by 
+  </div>
+  <span
+    className="hw-loading-indicator LoadingIndicator"
+  >
+    <span
+      className="hw-loading-indicator-inner inner"
+    />
+  </span>
+</div>
+`;

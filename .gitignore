@@ -1,0 +1,9 @@
+.DS_Store
+npm-debug.log.*
+thumbs.db
+*.log
+node_modules/
+build/
+dist/
+coverage/
+storybook-static/

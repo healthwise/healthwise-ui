@@ -1,0 +1,125 @@
+.Tab {
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-primary);
+  padding: var(--spacing-m);
+  font-size: 1.25em;
+  text-align: center;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.visited {
+  border-bottom-color: var(--color-primary-light);
+}
+
+.active {
+  border-bottom-color: var(--color-primary);
+}
+
+.disabled {
+  color: var(--color-text-disabled);
+  cursor: default;
+  pointer-events: none;
+}
+
+.Tab:hover {
+  border-bottom-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.Tab:focus {
+  outline: var(--focus-indicator);
+}
+
+.Tab:active {
+  border-bottom-color: var(--color-primary-dark);
+}
+
+.Tab:active.disabled,
+.Tab:hover.disabled,
+.Tab:focus.disabled {
+  border-bottom-color: transparent;
+  cursor: default;
+}
+
+@media screen and (max-width: 750px) {
+  .Tab {
+    padding: 15px;
+    font-size: 1em;
+  }
+}
+
+/* Targets displays using Windows’ High Contrast Mode themes: */
+
+@media screen and (-ms-high-contrast: active) {
+  .Tab {
+    color: #fff;
+    border-bottom-color: #000;
+  }
+
+  .Tab.visited {
+    border-bottom-color: #fff;
+  }
+
+  .Tab.active {
+    border-bottom-color: #fff;
+  }
+
+  .Tab.disabled {
+    color: #767676;
+  }
+
+  .Tab:hover,
+  .Tab:focus,
+  .Tab:active {
+    border-bottom-color: #fff;
+  }
+
+  .Tab:focus {
+    outline: solid 2px #fff;
+  }
+
+  .Tab:active.disabled,
+  .Tab:hover.disabled,
+  .Tab:focus.disabled {
+    border-bottom-color: #000;
+    outline: dotted 2px #767676;
+  }
+}
+
+@media screen and (-ms-high-contrast: black-on-white) {
+  .Tab {
+    color: #000;
+    border-bottom-color: #fff;
+  }
+
+  .Tab.visited {
+    border-bottom-color: #000;
+  }
+
+  .Tab.active {
+    border-bottom-color: #000;
+  }
+
+  .Tab:hover,
+  .Tab:focus,
+  .Tab:active {
+    border-bottom-color: #000;
+  }
+
+  .Tab:focus {
+    outline: solid 2px #000;
+  }
+
+  .Tab:active.disabled,
+  .Tab:hover.disabled,
+  .Tab:focus.disabled {
+    border-bottom-color: #fff;
+  }
+}
+

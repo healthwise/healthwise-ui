@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TabGroup /> can accept additional class 1`] = `
+<ol
+  className="hw-tab-group TabGroup test stretch"
+/>
+`;
+
+exports[`<TabGroup /> only supports Tab children 1`] = `"received is not a function"`;
+
+exports[`<TabGroup /> renders correctly 1`] = `
+<ol
+  className="hw-tab-group TabGroup stretch"
+/>
+`;
+
+exports[`<TabGroup /> renders non-stretch TabGroup properly 1`] = `
+<ol
+  className="hw-tab-group TabGroup"
+/>
+`;
+
+exports[`<TabGroup /> renders stretch TabGroup properly 1`] = `
+<ol
+  className="hw-tab-group TabGroup stretch"
+/>
+`;

@@ -1,0 +1,15 @@
+.credits_wrapper {
+  margin: 0;
+}
+
+.credits_wrapper:first-child {
+  margin-top: 1em;
+}
+
+.credits_wrapper:last-child {
+  margin-bottom: 1em;
+}
+
+.credits_label {
+  font-weight: 600;
+}

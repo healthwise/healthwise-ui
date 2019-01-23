@@ -1,0 +1,457 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders defaults correctly 1`] = `
+<div
+  className="hw-drop-down DropDownContainer"
+>
+  <div
+    className="DropDownWrapper"
+  >
+    <span
+      aria-describedby="DropDownValue1"
+      aria-disabled={undefined}
+      aria-expanded={false}
+      aria-haspopup={true}
+      aria-label="Select a value"
+      className="hw-drop-down-button DropDown"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      <span
+        className="hw-drop-down-value DropDownText"
+        id="DropDownValue1"
+        tabIndex="-1"
+      >
+        Select a value
+      </span>
+      <span
+        aria-hidden="true"
+        className="hw-drop-down-icon-arrow DropDownIconDownArrow"
+        role="presentation"
+      >
+        <div
+          className="hw-icon Icon hw-icon-down-arrow hw-icon-white"
+        >
+          <svg
+            className="IconSvg"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.2 4L12 13.9 2.8 4 0 7l12 13L24 7"
+            />
+          </svg>
+        </div>
+      </span>
+      <span
+        aria-hidden="true"
+        className="hw-drop-down-icon-arrow DropDownIconUpArrow"
+        role="presentation"
+      >
+        <div
+          className="hw-icon Icon hw-icon-up-arrow hw-icon-white"
+        >
+          <svg
+            className="IconSvg"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.2 20L12 10.1 2.8 20 0 17 12 4l12 13"
+            />
+          </svg>
+        </div>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders with complex items correctly 1`] = `
+<div
+  className="hw-drop-down DropDownContainer"
+>
+  <div
+    className="DropDownWrapper"
+  >
+    <span
+      aria-describedby="DropDownValue2"
+      aria-disabled={undefined}
+      aria-expanded={false}
+      aria-haspopup={true}
+      aria-label="Select a value"
+      className="hw-drop-down-button DropDown"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      <span
+        className="hw-drop-down-value DropDownText"
+        id="DropDownValue2"
+        tabIndex="-1"
+      >
+        Select a value
+      </span>
+      <span
+        aria-hidden="true"
+        className="hw-drop-down-icon-arrow DropDownIconDownArrow"
+        role="presentation"
+      >
+        <div
+          className="hw-icon Icon hw-icon-down-arrow hw-icon-white"
+        >
+          <svg
+            className="IconSvg"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.2 4L12 13.9 2.8 4 0 7l12 13L24 7"
+            />
+          </svg>
+        </div>
+      </span>
+      <span
+        aria-hidden="true"
+        className="hw-drop-down-icon-arrow DropDownIconUpArrow"
+        role="presentation"
+      >
+        <div
+          className="hw-icon Icon hw-icon-up-arrow hw-icon-white"
+        >
+          <svg
+            className="IconSvg"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.2 20L12 10.1 2.8 20 0 17 12 4l12 13"
+            />
+          </svg>
+        </div>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders with label correctly 1`] = `
+<div
+  className="hw-drop-down DropDownContainer"
+>
+  <span
+    aria-hidden="true"
+    className="hw-drop-down-label DropDownLabel"
+    role="presentation"
+  >
+    Test label
+  </span>
+  <div
+    className="DropDownWrapper"
+  >
+    <span
+      aria-describedby="DropDownValue6"
+      aria-disabled={undefined}
+      aria-expanded={false}
+      aria-haspopup={true}
+      aria-label="Test label"
+      className="hw-drop-down-button DropDown"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      <span
+        className="hw-drop-down-value DropDownText"
+        id="DropDownValue6"
+        tabIndex="-1"
+      >
+        Select a value
+      </span>
+      <span
+        aria-hidden="true"
+        className="hw-drop-down-icon-arrow DropDownIconDownArrow"
+        role="presentation"
+      >
+        <div
+          className="hw-icon Icon hw-icon-down-arrow hw-icon-white"
+        >
+          <svg
+            className="IconSvg"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.2 4L12 13.9 2.8 4 0 7l12 13L24 7"
+            />
+          </svg>
+        </div>
+      </span>
+      <span
+        aria-hidden="true"
+        className="hw-drop-down-icon-arrow DropDownIconUpArrow"
+        role="presentation"
+      >
+        <div
+          className="hw-icon Icon hw-icon-up-arrow hw-icon-white"
+        >
+          <svg
+            className="IconSvg"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.2 20L12 10.1 2.8 20 0 17 12 4l12 13"
+            />
+          </svg>
+        </div>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders with no items correctly 1`] = `
+<div
+  className="hw-drop-down DropDownContainer"
+>
+  <div
+    className="DropDownWrapper"
+  >
+    <span
+      aria-describedby="DropDownValue3"
+      aria-disabled={undefined}
+      aria-expanded={false}
+      aria-haspopup={true}
+      aria-label="Select a value"
+      className="hw-drop-down-button DropDown"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      <span
+        className="hw-drop-down-value DropDownText"
+        id="DropDownValue3"
+        tabIndex="-1"
+      >
+        Select a value
+      </span>
+      <span
+        aria-hidden="true"
+        className="hw-drop-down-icon-arrow DropDownIconDownArrow"
+        role="presentation"
+      >
+        <div
+          className="hw-icon Icon hw-icon-down-arrow hw-icon-white"
+        >
+          <svg
+            className="IconSvg"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.2 4L12 13.9 2.8 4 0 7l12 13L24 7"
+            />
+          </svg>
+        </div>
+      </span>
+      <span
+        aria-hidden="true"
+        className="hw-drop-down-icon-arrow DropDownIconUpArrow"
+        role="presentation"
+      >
+        <div
+          className="hw-icon Icon hw-icon-up-arrow hw-icon-white"
+        >
+          <svg
+            className="IconSvg"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.2 20L12 10.1 2.8 20 0 17 12 4l12 13"
+            />
+          </svg>
+        </div>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders with props correctly 1`] = `
+<div
+  className="hw-drop-down DropDownContainer"
+>
+  <div
+    className="DropDownWrapper"
+  >
+    <span
+      aria-describedby="DropDownValue4"
+      aria-disabled={undefined}
+      aria-expanded={false}
+      aria-haspopup={true}
+      aria-label="Test prompt"
+      className="hw-drop-down-button DropDown"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      <span
+        className="hw-drop-down-value DropDownText"
+        id="DropDownValue4"
+        tabIndex="-1"
+      >
+        Test prompt
+      </span>
+      <span
+        aria-hidden="true"
+        className="hw-drop-down-icon-arrow DropDownIconDownArrow"
+        role="presentation"
+      >
+        <div
+          className="hw-icon Icon hw-icon-down-arrow hw-icon-white"
+        >
+          <svg
+            className="IconSvg"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.2 4L12 13.9 2.8 4 0 7l12 13L24 7"
+            />
+          </svg>
+        </div>
+      </span>
+      <span
+        aria-hidden="true"
+        className="hw-drop-down-icon-arrow DropDownIconUpArrow"
+        role="presentation"
+      >
+        <div
+          className="hw-icon Icon hw-icon-up-arrow hw-icon-white"
+        >
+          <svg
+            className="IconSvg"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.2 20L12 10.1 2.8 20 0 17 12 4l12 13"
+            />
+          </svg>
+        </div>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders with props with value correctly 1`] = `
+<div
+  className="hw-drop-down DropDownContainer"
+>
+  <div
+    className="DropDownWrapper"
+  >
+    <span
+      aria-describedby="DropDownValue5"
+      aria-disabled={undefined}
+      aria-expanded={false}
+      aria-haspopup={true}
+      aria-label="Test prompt"
+      className="hw-drop-down-button DropDown"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      <span
+        aria-hidden="true"
+        className="DropDownIcon"
+        role="presentation"
+      >
+        <div
+          className="hw-icon Icon"
+        >
+          <svg
+            className="IconSvg"
+            color="black"
+            focusable="false"
+            name="Key"
+            viewBox="0 0 24 24"
+          />
+        </div>
+      </span>
+      <span
+        className="hw-drop-down-value DropDownText"
+        id="DropDownValue5"
+        tabIndex="-1"
+      >
+        two
+      </span>
+      <span
+        aria-hidden="true"
+        className="hw-drop-down-icon-arrow DropDownIconDownArrow"
+        role="presentation"
+      >
+        <div
+          className="hw-icon Icon hw-icon-down-arrow hw-icon-white"
+        >
+          <svg
+            className="IconSvg"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.2 4L12 13.9 2.8 4 0 7l12 13L24 7"
+            />
+          </svg>
+        </div>
+      </span>
+      <span
+        aria-hidden="true"
+        className="hw-drop-down-icon-arrow DropDownIconUpArrow"
+        role="presentation"
+      >
+        <div
+          className="hw-icon Icon hw-icon-up-arrow hw-icon-white"
+        >
+          <svg
+            className="IconSvg"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.2 20L12 10.1 2.8 20 0 17 12 4l12 13"
+            />
+          </svg>
+        </div>
+      </span>
+    </span>
+  </div>
+</div>
+`;

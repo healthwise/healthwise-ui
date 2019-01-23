@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tab /> can accept additional class 1`] = `
+<a
+  accessKey={undefined}
+  aria-disabled={false}
+  className="hw-tab Tab test"
+  href={undefined}
+  onClick={null}
+  style={
+    Object {
+      "minWidth": undefined,
+    }
+  }
+>
+  <div>
+    Works!
+  </div>
+</a>
+`;
+
+exports[`<Tab /> has the correct accessKey 1`] = `
+<a
+  accessKey={2}
+  aria-disabled={false}
+  className="hw-tab Tab"
+  href="http://foo"
+  onClick={null}
+  style={
+    Object {
+      "minWidth": undefined,
+    }
+  }
+>
+  <div>
+    Works!
+  </div>
+</a>
+`;
+
+exports[`<Tab /> has the correct visited state 1`] = `
+<a
+  accessKey={undefined}
+  aria-disabled={false}
+  className="hw-tab Tab visited"
+  href="http://foo"
+  onClick={null}
+  style={
+    Object {
+      "minWidth": undefined,
+    }
+  }
+>
+  <div>
+    Works!
+  </div>
+</a>
+`;
+
+exports[`<Tab /> has the proper link 1`] = `
+<a
+  accessKey={undefined}
+  aria-disabled={false}
+  className="hw-tab Tab"
+  href="http://foo"
+  onClick={null}
+  style={
+    Object {
+      "minWidth": undefined,
+    }
+  }
+>
+  <div>
+    Works!
+  </div>
+</a>
+`;
+
+exports[`<Tab /> is flagged as active when active 1`] = `
+<a
+  accessKey={undefined}
+  aria-disabled={false}
+  className="hw-tab Tab hw-tab-is-active active"
+  href={undefined}
+  onClick={null}
+  style={
+    Object {
+      "minWidth": undefined,
+    }
+  }
+>
+  <div>
+    Works!
+  </div>
+</a>
+`;
+
+exports[`<Tab /> is flagged as disabled when disabled 1`] = `
+<a
+  accessKey={undefined}
+  aria-disabled={true}
+  className="hw-tab Tab disabled"
+  href={undefined}
+  onClick={null}
+  style={
+    Object {
+      "minWidth": undefined,
+    }
+  }
+>
+  <div>
+    Works!
+  </div>
+</a>
+`;
+
+exports[`<Tab /> renders correctly 1`] = `
+<a
+  accessKey={undefined}
+  aria-disabled={false}
+  className="hw-tab Tab"
+  href={undefined}
+  onClick={null}
+  style={
+    Object {
+      "minWidth": undefined,
+    }
+  }
+>
+  <div>
+    Works!
+  </div>
+</a>
+`;
+
+exports[`<Tab /> renders flat tabs correctly 1`] = `
+<a
+  accessKey={undefined}
+  aria-disabled={false}
+  className="hw-tab Tab"
+  href={undefined}
+  onClick={null}
+  style={
+    Object {
+      "minWidth": undefined,
+    }
+  }
+  type="flat"
+>
+  <div>
+    Works!
+  </div>
+</a>
+`;

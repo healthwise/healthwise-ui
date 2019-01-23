@@ -1,0 +1,23 @@
+{
+  "name": "@healthwise/drop-down",
+  "version": "3.0.1",
+  "author": "Healthwise",
+  "description": "Healthwise UI Assets - Drop Down component",
+  "license": "MIT",
+  "homepage": "https://github.com/healthwise/healthwise-ui#readme",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@healthwise/icon": "^4.0.0",
+    "classnames": "^2.2.5",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.5.7",
+    "react-aria-menubutton": "^4.3.1"
+  },
+  "peerDependencies": {
+    "@healthwise/theme": "^4.0.0",
+    "react": ">=15.4.2"
+  }
+}

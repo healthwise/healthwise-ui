@@ -1,0 +1,20 @@
+{
+  "name": "@healthwise/footer",
+  "version": "2.0.0",
+  "author": "Healthwise",
+  "description": "Healthwise UI Assets - Footer component",
+  "license": "MIT",
+  "homepage": "https://github.com/healthwise/healthwise-ui#readme",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.5.7"
+  },
+  "peerDependencies": {
+    "@healthwise/theme": "^4.0.0",
+    "react": ">=15.4.2"
+  }
+}

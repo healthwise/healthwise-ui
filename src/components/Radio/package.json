@@ -1,0 +1,19 @@
+{
+  "name": "@healthwise/radio",
+  "version": "2.0.0",
+  "author": "Healthwise",
+  "description": "Healthwise UI Assets - radio assets",
+  "license": "MIT",
+  "homepage": "https://github.com/healthwise/healthwise-ui#readme",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.7"
+  },
+  "peerDependencies": {
+    "@healthwise/theme": "^4.0.0",
+    "react": ">=15.4.2"
+  }
+}

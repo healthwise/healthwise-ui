@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ScreenReaderOnly /> can render HTML content 1`] = `
+<div
+  className="hw-screen-reader-only ScreenReaderOnly"
+>
+  <div>
+    Test screen reader message
+  </div>
+</div>
+`;
+
+exports[`<ScreenReaderOnly /> renders correctly 1`] = `
+<div
+  className="hw-screen-reader-only ScreenReaderOnly"
+>
+  Test screen reader message
+</div>
+`;

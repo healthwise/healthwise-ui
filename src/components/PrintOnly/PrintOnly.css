@@ -1,0 +1,9 @@
+.PrintOnly {
+  display: none;
+}
+
+@media print {
+  .PrintOnly {
+    display: block;
+  }
+}

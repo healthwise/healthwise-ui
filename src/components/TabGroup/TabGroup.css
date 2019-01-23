@@ -1,0 +1,48 @@
+.TabGroup {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow-x: auto;
+  margin: 0;
+  padding: 0 var(--spacing-l);
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.stretch {
+  width: 100%;
+}
+
+.tabContainer {
+  display: block;
+  margin: var(--spacing-xs) var(--spacing-xs) 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.tabContainer:first-child {
+  margin-left: 0;
+}
+
+.tabContainer:last-child {
+  margin-right: 0;
+}
+
+.tabContainerStretch {
+  flex: 1;
+}
+
+@media screen and (max-width: 750px) {
+  .tabGroup {
+    width: 100%;
+    padding: 0;
+  }
+
+  .tabGroup > li {
+    width: inherit;
+    margin: 5px 2px 0;
+  }
+}
+

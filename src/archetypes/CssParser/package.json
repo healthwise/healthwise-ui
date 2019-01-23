@@ -1,0 +1,12 @@
+{
+  "name": "@healthwise/css-parser",
+  "version": "1.0.3",
+  "author": "Healthwise",
+  "description": "Healthwise UI Assets - css parser component",
+  "license": "MIT",
+  "homepage": "https://github.com/healthwise/healthwise-ui#readme",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  }
+}

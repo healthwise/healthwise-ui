@@ -1,0 +1,18 @@
+{
+  "name": "@healthwise/content-credits",
+  "version": "1.0.4",
+  "author": "Healthwise",
+  "description": "Healthwise UI Assets - Credits component",
+  "license": "MIT",
+  "homepage": "https://github.com/healthwise/healthwise-ui#readme",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.7"
+  },
+  "peerDependencies": {
+    "react": ">=15.4.2"
+  }
+}

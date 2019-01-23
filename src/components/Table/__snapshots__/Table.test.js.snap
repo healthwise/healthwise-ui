@@ -1,0 +1,691 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Table /> renders correctly 1`] = `
+<table
+  className="hw-table Table"
+>
+  <caption
+    className="hw-table-caption"
+  >
+    <div
+      className="hw-screen-reader-only ScreenReaderOnly"
+    >
+      Test caption
+    </div>
+  </caption>
+  <thead>
+    <tr>
+      <th
+        className=""
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 1
+      </th>
+      <th
+        className=""
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 2
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th
+        className="col1"
+        colSpan={undefined}
+        scope="row"
+      >
+        row11
+      </th>
+      <td
+        className="col2"
+        colSpan={undefined}
+      >
+        row12
+      </td>
+    </tr>
+    <tr>
+      <th
+        className="col1"
+        colSpan={undefined}
+        scope="row"
+      >
+        row21
+      </th>
+      <td
+        className="col2"
+        colSpan={undefined}
+      >
+        row22
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`<Table /> renders correctly with no data 1`] = `
+<table
+  className="hw-table Table"
+>
+  <caption
+    className="hw-table-caption"
+  >
+    <div
+      className="hw-screen-reader-only ScreenReaderOnly"
+    >
+      Test caption
+    </div>
+  </caption>
+  <thead>
+    <tr>
+      <th
+        className=""
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 1
+      </th>
+      <th
+        className=""
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 2
+      </th>
+    </tr>
+  </thead>
+  <tbody />
+</table>
+`;
+
+exports[`<Table /> renders correctly with no headers 1`] = `
+<table
+  className="hw-table Table"
+/>
+`;
+
+exports[`<Table /> renders correctly with no headers or data 1`] = `
+<table
+  className="hw-table Table"
+/>
+`;
+
+exports[`<Table /> renders list type correctly 1`] = `
+<table
+  className="hw-table Table list"
+>
+  <caption
+    className="hw-table-caption"
+  >
+    <div
+      className="hw-screen-reader-only ScreenReaderOnly"
+    >
+      Test caption
+    </div>
+  </caption>
+  <thead>
+    <tr>
+      <th
+        className="id"
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 1
+      </th>
+      <th
+        className=""
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 2
+      </th>
+      <th
+        className="int"
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 3
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th
+        className="id col1"
+        colSpan={undefined}
+        scope="row"
+      >
+        row 1 label
+      </th>
+      <td
+        className="col2"
+        colSpan={undefined}
+      >
+        test 1
+      </td>
+      <td
+        className="int col3"
+        colSpan={undefined}
+      >
+        15
+      </td>
+    </tr>
+    <tr>
+      <th
+        className="id col1"
+        colSpan={undefined}
+        scope="row"
+      >
+        row 2 label
+      </th>
+      <td
+        className="col2"
+        colSpan={undefined}
+      >
+        test 2
+      </td>
+      <td
+        className="int col3"
+        colSpan={undefined}
+      >
+        15
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`<Table /> renders list type correctly with two levels of headings 1`] = `
+<table
+  className="hw-table Table list"
+>
+  <caption
+    className="hw-table-caption"
+  >
+    <div
+      className="hw-screen-reader-only ScreenReaderOnly"
+    >
+      Test caption
+    </div>
+  </caption>
+  <thead>
+    <tr>
+      <th
+        className="id"
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 1
+      </th>
+      <th
+        className=""
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 2
+      </th>
+      <th
+        className="int"
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 3
+      </th>
+    </tr>
+    <tr>
+      <th
+        className="id"
+        colSpan={undefined}
+        scope="col"
+      >
+        Second Column 1
+      </th>
+      <th
+        className=""
+        colSpan={undefined}
+        scope="col"
+      >
+        Second Column 2
+      </th>
+      <th
+        className="int"
+        colSpan={undefined}
+        scope="col"
+      >
+        Second Column 3
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th
+        className="id col12"
+        colSpan={undefined}
+        scope="row"
+      />
+      <td
+        className="col22"
+        colSpan={undefined}
+      >
+        test 1
+      </td>
+      <td
+        className="int col23"
+        colSpan={undefined}
+      >
+        15
+      </td>
+    </tr>
+    <tr>
+      <th
+        className="id col12"
+        colSpan={undefined}
+        scope="row"
+      />
+      <td
+        className="col22"
+        colSpan={undefined}
+      >
+        test 2
+      </td>
+      <td
+        className="int col23"
+        colSpan={undefined}
+      >
+        15
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`<Table /> renders list type correctly with two levels of headings with colspan 1`] = `
+<table
+  className="hw-table Table list"
+>
+  <caption
+    className="hw-table-caption"
+  >
+    <div
+      className="hw-screen-reader-only ScreenReaderOnly"
+    >
+      Test caption
+    </div>
+  </caption>
+  <thead>
+    <tr>
+      <th
+        className="id"
+        colSpan={3}
+        scope="col"
+      >
+        Column 1
+      </th>
+    </tr>
+    <tr>
+      <th
+        className="id"
+        colSpan={undefined}
+        scope="col"
+      >
+        Second Column 1
+      </th>
+      <th
+        className=""
+        colSpan={undefined}
+        scope="col"
+      >
+        Second Column 2
+      </th>
+      <th
+        className="int"
+        colSpan={undefined}
+        scope="col"
+      >
+        Second Column 3
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th
+        className="id col12"
+        colSpan={undefined}
+        scope="row"
+      />
+      <td
+        className="col22"
+        colSpan={undefined}
+      >
+        test 1
+      </td>
+      <td
+        className="int col23"
+        colSpan={undefined}
+      >
+        15
+      </td>
+    </tr>
+    <tr>
+      <th
+        className="id col12"
+        colSpan={undefined}
+        scope="row"
+      />
+      <td
+        className="col22"
+        colSpan={undefined}
+      >
+        test 2
+      </td>
+      <td
+        className="int col23"
+        colSpan={undefined}
+      >
+        15
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`<Table /> renders totals correctly 1`] = `
+<table
+  className="hw-table Table"
+>
+  <caption
+    className="hw-table-caption"
+  >
+    <div
+      className="hw-screen-reader-only ScreenReaderOnly"
+    >
+      Test caption
+    </div>
+  </caption>
+  <thead>
+    <tr>
+      <th
+        className="id"
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 1
+      </th>
+      <th
+        className=""
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 2
+      </th>
+      <th
+        className="int"
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 3
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th
+        className="id col1"
+        colSpan={undefined}
+        scope="row"
+      >
+        row 1 label
+      </th>
+      <td
+        className="col2"
+        colSpan={undefined}
+      >
+        test 1
+      </td>
+      <td
+        className="int col3"
+        colSpan={undefined}
+      >
+        15
+      </td>
+    </tr>
+    <tr>
+      <th
+        className="id col1"
+        colSpan={undefined}
+        scope="row"
+      >
+        row 2 label
+      </th>
+      <td
+        className="col2"
+        colSpan={undefined}
+      >
+        test 2
+      </td>
+      <td
+        className="int col3"
+        colSpan={undefined}
+      >
+        15
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th
+        scope="row"
+      >
+        Total
+      </th>
+      <td />
+      <td
+        className="int"
+      >
+        30
+      </td>
+    </tr>
+  </tfoot>
+</table>
+`;
+
+exports[`<Table /> renders type centered headers correctly 1`] = `
+<table
+  className="hw-table Table"
+>
+  <caption
+    className="hw-table-caption"
+  >
+    <div
+      className="hw-screen-reader-only ScreenReaderOnly"
+    >
+      Test caption
+    </div>
+  </caption>
+  <thead>
+    <tr>
+      <th
+        className="centered"
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 1
+      </th>
+      <th
+        className="centered"
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 2
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th
+        className="centered col1"
+        colSpan={undefined}
+        scope="row"
+      >
+        row11
+      </th>
+      <td
+        className="centered col2"
+        colSpan={undefined}
+      >
+        row12
+      </td>
+    </tr>
+    <tr>
+      <th
+        className="centered col1"
+        colSpan={undefined}
+        scope="row"
+      >
+        row21
+      </th>
+      <td
+        className="centered col2"
+        colSpan={undefined}
+      >
+        row22
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`<Table /> renders type date headers correctly 1`] = `
+<table
+  className="hw-table Table"
+>
+  <caption
+    className="hw-table-caption"
+  >
+    <div
+      className="hw-screen-reader-only ScreenReaderOnly"
+    >
+      Test caption
+    </div>
+  </caption>
+  <thead>
+    <tr>
+      <th
+        className="date"
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 1
+      </th>
+      <th
+        className="date"
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 2
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th
+        className="date col1"
+        colSpan={undefined}
+        scope="row"
+      >
+        01/01/2017
+      </th>
+      <td
+        className="date col2"
+        colSpan={undefined}
+      >
+        02/25/2017
+      </td>
+    </tr>
+    <tr>
+      <th
+        className="date col1"
+        colSpan={undefined}
+        scope="row"
+      >
+        12/15/2017
+      </th>
+      <td
+        className="date col2"
+        colSpan={undefined}
+      >
+        10/30/2017
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`<Table /> renders type int headers correctly 1`] = `
+<table
+  className="hw-table Table"
+>
+  <caption
+    className="hw-table-caption"
+  >
+    <div
+      className="hw-screen-reader-only ScreenReaderOnly"
+    >
+      Test caption
+    </div>
+  </caption>
+  <thead>
+    <tr>
+      <th
+        className="int"
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 1
+      </th>
+      <th
+        className="int"
+        colSpan={undefined}
+        scope="col"
+      >
+        Column 2
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th
+        className="int col1"
+        colSpan={undefined}
+        scope="row"
+      >
+        row11
+      </th>
+      <td
+        className="int col2"
+        colSpan={undefined}
+      >
+        row12
+      </td>
+    </tr>
+    <tr>
+      <th
+        className="int col1"
+        colSpan={undefined}
+        scope="row"
+      >
+        row21
+      </th>
+      <td
+        className="int col2"
+        colSpan={undefined}
+      >
+        row22
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

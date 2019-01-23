@@ -1,0 +1,45 @@
+.label {
+  margin-bottom: 0.25em;
+  font-size: 0.75em;
+  letter-spacing: 0.5px;
+}
+
+.textarea_wrapper {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  margin: 0;
+  border: 1px solid var(--color-border);
+  min-height: 88px;
+  font-size: 1em;
+  line-height: 1.5em;
+  resize: vertical;
+}
+
+.textarea:focus {
+  outline: var(--focus-indicator);
+  outline-offset: var(--focus-indicator-offset);
+}
+
+:global(.hw-textarea-textarea-readonly) {
+  border: 0;
+  padding: 0;
+}
+
+p.textarea {
+  min-height: 0;
+}
+
+.textarea_counter {
+  font-size: 0.75em;
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+}

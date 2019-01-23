@@ -1,0 +1,27 @@
+.Icon {
+  width: 100%;
+  height: 100%;
+}
+
+.IconSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: var(--color-text-primary);
+}
+
+.color_primary {
+  fill: var(--color-text-primary);
+}
+
+.color_primary_stroke {
+  stroke: var(--color-text-primary);
+}
+
+.color_contrast {
+  fill: var(--color-primary-light);
+}
+
+.color_contrast_stroke {
+  stroke: var(--color-primary-light);
+}

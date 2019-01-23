@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Radio /> renders correctly with minimum props 1`] = `
+<span
+  className="hw-radio-wrapper radio_wrapper"
+>
+  <input
+    className="hw-radio radio"
+    disabled={false}
+    id={undefined}
+    name="steve"
+    onClick={undefined}
+    required={false}
+    style={null}
+    type="radio"
+    value="awesome"
+  />
+  <svg
+    className="hw-radio-image radio_image"
+    focusable="false"
+    role="presentation"
+    style={null}
+    viewBox="0 0 28 28"
+  >
+    <circle
+      className="hw-radio-outer-circle radio_outer_circle"
+      cx="14"
+      cy="14"
+      r="9"
+      style={null}
+    />
+    <circle
+      className="hw-radio-unchecked radio_inner_circle radio_unchecked"
+      cx="14"
+      cy="14"
+      r="5"
+      style={null}
+    />
+    <circle
+      className="hw-radio-checked radio_inner_circle radio_checked"
+      cx="14"
+      cy="14"
+      r="5"
+      style={null}
+    />
+  </svg>
+</span>
+`;
+
+exports[`<Radio /> uses unused attributes to the input field 1`] = `
+<span
+  className="hw-radio-wrapper radio_wrapper"
+>
+  <input
+    className="hw-radio radio"
+    disabled={false}
+    id="awesome"
+    name="steve"
+    onClick={undefined}
+    required={false}
+    style={null}
+    type="radio"
+    value="okay"
+  />
+  <svg
+    className="hw-radio-image radio_image"
+    focusable="false"
+    role="presentation"
+    style={null}
+    viewBox="0 0 28 28"
+  >
+    <circle
+      className="hw-radio-outer-circle radio_outer_circle"
+      cx="14"
+      cy="14"
+      r="9"
+      style={null}
+    />
+    <circle
+      className="hw-radio-unchecked radio_inner_circle radio_unchecked"
+      cx="14"
+      cy="14"
+      r="5"
+      style={null}
+    />
+    <circle
+      className="hw-radio-checked radio_inner_circle radio_checked"
+      cx="14"
+      cy="14"
+      r="5"
+      style={null}
+    />
+  </svg>
+</span>
+`;

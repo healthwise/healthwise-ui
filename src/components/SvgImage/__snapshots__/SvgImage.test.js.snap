@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SvgImage /> adds class name on the image wrapper 1`] = `
+<span
+  className="hw-structured-image-wrapper steve-was-here"
+>
+  <img
+    alt="steve was here"
+    className="hw-image image"
+    dataId="1234567890"
+    src="http://via.placeholder.com/1600x900"
+  />
+</span>
+`;
+
+exports[`<SvgImage /> renders as an image when not an svg 1`] = `
+<span
+  className="hw-structured-image-wrapper"
+>
+  <img
+    alt=""
+    className="hw-image image"
+    dataId="1234567890"
+    src="http://via.placeholder.com/1600x900"
+  />
+</span>
+`;
+
+exports[`<SvgImage /> renders without classes 1`] = `
+<span
+  className="hw-structured-image-wrapper steve-was-here"
+>
+  <img
+    alt=""
+    className="hw-image image"
+    dataId="1234567890"
+    src="https://placeholder.pics/svg/300"
+  />
+</span>
+`;
+
+exports[`<SvgImage /> shows alt text on the image when not an svg 1`] = `
+<span
+  className="hw-structured-image-wrapper"
+>
+  <img
+    alt="steve was here"
+    className="hw-image image"
+    dataId="1234567890"
+    src="http://via.placeholder.com/1600x900"
+  />
+</span>
+`;
+
+exports[`<SvgImage /> updates classes 1`] = `
+<span
+  className="hw-structured-image-wrapper steve-was-here"
+>
+  <img
+    alt=""
+    className="hw-image image"
+    dataId="1234567890"
+    src="https://placeholder.pics/svg/300"
+  />
+</span>
+`;

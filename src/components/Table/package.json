@@ -1,0 +1,21 @@
+{
+  "name": "@healthwise/table",
+  "version": "3.0.0",
+  "author": "Healthwise",
+  "description": "Healthwise UI Assets - HTML table component",
+  "license": "MIT",
+  "homepage": "https://github.com/healthwise/healthwise-ui#readme",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@healthwise/screen-reader-only": "^1.1.3",
+    "classnames": "^2.2.5",
+    "prop-types": "^15.5.7"
+  },
+  "peerDependencies": {
+    "@healthwise/theme": "^4.0.0",
+    "react": ">=15.4.2"
+  }
+}

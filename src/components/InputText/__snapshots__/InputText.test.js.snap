@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InputText /> displays error message 1`] = `
+<label
+  className="container error dirty"
+>
+  <input
+    aria-describedby="hw-input-text-error6"
+    aria-required={undefined}
+    className="hw-input-text hw-input-text-text input_text"
+    disabled={undefined}
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder={undefined}
+    readOnly={undefined}
+    required={undefined}
+    type="text"
+  />
+  <div
+    className="hw-input-text-error-container error_container"
+    id="hw-input-text-error6"
+  >
+    <span
+      className="hw-message-container container error left"
+    >
+      <div
+        className="hw-message hw-message-error message hw-input-text-error undefined-error"
+      >
+        Error message
+      </div>
+    </span>
+  </div>
+</label>
+`;
+
+exports[`<InputText /> renders defaults correctly 1`] = `
+<label
+  className="container"
+>
+  <input
+    aria-describedby="hw-input-text-error1"
+    aria-required={undefined}
+    className="hw-input-text hw-input-text-text input_text"
+    disabled={undefined}
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder={undefined}
+    readOnly={undefined}
+    required={undefined}
+    type="text"
+  />
+  <div
+    className="hw-input-text-error-container error_container"
+    id="hw-input-text-error1"
+  />
+</label>
+`;
+
+exports[`<InputText /> renders label 1`] = `
+<label
+  className="container"
+>
+  <span
+    className="hw-input-text-label label"
+  >
+    Label
+  </span>
+  <input
+    aria-describedby="hw-input-text-error5"
+    aria-required={undefined}
+    className="hw-input-text hw-input-text-text input_text"
+    disabled={undefined}
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder={undefined}
+    readOnly={undefined}
+    required={undefined}
+    type="text"
+  />
+  <div
+    className="hw-input-text-error-container error_container"
+    id="hw-input-text-error5"
+  />
+</label>
+`;
+
+exports[`<InputText /> renders required prop 1`] = `
+<label
+  className="container"
+>
+  <input
+    aria-describedby="hw-input-text-error4"
+    aria-required={true}
+    className="hw-input-text hw-input-text-text input_text"
+    disabled={undefined}
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder={undefined}
+    readOnly={undefined}
+    required={true}
+    type="text"
+  />
+  <div
+    className="hw-input-text-error-container error_container"
+    id="hw-input-text-error4"
+  />
+</label>
+`;
+
+exports[`<InputText /> renders underlined style correctly 1`] = `
+<label
+  className="container underlined"
+>
+  <input
+    aria-describedby="hw-input-text-error2"
+    aria-required={undefined}
+    className="hw-input-text hw-input-text-text input_text"
+    disabled={undefined}
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder={undefined}
+    readOnly={undefined}
+    required={undefined}
+    type="text"
+  />
+  <div
+    className="hw-input-text-error-container error_container"
+    id="hw-input-text-error2"
+  />
+</label>
+`;
+
+exports[`<InputText /> renders with placeholder text 1`] = `
+<label
+  className="container"
+>
+  <input
+    aria-describedby="hw-input-text-error3"
+    aria-required={undefined}
+    className="hw-input-text hw-input-text-text input_text"
+    disabled={undefined}
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Placeholder text"
+    readOnly={undefined}
+    required={undefined}
+    type="text"
+  />
+  <div
+    className="hw-input-text-error-container error_container"
+    id="hw-input-text-error3"
+  />
+</label>
+`;

@@ -1,0 +1,15 @@
+.image {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.svg {
+  box-sizing: border-box;
+  max-width: 100%;
+  height: auto;
+}
+
+.hw_svg_built {
+  stroke: var(--color-neutral);
+  fill: var(--color-neutral);
+}
