@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import ScreenReaderOnly from '@healthwise/screen-reader-only'
+import ScreenReaderOnly from '../ScreenReaderOnly'
 import styles from './LoadingIndicator.css'
 
 class LoadingIndicator extends React.Component {

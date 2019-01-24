@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './TextArea.css'
-import { getKey } from '@healthwise/key-gen'
+import { getKey } from '../KeyGen'
 
 class Textarea extends React.Component {
   constructor(props) {

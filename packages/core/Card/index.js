@@ -6,8 +6,8 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import { withStyles } from '@material-ui/core/styles'
 
-import ButtonGroup from '@healthwise/button-group'
-import Theme from '@healthwise/theme'
+import ButtonGroup from '../ButtonGroup'
+import Theme from '../Theme'
 import appTheme from 'appTheme'
 import styles from './Card.css'
 

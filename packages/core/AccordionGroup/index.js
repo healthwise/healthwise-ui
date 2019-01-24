@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import Accordion from '@healthwise/accordion'
+import Accordion from '../Accordion'
 import styles from './AccordionGroup.css'
 
 class AccordionGroup extends Component {

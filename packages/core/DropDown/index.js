@@ -5,7 +5,7 @@ import styles from './DropDown.css'
 
 import { Wrapper, Button, Menu, MenuItem } from 'react-aria-menubutton'
 import uniqueId from 'lodash/uniqueId'
-import { DownArrowIcon, UpArrowIcon } from '@healthwise/icon'
+import { DownArrowIcon, UpArrowIcon } from '../Icon'
 
 class DropDown extends Component {
   constructor(props) {

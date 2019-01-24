@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 // import { action } from '@storybook/addon-actions'
 
-import Tab from '@healthwise/tab'
+import Tab from '../Tab'
 import TabGroup from './index'
 
 const onClick = event => {

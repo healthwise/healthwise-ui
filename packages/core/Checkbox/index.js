@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import { CheckboxCheckedIcon, CheckboxUncheckedIcon } from '@healthwise/icon'
+import { CheckboxCheckedIcon, CheckboxUncheckedIcon } from '../Icon'
 import styles from './Checkbox.css'
 
 class Checkbox extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './style.css'
-import Radio from '@healthwise/radio'
+import Radio from '../Radio'
 
 class LikertScale extends React.Component {
   constructor(props) {

@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import LinearProgress from '@material-ui/core/LinearProgress'
 
-import Theme from '@healthwise/theme'
+import Theme from '../Theme'
 import appTheme from 'appTheme'
 import styles from './ProgressBar.css'
 

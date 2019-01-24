@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import uniqueId from 'lodash/uniqueId'
 
-import Message from '@healthwise/message'
+import Message from '../Message'
 import styles from './InputText.css'
 
 class InputText extends Component {

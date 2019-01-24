@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import { InfoIcon, WarningIcon } from '@healthwise/icon'
+import { InfoIcon, WarningIcon } from '../Icon'
 import styles from './Message.css'
 
 const icons = {

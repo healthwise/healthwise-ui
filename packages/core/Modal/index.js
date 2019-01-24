@@ -6,9 +6,9 @@ import DialogContent from '@material-ui/core/DialogContent'
 import { withStyles } from '@material-ui/core/styles'
 import uniqueId from 'lodash/uniqueId'
 
-import Button from '@healthwise/button'
-import ButtonGroup from '@healthwise/button-group'
-import Theme from '@healthwise/theme'
+import Button from '../Button'
+import ButtonGroup from '../ButtonGroup'
+import Theme from '../Theme'
 import appTheme from 'appTheme'
 import styles from './Modal.css'
 

@@ -1,9 +1,9 @@
 /* global fetch, DOMParser, document */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import CssParser from '@healthwise/css-parser'
+import CssParser from '../CssParser'
 import styles from './SvgImage.css'
-import { getKey } from '@healthwise/key-gen'
+import { getKey } from '../KeyGen'
 
 class SvgImage extends Component {
   componentDidMount() {

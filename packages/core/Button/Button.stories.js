@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import Theme from '@healthwise/theme'
+import Theme from '../Theme'
 import { ProfileIcon } from 'components/Icon'
 import Button from './index'
 

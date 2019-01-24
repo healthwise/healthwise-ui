@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import Tab from '@healthwise/tab'
+import Tab from '../Tab'
 import styles from './TabGroup.css'
 
 class TabGroup extends Component {
