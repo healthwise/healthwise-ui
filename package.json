@@ -2,23 +2,15 @@
   "private": true,
   "scripts": {
     "postinstall": "lerna bootstrap",
-    "updated": "lerna updated",
+    "test": "lerna run test",
     "clean": "lerna clean",
     "exec": "lerna exec"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.4.11",
-    "@storybook/addon-info": "^3.4.11",
-    "@storybook/addon-knobs": "^3.4.11",
-    "@storybook/react": "3.2.17",
-    "cross-spawn": "^6.0.5",
-    "enzyme": "^3.6.0",
-    "enzyme-adapter-react-16": "^1.5.0",
-    "jest-fetch-mock": "^1.6.6",
+    "jest": "^23.6.0",
+    "jscodeshift": "^0.6.3",
     "lerna": "^3.10.7",
-    "lodash": "^4.17.11",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-test-renderer": "^16.5.2"
+    "react-dom": "^16.5.2"
   }
 }
