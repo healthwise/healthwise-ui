@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styles from './Video.css'
 
 import videojs from 'video.js'
-import Insights from '@healthwise/insights'
-import MediaCredits from '@healthwise/media-credits'
+import Insights from '../Insights'
+import MediaCredits from '../MediaCredits'
 
 class Video extends Component {
   constructor(props) {

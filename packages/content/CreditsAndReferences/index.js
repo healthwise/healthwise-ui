@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import styles from './CreditsAndReferences.css'
 
-import Credits from '@healthwise/content-credits'
-import References from '@healthwise/references'
-import { getKey } from '@healthwise/key-gen'
+import Credits from '../Credits'
+import References from '@healthwise-ui/core/References'
+import { getKey } from '@healthwise-ui/core/KeyGen'
 
 class CreditsAndReferences extends Component {
   constructor(props) {

@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './MediaGallery.css'
 
-import Insights from '@healthwise/insights'
-import Slideshow from '@healthwise/content-slideshow'
-import MediaServiceVideo from '@healthwise/media-service-video'
+import Insights from '../Insights'
+import Slideshow from '../Slideshow'
+import MediaServiceVideo from '../MediaServiceVideo'
 import Image from './Image'
 
 class MediaGallery extends Component {

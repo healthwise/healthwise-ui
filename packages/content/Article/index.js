@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import styles from './Article.css'
 
-import Insights from '@healthwise/insights'
+import Insights from '../Insights'
 
 class Article extends Component {
   constructor(props) {

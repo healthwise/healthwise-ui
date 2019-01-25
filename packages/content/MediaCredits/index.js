@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './MediaCredits.css'
-import Credits from '@healthwise/content-credits'
-import { getKey } from '@healthwise/key-gen'
+import Credits from '../Credits'
+import { getKey } from '@healthwise-ui/core/KeyGen'
 
 class MediaCredits extends Component {
   constructor(props) {

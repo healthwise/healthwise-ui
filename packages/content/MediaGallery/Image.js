@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import MediaCredits from '@healthwise/media-credits'
+import MediaCredits from '../MediaCredits'
 
 class Image extends Component {
   constructor(props) {

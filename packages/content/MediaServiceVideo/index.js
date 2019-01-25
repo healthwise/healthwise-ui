@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MediaCredits from '@healthwise/media-credits'
+import MediaCredits from '../MediaCredits'
 import PropTypes from 'prop-types'
 import styles from './MediaServiceVideo.css'
 

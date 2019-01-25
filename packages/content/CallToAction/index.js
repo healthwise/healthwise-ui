@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import styles from './CallToAction.css'
 
-import SVGImage from '@healthwise/svg-image'
+import SVGImage from '@healthwise-ui/core/SvgImage'
 
 class CallToAction extends Component {
   constructor(props) {

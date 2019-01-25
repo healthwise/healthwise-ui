@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './Slideshow.css'
 
-import Insights from '@healthwise/insights'
-import MediaCredits from '@healthwise/media-credits'
+import Insights from '../Insights'
+import MediaCredits from '../MediaCredits'
 
 class Slideshow extends Component {
   constructor(props) {
