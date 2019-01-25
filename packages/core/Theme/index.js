@@ -1,8 +1,8 @@
-const defaultTheme = require('./defaultTheme')
+import defaultTheme from './defaultTheme'
 
 const theme = (appSettings = {}) => ({
   ...defaultTheme,
   ...appSettings,
 })
 
-module.exports = theme
+export default theme
