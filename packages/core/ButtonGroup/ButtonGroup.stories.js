@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import Button from 'components/Button'
+import Button from '../Button'
 import ButtonGroup from './index'
 
 storiesOf('Form Controls/Button Group', module)

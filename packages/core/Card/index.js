@@ -8,10 +8,9 @@ import { withStyles } from '@material-ui/core/styles'
 
 import ButtonGroup from '../ButtonGroup'
 import Theme from '../Theme'
-import appTheme from 'appTheme'
 import styles from './Card.css'
 
-const theme = Theme(appTheme)
+const theme = Theme()
 
 const cardContentStyles = {
   root: {

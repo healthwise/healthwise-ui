@@ -6,10 +6,9 @@ import { withStyles } from '@material-ui/core/styles'
 import LinearProgress from '@material-ui/core/LinearProgress'
 
 import Theme from '../Theme'
-import appTheme from 'appTheme'
 import styles from './ProgressBar.css'
 
-const themeSettings = Theme(appTheme)
+const themeSettings = Theme()
 
 class ProgressBar extends Component {
   _normalizePercentage(percent) {

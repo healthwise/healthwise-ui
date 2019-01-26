@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
 import Theme from '../Theme'
-import { ProfileIcon } from 'components/Icon'
+import { ProfileIcon } from '../Icon'
 import Button from './index'
 
 const theme = Theme()
