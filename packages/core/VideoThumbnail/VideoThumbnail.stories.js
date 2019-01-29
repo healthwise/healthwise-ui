@@ -6,7 +6,7 @@ import VideoThumbnail from './index'
 storiesOf('Media/Video Thumbnail', module).addWithInfo(
   'a basic video thumbnail',
   `
-      Demonstates a basic video thumbnail
+      Demonstrates a basic video thumbnail
     `,
   () => (
     <div style={{ width: '200px', height: '100px' }}>

@@ -1,7 +1,50 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './TextArea.css'
+import styled from 'styled-components'
 import { getKey } from '../KeyGen'
+
+const Label = styled.label`
+  margin-bottom: 0.25em;
+  font-size: 0.75em;
+  letter-spacing: 0.5px;
+`
+
+const Wrapper = styled.div`
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+`
+
+const TextArea = styled.div`
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  margin: 0;
+  border: 1px solid var(--color-border);
+  min-height: 88px;
+  font-size: 1em;
+  line-height: 1.5em;
+  resize: vertical;
+
+  &:focus {
+    outline: var(--focus-indicator);
+    outline-offset: var(--focus-indicator-offset);
+  }
+`
+
+const ReadOnly = styled(TextArea)`
+  border: 0;
+  padding: 0;
+  min-height: 0;
+`
+
+const Counter = styled.div`
+  font-size: 0.75em;
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+`
 
 class Textarea extends React.Component {
   constructor(props) {
@@ -24,7 +67,6 @@ class Textarea extends React.Component {
   }
 
   onKeyDown(e) {
-    // per specs: "Text box does not exceed 250 characters. If user types more characters than the limit, they will not appear in the text field."
     if (
       this.props.maxCharacters !== null &&
       e.target.value.length >= parseInt(this.props.maxCharacters, 10) &&
@@ -60,37 +102,36 @@ class Textarea extends React.Component {
 
     let characterCounter = ''
     let title = label ? (
-      <label htmlFor={id} className={'hw-textarea-label ' + styles.label}>
+      <Label htmlFor={id} className={'hw-textarea-label'}>
         {label}
-      </label>
+      </Label>
     ) : null
 
     if (maxCharacters) {
-      // potentially destructive, but part of requirements (see comment above)
       value = value && value.length ? value.substring(0, maxCharacters) : null
 
       characterCounter = (
-        <div
+        <Counter
           id={this.counterId}
           ref={el => {
             this.charCountElement = el
           }}
-          className={'hw-textarea-counter ' + styles.textarea_counter}
+          className={'hw-textarea-counter'}
         >
           {this.getMaxCharLabel(maxCharacters, readonly)}
-        </div>
+        </Counter>
       )
     }
 
     // if it's readonly, just display the text
     const textarea = readonly ? (
-      <p className={'hw-textarea-textarea hw-textarea-textarea-readonly ' + styles.textarea}>
+      <ReadOnly as="p" className={'hw-textarea-textarea hw-textarea-textarea-readonly'}>
         {value}
-      </p>
+      </ReadOnly>
     ) : (
-      <div className={'hw-textarea-textarea-wrapper ' + styles.textarea_wrapper}>
-        <textarea
-          className={'hw-textarea-textarea ' + styles.textarea}
+      <Wrapper className={'hw-textarea-textarea-wrapper'}>
+        <TextArea
+          className={'hw-textarea-textarea'}
           id={id}
           name={name}
           defaultValue={value}
@@ -101,7 +142,7 @@ class Textarea extends React.Component {
           onChange={this.onChange}
         />
         {characterCounter}
-      </div>
+      </Wrapper>
     )
 
     return (
