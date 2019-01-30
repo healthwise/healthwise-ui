@@ -57,26 +57,32 @@ const slideshowJSON = {
 }
 
 storiesOf('Structured Content/Slideshow', module)
-  .addWithInfo(
+  .add(
     'with slideshow only',
-    `
-      Demonstrates default slideshow rendering
-    `,
-    () => <Slideshow item={slideshowJSON} />
+    () => <Slideshow item={slideshowJSON} />,
+    {
+      info: `
+        Demonstrates default slideshow rendering
+      `
+    }
   )
-  .addWithInfo(
+  .add(
     'with slideshow & hidden disclaimer',
-    `
-      Demonstrates slideshow rendering with hidden disclaimer
-    `,
-    () => <Slideshow item={slideshowJSON} hideDisclaimer />
+    () => <Slideshow item={slideshowJSON} hideDisclaimer />,
+    {
+      info: `
+        Demonstrates slideshow rendering with hidden disclaimer
+      `
+    }
   )
-  .addWithInfo(
+  .add(
     'with slideshow & slide select event',
-    `
-      Demonstrates slideshow rendering with hidden disclaimer & slide select event
-    `,
     () => (
       <Slideshow item={slideshowJSON} hideDisclaimer onSlideSelected={action('slide selected')} />
-    )
+    ),
+    {
+      info: `
+        Demonstrates slideshow rendering with hidden disclaimer & slide select event
+      `
+    }
   )

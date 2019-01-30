@@ -10,10 +10,12 @@ const ContainerDecorator = story => (
 
 storiesOf('Components/Card', module)
   .addDecorator(ContainerDecorator)
-  .addWithInfo('with defaults', `Demonstrates default rendering of a Card`, () => (
+  .add('with defaults', () => (
     <Card title="Card title" subtitle="Card subtitle" />
-  ))
-  .addWithInfo('with content', `Demonstrates a card with content`, () => (
+  ), {
+  info: `Demonstrates default rendering of a Card`
+})
+  .add('with content', () => (
     <Card title="Card title" subtitle="Card subtitle">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -23,16 +25,20 @@ storiesOf('Components/Card', module)
         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
     </Card>
-  ))
-  .addWithInfo('with media', `Demonstrates default rendering of a Card`, () => (
+  ), {
+  info: `Demonstrates a card with content`
+})
+  .add('with media', () => (
     <Card
       title="Card title"
       subtitle="Card subtitle"
       mediaSrc="http://via.placeholder.com/1600x900"
       mediaAltText="Placeholder image"
     />
-  ))
-  .addWithInfo('with media and content', `Demonstrates default rendering of a Card`, () => (
+  ), {
+  info: `Demonstrates default rendering of a Card`
+})
+  .add('with media and content', () => (
     <Card
       title="Card title"
       subtitle="Card subtitle"
@@ -47,8 +53,10 @@ storiesOf('Components/Card', module)
         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
     </Card>
-  ))
-  .addWithInfo('with actions', `Demonstrates default rendering of a Card`, () => (
+  ), {
+  info: `Demonstrates default rendering of a Card`
+})
+  .add('with actions', () => (
     <Card
       title="Card title"
       subtitle="Card subtitle"
@@ -71,4 +79,6 @@ storiesOf('Components/Card', module)
         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
     </Card>
-  ))
+  ), {
+  info: `Demonstrates default rendering of a Card`
+})

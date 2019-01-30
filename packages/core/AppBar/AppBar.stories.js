@@ -23,9 +23,8 @@ const styles = {
 }
 
 storiesOf('Components/AppBar', module)
-  .addWithInfo(
+  .add(
     'with a title',
-    `Demonstrates default rendering of AppBar component with a title`,
     () => (
       <div>
         <div style={styles.container}>
@@ -36,11 +35,13 @@ storiesOf('Components/AppBar', module)
           </AppBar>
         </div>
       </div>
-    )
+    ),
+    {
+      info: `Demonstrates default rendering of AppBar component with a title`
+    }
   )
-  .addWithInfo(
+  .add(
     'with a menu',
-    `Demonstrates an AppBar component with a title and menu component`,
     () => (
       <div>
         <div style={styles.container}>
@@ -54,11 +55,13 @@ storiesOf('Components/AppBar', module)
           </AppBar>
         </div>
       </div>
-    )
+    ),
+    {
+      info: `Demonstrates an AppBar component with a title and menu component`
+    }
   )
-  .addWithInfo(
+  .add(
     'with a menu and secondary content',
-    `Demonstrates an AppBar component with a menu, title, and secondary content`,
     () => (
       <div>
         <div style={styles.container}>
@@ -73,5 +76,8 @@ storiesOf('Components/AppBar', module)
           </AppBar>
         </div>
       </div>
-    )
+    ),
+    {
+      info: `Demonstrates an AppBar component with a menu, title, and secondary content`
+    }
   )

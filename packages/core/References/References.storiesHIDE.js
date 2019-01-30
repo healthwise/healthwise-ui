@@ -3,7 +3,9 @@ import { Scenarios } from './References.scenarios'
 
 const refStories = storiesOf('Components/References', module)
 for (const scenario of Scenarios) {
-  refStories.addWithInfo(scenario.title, scenario.description, () => {
+  refStories.add(scenario.title, () => {
     return scenario.element
+  }, {
+    info: scenario.description
   })
 }

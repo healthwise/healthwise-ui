@@ -10,21 +10,27 @@ const styles = {
 }
 
 storiesOf('UI Feedback/Loading Indicator', module)
-  .addWithInfo('with defaults', `Demonstrates default rendering of a LoadingIndicator`, () => (
+  .add('with defaults', () => (
     <LoadingIndicator />
-  ))
-  .addWithInfo(
+  ), {
+  info: `Demonstrates default rendering of a LoadingIndicator`
+})
+  .add(
     'with hidden text',
-    `Demonstrates a LoadingIndicator with custom hidden text`,
     () => (
       <div>
         <LoadingIndicator hiddenText="This is the custom hidden text" />
         Use a screen reader to hear custom hidden text
       </div>
-    )
+    ),
+    {
+      info: `Demonstrates a LoadingIndicator with custom hidden text`
+    }
   )
-  .addWithInfo('inverted', `Demonstrates an inverted color LoadingIndicator`, () => (
+  .add('inverted', () => (
     <div style={styles.invertedContainer}>
       <LoadingIndicator inverted />
     </div>
-  ))
+  ), {
+  info: `Demonstrates an inverted color LoadingIndicator`
+})

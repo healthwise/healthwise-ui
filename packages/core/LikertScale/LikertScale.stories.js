@@ -3,39 +3,44 @@ import { storiesOf } from '@storybook/react'
 import LikertScale from './index'
 
 storiesOf('Components/Likert Scale', module)
-  .addWithInfo(
+  .add(
     'with defaults',
-    `
-      Demonstates basic rendering with defaults
-    `,
-    () => <LikertScale id="1" />
+    () => <LikertScale id="1" />,
+    {
+      info: `
+        Demonstates basic rendering with defaults
+      `
+    }
   )
-  .addWithInfo(
+  .add(
     'with selected answer & custom labels',
-    `
-      Demonstates rendering with preselected answer & custom labels
-    `,
-    () => <LikertScale id="1" selectedAnswer="6" minValueText="Meh." maxValueText="OH YEAH!" />
+    () => <LikertScale id="1" selectedAnswer="6" minValueText="Meh." maxValueText="OH YEAH!" />,
+    {
+      info: `
+        Demonstates rendering with preselected answer & custom labels
+      `
+    }
   )
-  .addWithInfo(
+  .add(
     'with readonly',
-    `
-      Demonstates preselected answer in readonly mode
-    `,
-    () => <LikertScale id="1" selectedAnswer="8" readonly />
+    () => <LikertScale id="1" selectedAnswer="8" readonly />,
+    {
+      info: `
+        Demonstates preselected answer in readonly mode
+      `
+    }
   )
-  .addWithInfo(
+  .add(
     'with range',
-    `
-      Demonstates custom range and preselected answer
-    `,
-    () => <LikertScale id="1" minValue="1" maxValue="5" selectedAnswer="2" />
+    () => <LikertScale id="1" minValue="1" maxValue="5" selectedAnswer="2" />,
+    {
+      info: `
+        Demonstates custom range and preselected answer
+      `
+    }
   )
-  .addWithInfo(
+  .add(
     'with custom colors',
-    `
-      Demonstates custom color and preselected answer
-    `,
     () => (
       <LikertScale
         id="1"
@@ -44,5 +49,10 @@ storiesOf('Components/Likert Scale', module)
         lightTextRgbColor="230, 230, 230"
         selectedAnswer="10"
       />
-    )
+    ),
+    {
+      info: `
+        Demonstates custom color and preselected answer
+      `
+    }
   )

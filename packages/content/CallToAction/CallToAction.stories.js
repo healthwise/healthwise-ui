@@ -16,8 +16,10 @@ const item = {
   `,
 }
 
-storiesOf('Structured Content/Call to Action', module).addWithInfo(
+storiesOf('Structured Content/Call to Action', module).add(
   'with defaults',
-  `Demonstrates a default CallToAction`,
-  () => <CallToAction item={item} actionButtons={<Button rounded>Action</Button>} />
+  () => <CallToAction item={item} actionButtons={<Button rounded>Action</Button>} />,
+  {
+    info: `Demonstrates a default CallToAction`
+  }
 )

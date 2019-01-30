@@ -10,9 +10,8 @@ const styles = {
   },
 }
 
-storiesOf('Form Controls/Radio', module).addWithInfo(
+storiesOf('Form Controls/Radio', module).add(
   'with defaults',
-  `Demonstrates default rendering of Radio component`,
   () => (
     <div>
       <div style={styles.container}>
@@ -22,5 +21,8 @@ storiesOf('Form Controls/Radio', module).addWithInfo(
         <Radio name="test 2" value="test" defaultChecked />
       </div>
     </div>
-  )
+  ),
+  {
+    info: `Demonstrates default rendering of Radio component`
+  }
 )

@@ -21,10 +21,12 @@ const storyStructuredContent = {
   `,
 }
 
-storiesOf('Structured Content/Story', module).addWithInfo(
+storiesOf('Structured Content/Story', module).add(
   'with defaults',
-  `
-      Demonstrates basic usage with defaults.
-    `,
-  () => <Story data={storyStructuredContent} />
+  () => <Story data={storyStructuredContent} />,
+  {
+    info: `
+        Demonstrates basic usage with defaults.
+      `
+  }
 )

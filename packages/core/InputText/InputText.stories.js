@@ -12,7 +12,7 @@ const styles = {
 }
 
 storiesOf('Form Controls/Input Text', module)
-  .addWithInfo('with defaults', `Demonstrates default rendering of InputText component`, () => (
+  .add('with defaults', () => (
     <div>
       <div style={styles.container}>
         <InputText onChange={action('onChange')} />
@@ -21,8 +21,10 @@ storiesOf('Form Controls/Input Text', module)
         <InputText underlined onChange={action('onChange')} />
       </div>
     </div>
-  ))
-  .addWithInfo('with placeholder text', `Demonstrates InputText with placeholder text`, () => (
+  ), {
+  info: `Demonstrates default rendering of InputText component`
+})
+  .add('with placeholder text', () => (
     <div>
       <div style={styles.container}>
         <InputText placeholder="Placeholder text" onChange={action('onChange')} required />
@@ -31,8 +33,10 @@ storiesOf('Form Controls/Input Text', module)
         <InputText placeholder="Placeholder text" underlined onChange={action('onChange')} />
       </div>
     </div>
-  ))
-  .addWithInfo('with label', `Demonstrates InputText with a label`, () => (
+  ), {
+  info: `Demonstrates InputText with placeholder text`
+})
+  .add('with label', () => (
     <div>
       <div style={styles.container}>
         <InputText label="Label" placeholder="Placeholder text" onChange={action('onChange')} />
@@ -46,8 +50,10 @@ storiesOf('Form Controls/Input Text', module)
         />
       </div>
     </div>
-  ))
-  .addWithInfo('required', `Demonstrates InputText with the isRequired prop`, () => (
+  ), {
+  info: `Demonstrates InputText with a label`
+})
+  .add('required', () => (
     <div>
       <div style={styles.container}>
         <InputText
@@ -67,8 +73,10 @@ storiesOf('Form Controls/Input Text', module)
         />
       </div>
     </div>
-  ))
-  .addWithInfo('disabled', `Demonstrates a disabled InputText component`, () => (
+  ), {
+  info: `Demonstrates InputText with the isRequired prop`
+})
+  .add('disabled', () => (
     <div>
       <div style={styles.container}>
         <InputText
@@ -88,8 +96,10 @@ storiesOf('Form Controls/Input Text', module)
         />
       </div>
     </div>
-  ))
-  .addWithInfo('with errors', `Demonstrates an InputText component with error messages`, () => (
+  ), {
+  info: `Demonstrates a disabled InputText component`
+})
+  .add('with errors', () => (
     <div>
       <div style={styles.container}>
         <InputText
@@ -126,8 +136,10 @@ storiesOf('Form Controls/Input Text', module)
         />
       </div>
     </div>
-  ))
-  .addWithInfo('with all types', `Demonstrates all type props of InputText component`, () => (
+  ), {
+  info: `Demonstrates an InputText component with error messages`
+})
+  .add('with all types', () => (
     <div>
       <div style={styles.container}>
         Type: text
@@ -186,4 +198,6 @@ storiesOf('Form Controls/Input Text', module)
         <InputText type="time" placeholder="Type: time" onChange={action('onChange')} />
       </div>
     </div>
-  ))
+  ), {
+  info: `Demonstrates all type props of InputText component`
+})

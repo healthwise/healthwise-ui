@@ -215,25 +215,26 @@ const galleryWithImagesAndSlideshow = {
 }
 
 storiesOf('Structured Content/Media Gallery', module)
-  .addWithInfo(
+  .add(
     'with images',
-    `
-      Demonstrates rendering gallery of images
-    `,
-    () => <MediaGallery item={galleryWithImages} />
+    () => <MediaGallery item={galleryWithImages} />,
+    {
+      info: `
+        Demonstrates rendering gallery of images
+      `
+    }
   )
-  .addWithInfo(
+  .add(
     'with images and slideshow',
-    `
-      Demonstrates rendering gallery of images and slideshow
-    `,
-    () => <MediaGallery item={galleryWithImagesAndSlideshow} />
+    () => <MediaGallery item={galleryWithImagesAndSlideshow} />,
+    {
+      info: `
+        Demonstrates rendering gallery of images and slideshow
+      `
+    }
   )
-  .addWithInfo(
+  .add(
     'with events',
-    `
-      Demonstrates passing in events
-    `,
     () => (
       <MediaGallery
         item={galleryWithImagesAndSlideshow}
@@ -242,5 +243,10 @@ storiesOf('Structured Content/Media Gallery', module)
         onVideoProgress={action('video progress point')}
         onSlideSelected={action('slideshow slide selected')}
       />
-    )
+    ),
+    {
+      info: `
+        Demonstrates passing in events
+      `
+    }
   )

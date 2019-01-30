@@ -10,12 +10,13 @@ const styles = {
 }
 
 storiesOf('UI Feedback/Message', module)
-  .addWithInfo('with defaults', `Demonstrates default rendering of Message component`, () => (
+  .add('with defaults', () => (
     <Message>This is a default message</Message>
-  ))
-  .addWithInfo(
+  ), {
+  info: `Demonstrates default rendering of Message component`
+})
+  .add(
     'with different types',
-    `Demonstrates 'info', 'warning', and 'error' Message types`,
     () => (
       <div>
         <div style={styles.container}>
@@ -28,11 +29,13 @@ storiesOf('UI Feedback/Message', module)
           <Message type="error">This is an 'error' message</Message>
         </div>
       </div>
-    )
+    ),
+    {
+      info: `Demonstrates 'info', 'warning', and 'error' Message types`
+    }
   )
-  .addWithInfo(
+  .add(
     'with different alignment',
-    `Demonstrates alignment options of Message component`,
     () => (
       <div>
         <div style={styles.container}>
@@ -45,5 +48,8 @@ storiesOf('UI Feedback/Message', module)
           <Message align="right">This message is aligned right</Message>
         </div>
       </div>
-    )
+    ),
+    {
+      info: `Demonstrates alignment options of Message component`
+    }
   )
