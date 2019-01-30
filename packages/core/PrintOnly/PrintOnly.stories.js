@@ -4,13 +4,15 @@ import { storiesOf } from '@storybook/react'
 import PrintOnly from './index'
 
 storiesOf('Dev Utilities/Print Only', module)
-  .addWithInfo('with defaults', `Renders a PrintOnly message with default options`, () => (
+  .add('with defaults', () => (
     <div>
       <p>Bring up print preview to show the print only message.</p>
       <PrintOnly>This message only shows up when printing</PrintOnly>
     </div>
-  ))
-  .addWithInfo('with HTML content', `Renders a PrintOnly message with HTML content`, () => (
+  ), {
+  info: `Renders a PrintOnly message with default options`
+})
+  .add('with HTML content', () => (
     <div>
       <p>Bring up print preview to show the print only message.</p>
       <PrintOnly>
@@ -19,4 +21,6 @@ storiesOf('Dev Utilities/Print Only', module)
         </div>
       </PrintOnly>
     </div>
-  ))
+  ), {
+  info: `Renders a PrintOnly message with HTML content`
+})

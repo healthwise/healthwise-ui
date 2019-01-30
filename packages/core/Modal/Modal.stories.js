@@ -50,7 +50,7 @@ ModalContainer.propTypes = {
 }
 
 storiesOf('Components/Modal', module)
-  .addWithInfo('with defaults', `Demonstrates default rendering of Modal component`, () => (
+  .add('with defaults', () => (
     <ModalContainer>
       <Modal
         title="Lorem ipsum dolor sit amet"
@@ -60,8 +60,10 @@ storiesOf('Components/Modal', module)
         onExited={action('onExited')}
       />
     </ModalContainer>
-  ))
-  .addWithInfo('with content', `Demonstrates a Modal with content`, () => (
+  ), {
+  info: `Demonstrates default rendering of Modal component`
+})
+  .add('with content', () => (
     <ModalContainer>
       <Modal
         title="Lorem ipsum dolor sit amet"
@@ -80,8 +82,10 @@ storiesOf('Components/Modal', module)
         </p>
       </Modal>
     </ModalContainer>
-  ))
-  .addWithInfo('with actions', `Demonstrates a Modal with actions`, () => (
+  ), {
+  info: `Demonstrates a Modal with content`
+})
+  .add('with actions', () => (
     <ModalContainer>
       <Modal
         title="Are you sure you want to delete?"
@@ -116,4 +120,6 @@ storiesOf('Components/Modal', module)
         </p>
       </Modal>
     </ModalContainer>
-  ))
+  ), {
+  info: `Demonstrates a Modal with actions`
+})

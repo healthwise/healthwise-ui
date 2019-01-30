@@ -3,11 +3,8 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import VideoThumbnail from './index'
 
-storiesOf('Media/Video Thumbnail', module).addWithInfo(
+storiesOf('Media/Video Thumbnail', module).add(
   'a basic video thumbnail',
-  `
-      Demonstrates a basic video thumbnail
-    `,
   () => (
     <div style={{ width: '200px', height: '100px' }}>
       <VideoThumbnail
@@ -16,5 +13,10 @@ storiesOf('Media/Video Thumbnail', module).addWithInfo(
         src="http://via.placeholder.com/640x360"
       />
     </div>
-  )
+  ),
+  {
+    info: `
+        Demonstates a basic video thumbnail
+      `
+  }
 )

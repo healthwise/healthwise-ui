@@ -9,10 +9,9 @@ import uniqueId from 'lodash/uniqueId'
 import Button from '../Button'
 import ButtonGroup from '../ButtonGroup'
 import Theme from '../Theme'
-import appTheme from 'appTheme'
 import styles from './Modal.css'
 
-const theme = Theme(appTheme)
+const theme = Theme()
 
 const modalStyles = {
   paper: {

@@ -3,8 +3,10 @@ import { storiesOf } from '@storybook/react'
 
 import Footer from './index'
 
-storiesOf('Components/Footer', module).addWithInfo(
+storiesOf('Components/Footer', module).add(
   'with defaults',
-  `Demonstrates default rendering of Footer component`,
-  () => <Footer>Footer content</Footer>
+  () => <Footer>Footer content</Footer>,
+  {
+    info: `Demonstrates default rendering of Footer component`
+  }
 )

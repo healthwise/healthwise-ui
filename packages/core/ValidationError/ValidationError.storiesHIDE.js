@@ -11,9 +11,8 @@ const styles = {
   },
 }
 
-storiesOf('Components/ValidationError', module).addWithInfo(
+storiesOf('Components/ValidationError', module).add(
   'with defaults',
-  `Demonstrates default rendering of ValidationError component`,
   () => {
     /* Hack to make ValidationError show */
     const head = document.head
@@ -30,5 +29,8 @@ storiesOf('Components/ValidationError', module).addWithInfo(
         </ValidationError>
       </div>
     )
+  },
+  {
+    info: `Demonstrates default rendering of ValidationError component`
   }
 )

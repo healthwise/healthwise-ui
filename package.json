@@ -4,13 +4,25 @@
     "postinstall": "lerna bootstrap",
     "test": "lerna run test",
     "clean": "lerna clean",
-    "exec": "lerna exec"
+    "exec": "lerna exec",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@storybook/addon-actions": "^4.1.11",
+    "@storybook/addon-info": "^4.1.11",
+    "@storybook/addon-knobs": "^4.1.11",
+    "@storybook/addon-links": "^4.1.11",
+    "@storybook/addons": "^4.1.11",
+    "@storybook/codemod": "^4.1.11",
+    "@storybook/react": "^4.1.11",
+    "babel-loader": "^8.0.5",
     "jest": "^23.6.0",
     "jscodeshift": "^0.6.3",
     "lerna": "^3.10.7",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
-  }
+  },
+  "dependencies": {}
 }

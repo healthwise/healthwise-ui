@@ -63,29 +63,36 @@ const oneLevelData = [
 ]
 
 storiesOf('Components/Table', module)
-  .addWithInfo(
+  .add(
     'Default with two levels of headings',
-    `Renders a Table with default options with two levels of headings`,
-    () => <Table headers={twoLevelsOfHeaders} data={twoLevelData} caption="Test caption" />
+    () => <Table headers={twoLevelsOfHeaders} data={twoLevelData} caption="Test caption" />,
+    {
+      info: `Renders a Table with default options with two levels of headings`
+    }
   )
-  .addWithInfo(
+  .add(
     'With totals and two levels of headings',
-    `Renders a Table with totals and two levels of headings`,
     () => (
       <Table headers={twoLevelsOfHeaders} data={twoLevelData} caption="Test caption" includeTotal />
-    )
+    ),
+    {
+      info: `Renders a Table with totals and two levels of headings`
+    }
   )
-  .addWithInfo('With one level of headers', `Renders a Table with one level of headers`, () => (
+  .add('With one level of headers', () => (
     <Table headers={oneLevelOfHeaders} data={oneLevelData} caption="Test caption" />
-  ))
-  .addWithInfo(
+  ), {
+  info: `Renders a Table with one level of headers`
+})
+  .add(
     'With one level of headers and a colspan',
-    `Renders a Table with one level of headers and a colspan`,
-    () => <Table headers={oneLevelOfHeadersColSpan} data={oneLevelData} caption="Test caption" />
+    () => <Table headers={oneLevelOfHeadersColSpan} data={oneLevelData} caption="Test caption" />,
+    {
+      info: `Renders a Table with one level of headers and a colspan`
+    }
   )
-  .addWithInfo(
+  .add(
     'With number columns',
-    `Renders a Table with special formatting for number columns`,
     () => (
       <Table
         headers={[
@@ -102,11 +109,13 @@ storiesOf('Components/Table', module)
         ]}
         caption="Test caption"
       />
-    )
+    ),
+    {
+      info: `Renders a Table with special formatting for number columns`
+    }
   )
-  .addWithInfo(
+  .add(
     'With number columns and totals',
-    `Renders a Table with number columns and a total row`,
     () => (
       <Table
         headers={[
@@ -124,9 +133,12 @@ storiesOf('Components/Table', module)
         caption="Test caption"
         includeTotal
       />
-    )
+    ),
+    {
+      info: `Renders a Table with number columns and a total row`
+    }
   )
-  .addWithInfo('With dates', `Renders a Table with formatting for date columns`, () => (
+  .add('With dates', () => (
     <Table
       headers={[
         [
@@ -144,19 +156,26 @@ storiesOf('Components/Table', module)
       caption="Test caption"
       includeTotal
     />
-  ))
-  .addWithInfo('With no headers', `Renders a Table with no column headers`, () => (
+  ), {
+  info: `Renders a Table with formatting for date columns`
+})
+  .add('With no headers', () => (
     <Table headers={[]} data={oneLevelData} caption="Test caption" />
-  ))
-  .addWithInfo('With no data', `Renders a Table with no data`, () => (
+  ), {
+  info: `Renders a Table with no column headers`
+})
+  .add('With no data', () => (
     <Table headers={oneLevelOfHeaders} data={[]} caption="Test caption" />
-  ))
-  .addWithInfo('Empty', `Renders a Table with no data`, () => (
+  ), {
+  info: `Renders a Table with no data`
+})
+  .add('Empty', () => (
     <Table headers={[]} data={[]} caption="Test caption" />
-  ))
-  .addWithInfo(
+  ), {
+  info: `Renders a Table with no data`
+})
+  .add(
     'List type table with two levels of headers',
-    `Renders a list type table with two levels of headers`,
     () => (
       <div style={{ padding: '10px', background: '#edf6fb' }}>
         <Table
@@ -166,20 +185,24 @@ storiesOf('Components/Table', module)
           type="list"
         />
       </div>
-    )
+    ),
+    {
+      info: `Renders a list type table with two levels of headers`
+    }
   )
-  .addWithInfo(
+  .add(
     'List type table with one level of headers',
-    `Renders a list type Table with one level of headers`,
     () => (
       <div style={{ padding: '10px', background: '#edf6fb' }}>
         <Table headers={oneLevelOfHeaders} data={oneLevelData} caption="Test caption" type="list" />
       </div>
-    )
+    ),
+    {
+      info: `Renders a list type Table with one level of headers`
+    }
   )
-  .addWithInfo(
+  .add(
     'List type table with totals',
-    `Renders a list type Table with one level of headers and totals`,
     () => (
       <div style={{ padding: '10px', background: '#edf6fb' }}>
         <Table
@@ -190,5 +213,8 @@ storiesOf('Components/Table', module)
           includeTotal
         />
       </div>
-    )
+    ),
+    {
+      info: `Renders a list type Table with one level of headers and totals`
+    }
   )

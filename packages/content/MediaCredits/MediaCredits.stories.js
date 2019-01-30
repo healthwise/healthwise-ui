@@ -9,9 +9,8 @@ const styles = {
   },
 }
 
-storiesOf('Media/Media Credits', module).addWithInfo(
+storiesOf('Media/Media Credits', module).add(
   'with defaults',
-  `Demonstrates default rendering of MediaCredits component`,
   () => (
     <div style={styles.container}>
       <MediaCredits
@@ -43,5 +42,8 @@ storiesOf('Media/Media Credits', module).addWithInfo(
         }}
       />
     </div>
-  )
+  ),
+  {
+    info: `Demonstrates default rendering of MediaCredits component`
+  }
 )

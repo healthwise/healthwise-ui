@@ -13,17 +13,18 @@ const styles = {
 
 storiesOf('UI Feedback/Progress Bar', module)
   .addDecorator(withKnobs)
-  .addWithInfo('with defaults', `Demonstrates default rendering of ProgressBar component`, () => (
+  .add('with defaults', () => (
     <div style={styles.container}>
       <ProgressBar
         showPercentage
         percentComplete={number('Percentage', 45, { range: true, min: 0, max: 100, step: 1 })}
       />
     </div>
-  ))
-  .addWithInfo(
+  ), {
+  info: `Demonstrates default rendering of ProgressBar component`
+})
+  .add(
     'with defaults and color',
-    `Demonstrates default rendering of ProgressBar component`,
     () => (
       <div style={styles.container}>
         <ProgressBar
@@ -32,11 +33,13 @@ storiesOf('UI Feedback/Progress Bar', module)
           percentComplete={number('Percentage', 45, { range: true, min: 0, max: 100, step: 1 })}
         />
       </div>
-    )
+    ),
+    {
+      info: `Demonstrates default rendering of ProgressBar component`
+    }
   )
-  .addWithInfo(
+  .add(
     'without text percentage',
-    `Demonstrates default rendering of ProgressBar component without percentage`,
     () => (
       <div style={styles.container}>
         <ProgressBar
@@ -44,11 +47,13 @@ storiesOf('UI Feedback/Progress Bar', module)
           percentComplete={number('Percentage', 90, { range: true, min: 0, max: 100, step: 1 })}
         />
       </div>
-    )
+    ),
+    {
+      info: `Demonstrates default rendering of ProgressBar component without percentage`
+    }
   )
-  .addWithInfo(
+  .add(
     'using indeterminate type',
-    `Demonstrates rendering of ProgressBar the indeterminate type`,
     () => (
       <div style={styles.container}>
         <ProgressBar
@@ -58,9 +63,12 @@ storiesOf('UI Feedback/Progress Bar', module)
           percentComplete={number('Percentage', 45, { range: true, min: 0, max: 100, step: 1 })}
         />
       </div>
-    )
+    ),
+    {
+      info: `Demonstrates rendering of ProgressBar the indeterminate type`
+    }
   )
-  .addWithInfo('using buffer type', `Demonstrates rendering of ProgressBar the buffer type`, () => (
+  .add('using buffer type', () => (
     <div style={styles.container}>
       <ProgressBar
         progressBarType="buffer"
@@ -68,13 +76,17 @@ storiesOf('UI Feedback/Progress Bar', module)
         buffer={number('Buffer', 60, { range: true, min: 0, max: 100, step: 1 })}
       />
     </div>
-  ))
-  .addWithInfo(
+  ), {
+  info: `Demonstrates rendering of ProgressBar the buffer type`
+})
+  .add(
     'using query type',
-    `Demonstrates rendering of ProgressBar using the query type`,
     () => (
       <div style={styles.container}>
         <ProgressBar theme="primary" progressBarType="query" percentComplete="0" />
       </div>
-    )
+    ),
+    {
+      info: `Demonstrates rendering of ProgressBar using the query type`
+    }
   )

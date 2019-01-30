@@ -11,7 +11,7 @@ const styles = {
 }
 
 storiesOf('Form Controls/Checkbox', module)
-  .addWithInfo('with defaults', `Demonstrates default rendering of Checkbox component`, () => (
+  .add('with defaults', () => (
     <div>
       <div style={styles.container}>
         <Checkbox name="test" value="test" />
@@ -20,8 +20,10 @@ storiesOf('Form Controls/Checkbox', module)
         <Checkbox name="test 2" value="test" defaultChecked />
       </div>
     </div>
-  ))
-  .addWithInfo('disabled', `Demonstrates a disabled Checkbox component`, () => (
+  ), {
+  info: `Demonstrates default rendering of Checkbox component`
+})
+  .add('disabled', () => (
     <div>
       <div style={styles.container}>
         <Checkbox name="test" value="test" disabled />
@@ -30,8 +32,10 @@ storiesOf('Form Controls/Checkbox', module)
         <Checkbox name="test 2" value="test" disabled defaultChecked />
       </div>
     </div>
-  ))
-  .addWithInfo('required', `Demonstrates a required Checkbox component`, () => (
+  ), {
+  info: `Demonstrates a disabled Checkbox component`
+})
+  .add('required', () => (
     <div>
       <div style={styles.container}>
         <Checkbox name="test" value="test" required />
@@ -40,4 +44,6 @@ storiesOf('Form Controls/Checkbox', module)
         <Checkbox name="test 2" value="test" required defaultChecked />
       </div>
     </div>
-  ))
+  ), {
+  info: `Demonstrates a required Checkbox component`
+})

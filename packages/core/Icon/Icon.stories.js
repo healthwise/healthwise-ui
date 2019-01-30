@@ -66,12 +66,14 @@ const simpleSvg = (
 )
 
 storiesOf('Media/Icon', module)
-  .addWithInfo('with defaults', `Demonstrates default rendering of Icon component`, () => (
+  .add('with defaults', () => (
     <div style={styles.largeIconContainer}>
       <Icon>{simpleSvg}</Icon>
     </div>
-  ))
-  .addWithInfo('all icons', `List of all available icons`, () => (
+  ), {
+  info: `Demonstrates default rendering of Icon component`
+})
+  .add('all icons', () => (
     <div>
       <h2>Complex Icons</h2>
       <div style={styles.row}>
@@ -273,4 +275,6 @@ storiesOf('Media/Icon', module)
         </div>
       </div>
     </div>
-  ))
+  ), {
+  info: `List of all available icons`
+})

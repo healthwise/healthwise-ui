@@ -9,10 +9,12 @@ const actionStructuredContent = {
   `,
 }
 
-storiesOf('Structured Content/Action', module).addWithInfo(
+storiesOf('Structured Content/Action', module).add(
   'with defaults',
-  `
-      Demonstrates basic usage with defaults.
-    `,
-  () => <Action data={actionStructuredContent} />
+  () => <Action data={actionStructuredContent} />,
+  {
+    info: `
+        Demonstrates basic usage with defaults.
+      `
+  }
 )

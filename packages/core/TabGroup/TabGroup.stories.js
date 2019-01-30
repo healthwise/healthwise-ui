@@ -10,7 +10,7 @@ const onClick = event => {
 }
 
 storiesOf('Components/Tab Group', module)
-  .addWithInfo('with defaults', `Demonstates default rendering of a TabGroup`, () => (
+  .add('with defaults', () => (
     <div>
       <TabGroup>
         <Tab href="#" onClick={onClick}>
@@ -24,8 +24,10 @@ storiesOf('Components/Tab Group', module)
         </Tab>
       </TabGroup>
     </div>
-  ))
-  .addWithInfo('with all statuses', `Demonstrates the various tab statuses`, () => (
+  ), {
+  info: `Demonstates default rendering of a TabGroup`
+})
+  .add('with all statuses', () => (
     <div>
       <TabGroup>
         <Tab href="#" onClick={onClick} isActive>
@@ -42,10 +44,11 @@ storiesOf('Components/Tab Group', module)
         </Tab>
       </TabGroup>
     </div>
-  ))
-  .addWithInfo(
+  ), {
+  info: `Demonstrates the various tab statuses`
+})
+  .add(
     'without stretching',
-    `Demonstrates a TabGroup which doesn't stretch to fill available space`,
     () => (
       <div>
         <TabGroup stretch={false}>
@@ -60,11 +63,13 @@ storiesOf('Components/Tab Group', module)
           </Tab>
         </TabGroup>
       </div>
-    )
+    ),
+    {
+      info: `Demonstrates a TabGroup which doesn't stretch to fill available space`
+    }
   )
-  .addWithInfo(
+  .add(
     'with overflow',
-    `Demonstrates a TabGroup which overflows its available space`,
     () => (
       <div
         style={{
@@ -109,11 +114,13 @@ storiesOf('Components/Tab Group', module)
           </Tab>
         </TabGroup>
       </div>
-    )
+    ),
+    {
+      info: `Demonstrates a TabGroup which overflows its available space`
+    }
   )
-  .addWithInfo(
+  .add(
     'with overflow & active scrolled',
-    `Demonstrates a TabGroup which overflows its available space, and loads with the active tab shown`,
     () => (
       <div
         style={{
@@ -158,9 +165,12 @@ storiesOf('Components/Tab Group', module)
           </Tab>
         </TabGroup>
       </div>
-    )
+    ),
+    {
+      info: `Demonstrates a TabGroup which overflows its available space, and loads with the active tab shown`
+    }
   )
-  .addWithInfo('with min width', `Demonstrates tab with 'minWidth' prop set`, () => (
+  .add('with min width', () => (
     <div style={{ margin: '10px' }}>
       <h3>With Min-Width</h3>
       <div style={{ width: '350px', border: '1px solid #aaa', margin: '20px' }}>
@@ -192,4 +202,6 @@ storiesOf('Components/Tab Group', module)
         </TabGroup>
       </div>
     </div>
-  ))
+  ), {
+  info: `Demonstrates tab with 'minWidth' prop set`
+})

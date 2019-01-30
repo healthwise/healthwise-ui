@@ -3,8 +3,10 @@ import { storiesOf } from '@storybook/react'
 
 import SvgImage from './index'
 
-storiesOf('Dev Utilities/Svg Image', module).addWithInfo(
+storiesOf('Dev Utilities/Svg Image', module).add(
   'with defaults',
-  `Demonstrates default rendering of SvgImage component`,
-  () => <SvgImage src="https://placeholder.pics/svg/300" />
+  () => <SvgImage src="https://placeholder.pics/svg/300" />,
+  {
+    info: `Demonstrates default rendering of SvgImage component`
+  }
 )

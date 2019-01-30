@@ -11,7 +11,7 @@ const ContainerDecorator = story => (
 
 storiesOf('Components/Accordion', module)
   .addDecorator(ContainerDecorator)
-  .addWithInfo('with defaults', `Demonstrates default rendering of an Accordion`, () => (
+  .add('with defaults', () => (
     <Accordion title="Lorem ipsum dolor sit amet">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -21,10 +21,11 @@ storiesOf('Components/Accordion', module)
         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
     </Accordion>
-  ))
-  .addWithInfo(
+  ), {
+  info: `Demonstrates default rendering of an Accordion`
+})
+  .add(
     'with defaultExpanded set',
-    `Demonstrates an Accordion that's expanded by default`,
     () => (
       <Accordion title="Lorem ipsum dolor sit amet" defaultExpanded>
         <p>
@@ -36,9 +37,12 @@ storiesOf('Components/Accordion', module)
           est laborum.
         </p>
       </Accordion>
-    )
+    ),
+    {
+      info: `Demonstrates an Accordion that's expanded by default`
+    }
   )
-  .addWithInfo('disabled', `Demonstrates a disabled Accordion`, () => (
+  .add('disabled', () => (
     <Accordion title="Lorem ipsum dolor sit amet" disabled>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -48,8 +52,10 @@ storiesOf('Components/Accordion', module)
         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
     </Accordion>
-  ))
-  .addWithInfo('with group of accordions', `Demonstrates a group of Accordions`, () => (
+  ), {
+  info: `Demonstrates a disabled Accordion`
+})
+  .add('with group of accordions', () => (
     <AccordionGroup
       items={[
         {
@@ -96,4 +102,6 @@ storiesOf('Components/Accordion', module)
         },
       ]}
     />
-  ))
+  ), {
+  info: `Demonstrates a group of Accordions`
+})

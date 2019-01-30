@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
 import Theme from '../Theme'
-import { ProfileIcon } from 'components/Icon'
+import { ProfileIcon } from '../Icon'
 import Button from './index'
 
 const theme = Theme()
@@ -36,7 +36,7 @@ const handleClick = event => {
 }
 
 storiesOf('Form Controls/Button', module)
-  .addWithInfo('with defaults', `Demonstrates default rendering of a Button`, () => (
+  .add('with defaults', () => (
     <div style={styles.row}>
       <div style={styles.container}>
         <Button>Default</Button>
@@ -59,8 +59,10 @@ storiesOf('Form Controls/Button', module)
         </Button>
       </div>
     </div>
-  ))
-  .addWithInfo('with themes', `Demonstrates available themes for a Button`, () => (
+  ), {
+  info: `Demonstrates default rendering of a Button`
+})
+  .add('with themes', () => (
     <div>
       <h2 style={styles.header}>Primary (default)</h2>
       <div style={styles.row}>
@@ -315,8 +317,10 @@ storiesOf('Form Controls/Button', module)
         </div>
       </div>
     </div>
-  ))
-  .addWithInfo('with icon only', `Demonstrates a button with only an icon child`, () => (
+  ), {
+  info: `Demonstrates available themes for a Button`
+})
+  .add('with icon only', () => (
     <div style={styles.row}>
       <div style={styles.container}>
         <Button>
@@ -349,8 +353,10 @@ storiesOf('Form Controls/Button', module)
         </Button>
       </div>
     </div>
-  ))
-  .addWithInfo('with links', `Demonstrates a button rendered as a link`, () => (
+  ), {
+  info: `Demonstrates a button with only an icon child`
+})
+  .add('with links', () => (
     <div style={styles.row}>
       <div style={styles.container}>
         <Button href="#" onClick={handleClick}>
@@ -383,8 +389,10 @@ storiesOf('Form Controls/Button', module)
         </Button>
       </div>
     </div>
-  ))
-  .addWithInfo('disabled', `Demonstrates a disabled Button`, () => (
+  ), {
+  info: `Demonstrates a button rendered as a link`
+})
+  .add('disabled', () => (
     <div>
       <h2 style={styles.header}>Regular Buttons</h2>
       <div style={styles.row}>
@@ -453,4 +461,6 @@ storiesOf('Form Controls/Button', module)
         </div>
       </div>
     </div>
-  ))
+  ), {
+  info: `Demonstrates a disabled Button`
+})
