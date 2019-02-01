@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const VideoThumbnail = styled.button`
+const Videothumbnail = styled.button`
   box-sizing: border-box;
   position: relative;
   display: block;
@@ -14,8 +14,8 @@ const VideoThumbnail = styled.button`
     outline-offset: var(--focus-indicator-offset);
   }
 
-  &:hover .videoThumbnailOverlay,
-  &:focus .videoThumbnailOverlay {
+  &:hover .hw-video-thumbnail-overlay,
+  &:focus .hw-video-thumbnail-overlay {
     opacity: 1;
   }
 
@@ -54,7 +54,7 @@ class VideoThumbnail extends Component {
     const { title, src, alt, onThumbnailClick, ...otherProps } = this.props
     const thumbSrc = src.replace('_640x360.jpg', '.jpg').replace('.jpg', '_640x360.jpg') // Normalize to correct aspect ratio
     return (
-      <VideoThumbnail
+      <Videothumbnail
         type="button"
         className={`hw-video-thumbnail`}
         onClick={onThumbnailClick}
@@ -70,7 +70,7 @@ class VideoThumbnail extends Component {
             focusable="false"
             aria-hidden="true"
             role="presentation"
-            className={`hw-video-thumbnail-icon ${styles.videoThumbnailIcon}`}
+            className={'hw-video-thumbnail-icon'}
             width="40"
             height="40"
             viewBox="0 0 40 40"
@@ -85,7 +85,7 @@ class VideoThumbnail extends Component {
             </g>
           </VideoThumbnailIcon>
         </VideoThumbnailOverlay>
-      </VideoThumbnail>
+      </Videothumbnail>
     )
   }
 }

@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   margin-bottom: 10px;
 `
 
-const TextArea = styled.div`
+const TextArea = styled.textarea`
   box-sizing: border-box;
   display: block;
   width: 100%;
