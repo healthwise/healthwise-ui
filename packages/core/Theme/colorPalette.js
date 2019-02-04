@@ -1,33 +1,33 @@
 // Healthwise color palette. These variables should NOT be used directly
 // in the CSS of applications. Instead they should be used to define color
 // variables based on functionality.
-// Reference: https://healthwise.atlassian.net/wiki/spaces/DP/pages/156828523/Color+Palette
-module.exports = {
-  // Primary colors
-  'teal-light': '#aae2d0',
-  'teal-mint': '#25a094',
-  'teal-click': '#0d8484',
-  'teal-dark': '#006272',
-  stormy: '#003a47',
+const colorPalette = {
+  // Primary palette
+  primaryLight: '#aae2d0',
+  primary: '#0d8484',
+  primaryDark: '#006272',
+  accent: '#dd372f',
+  accentDark: '#a03123',
   skylight: '#00a2c7',
-  'red-hot': '#fa5048',
-  'red-tomato': '#dd372f',
-  'red-dark': '#a03123',
+  stormy: '#003a47',
 
-  // Neutral colors
-  white: '#ffffff',
-  'grey-light': '#f4f4f4',
-  grey: '#d8d8d8',
-  'grey-warm': '#727272',
-  'grey-dark': '#424242',
-  dark: '#262626',
+  // Neutral palette
+  white: '#fff',
+  neutralLighter: '#f4f4f4',
+  neutralLight: '#d8d8d8',
+  neutral: '#979797',
+  neutralMed: '#676767',
+  neutralDark: '#424242',
+  neutralDarker: '#262626',
 
-  // Accent colors
+  // Accent palette
   yellow: '#ffb71b',
   orange: '#ff6c37',
   green: '#00a887',
+  purpleLight: '#e0c7e6',
   purple: '#6c3175',
-  'purple-light': '#e0c7e6',
+  blueLight: '#63cfe3',
   blue: '#00a6ce',
-  'blue-light': '#64cfe3',
 }
+
+export default colorPalette

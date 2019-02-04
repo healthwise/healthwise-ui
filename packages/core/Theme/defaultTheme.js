@@ -1,74 +1,76 @@
-const colorPalette = require('./colorPalette')
+import colorPalette from './colorPalette'
 
-module.exports = {
+const defaultTheme = {
   // Base background colors. The color-background variable and its variants are
   // the primary backgrounds for the application. These will usually be white or
   // light grey for light-colored themes, while the color-background-contrast
   // group will be dark grey/black. For dark themes, these groups would be
   // reversed (color-background black, color-background-contrast white).
-  'color-background-light': colorPalette['white'],
-  'color-background': colorPalette['grey-light'],
-  'color-background-dark': colorPalette['grey'],
+  colorBackgroundLight: colorPalette.white,
+  colorBackground: colorPalette.neutralLighter,
+  colorBackgroundDark: colorPalette.neutralLight,
 
-  'color-background-contrast-light': colorPalette['grey'],
-  'color-background-contrast': colorPalette['grey-warm'],
-  'color-background-contrast-dark': colorPalette['grey-dark'],
+  colorBackgroundContrastLight: colorPalette.neutralLight,
+  colorBackgroundContrast: colorPalette.neutralMed,
+  colorBackgroundContrastDark: colorPalette.neutralDark,
 
-  'color-border': colorPalette['grey-warm'],
+  colorBorder: colorPalette.neutralMed,
 
   // Theme primary and accent colors
-  'color-primary-light': colorPalette['teal-light'],
-  'color-primary': colorPalette['teal-click'],
-  'color-primary-dark': colorPalette['teal-dark'],
-  'color-primary-darker': colorPalette['stormy'],
+  colorPrimaryLight: colorPalette.primaryLight,
+  colorPrimary: colorPalette.primary,
+  colorPrimaryDark: colorPalette.primaryDark,
+  colorPrimaryDarker: colorPalette.stormy,
 
-  'color-accent': colorPalette['red-tomato'],
-  'color-accent-dark': colorPalette['red-dark'],
+  colorAccent: colorPalette.accent,
+  colorAccentDark: colorPalette.accentDark,
 
-  'color-neutral-light': colorPalette['grey'],
-  'color-neutral': colorPalette['grey-warm'],
-  'color-neutral-dark': colorPalette['grey-dark'],
+  colorNeutralLight: colorPalette.neutralLight,
+  colorNeutral: colorPalette.neutralMed,
+  colorNeutralDark: colorPalette.neutralDark,
 
   // Success/error message coloring
-  'color-info': colorPalette['teal-dark'],
-  'color-success': colorPalette['teal-light'],
-  'color-warning': colorPalette['yellow'],
-  'color-error': colorPalette['red-tomato'],
+  colorInfo: colorPalette.primaryDark,
+  colorSuccess: colorPalette.primaryLight,
+  colorWarning: colorPalette.yellow,
+  colorError: colorPalette.accent,
 
   // Text colors
-  'color-text-primary': colorPalette['grey-dark'],
-  'color-text-secondary': colorPalette['grey-warm'],
-  'color-text-disabled': colorPalette['grey'],
-  'color-text-accent': colorPalette['teal-dark'],
+  colorTextPrimary: colorPalette.neutralDark,
+  colorTextSecondary: colorPalette.neutralMed,
+  colorTextDisabled: colorPalette.neutralLight,
+  colorTextAccent: colorPalette.primaryDark,
 
-  'color-text-on-contrast-light': colorPalette['grey-dark'],
-  'color-text-on-contrast': colorPalette['dark'],
-  'color-text-on-contrast-dark': colorPalette['white'],
+  colorTextOnContrastLight: colorPalette.neutralDark,
+  colorTextOnContrast: colorPalette.neutralDarker,
+  colorTextOnContrastDark: colorPalette.white,
 
-  'color-text-on-primary-light': colorPalette['grey-dark'],
-  'color-text-on-primary': colorPalette['white'],
-  'color-text-on-primary-dark': colorPalette['white'],
-  'color-text-on-primary-darker': colorPalette['white'],
+  colorTextOnPrimaryLight: colorPalette.neutralDark,
+  colorTextOnPrimary: colorPalette.white,
+  colorTextOnPrimaryDark: colorPalette.white,
+  colorTextOnPrimaryDarker: colorPalette.white,
 
-  'color-text-on-accent': colorPalette['white'],
-  'color-text-on-accent-dark': colorPalette['white'],
+  colorTextOnAccent: colorPalette.white,
+  colorTextOnAccentDark: colorPalette.white,
 
-  'color-text-on-neutral-light': colorPalette['grey-dark'],
-  'color-text-on-neutral': colorPalette['white'],
-  'color-text-on-neutral-dark': colorPalette['white'],
+  colorTextOnNeutralLight: colorPalette.neutralDark,
+  colorTextOnNeutral: colorPalette.white,
+  colorTextOnNeutralDark: colorPalette.white,
 
   // Focus indicator settings
-  'focus-indicator': `2px dotted ${colorPalette['grey-dark']}`,
-  'focus-indicator-contrast': `2px dotted ${colorPalette['grey-light']}`,
-  'focus-indicator-offset': '2px',
-  'focus-indicator-inset': '-2px',
+  focusIndicator: `2px dotted ${colorPalette.neutralDark}`,
+  focusIndicatorContrast: `2px dotted ${colorPalette.neutralLighter}`,
+  focusIndicatorOffset: '2px',
+  focusIndicatorInset: '-2px',
 
   // Spacing variables for white space or spacing within and between components
-  'spacing-xs': '4px',
-  'spacing-s': '8px',
-  'spacing-m': '16px',
-  'spacing-l': '24px',
-  'spacing-xl': '32px',
-  'spacing-xxl': '64px',
-  'spacing-xxxl': '96px',
+  spacingXs: '4px',
+  spacingS: '8px',
+  spacingM: '16px',
+  spacingL: '24px',
+  spacingXl: '32px',
+  spacingXxl: '64px',
+  spacingXxxl: '96px',
 }
+
+export default defaultTheme
