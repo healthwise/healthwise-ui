@@ -5,10 +5,10 @@ import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import LinearProgress from '@material-ui/core/LinearProgress'
 
-import Theme from '../Theme'
+import { createTheme } from '../Theme'
 import styles from './ProgressBar.css'
 
-const themeSettings = Theme()
+const themeSettings = createTheme()
 
 class ProgressBar extends Component {
   _normalizePercentage(percent) {

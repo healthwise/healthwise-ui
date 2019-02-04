@@ -8,10 +8,10 @@ import uniqueId from 'lodash/uniqueId'
 
 import Button from '../Button'
 import ButtonGroup from '../ButtonGroup'
-import Theme from '../Theme'
+import { createTheme } from '../Theme'
 import styles from './Modal.css'
 
-const theme = Theme()
+const theme = createTheme()
 
 const modalStyles = {
   paper: {

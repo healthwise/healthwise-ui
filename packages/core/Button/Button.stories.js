@@ -2,11 +2,11 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import Theme from '../Theme'
+import { createTheme } from '../Theme'
 import { ProfileIcon } from '../Icon'
 import Button from './index'
 
-const theme = Theme()
+const theme = createTheme()
 
 const styles = {
   row: {
@@ -21,11 +21,11 @@ const styles = {
   },
   container_light: {
     padding: '16px',
-    background: theme['color-background-light'],
+    background: theme.colorBackgroundLight,
   },
   container_contrast: {
     padding: '16px',
-    background: theme['color-background-contrast-dark'],
+    background: theme.colorBackgroundContrastDark,
   },
 }
 

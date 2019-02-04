@@ -7,10 +7,10 @@ import CardMedia from '@material-ui/core/CardMedia'
 import { withStyles } from '@material-ui/core/styles'
 
 import ButtonGroup from '../ButtonGroup'
-import Theme from '../Theme'
+import { createTheme } from '../Theme'
 import styles from './Card.css'
 
-const theme = Theme()
+const theme = createTheme()
 
 const cardContentStyles = {
   root: {

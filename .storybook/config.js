@@ -2,9 +2,7 @@ import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import CssBaseline from '../packages/core/CssBaseline'
-import Theme from '../packages/core/Theme'
-
-const theme = Theme()
+import { CssVars } from '../packages/core/Theme'
 
 addDecorator(withInfo)
 addDecorator(story => {
@@ -13,12 +11,9 @@ addDecorator(story => {
       style={{
         padding: '16px',
         minHeight: '100vh',
-        ...Object.entries(theme).reduce((vars, [key, value]) => {
-          vars['--' + key] = value
-          return vars
-        }, {})
       }}
     >
+      <CssVars />
       <CssBaseline />
       {story()}
     </div>
