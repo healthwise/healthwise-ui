@@ -142,7 +142,11 @@ class Accordion extends Component {
               disableTouchRipple: true,
             }}
           >
-            <Title className="hw-accordion-title" theme={theme}>{title}</Title>
+            {React.isValidElement(title) ? (
+              <div className="hw-accordion-title">{title}</div>
+            ) : (
+              <Title className="hw-accordion-title" theme={theme}>{title}</Title>
+            )}
           </ExpansionPanelSummary>
         )}
         <ExpansionPanelDetails className="hw-accordion-content">
@@ -160,7 +164,7 @@ Accordion.propTypes = {
   disabled: PropTypes.bool,
   expanded: PropTypes.bool,
   onChange: PropTypes.func,
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // TODO: update this propType with all the variables being used in the accordion
   // once @material-ui/styles package is being used.
   theme: PropTypes.shape({

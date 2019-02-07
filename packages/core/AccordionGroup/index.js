@@ -31,7 +31,7 @@ AccordionGroup.propTypes = {
     PropTypes.shape({
       content: PropTypes.node.isRequired,
       onChange: PropTypes.func,
-      title: PropTypes.string,
+      title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     })
   ),
 }
