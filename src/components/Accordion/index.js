@@ -72,7 +72,11 @@ class Accordion extends Component {
               disableTouchRipple: true,
             }}
           >
-            <h2 className={`hw-accordion-title ${styles.title}`}>{title}</h2>
+            {React.isValidElement(title) ? (
+              <div className="hw-accordion-title">{title}</div>
+            ) : (
+              <h2 className={`hw-accordion-title ${styles.title}`}>{title}</h2>
+            )}
           </StyledExpansionPanelSummary>
         )}
         <ExpansionPanelDetails className={`hw-accordion-content ${styles.content}`}>
@@ -90,7 +94,7 @@ Accordion.propTypes = {
   disabled: PropTypes.bool,
   expanded: PropTypes.bool,
   onChange: PropTypes.func,
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 }
 
 export default Accordion
