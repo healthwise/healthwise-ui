@@ -169,7 +169,7 @@ Accordion.propTypes = {
   // once @material-ui/styles package is being used.
   theme: PropTypes.shape({
     colorTextPrimary: PropTypes.string,
-    spacingXxl: PropTypes.number,
+    spacingXxl: PropTypes.string,
   }),
 }
 
