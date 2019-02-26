@@ -1,20 +1,50 @@
 import React from 'react'
-import styles from './ValidationError.css'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
+
+const ErrorLabel = styled.label`
+  display: none;
+`
+
+const ValidationBox = styled.span`
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 500;
+  position: relative;
+  border: 1px solid #fbcfcd;
+  color: #b20b04;
+  background-color: #fde7e6;
+  padding: 7px;
+  width: auto;
+`
+
+const ValidationText = styled.span`
+  display: inline-block;
+  padding-left: 23px;
+`
+
+const ValidationGlyph = styled.span`
+  display: block;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 8px;
+`
 
 class ValidationError extends React.Component {
   render() {
     let { children, forId, ...otherAttributes } = this.props
 
     return (
-      <label
+      <ErrorLabel
         role="alert"
         aria-atomic="true"
         htmlFor={forId}
-        className={'hw-validation-label ' + styles.error_label}
+        className={'hw-validation-label'}
       >
-        <span className={'hw-validation-box  ' + styles.validation_box} {...otherAttributes}>
-          <span className={'hw-validation-glyph  ' + styles.validation_glyph}>
+        <ValidationBox className={'hw-validation-box'} {...otherAttributes}>
+          <ValidationGlyph className={'hw-validation-glyph'}>
             <svg
               role="presentation"
               focusable="false"
@@ -33,10 +63,10 @@ class ValidationError extends React.Component {
                 />
               </g>
             </svg>
-          </span>
-          <span className={'hw-validation-text  ' + styles.validation_text}>{children}</span>
-        </span>
-      </label>
+          </ValidationGlyph>
+          <ValidationText className={'hw-validation-text'}>{children}</ValidationText>
+        </ValidationBox>
+      </ErrorLabel>
     )
   }
 }
