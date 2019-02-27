@@ -1,24 +1,40 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import styled from 'styled-components'
 
-import styles from './ButtonGroup.css'
+import { defaultTheme } from '../Theme'
+
+// Map align prop to justify-content value
+const alignMap = {
+  left: 'flex-start',
+  center: 'center',
+  right: 'flex-end',
+}
+
+const Root = styled.div`
+  display: flex;
+  align-content: center;
+  justify-content: ${props => alignMap[props.align]};
+
+  & > *:not(:last-child) {
+    margin-right: ${props => props.theme.spacingS}
+  }
+`
+
+Root.defaultProps = {
+  theme: defaultTheme
+}
+
 
 class ButtonGroup extends React.Component {
   render() {
-    let { children, className, align, ...otherProps } = this.props
-
-    const buttonGroupClass = classNames(
-      'hw-button-group',
-      styles.button_group,
-      styles[align],
-      className
-    )
+    let { children, className, ...otherProps } = this.props
 
     return (
-      <div className={buttonGroupClass} {...otherProps}>
+      <Root className={classNames('hw-button-grouop', className)} {...otherProps}>
         {children}
-      </div>
+      </Root>
     )
   }
 }
@@ -27,6 +43,9 @@ ButtonGroup.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   align: PropTypes.oneOf(['left', 'center', 'right']),
+  theme: PropTypes.shape({
+    spacingS: PropTypes.string,
+  })
 }
 
 ButtonGroup.defaultProps = {
