@@ -66,7 +66,7 @@ storiesOf('Components/Card', module)
         <Button key="card-action-1" rounded>
           Accept
         </Button>,
-        <Button key="card-action-2" theme="neutral-dark" flat>
+        <Button key="card-action-2" color="neutralDark" flat>
           Cancel
         </Button>,
       ]}
