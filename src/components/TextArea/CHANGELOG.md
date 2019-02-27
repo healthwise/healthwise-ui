@@ -1,5 +1,9 @@
 # Change Log
 
+## 5.0.0 - February 25, 2019
+
+- **BREAKING**: Added `defaultValue` prop & mapped `value` to <textarea>'s `value` attribute  (used to be mapped to `defaultValue` attribute)
+
 ## 4.0.0 - July 9, 2018
 
 - **BREAKING**: Updated `@healthwise/theme` to `v4`, and removed deprecated theme variables
