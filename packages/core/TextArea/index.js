@@ -98,7 +98,7 @@ class Textarea extends React.Component {
   }
 
   render() {
-    let { id, name, value, label, maxCharacters, readonly } = this.props
+    let { id, name, defaultValue, value, label, maxCharacters, readonly } = this.props
 
     let characterCounter = ''
     let title = label ? (
@@ -126,7 +126,7 @@ class Textarea extends React.Component {
     // if it's readonly, just display the text
     const textarea = readonly ? (
       <ReadOnly as="p" className={'hw-textarea-textarea hw-textarea-textarea-readonly'}>
-        {value}
+        {value || defaultValue || ''}
       </ReadOnly>
     ) : (
       <Wrapper className={'hw-textarea-textarea-wrapper'}>
@@ -134,7 +134,8 @@ class Textarea extends React.Component {
           className={'hw-textarea-textarea'}
           id={id}
           name={name}
-          defaultValue={value}
+          defaultValue={defaultValue}
+          value={value}
           aria-describedby={this.counterId}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
@@ -157,6 +158,7 @@ class Textarea extends React.Component {
 Textarea.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
+  defaultValue: PropTypes.string,
   value: PropTypes.string,
   label: PropTypes.string,
   maxCharacters: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -169,6 +171,8 @@ Textarea.propTypes = {
 
 Textarea.defaultProps = {
   id: getKey(),
+  defaultValue: null,
+  value: null,
   readonly: false,
   maxCharacters: null,
   onFocus: function(e) {

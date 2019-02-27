@@ -10,6 +10,10 @@
 - **BREAKING**: Renamed `theme` prop to `color`
 - **BREAKING**: Changed `color` props from kebab-case to camelCase (e.g. `primary-light` to `primaryLight`)
 
+# TextArea
+
+- **BREAKING**: Added prop `defaultValue`; mapped `value` to native `value` attribute (formerly `defaultValue`)
+
 # Deprecate?
 
 - CssParser
