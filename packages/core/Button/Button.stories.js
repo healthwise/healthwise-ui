@@ -95,27 +95,27 @@ storiesOf('Form Controls/Button', module)
       <h2 style={styles.header}>Primary Light</h2>
       <div style={styles.row}>
         <div style={styles.container}>
-          <Button theme="primary-light">
+          <Button color="primaryLight">
             <ProfileIcon /> Default
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="primary-light" raised>
+          <Button color="primaryLight" raised>
             <ProfileIcon /> Raised
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="primary-light" rounded>
+          <Button color="primaryLight" rounded>
             <ProfileIcon /> Rounded
           </Button>
         </div>
         <div style={styles.container_contrast}>
-          <Button theme="primary-light" flat>
+          <Button color="primaryLight" flat>
             <ProfileIcon /> Flat
           </Button>
         </div>
         <div style={styles.container_contrast}>
-          <Button theme="primary-light" rounded outlined>
+          <Button color="primaryLight" rounded outlined>
             <ProfileIcon /> Outlined
           </Button>
         </div>
@@ -123,27 +123,27 @@ storiesOf('Form Controls/Button', module)
       <h2 style={styles.header}>Primary Dark</h2>
       <div style={styles.row}>
         <div style={styles.container}>
-          <Button theme="primary-dark">
+          <Button color="primaryDark">
             <ProfileIcon /> Default
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="primary-dark" raised>
+          <Button color="primaryDark" raised>
             <ProfileIcon /> Raised
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="primary-dark" rounded>
+          <Button color="primaryDark" rounded>
             <ProfileIcon /> Rounded
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="primary-dark" flat>
+          <Button color="primaryDark" flat>
             <ProfileIcon /> Flat
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="primary-dark" rounded outlined>
+          <Button color="primaryDark" rounded outlined>
             <ProfileIcon /> Outlined
           </Button>
         </div>
@@ -151,27 +151,27 @@ storiesOf('Form Controls/Button', module)
       <h2 style={styles.header}>Primary Darker</h2>
       <div style={styles.row}>
         <div style={styles.container}>
-          <Button theme="primary-darker">
+          <Button color="primaryDarker">
             <ProfileIcon /> Default
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="primary-darker" raised>
+          <Button color="primaryDarker" raised>
             <ProfileIcon /> Raised
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="primary-darker" rounded>
+          <Button color="primaryDarker" rounded>
             <ProfileIcon /> Rounded
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="primary-darker" flat>
+          <Button color="primaryDarker" flat>
             <ProfileIcon /> Flat
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="primary-darker" rounded outlined>
+          <Button color="primaryDarker" rounded outlined>
             <ProfileIcon /> Outlined
           </Button>
         </div>
@@ -179,27 +179,27 @@ storiesOf('Form Controls/Button', module)
       <h2 style={styles.header}>Accent</h2>
       <div style={styles.row}>
         <div style={styles.container}>
-          <Button theme="accent">
+          <Button color="accent">
             <ProfileIcon /> Default
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="accent" raised>
+          <Button color="accent" raised>
             <ProfileIcon /> Raised
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="accent" rounded>
+          <Button color="accent" rounded>
             <ProfileIcon /> Rounded
           </Button>
         </div>
         <div style={styles.container_light}>
-          <Button theme="accent" flat>
+          <Button color="accent" flat>
             <ProfileIcon /> Flat
           </Button>
         </div>
         <div style={styles.container_light}>
-          <Button theme="accent" rounded outlined>
+          <Button color="accent" rounded outlined>
             <ProfileIcon /> Outlined
           </Button>
         </div>
@@ -207,27 +207,27 @@ storiesOf('Form Controls/Button', module)
       <h2 style={styles.header}>Accent Dark</h2>
       <div style={styles.row}>
         <div style={styles.container}>
-          <Button theme="accent-dark">
+          <Button color="accentDark">
             <ProfileIcon /> Default
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="accent-dark" raised>
+          <Button color="accentDark" raised>
             <ProfileIcon /> Raised
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="accent-dark" rounded>
+          <Button color="accentDark" rounded>
             <ProfileIcon /> Rounded
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="accent-dark" flat>
+          <Button color="accentDark" flat>
             <ProfileIcon /> Flat
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="accent-dark" rounded outlined>
+          <Button color="accentDark" rounded outlined>
             <ProfileIcon /> Outlined
           </Button>
         </div>
@@ -235,27 +235,27 @@ storiesOf('Form Controls/Button', module)
       <h2 style={styles.header}>Neutral</h2>
       <div style={styles.row}>
         <div style={styles.container}>
-          <Button theme="neutral">
+          <Button color="neutral">
             <ProfileIcon /> Default
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="neutral" raised>
+          <Button color="neutral" raised>
             <ProfileIcon /> Raised
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="neutral" rounded>
+          <Button color="neutral" rounded>
             <ProfileIcon /> Rounded
           </Button>
         </div>
         <div style={styles.container_light}>
-          <Button theme="neutral" flat>
+          <Button color="neutral" flat>
             <ProfileIcon /> Flat
           </Button>
         </div>
         <div style={styles.container_light}>
-          <Button theme="neutral" rounded outlined>
+          <Button color="neutral" rounded outlined>
             <ProfileIcon /> Outlined
           </Button>
         </div>
@@ -263,27 +263,27 @@ storiesOf('Form Controls/Button', module)
       <h2 style={styles.header}>Neutral Light</h2>
       <div style={styles.row}>
         <div style={styles.container}>
-          <Button theme="neutral-light">
+          <Button color="neutralLight">
             <ProfileIcon /> Default
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="neutral-light" raised>
+          <Button color="neutralLight" raised>
             <ProfileIcon /> Raised
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="neutral-light" rounded>
+          <Button color="neutralLight" rounded>
             <ProfileIcon /> Rounded
           </Button>
         </div>
         <div style={styles.container_contrast}>
-          <Button theme="neutral-light" flat>
+          <Button color="neutralLight" flat>
             <ProfileIcon /> Flat
           </Button>
         </div>
         <div style={styles.container_contrast}>
-          <Button theme="neutral-light" rounded outlined>
+          <Button color="neutralLight" rounded outlined>
             <ProfileIcon /> Outlined
           </Button>
         </div>
@@ -291,27 +291,27 @@ storiesOf('Form Controls/Button', module)
       <h2 style={styles.header}>Neutral Dark</h2>
       <div style={styles.row}>
         <div style={styles.container}>
-          <Button theme="neutral-dark">
+          <Button color="neutralDark">
             <ProfileIcon /> Default
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="neutral-dark" raised>
+          <Button color="neutralDark" raised>
             <ProfileIcon /> Raised
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="neutral-dark" rounded>
+          <Button color="neutralDark" rounded>
             <ProfileIcon /> Rounded
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="neutral-dark" flat>
+          <Button color="neutralDark" flat>
             <ProfileIcon /> Flat
           </Button>
         </div>
         <div style={styles.container}>
-          <Button theme="neutral-dark" rounded outlined>
+          <Button color="neutralDark" rounded outlined>
             <ProfileIcon /> Outlined
           </Button>
         </div>

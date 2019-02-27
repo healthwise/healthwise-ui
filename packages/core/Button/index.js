@@ -1,47 +1,102 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import styled from 'styled-components'
 
-import styles from './Button.css'
+import { defaultTheme, getThemeVariable } from '../Theme'
+
+// TODO: Need better mechanism to get focus indicator color. Right now, it uses
+// the regular, dark focus indicator unless it's a light color with a flat or
+// outlined style button, in which case it's assumed that the button needs to be
+// on a dark background and needs the lighter focusIndicatorContrast style.
+const getFocusIndicator = props => {
+  const { flat, outlined, color, theme } = props
+  if (flat || outlined) {
+    if (color === 'primaryLight' || color === 'neutralLight') {
+      return theme.focusIndicatorContrast
+    }
+  }
+  return theme.focusIndicator
+}
+
+const Root = styled.button`
+  padding: ${props => props.flat ? '0.75rem' : '0.75rem 1rem'};
+  border: ${props => props.flat ? 'none' : `1px solid ${getThemeVariable('color')(props)}`};
+  border-radius: ${props => props.rounded ? '4px' : '0'};
+  display: inline-flex;
+  align-items: center;
+  background-color: ${props => props.flat || props.outlined
+    ? 'transparent'
+    : getThemeVariable('color')(props)
+  };
+  color: ${props => props.flat || props.outlined
+    ? getThemeVariable('color')(props)
+    : getThemeVariable('colorText')(props)
+  };
+  font-size: 1em;
+  font-style: normal;
+  text-decoration: none;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: ${props => props.raised && !props.disabled
+    ? '0 1px 3px 0 rgba(0, 0, 0, 0.1)'
+    : 'none'
+  };
+  opacity: ${props => props.disabled ? '0.35' : '1'};
+  pointer-events: ${props => props.disabled ? 'none' : 'auto'};
+
+  :hover,
+  :active {
+    box-shadow: ${props => props.raised && !props.disabled
+      ? '0 1px 3px rgba(0, 0, 0, 0.4)'
+      : 'none'
+    };
+  }
+
+  :focus {
+    outline: ${getFocusIndicator};
+    outline-offset: ${props => props.theme.focusIndicatorOffset};
+  }
+
+  svg {
+    width: 1em;
+    height: 1em;
+    fill: ${props => props.flat || props.outlined
+      ? getThemeVariable('color')(props)
+      : getThemeVariable('colorText')(props)
+    };
+  }
+`
+
+Root.defaultProps = {
+  theme: defaultTheme
+}
+
+const Child = styled.div`
+  &:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+`
 
 class Button extends Component {
   render() {
     const {
       className,
       disabled,
-      flat,
       href,
-      outlined,
-      raised,
       render,
-      rounded,
-      theme,
       ...otherProps
     } = this.props
-
-    const buttonClass = classNames(
-      'hw-button',
-      styles.button,
-      styles[theme],
-      { [styles.rounded]: rounded },
-      { [styles.flat]: flat },
-      { [styles.raised]: raised },
-      { [styles.outlined]: outlined },
-      { [styles.disabled]: disabled },
-      className
-    )
 
     const ariaProps = href || otherProps.to ? { role: 'button', 'aria-disabled': disabled } : {}
 
     // Wrap all children in a div to allow setting margin on text nodes
     const children = React.Children.map(this.props.children, (child, index) => (
-      <div key={index} className={styles.child}>
-        {child}
-      </div>
+      <Child key={index}>{child}</Child>
     ))
 
     const props = {
-      className: buttonClass,
+      className: classNames('hw-button', className),
       disabled,
       href,
       ...ariaProps,
@@ -51,9 +106,9 @@ class Button extends Component {
     if (render) {
       return render({ ...props, children })
     } else if (href) {
-      return <a {...props}>{children}</a>
+      return <Root as="a" {...props}>{children}</Root>
     } else {
-      return <button {...props}>{children}</button>
+      return <Root {...props}>{children}</Root>
     }
   }
 }
@@ -69,22 +124,22 @@ Button.propTypes = {
   outlined: PropTypes.bool,
   raised: PropTypes.bool,
   rounded: PropTypes.bool,
-  theme: PropTypes.oneOf([
+  color: PropTypes.oneOf([
     'primary',
-    'primary-light',
-    'primary-dark',
-    'primary-darker',
+    'primaryLight',
+    'primaryDark',
+    'primaryDarker',
     'accent',
-    'accent-dark',
+    'accentDark',
     'neutral',
-    'neutral-light',
-    'neutral-dark',
+    'neutralLight',
+    'neutralDark',
   ]),
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
 }
 
 Button.defaultProps = {
-  theme: 'primary',
+  color: 'primary',
 }
 
 export default Button
