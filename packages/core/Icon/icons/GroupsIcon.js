@@ -1,24 +1,8 @@
 import React from 'react'
 import Icon from '../Icon'
-import styled from 'styled-components'
+import { PathContrast, PathPrimaryStroke } from '../IconFormatting'
 
 import { defaultTheme } from '../../Theme'
-
-const PathContrast = styled.path`
-  fill: ${props => props.theme.colorPrimaryLight};
-`
-
-const PathContrastStroke = styled.path`
-  stroke: ${props => props.theme.colorPrimaryLight};
-`
-
-const PathPrimary = styled.path`
-  fill: ${props => props.theme.colorTextPrimary};
-`
-
-const PathPrimaryStroke = styled.path`
-  stroke: ${props => props.theme.colorTextPrimary};
-`
 
 const GroupsIcon = props => {
   return (

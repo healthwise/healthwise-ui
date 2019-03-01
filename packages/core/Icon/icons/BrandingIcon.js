@@ -1,25 +1,14 @@
 import React from 'react'
 import Icon from '../Icon'
-import styled from 'styled-components'
+import { PathContrast, PathPrimaryStroke } from '../IconFormatting'
 
 import { defaultTheme } from '../../Theme'
-
-const PathContrast = styled.path`
-  fill: ${props => props.theme.colorPrimaryLight};
-`
-
-const PathPrimaryStroke = styled.path`
-  stroke: ${props => props.theme.colorTextPrimary};
-`
-
-const RectPrimaryStroke = styled.rect`
-  stroke: ${props => props.theme.colorTextPrimary};
-`
 
 const BrandingIcon = props => {
   return (
     <Icon viewBox="0 0 96 96" {...props}>
-      <RectPrimaryStroke
+      <PathPrimaryStroke
+        as="rect"
         x="2.64"
         y="7.36"
         width="90.67"
@@ -36,7 +25,8 @@ const BrandingIcon = props => {
         d="M31.06 25.81l8.31 9.9 12.37-20.15 22.09 38-60.04.06 17.27-27.81z"
         theme={props.theme}
       />
-      <RectPrimaryStroke
+      <PathPrimaryStroke
+        as="rect"
         x="28.4"
         y="84.69"
         width="39.68"

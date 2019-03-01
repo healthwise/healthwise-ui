@@ -25,8 +25,6 @@ class Icon extends Component {
       [className]: className
     })
 
-    console.log(this.props.theme)
-
     return (
       <IconContainer className={iconClass}>
         <Svg viewBox={viewBox} focusable="false" {...otherProps}>
