@@ -1,7 +1,18 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
+import styled from 'styled-components'
 import DropDown from './index'
+
+const Container = styled.div`
+  max-width: 300px;
+`
+
+const ContainerDecorator = storyFn => (
+  <div style={{ maxWidth: '300px' }}>
+    {storyFn()}
+  </div>
+)
 
 const items = [
   'one',
@@ -49,6 +60,7 @@ const printItems = [
 const prompt = 'Select a key'
 
 storiesOf('Form Controls/Drop Down', module)
+  .addDecorator(ContainerDecorator)
   .add(
     'Default options',
     () => <DropDown items={items} onSelect={action('selected')} />,
