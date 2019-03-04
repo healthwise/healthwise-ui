@@ -260,6 +260,7 @@ class DropDown extends Component {
               className="hw-drop-down-icon-arrow"
               aria-hidden="true"
               role="presentation"
+              theme={theme}
             >
               <DownArrowIcon role="presentation" />
             </DownArrowIconContainer>
@@ -267,6 +268,7 @@ class DropDown extends Component {
               className="hw-drop-down-icon-arrow"
               aria-hidden="true"
               role="presentation"
+              theme={theme}
             >
               <UpArrowIcon role="presentation" />
             </UpArrowIconContainer>
