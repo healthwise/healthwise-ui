@@ -22,11 +22,6 @@ const Root = styled.div`
   }
 `
 
-Root.defaultProps = {
-  theme: defaultTheme
-}
-
-
 class ButtonGroup extends React.Component {
   render() {
     let { children, className, ...otherProps } = this.props
@@ -50,6 +45,7 @@ ButtonGroup.propTypes = {
 
 ButtonGroup.defaultProps = {
   align: 'left',
+  theme: defaultTheme,
 }
 
 export default ButtonGroup

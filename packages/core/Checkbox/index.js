@@ -20,10 +20,6 @@ const CheckedIconContainer = styled.div`
   }
 `
 
-CheckedIconContainer.defaultProps = {
-  theme: defaultTheme,
-}
-
 const UncheckedIconContainer = styled.div`
   display: none;
   width: 1em;
@@ -32,10 +28,6 @@ const UncheckedIconContainer = styled.div`
     fill: ${props => props.theme.colorTextPrimary};
   }
 `
-
-UncheckedIconContainer.defaultProps = {
-  theme: defaultTheme,
-}
 
 const Input = styled.input`
   position: absolute;
@@ -80,10 +72,6 @@ const Input = styled.input`
   }
 `
 
-Input.defaultProps = {
-  theme: defaultTheme
-}
-
 class Checkbox extends React.Component {
   render() {
     const { className, name, value, checked, onClick, required, theme, ...otherProps } = this.props
@@ -101,10 +89,10 @@ class Checkbox extends React.Component {
           theme={theme}
           {...otherProps}
         />
-        <CheckedIconContainer>
+        <CheckedIconContainer theme={theme}>
           <CheckboxCheckedIcon role="presentation" />
         </CheckedIconContainer>
-        <UncheckedIconContainer>
+        <UncheckedIconContainer theme={theme}>
           <CheckboxUncheckedIcon role="presentation" />
         </UncheckedIconContainer>
       </Root>
@@ -125,6 +113,10 @@ Checkbox.propTypes = {
     focusIndicatorOffset: PropTypes.string,
     colorError: PropTypes.string,
   })
+}
+
+Checkbox.defaultProps = {
+  theme: defaultTheme
 }
 
 export default Checkbox

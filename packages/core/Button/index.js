@@ -68,10 +68,6 @@ const Root = styled.button`
   }
 `
 
-Root.defaultProps = {
-  theme: defaultTheme
-}
-
 const Child = styled.div`
   &:not(:last-child) {
     margin-right: 0.5rem;
@@ -163,6 +159,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   color: 'primary',
+  theme: defaultTheme,
 }
 
 export default Button

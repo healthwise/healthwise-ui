@@ -13,7 +13,6 @@ addDecorator(story => {
         minHeight: '100vh',
       }}
     >
-      <CssVars />
       <CssBaseline />
       {story()}
     </div>

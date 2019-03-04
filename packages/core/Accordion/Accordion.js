@@ -113,10 +113,6 @@ const Title = styled.h2`
   color: ${props => props.theme.colorTextPrimary};
 `
 
-Title.defaultProps = {
-  theme: defaultTheme
-}
-
 class Accordion extends Component {
   render() {
     const { children, className, title, theme, ...otherProps } = this.props
@@ -171,6 +167,10 @@ Accordion.propTypes = {
     colorTextPrimary: PropTypes.string,
     spacingXxl: PropTypes.string,
   }),
+}
+
+Accordion.defaultProps = {
+  theme: defaultTheme,
 }
 
 export default Accordion

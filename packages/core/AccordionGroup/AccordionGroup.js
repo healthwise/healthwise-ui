@@ -12,10 +12,6 @@ const Item = styled.div`
   }
 `
 
-Item.defaultProps = {
-  theme: defaultTheme
-}
-
 class AccordionGroup extends Component {
   render() {
     const { className, items, theme, ...otherProps } = this.props
@@ -44,8 +40,12 @@ AccordionGroup.propTypes = {
     })
   ),
   theme: PropTypes.shape({
-    spacingM: PropTypes.number,
+    spacingM: PropTypes.string,
   })
+}
+
+AccordionGroup.defaultProps = {
+  theme: defaultTheme
 }
 
 export default AccordionGroup

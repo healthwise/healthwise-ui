@@ -50,10 +50,6 @@ const TitleContainer = styled.div`
   };
 `
 
-TitleContainer.defaultProps = {
-  theme: defaultTheme
-}
-
 const Title = styled.h2`
   margin: 0;
   color: ${props => props.theme.colorTextPrimary};
@@ -61,10 +57,6 @@ const Title = styled.h2`
   font-weight: 400;
   line-height: 1.333;
 `
-
-Title.defaultProps = {
-  theme: defaultTheme
-}
 
 const Subtitle = styled.h3`
   margin: 0;
@@ -74,17 +66,9 @@ const Subtitle = styled.h3`
   line-height: 1.4;
 `
 
-Subtitle.defaultProps = {
-  theme: defaultTheme
-}
-
 const Actions = styled.div`
   padding: ${props => `0 ${props.theme.spacingL} ${props.theme.spacingL}`};
 `
-
-Actions.defaultProps = {
-  theme: defaultTheme
-}
 
 class Card extends Component {
   render() {
@@ -112,7 +96,7 @@ class Card extends Component {
           />
         )}
         {(title || subtitle) && (
-          <TitleContainer hasContent={hasContent}>
+          <TitleContainer hasContent={hasContent} theme={theme}>
             {title && <Title className="hw-card-title" theme={theme}>{title}</Title>}
             {subtitle && <Subtitle className="hw-card-subtitle" theme={theme}>{subtitle}</Subtitle>}
           </TitleContainer>
@@ -145,6 +129,10 @@ Card.propTypes = {
     colorTextSecondary: PropTypes.string,
     spacingL: PropTypes.string,
   })
+}
+
+Card.defaultProps = {
+  theme: defaultTheme
 }
 
 export default Card

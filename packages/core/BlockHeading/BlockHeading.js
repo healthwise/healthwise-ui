@@ -24,10 +24,6 @@ const Heading = styled.h3`
   }
 `
 
-Heading.defaultProps = {
-  theme: defaultTheme
-}
-
 class BlockHeading extends Component {
   render() {
     const { className, children, theme } = this.props
@@ -49,6 +45,10 @@ BlockHeading.propTypes = {
     spacingM: PropTypes.string,
     spacingL: PropTypes.string,
   })
+}
+
+BlockHeading.defaultProps = {
+  theme: defaultTheme
 }
 
 export default BlockHeading
