@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 class HealthwiseLogo extends Component {
   render() {
     let { title, className, ...otherProps } = this.props
 
     return (
-      <svg viewBox="0 0 165 74" className={'hw-healthwise-logo ' + className} {...otherProps}>
+      <svg viewBox="0 0 165 74" className={classNames('hw-healthwise-logo', className)} {...otherProps}>
         <title>{title}</title>
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g transform="translate(9.000000, 7.000000)">
