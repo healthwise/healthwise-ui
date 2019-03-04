@@ -94,10 +94,10 @@ storiesOf('Components/Modal', module)
         onExit={action('onExit')}
         onExited={action('onExited')}
         actions={[
-          <Button key="action-1" theme="primary" rounded>
+          <Button key="action-1" color="primary" rounded>
             Accept
           </Button>,
-          <Button key="action-2" theme="neutral-dark" flat>
+          <Button key="action-2" color="neutralDark" flat>
             Cancel
           </Button>,
         ]}

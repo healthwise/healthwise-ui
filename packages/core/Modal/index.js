@@ -1,31 +1,58 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-import Dialog from '@material-ui/core/Dialog'
-import DialogContent from '@material-ui/core/DialogContent'
+import MuiDialog from '@material-ui/core/Dialog'
+import MuiDialogContent from '@material-ui/core/DialogContent'
 import { withStyles } from '@material-ui/core/styles'
+import styled from 'styled-components'
 import uniqueId from 'lodash/uniqueId'
 
 import Button from '../Button'
 import ButtonGroup from '../ButtonGroup'
-import { createTheme } from '../Theme'
-import styles from './Modal.css'
+import { defaultTheme } from '../Theme'
 
-const theme = createTheme()
-
-const modalStyles = {
+// TODO: Material UI doesn't support overriding a theme locally by using the
+// theme prop, like styled-components does. The theme argument in the
+// withStyles function can only be updated using the MuiThemeProvider. The
+// @material-ui/styles package (currently in alpha) is supposed to release
+// with material-ui v4, and will support this functionality. Until then, we
+// need these inline default values, to support a component having a default
+// theme without requiring the consumer to use a ThemeProvider component in
+// their app.
+const Dialog = withStyles(theme => ({
   paper: {
-    margin: `${theme['spacing-xxl']} ${theme['spacing-l']}`,
-    padding: theme['spacing-l'],
+    margin: `${theme.spacingXxl || '64px'} ${theme.spacingL || '24px'}`,
+    padding: theme.spacingL || '24px',
   },
-}
-const modalContentStyles = {
+}))(MuiDialog)
+
+const DialogContent = withStyles(theme => ({
   root: {
     padding: '0',
+    '& > *:first-child': {
+      marginTop: 0,
+    },
+    '& > *:last-child': {
+      marginBottom: 0,
+    },
   },
-}
-const StyledDialog = withStyles(modalStyles)(Dialog)
-const StyledDialogContent = withStyles(modalContentStyles)(DialogContent)
+}))(MuiDialogContent)
+
+const Title = styled.h2`
+  margin: 0;
+  padding: ${props => props.hasContent
+    ? `0 0 ${props.theme.spacingL}`
+    : 0
+  };
+  color: ${props => props.theme.colorTextPrimary};
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+`
+
+const Actions = styled.div`
+  padding-top: ${props => props.theme.spacingL};
+`
 
 class Modal extends Component {
   constructor(props) {
@@ -42,6 +69,7 @@ class Modal extends Component {
       onClose,
       open,
       title,
+      theme,
       // Filter out unsupported props
       /* eslint-disable */
       classes,
@@ -57,37 +85,41 @@ class Modal extends Component {
       ...otherProps
     } = this.props
 
-    const dialogClass = classNames('hw-modal', className)
-    const titleClass = classNames('hw-modal-title', styles.title, { [styles.children]: children })
+    const hasContent = React.Children.count(children) > 0
 
     return (
-      <StyledDialog
+      <Dialog
         {...otherProps}
         aria-labelledby={this.titleId}
-        className={dialogClass}
+        className={classNames('hw-modal', className)}
         open={open}
         onClose={onClose}
         scroll="paper"
         maxWidth={maxWidth}
       >
-        <h2 id={this.titleId} className={titleClass}>
+        <Title
+          id={this.titleId}
+          className="hw-modal-title"
+          theme={theme}
+          hasContent={hasContent}
+        >
           {title}
-        </h2>
+        </Title>
         {children && (
-          <StyledDialogContent className={`hw-modal-content ${styles.content}`}>
+          <DialogContent className="hw-modal-content">
             {children}
-          </StyledDialogContent>
+          </DialogContent>
         )}
-        <div className={styles.actions}>
+        <Actions theme={theme}>
           <ButtonGroup className="hw-modal-actions">
             {actions || (
-              <Button theme="neutral-light" rounded onClick={onClose}>
+              <Button color="neutralLight" rounded onClick={onClose}>
                 Close
               </Button>
             )}
           </ButtonGroup>
-        </div>
-      </StyledDialog>
+        </Actions>
+      </Dialog>
     )
   }
 }
@@ -109,6 +141,12 @@ Modal.propTypes = {
   onExited: PropTypes.func,
   open: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
+  // TODO: update this propType with all the variables being used in the modal
+  // once @material-ui/styles package is being used.
+  theme: PropTypes.shape({
+    colorTextPrimary: PropTypes.string,
+    spacingL: PropTypes.string,
+  })
 }
 
 Modal.defaultProps = {
@@ -117,6 +155,7 @@ Modal.defaultProps = {
   fullScreen: false,
   maxWidth: 'sm',
   onClose: () => {},
+  theme: defaultTheme,
 }
 
 export default Modal
