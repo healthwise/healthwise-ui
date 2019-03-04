@@ -14,6 +14,10 @@
 
 - **BREAKING**: Removed `children` prop
 
+# DropDown
+
+- **BREAKING**: Removed `hw-icon-white` class on arrow icons
+
 # TextArea
 
 - **BREAKING**: Added prop `defaultValue`; mapped `value` to native `value` attribute (formerly `defaultValue`)
