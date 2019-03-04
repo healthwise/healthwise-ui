@@ -1,16 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import styled from 'styled-components'
 
-import styles from './Image.css'
+const Img = styled.img`
+  width: 100%;
+  height: auto;
+`
 
 class Image extends React.Component {
   render() {
-    const { id, className, src, alt, ...otherProps } = this.props
+    const { className, ...otherProps } = this.props
 
-    const imageClass = classNames('hw-image', styles.image, className)
-
-    return <img id={id} className={imageClass} src={src} alt={alt} {...otherProps} />
+    return <Img className={classNames('hw-image', className)} {...otherProps} />
   }
 }
 
