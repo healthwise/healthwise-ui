@@ -32,13 +32,13 @@ import Icon, {
   UpArrowIcon,
   UsersIcon,
   UsersSimpleIcon,
-  WarningIcon,
+  WarningIcon
 } from './index'
 
 const styles = {
   row: {
     display: 'flex',
-    flexFlow: 'row wrap',
+    flexFlow: 'row wrap'
   },
   container: {
     margin: '0 16px 16px 0',
@@ -49,16 +49,16 @@ const styles = {
     textAlign: 'center',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   largeIconContainer: {
     width: '96px',
-    marginBottom: '8px',
+    marginBottom: '8px'
   },
   smallIconContainer: {
     width: '48px',
-    marginBottom: '8px',
-  },
+    marginBottom: '8px'
+  }
 }
 
 const simpleSvg = (
@@ -66,215 +66,223 @@ const simpleSvg = (
 )
 
 storiesOf('Media/Icon', module)
-  .add('with defaults', () => (
-    <div style={styles.largeIconContainer}>
-      <Icon>{simpleSvg}</Icon>
-    </div>
-  ), {
-  info: `Demonstrates default rendering of Icon component`
-})
-  .add('all icons', () => (
-    <div>
-      <h2>Complex Icons</h2>
-      <div style={styles.row}>
-        <div style={styles.container}>
-          <div style={styles.largeIconContainer}>
-            <AnalyticsIcon />
-          </div>
-          <span>AnalyticsIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.largeIconContainer}>
-            <BrandingIcon />
-          </div>
-          <span>BrandingIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.largeIconContainer}>
-            <GroupsIcon />
-          </div>
-          <span>GroupsIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.largeIconContainer}>
-            <UsersIcon />
-          </div>
-          <span>UsersIcon</span>
-        </div>
+  .add(
+    'with defaults',
+    () => (
+      <div style={styles.largeIconContainer}>
+        <Icon>{simpleSvg}</Icon>
       </div>
+    ),
+    {
+      info: `Demonstrates default rendering of Icon component`
+    }
+  )
+  .add(
+    'all icons',
+    () => (
+      <div>
+        <h2>Complex Icons</h2>
+        <div style={styles.row}>
+          <div style={styles.container}>
+            <div style={styles.largeIconContainer}>
+              <AnalyticsIcon />
+            </div>
+            <span>AnalyticsIcon</span>
+          </div>
+          <div style={styles.container}>
+            <div style={styles.largeIconContainer}>
+              <BrandingIcon />
+            </div>
+            <span>BrandingIcon</span>
+          </div>
+          <div style={styles.container}>
+            <div style={styles.largeIconContainer}>
+              <GroupsIcon />
+            </div>
+            <span>GroupsIcon</span>
+          </div>
+          <div style={styles.container}>
+            <div style={styles.largeIconContainer}>
+              <UsersIcon />
+            </div>
+            <span>UsersIcon</span>
+          </div>
+        </div>
 
-      <h2>Simple Icons</h2>
-      <div style={styles.row}>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <AddIcon />
+        <h2>Simple Icons</h2>
+        <div style={styles.row}>
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <AddIcon />
+            </div>
+            <span>AddIcon</span>
           </div>
-          <span>AddIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <AnalyticsSimpleIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <AnalyticsSimpleIcon />
+            </div>
+            <span>AnalyticsSimpleIcon</span>
           </div>
-          <span>AnalyticsSimpleIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <BrandingSimpleIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <BrandingSimpleIcon />
+            </div>
+            <span>BrandingSimpleIcon</span>
           </div>
-          <span>BrandingSimpleIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <CheckboxCheckedIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <CheckboxCheckedIcon />
+            </div>
+            <span>CheckboxCheckedIcon</span>
           </div>
-          <span>CheckboxCheckedIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <CheckboxUncheckedIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <CheckboxUncheckedIcon />
+            </div>
+            <span>CheckboxUncheckedIcon</span>
           </div>
-          <span>CheckboxUncheckedIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <CheckIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <CheckIcon />
+            </div>
+            <span>CheckIcon</span>
           </div>
-          <span>CheckIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <CollapseIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <CollapseIcon />
+            </div>
+            <span>CollapseIcon</span>
           </div>
-          <span>CollapseIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <DashboardIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <DashboardIcon />
+            </div>
+            <span>DashboardIcon</span>
           </div>
-          <span>DashboardIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <DownArrowIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <DownArrowIcon />
+            </div>
+            <span>DownArrowIcon</span>
           </div>
-          <span>DownArrowIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <DownloadIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <DownloadIcon />
+            </div>
+            <span>DownloadIcon</span>
           </div>
-          <span>DownloadIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <EditIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <EditIcon />
+            </div>
+            <span>EditIcon</span>
           </div>
-          <span>EditIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <ExpandIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <ExpandIcon />
+            </div>
+            <span>ExpandIcon</span>
           </div>
-          <span>ExpandIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <HomeIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <HomeIcon />
+            </div>
+            <span>HomeIcon</span>
           </div>
-          <span>HomeIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <InfoIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <InfoIcon />
+            </div>
+            <span>InfoIcon</span>
           </div>
-          <span>InfoIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <KeyIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <KeyIcon />
+            </div>
+            <span>KeyIcon</span>
           </div>
-          <span>KeyIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <LeftArrowIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <LeftArrowIcon />
+            </div>
+            <span>LeftArrowIcon</span>
           </div>
-          <span>LeftArrowIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <LockedIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <LockedIcon />
+            </div>
+            <span>LockedIcon</span>
           </div>
-          <span>LockedIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <MagnifyingGlassIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <MagnifyingGlassIcon />
+            </div>
+            <span>MagnifyingGlassIcon</span>
           </div>
-          <span>MagnifyingGlassIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <PrinterIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <PrinterIcon />
+            </div>
+            <span>PrinterIcon</span>
           </div>
-          <span>PrinterIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <ProfileIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <ProfileIcon />
+            </div>
+            <span>ProfileIcon</span>
           </div>
-          <span>ProfileIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <RestoreIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <RestoreIcon />
+            </div>
+            <span>RestoreIcon</span>
           </div>
-          <span>RestoreIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <RightArrowIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <RightArrowIcon />
+            </div>
+            <span>RightArrowIcon</span>
           </div>
-          <span>RightArrowIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <ScrollToTopIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <ScrollToTopIcon />
+            </div>
+            <span>ScrollToTopIcon</span>
           </div>
-          <span>ScrollToTopIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <TrashIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <TrashIcon />
+            </div>
+            <span>TrashIcon</span>
           </div>
-          <span>TrashIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <UnlockedIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <UnlockedIcon />
+            </div>
+            <span>UnlockedIcon</span>
           </div>
-          <span>UnlockedIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <UpArrowIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <UpArrowIcon />
+            </div>
+            <span>UpArrowIcon</span>
           </div>
-          <span>UpArrowIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <UsersSimpleIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <UsersSimpleIcon />
+            </div>
+            <span>UsersSimpleIcon</span>
           </div>
-          <span>UsersSimpleIcon</span>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.smallIconContainer}>
-            <WarningIcon />
+          <div style={styles.container}>
+            <div style={styles.smallIconContainer}>
+              <WarningIcon />
+            </div>
+            <span>WarningIcon</span>
           </div>
-          <span>WarningIcon</span>
         </div>
       </div>
-    </div>
-  ), {
-  info: `List of all available icons`
-})
+    ),
+    {
+      info: `List of all available icons`
+    }
+  )
