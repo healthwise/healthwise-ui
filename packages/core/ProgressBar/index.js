@@ -91,10 +91,7 @@ const IndeterminateBar2 = styled(DefaultBar)`
 const Background = styled.div`
   height: 100%;
   position: absolute;
-  ${props => props.progressBarType === 'buffer'
-    ? 'left: 0;'
-    : 'right: 0;'
-  }
+  left: 0;
   z-index: 1;
   background: ${getThemeVariable('color', { variant: 'light' })};
 `
@@ -197,7 +194,6 @@ class ProgressBar extends Component {
           )}
           <Background
             className="hw-progress-bar-background"
-            progressBarType={progressBarType}
             color={color}
             theme={theme}
             style={{
