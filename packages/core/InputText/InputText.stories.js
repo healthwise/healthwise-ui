@@ -11,7 +11,7 @@ const styles = {
   },
 }
 
-storiesOf('Form Controls/Input Text', module)
+storiesOf('core|Form Controls/Input Text', module)
   .add('with defaults', () => (
     <div>
       <div style={styles.container}>

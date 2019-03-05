@@ -56,7 +56,7 @@ const slideshowJSON = {
   `,
 }
 
-storiesOf('Structured Content/Slideshow', module)
+storiesOf('content|Slideshow', module)
   .add(
     'with slideshow only',
     () => <Slideshow item={slideshowJSON} />,

@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Credits from './index'
 
-storiesOf('Structured Content/Credits', module)
+storiesOf('content|Credits', module)
   .add(
     'with defaults (renders nothing)',
     () => <Credits />,

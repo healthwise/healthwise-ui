@@ -1,8 +1,9 @@
 import React from 'react'
-import { configure, addDecorator } from '@storybook/react'
+import { configure, addDecorator, addParameters } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
+import { create } from '@storybook/theming'
 import CssBaseline from '../packages/core/CssBaseline'
-import { CssVars } from '../packages/core/Theme'
+import { CssVars, defaultTheme } from '../packages/core/Theme'
 
 addDecorator(withInfo)
 addDecorator(story => {
@@ -13,10 +14,20 @@ addDecorator(story => {
         minHeight: '100vh',
       }}
     >
+      <CssVars />
       <CssBaseline />
       {story()}
     </div>
   )
+})
+addParameters({
+  options: {
+    theme: create({
+      base: 'light',
+      brandTitle: 'Healthwise UI',
+      brandUrl: 'https://github.com/healthwise/healthwise-ui',
+    })
+  }
 })
 
 // Automatically import all files ending in *.stories.js

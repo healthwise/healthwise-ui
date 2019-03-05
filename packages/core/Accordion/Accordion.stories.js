@@ -9,7 +9,7 @@ const ContainerDecorator = story => (
   <div style={{ width: '100%', maxWidth: '1000px' }}>{story()}</div>
 )
 
-storiesOf('Components/Accordion', module)
+storiesOf('core|Components/Accordion', module)
   .addDecorator(ContainerDecorator)
   .add('with defaults', () => (
     <Accordion title="Lorem ipsum dolor sit amet">

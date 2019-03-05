@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import VideoThumbnail from './index'
 
-storiesOf('Media/Video Thumbnail', module).add(
+storiesOf('core|Media/Video Thumbnail', module).add(
   'a basic video thumbnail',
   () => (
     <div style={{ width: '200px', height: '100px' }}>

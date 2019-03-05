@@ -65,7 +65,7 @@ const simpleSvg = (
   <path d="M12 14c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4zM12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z" />
 )
 
-storiesOf('Media/Icon', module)
+storiesOf('core|Media/Icon', module)
   .add(
     'with defaults',
     () => (

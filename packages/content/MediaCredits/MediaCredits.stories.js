@@ -9,7 +9,7 @@ const styles = {
   },
 }
 
-storiesOf('Media/Media Credits', module).add(
+storiesOf('core|Media/Media Credits', module).add(
   'with defaults',
   () => (
     <div style={styles.container}>

@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import IconArray from './index'
 
-storiesOf('Media/Icon Array', module)
+storiesOf('core|Media/Icon Array', module)
   .add(
     'with default values',
     () => (

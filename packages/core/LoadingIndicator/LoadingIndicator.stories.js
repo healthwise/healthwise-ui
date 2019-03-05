@@ -9,7 +9,7 @@ const styles = {
   },
 }
 
-storiesOf('UI Feedback/Loading Indicator', module)
+storiesOf('core|UI Feedback/Loading Indicator', module)
   .add('with defaults', () => (
     <LoadingIndicator />
   ), {

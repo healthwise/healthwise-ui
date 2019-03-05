@@ -9,7 +9,7 @@ const onClick = event => {
   event.preventDefault()
 }
 
-storiesOf('Components/Tab Group', module)
+storiesOf('core|Components/Tab Group', module)
   .add('with defaults', () => (
     <div>
       <TabGroup>

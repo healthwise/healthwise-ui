@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import LikertScale from './index'
 
-storiesOf('Components/Likert Scale', module)
+storiesOf('core|Components/Likert Scale', module)
   .add(
     'with defaults',
     () => <LikertScale id="1" />,

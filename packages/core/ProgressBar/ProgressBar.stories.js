@@ -11,7 +11,7 @@ const styles = {
   },
 }
 
-storiesOf('UI Feedback/Progress Bar', module)
+storiesOf('core|UI Feedback/Progress Bar', module)
   .addDecorator(withKnobs)
   .add('with defaults', () => (
     <div style={styles.container}>

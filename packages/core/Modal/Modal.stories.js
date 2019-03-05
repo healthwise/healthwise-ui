@@ -49,7 +49,7 @@ ModalContainer.propTypes = {
   children: PropTypes.any,
 }
 
-storiesOf('Components/Modal', module)
+storiesOf('core|Components/Modal', module)
   .add('with defaults', () => (
     <ModalContainer>
       <Modal

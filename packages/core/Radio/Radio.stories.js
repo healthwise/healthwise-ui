@@ -10,7 +10,7 @@ const styles = {
   },
 }
 
-storiesOf('Form Controls/Radio', module).add(
+storiesOf('core|Form Controls/Radio', module).add(
   'with defaults',
   () => (
     <div>

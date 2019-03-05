@@ -9,7 +9,7 @@ const styles = {
   },
 }
 
-storiesOf('UI Feedback/Message', module)
+storiesOf('core|UI Feedback/Message', module)
   .add('with defaults', () => (
     <Message>This is a default message</Message>
   ), {

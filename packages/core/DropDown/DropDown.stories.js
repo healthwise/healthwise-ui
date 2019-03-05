@@ -59,7 +59,7 @@ const printItems = [
 ]
 const prompt = 'Select a key'
 
-storiesOf('Form Controls/Drop Down', module)
+storiesOf('core|Form Controls/Drop Down', module)
   .addDecorator(ContainerDecorator)
   .add(
     'Default options',

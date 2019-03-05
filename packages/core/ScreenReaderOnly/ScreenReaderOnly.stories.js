@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 
 import ScreenReaderOnly from './index'
 
-storiesOf('Dev Utilities/Screen Reader Only', module).add(
+storiesOf('core|Dev Utilities/Screen Reader Only', module).add(
   'with defaults',
   () => (
     <div>

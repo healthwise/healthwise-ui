@@ -1,7 +1,7 @@
 const path = require('path')
 
-module.exports = (baseConfig, env, defaultConfig) => {
-  const { rules } = defaultConfig.module
+module.exports = ({ config, mode }) => {
+  const { rules } = config.module
   const jsLoader = rules.find(rule => String(rule.test) === String(/\.(mjs|jsx?)$/))
   const cssLoader = rules.find(rule => String(rule.test) === String(/\.css$/))
 
@@ -14,7 +14,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
 
   // TODO: Lerna should make this unnecessary, but for some reason components in
   // the content package can't find core components.
-  defaultConfig.resolve.alias['@healthwise-ui/core'] = path.resolve(__dirname, '..', 'packages', 'core')
+  config.resolve.alias['@healthwise-ui/core'] = path.resolve(__dirname, '..', 'packages', 'core')
 
-  return defaultConfig
+  return config
 }

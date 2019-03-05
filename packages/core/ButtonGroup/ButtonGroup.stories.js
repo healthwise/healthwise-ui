@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 import Button from '../Button'
 import ButtonGroup from './index'
 
-storiesOf('Form Controls/Button Group', module)
+storiesOf('core|Form Controls/Button Group', module)
   .add('with defaults', () => (
     <ButtonGroup>
       <Button>Button 1</Button>

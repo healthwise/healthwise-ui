@@ -21,7 +21,7 @@ const storyStructuredContent = {
   `,
 }
 
-storiesOf('Structured Content/Story', module).add(
+storiesOf('content|Story', module).add(
   'with defaults',
   () => <Story data={storyStructuredContent} />,
   {

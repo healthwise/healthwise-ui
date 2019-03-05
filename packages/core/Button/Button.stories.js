@@ -35,7 +35,7 @@ const handleClick = event => {
   onClickAction(event)
 }
 
-storiesOf('Form Controls/Button', module)
+storiesOf('core|Form Controls/Button', module)
   .add('with defaults', () => (
     <div style={styles.row}>
       <div style={styles.container}>

@@ -62,7 +62,7 @@ const oneLevelData = [
   { firstColumn: 'test', secondColumn: 1, thirdColumn: 'test3' },
 ]
 
-storiesOf('Components/Table', module)
+storiesOf('core|Components/Table', module)
   .add(
     'Default with two levels of headings',
     () => <Table headers={twoLevelsOfHeaders} data={twoLevelData} caption="Test caption" />,

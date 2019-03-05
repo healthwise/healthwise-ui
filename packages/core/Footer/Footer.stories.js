@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 
 import Footer from './index'
 
-storiesOf('Components/Footer', module).add(
+storiesOf('core|Components/Footer', module).add(
   'with defaults',
   () => <Footer>Footer content</Footer>,
   {

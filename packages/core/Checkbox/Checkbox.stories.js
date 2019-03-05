@@ -10,7 +10,7 @@ const styles = {
   },
 }
 
-storiesOf('Form Controls/Checkbox', module)
+storiesOf('core|Form Controls/Checkbox', module)
   .add('with defaults', () => (
     <div>
       <div style={styles.container}>

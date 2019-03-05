@@ -8,7 +8,7 @@ const ContainerDecorator = story => (
   <div style={{ width: '100%', maxWidth: '480px' }}>{story()}</div>
 )
 
-storiesOf('Components/Card', module)
+storiesOf('core|Components/Card', module)
   .addDecorator(ContainerDecorator)
   .add('with defaults', () => (
     <Card title="Card title" subtitle="Card subtitle" />

@@ -22,7 +22,7 @@ const styles = {
   foobar: { marginRight: '8px' },
 }
 
-storiesOf('Components/AppBar', module)
+storiesOf('core|Components/AppBar', module)
   .add(
     'with a title',
     () => (

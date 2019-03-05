@@ -16,7 +16,7 @@ const item = {
   `,
 }
 
-storiesOf('Structured Content/Call to Action', module).add(
+storiesOf('content|Call to Action', module).add(
   'with defaults',
   () => <CallToAction item={item} actionButtons={<Button rounded>Action</Button>} />,
   {

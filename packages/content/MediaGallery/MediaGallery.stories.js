@@ -214,7 +214,7 @@ const galleryWithImagesAndSlideshow = {
   ],
 }
 
-storiesOf('Structured Content/Media Gallery', module)
+storiesOf('content|Media Gallery', module)
   .add(
     'with images',
     () => <MediaGallery item={galleryWithImages} />,

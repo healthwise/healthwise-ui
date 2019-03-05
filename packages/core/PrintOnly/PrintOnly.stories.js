@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 
 import PrintOnly from './index'
 
-storiesOf('Dev Utilities/Print Only', module)
+storiesOf('core|Dev Utilities/Print Only', module)
   .add('with defaults', () => (
     <div>
       <p>Bring up print preview to show the print only message.</p>
