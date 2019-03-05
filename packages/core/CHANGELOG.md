@@ -18,6 +18,10 @@
 
 - **BREAKING**: Removed `hw-icon-white` class on arrow icons
 
+# ProgressBar
+
+- **BREAKING**: Renamed `theme` prop to `color`
+
 # TextArea
 
 - **BREAKING**: Added prop `defaultValue`; mapped `value` to native `value` attribute (formerly `defaultValue`)
