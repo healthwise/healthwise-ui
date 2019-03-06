@@ -226,7 +226,7 @@ class IconArray extends Component {
     const RowBreakDiv = styled.div`
       box-sizing: border-box;
       width: 95%;
-      border-top: solid 1px var(--color-border);
+      border-top: solid 1px ${props => this.props.theme.colorBorder};
       position: relative;
     `
 
