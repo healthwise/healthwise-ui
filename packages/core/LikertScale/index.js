@@ -1,7 +1,171 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './style.css'
+import styled from 'styled-components'
+
 import Radio from '../Radio'
+import ScreenReaderOnly from '../ScreenReaderOnly'
+
+const Root = styled.div`
+  margin: 10px auto 2em;
+
+  @media screen and (max-width: 750px) {
+    margin-bottom: 1em;
+  }
+
+  .hw-radio-wrapper .hw-radio-image .hw-radio-focus-outline {
+    @media screen and (-ms-high-contrast: active) {
+      stroke: #000;
+    }
+    @media screen and (-ms-high-contrast: black-on-white) {
+      stroke: #fff;
+    }
+  }
+`
+
+const LabelsContainer = styled.div`
+  display: table;
+  width: 100%;
+  padding-bottom: 10px;
+`
+
+const ScaleLabel = styled.span`
+  display: table-cell;
+  width: 50%;
+`
+
+const LeftScaleLabel = styled(ScaleLabel)`
+  text-align: left;
+`
+
+const RightScaleLabel = styled(ScaleLabel)`
+  text-align: right;
+`
+
+const ScaleLabelText = styled.span`
+  display: inline-block;
+  width: 30%;
+  color: #363942;
+  font-weight: 500;
+  line-height: 1em;
+  font-size: 0.75em;
+
+  @media screen and (max-width: 750px) {
+    width: 35%;
+  }
+`
+
+const ButtonDefault = styled.div`
+  display: inline-block;
+  box-sizing: border-box;
+  width: 9.09092%;
+  height: ${props => props.readonly
+    ? '74px'
+    : props.forPrint
+    ? '80px'
+    : 'auto'
+  };
+  background: #fff;
+  font-size: 1.25em;
+  text-align: center;
+  border: 2px solid #dde0e6;
+  border-right: none;
+  margin: 0;
+  padding: 0;
+  padding-top: ${props => props.readonly
+    ? '27px'
+    : props.forPrint
+    ? '16px'
+    : '0'
+  };
+  transition: all 0.5s ease-out;
+
+  :first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  :last-child {
+    border-right: 2px solid #dde0e6;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  @media screen and (max-width: 750px) {
+    border-width: 1px;
+    padding: 0;
+    ${props => props.readonly ? `
+      padding-top: 0;
+      height: inherit;
+      line-height: 2em;
+    ` : ''}
+
+    :first-child {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    :last-child {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+
+  @media print {
+    ${props => props.readonly ? `
+      padding: 0.25em;
+      border-color: #eee;
+      height: auto;
+      width: 9.09092%;
+      font-weight: normal;
+      color: #9e9e9e;
+    ` : ''}
+  }
+
+  input[type="radio"] {
+    display: block;
+    margin: 15px auto 5px;
+    padding: 4px 2px 2px 4px;
+  }
+`
+
+const ButtonActive = styled(ButtonDefault)`
+  @media print {
+    ${props => props.readonly ? `
+      font-weight: bold;
+      border-color: rgba(1, 122, 203, 1);
+      border-right: 2px solid rgba(1, 122, 203, 1);
+      border-left-width: 0;
+      background-color: #fff;
+      color: #000;
+    ` : ''}
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    background-color: #fff;
+    border-color: #fff;
+    color: #000;
+  }
+
+  @media screen and (-ms-high-contrast: black-on-white) {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+  }
+`
+
+const ButtonLabel = styled.label`
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 6px;
+  cursor: ${props => props.readonly ? 'default' : 'pointer'};
+`
+
+const ButtonLabelNumber = styled.span`
+  display: block;
+  padding: ${props => props.readonly ? '0' : '0.4em 0 0'};
+`
 
 class LikertScale extends React.Component {
   constructor(props) {
@@ -9,7 +173,6 @@ class LikertScale extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.getAxisId = this.getAxisId.bind(this)
-    this.axisButtonColors = []
     this.axisBgColors = []
     this.axisTextColors = []
     this.classNameBase = 'hw_likert_axis_button_'
@@ -37,7 +200,6 @@ class LikertScale extends React.Component {
     for (let num = 0; num < total; num++) {
       const alpha = increment * num + increment
 
-      this.axisButtonColors[num] = styles[this.classNameBase + num]
       this.axisBgColors[num] = {
         backgroundColor: 'rgba(' + this.props.baseRgbColor + ', ' + alpha + ')',
       }
@@ -132,14 +294,12 @@ class LikertScale extends React.Component {
     scaleWrapperId = scaleWrapperId || id + '_scale_wrapper'
 
     let labels = []
-    let disabledLabel = readonly ? styles.likert_axis_label_disabled + ' ' : ''
-    let printLabel = forPrint ? styles.likert_for_print + ' ' : ''
     let width = 100 / (maxValue - minValue + 1) + '%'
     let widthObj = { width: width }
 
     for (let i = 0, num = minValue; num <= maxValue; i++, num++) {
       let axisId = this.getAxisId(num)
-      let classNames = disabledLabel + printLabel + styles.likert_axis_label
+      let Button = ButtonDefault
       let radio = null
       let textColorObj = this.axisTextColors[this.axisTextColors.length - 1]
       let bgColorObj = { backgroundColor: 'rgba(' + this.props.baseRgbColor + ', 1)' }
@@ -171,73 +331,65 @@ class LikertScale extends React.Component {
 
       if (!isNaN(selectedAnswer) && num <= selectedAnswer) {
         // color all the squares to the left of and including the selected answer
-        classNames += ` ${this.axisButtonColors[i]} ${styles.likert_axis_button_active}`
+        Button = ButtonActive
       } else {
         bgColorObj = {}
         textColorObj = { color: 'rgb(' + this.props.darkTextRgbColor + ')' }
       }
 
-      var blockStyles = Object.assign(bgColorObj, widthObj)
-
       labels.push(
-        <div className={classNames} id={axisId + '_label'} key={axisId} style={blockStyles}>
-          <label htmlFor={axisId}>
-            <span className={styles.likert_axis_label_num} style={textColorObj}>
+        <Button
+          id={axisId + '_label'}
+          key={axisId}
+          style={{ ...bgColorObj, ...widthObj }}
+          readonly={readonly}
+          forPrint={forPrint}
+        >
+          <ButtonLabel htmlFor={axisId} readonly={readonly}>
+            <ButtonLabelNumber style={textColorObj} readonly={readonly}>
               {num}
-            </span>
+            </ButtonLabelNumber>
             {radio}
-          </label>
-        </div>
+          </ButtonLabel>
+        </Button>
       )
     }
 
-    const parentClasses =
-      'hw-likert-scale ' + styles.likert_scale + (readonly ? ' ' + styles.likert_readonly : '')
     const textValueEquivalent = readonly ? (
-      <span className={styles.common_hidden_text}>{`${selectedAnswer || 0} of ${maxValue}`}</span>
+      <ScreenReaderOnly>{`${selectedAnswer || 0} of ${maxValue}`}</ScreenReaderOnly>
     ) : null
 
     return (
-      <div
-        className={parentClasses}
+      <Root
+        className="hw-likert-scale"
         id={id}
         data-hw-likert-min={minValue}
         data-hw-likert-max={maxValue}
       >
-        <div className={'hw-likert-labels ' + styles.likert_labels}>
-          <span
-            className={
-              'hw-likert-label hw-likert-label-left ' +
-              styles.likert_label +
-              ' ' +
-              styles.likert_label_left
-            }
+        <LabelsContainer className="hw-likert-labels">
+          <LeftScaleLabel
+            className="hw-likert-label hw-likert-label-left"
             aria-hidden="true"
           >
-            <span className={styles.likert_label_left_span}>{minValueText}</span>
-          </span>
-          <span
-            className={
-              'hw-likert-label hw-likert-label-right ' +
-              styles.likert_label +
-              ' ' +
-              styles.likert_label_right
-            }
+            <ScaleLabelText>{minValueText}</ScaleLabelText>
+          </LeftScaleLabel>
+          <RightScaleLabel
+            className="hw-likert-label hw-likert-label-right"
             aria-hidden="true"
           >
-            <span className={styles.likert_label_right_span}>{maxValueText}</span>
-          </span>
-        </div>
+            <ScaleLabelText>{maxValueText}</ScaleLabelText>
+          </RightScaleLabel>
+        </LabelsContainer>
         <div
           id={scaleWrapperId}
-          className={'hw-likert-scale-wrapper ' + styles.likert_scale_wrapper}
+          className="hw-likert-scale-wrapper"
         >
-          <div className={'hw-likert-axis ' + styles.likert_axis} aria-hidden={readonly}>
+          <div className="hw-likert-axis" aria-hidden={readonly}>
             {labels}
           </div>
           {textValueEquivalent}
         </div>
-      </div>
+      </Root>
     )
   }
 }
