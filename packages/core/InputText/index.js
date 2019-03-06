@@ -2,9 +2,112 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import uniqueId from 'lodash/uniqueId'
+import styled from 'styled-components'
 
+import { defaultTheme } from '../Theme'
 import Message from '../Message'
-import styles from './InputText.css'
+
+const Label = styled.label`
+  width: 100%;
+  position: relative;
+  display: inline-flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  cursor: ${props => props.disabled ? 'not-allowed' : 'auto'};
+  opacity: ${props => props.disabled ? '0.35' : '1'};
+
+  ::after {
+    display: ${props => props.underlined ? 'block' : 'none'};
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1.125em;
+    height: ${props => props.focused || (props.error && props.dirty)
+      ? '2px'
+      : '1px'
+    };
+    background: ${props => props.focused
+      ? 'transparent'
+      : props.error && props.dirty && !props.focused
+      ? props.theme.colorError
+      : props.theme.colorTextPrimary
+    };
+    background-image: ${props => props.focused
+      ? `repeating-linear-gradient(
+        to right,
+        ${props.theme.colorTextPrimary},
+        ${props.theme.colorTextPrimary} 2px,
+        transparent 0,
+        transparent 4px
+      )`
+      : 'none'
+    };
+  }
+`
+
+const LabelText = styled.span`
+  margin-bottom: 0.25em;
+  flex: 1 0 auto;
+  font-size: 0.75em;
+  letter-spacing: 0.5px;
+  color: ${props => props.theme.colorTextPrimary};
+`
+
+const Input = styled.input`
+  display: table-cell;
+  width: 100%;
+  height: 40px;
+  padding: ${props => props.underlined ? '0' : '0 8px'};
+  color: ${props => props.theme.colorTextPrimary};
+  line-height: 30px;
+  vertical-align: middle;
+  box-sizing: border-box;
+  font-size: 1em;
+  border: ${props => props.underlined
+    ? 'none'
+    : props.error && props.dirty && !props.focused
+    ? `1px solid ${props.theme.colorError}`
+    : `1px solid ${props.theme.colorTextPrimary}`
+  };
+  background: ${props => props.underlined
+    ? 'none'
+    : props.theme.colorBackgroundLight
+  };
+  transition: border ease 0.2s;
+  box-shadow: none;
+
+  ::placeholder {
+    color: ${props => props.theme.colorTextSecondary};
+    opacity: 1;
+  }
+
+  :focus {
+    outline: ${props => props.underlined
+      ? 'none'
+      : props.theme.focusIndicator
+    };
+    outline-offset: ${props => props.theme.focusIndicatorOffset};
+  }
+
+  :disabled {
+    cursor: not-allowed;
+  }
+
+  :invalid:not(:focus) {
+    border-color: ${props => props.error && props.dirty && !props.focused
+      ? props.theme.colorError
+      : props.theme.colorTextPrimary
+    };
+  }
+`
+
+const Error = styled.div`
+  margin-top: 0.25em;
+  font-size: 0.75em;
+  line-height: 1;
+  height: 1em;
+`
 
 class InputText extends Component {
   constructor(props) {
@@ -163,6 +266,7 @@ class InputText extends Component {
       underlined,
       label,
       error,
+      theme,
       onBlur, // eslint-disable-line no-unused-vars
       validationErrors, // eslint-disable-line no-unused-vars
       validators, // eslint-disable-line no-unused-vars
@@ -171,36 +275,25 @@ class InputText extends Component {
       getValidator, // eslint-disable-line no-unused-vars
       ...otherProps
     } = this.props
-    const { focused, isValid } = this.state
-
-    const containerClass = classNames(
-      styles.container,
-      { [styles.disabled]: disabled || readonly },
-      { [styles.underlined]: underlined },
-      { [styles.focused]: focused },
-      { [styles.error]: error || !this.state.isValid },
-      { [styles.dirty]: this.state.dirty }
-    )
-    const inputClass = classNames(
-      'hw-input-text',
-      `hw-input-text-${type}`,
-      styles.input_text,
-      className
-    )
-    const labelClass = classNames('hw-input-text-label', styles.label)
-    const errorContainerClass = classNames('hw-input-text-error-container', styles.error_container)
-    const errorClass = classNames('hw-input-text-error', `${className}-error`)
+    const { focused, dirty, isValid } = this.state
 
     return (
-      <label className={containerClass}>
+      <Label
+        disabled={disabled}
+        underlined={underlined}
+        focused={focused}
+        error={error || !isValid}
+        dirty={dirty}
+        theme={theme}
+      >
         {label && (
-          <span className={labelClass}>
+          <LabelText className="hw-input-text-label" theme={theme}>
             {label}
             {required && ' *'}
-          </span>
+          </LabelText>
         )}
-        <input
-          className={inputClass}
+        <Input
+          className={classNames('hw-input-text', `hw-input-text-${type}`, className)}
           ref={el => {
             this.input = el
           }}
@@ -213,17 +306,29 @@ class InputText extends Component {
           aria-describedby={this.errorId}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
+          error={error || !isValid}
+          dirty={dirty}
+          focused={focused}
+          theme={theme}
+          underlined={underlined}
           {...otherProps}
         />
-        <div id={this.errorId} className={errorContainerClass}>
+        <Error
+          id={this.errorId}
+          className="hw-input-text-error-container"
+        >
           {!isValid &&
             this.state.dirty && (
-              <Message className={errorClass} type="error" showIcon={false}>
+              <Message
+                className={classNames('hw-input-text-error', `${className}-error`)}
+                type="error"
+                showIcon={false}
+              >
                 {this.state.error}
               </Message>
             )}
-        </div>
-      </label>
+        </Error>
+      </Label>
     )
   }
 }
@@ -259,6 +364,14 @@ InputText.propTypes = {
   onInvalid: PropTypes.func,
   // gives parent access to the validation function, to run at will
   getValidator: PropTypes.func,
+  theme: PropTypes.shape({
+    colorBackgroundLight: PropTypes.string,
+    colorTextPrimary: PropTypes.string,
+    colorTextSecondary: PropTypes.string,
+    colorError: PropTypes.string,
+    focusIndicator: PropTypes.string,
+    focusIndicatorOffset: PropTypes.string,
+  })
 }
 
 InputText.defaultProps = {
@@ -267,6 +380,7 @@ InputText.defaultProps = {
   onValid: () => {},
   onInvalid: () => {},
   getValidator: () => {},
+  theme: defaultTheme,
 }
 
 export default InputText

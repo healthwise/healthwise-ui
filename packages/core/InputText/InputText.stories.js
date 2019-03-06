@@ -27,7 +27,7 @@ storiesOf('core|Form Controls/Input Text', module)
   .add('with placeholder text', () => (
     <div>
       <div style={styles.container}>
-        <InputText placeholder="Placeholder text" onChange={action('onChange')} required />
+        <InputText placeholder="Placeholder text" onChange={action('onChange')} />
       </div>
       <div style={styles.container}>
         <InputText placeholder="Placeholder text" underlined onChange={action('onChange')} />
@@ -105,15 +105,7 @@ storiesOf('core|Form Controls/Input Text', module)
         <InputText
           label="Label"
           placeholder="Placeholder text"
-          error="Error shows after onBlur event"
-          onChange={action('onChange')}
-        />
-      </div>
-      <div style={styles.container}>
-        <InputText
-          label="Label"
-          placeholder="Placeholder text"
-          error="Error message always visible"
+          error="Error message"
           onChange={action('onChange')}
         />
       </div>
@@ -122,16 +114,7 @@ storiesOf('core|Form Controls/Input Text', module)
           label="Label"
           underlined
           placeholder="Placeholder text"
-          error="Error shows after onBlur event"
-          onChange={action('onChange')}
-        />
-      </div>
-      <div style={styles.container}>
-        <InputText
-          label="Label"
-          underlined
-          placeholder="Placeholder text"
-          error="Error message always visible"
+          error="Error message"
           onChange={action('onChange')}
         />
       </div>
