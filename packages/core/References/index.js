@@ -1,21 +1,46 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styles from './References.css'
+import styled from 'styled-components'
+
+const Root = styled.fieldset`
+  border: none;
+  margin: 2em 0;
+  padding: 0;
+  font-size: 0.8em;
+`
+
+const Legend = styled.legend`
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  line-height: normal;
+  font-weight: 600;
+`
+
+const OrderedList = styled.ol`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+`
+
+const ListItem = styled.li`
+  margin: 1em 0;
+`
 
 class References extends Component {
   render() {
-    const { references, referencesLabel, ...otherAttributes } = this.props
-    const referenceElements = []
-
-    for (const reference of references) {
-      referenceElements.push(<li key={reference.id}>{reference.title}</li>)
-    }
+    const { references, referencesLabel, ...otherProps } = this.props
 
     return (
-      <fieldset className={styles.refs_wrapper} {...otherAttributes}>
-        <legend className={styles.refs_label}>{referencesLabel}</legend>
-        <ol>{referenceElements}</ol>
-      </fieldset>
+      <Root {...otherProps}>
+        <Legend>{referencesLabel}</Legend>
+        <OrderedList>
+          {references.map(reference => (
+            <ListItem key={reference.id}>{reference.title}</ListItem>
+          ))}
+        </OrderedList>
+      </Root>
     )
   }
 }
