@@ -1,22 +1,25 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import styled from 'styled-components'
 
-import styles from './ScreenReaderOnly.css'
+const Root = styled.div`
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+`
 
 class ScreenReaderOnly extends Component {
   render() {
     const { className, children, ...otherProps } = this.props
-    const screenReaderClassName = classNames(
-      'hw-screen-reader-only',
-      styles.ScreenReaderOnly,
-      className
-    )
 
     return (
-      <div className={screenReaderClassName} {...otherProps}>
+      <Root className={classNames('hw-screen-reader-only', className)} {...otherProps}>
         {children}
-      </div>
+      </Root>
     )
   }
 }
