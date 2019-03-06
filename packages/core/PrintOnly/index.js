@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-import styles from './PrintOnly.css'
+const Root = styled.div`
+  display: none;
+  @media print {
+    display: block;
+  }
+`
 
 class PrintOnly extends Component {
   render() {
     return (
-      <div className={`hw-print-only ${styles.PrintOnly}`} aria-hidden="true">
+      <Root className="hw-print-only" aria-hidden="true">
         {this.props.children}
-      </div>
+      </Root>
     )
   }
 }
