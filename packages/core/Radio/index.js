@@ -1,8 +1,67 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styles from './style.css'
+import styled from 'styled-components'
 
-class Radio extends React.Component {
+import { defaultTheme } from '../Theme'
+
+const Root = styled.span`
+  position: relative;
+  display: block;
+  line-height: 28px;
+`
+
+const Svg = styled.svg`
+  width: ${props => props.forPrint ? '1em' : '28px'};
+  height: ${props => props.forPrint ? '1em' : '28px'};
+  margin-top: 8px;
+`
+
+const OuterCircle = styled.circle`
+  width: ${props => props.forPrint ? '28px' : 'auto'};
+  height: ${props => props.forPrint ? '28px' : 'auto'};
+  stroke: ${props => props.forPrint ? 'black' : props.theme.colorTextPrimary};
+  fill: ${props => props.forPrint ? 'white' : 'transparent'};
+  stroke-width: 2;
+`
+
+const InnerCircle = styled.circle`
+  stroke: ${props => props.theme.colorTextPrimary};
+  fill: ${props => props.theme.colorTextPrimary};
+  stroke-width: 1;
+  display: none;
+`
+
+const Input = styled.input`
+  position: absolute;
+  display: ${props => props.forPrint ? 'none' : 'block'};
+  height: 28px;
+  width: 28px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  opacity: 0;
+  cursor: pointer;
+
+  :focus + ${Svg} {
+    outline: ${props => props.theme.focusIndicator};
+    outline-offset: ${props => props.theme.focusIndicatorOffset};
+  }
+
+  :focus:invalid {
+    border-color: ${props => props.theme.colorError};
+  }
+
+  :checked + ${Svg} ${InnerCircle} {
+    display: inline-block;
+  }
+
+  :disabled {
+    cursor: default;
+  }
+`
+
+class Radio extends Component {
   render() {
     let {
       id,
@@ -12,55 +71,49 @@ class Radio extends React.Component {
       onClick,
       readonly,
       forPrint,
-      ...otherAttributes
+      theme,
+      ...otherProps
     } = this.props
 
     return (
-      <span className={'hw-radio-wrapper ' + styles.radio_wrapper}>
-        <input
+      <Root className="hw-radio-wrapper">
+        <Input
           type="radio"
           id={id}
           name={name}
           value={value}
           required={isRequired}
-          className={'hw-radio ' + styles.radio}
+          className="hw-radio"
           onClick={onClick}
           disabled={readonly}
-          style={forPrint ? { display: 'none' } : null}
-          {...otherAttributes}
+          forPrint={forPrint}
+          theme={theme}
+          {...otherProps}
         />
-        <svg
+        <Svg
           role="presentation"
           viewBox="0 0 28 28"
-          className={'hw-radio-image ' + styles.radio_image}
+          className="hw-radio-image"
           focusable="false"
-          style={forPrint ? { height: '1em', width: '1em' } : null}
+          forPrint={forPrint}
         >
-          <circle
-            className={`hw-radio-outer-circle ${styles.radio_outer_circle}`}
+          <OuterCircle
+            className="hw-radio-outer-circle"
             cx="14"
             cy="14"
             r="9"
-            style={
-              forPrint ? { stroke: 'black', fill: 'white', height: '28px', width: '28px' } : null
-            }
+            forPrint={forPrint}
+            theme={theme}
           />
-          <circle
-            className={`hw-radio-unchecked ${styles.radio_inner_circle} ${styles.radio_unchecked}`}
+          <InnerCircle
+            className="hw-radio-checked"
             cx="14"
             cy="14"
             r="5"
-            style={forPrint ? { display: 'none' } : null}
+            theme={theme}
           />
-          <circle
-            className={`hw-radio-checked ${styles.radio_inner_circle} ${styles.radio_checked}`}
-            cx="14"
-            cy="14"
-            r="5"
-            style={forPrint ? { display: 'none' } : null}
-          />
-        </svg>
-      </span>
+        </Svg>
+      </Root>
     )
   }
 }
@@ -73,12 +126,19 @@ Radio.propTypes = {
   onClick: PropTypes.func,
   readonly: PropTypes.bool,
   forPrint: PropTypes.bool,
+  theme: PropTypes.shape({
+    colorTextPrimary: PropTypes.string,
+    colorError: PropTypes.string,
+    focusIndicator: PropTypes.string,
+    focusIndicatorOffset: PropTypes.string,
+  }),
 }
 
 Radio.defaultProps = {
   isRequired: false,
   readonly: false,
   forPrint: false,
+  theme: defaultTheme,
 }
 
 export default Radio
