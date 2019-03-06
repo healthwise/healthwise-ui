@@ -1,16 +1,39 @@
 /* global fetch, DOMParser, document */
 import React, { Component } from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
+import { defaultTheme } from '../Theme'
 import CssParser from '../CssParser'
-import styles from './SvgImage.css'
 import { getKey } from '../KeyGen'
+
+const Root = styled.span`
+  .svg {
+    box-sizing: border-box;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hw-svg-built {
+    ${props => props.recolor ? `
+      stroke: ${props.theme.colorNeutral};
+      fill: ${props.theme.colorNeutral};
+    ` : ''}
+  }
+`
+
+const Image = styled.img`
+  box-sizing: border-box;
+  max-width: 100%;
+`
 
 class SvgImage extends Component {
   componentDidMount() {
+    const { alt, recolor } = this.props
+
     if (new RegExp('^https?://.*\\.svg$').test(this.props.src)) {
-      const alt = this.props.alt
       const wrapper = this.imageWrapper
-      const recolor = this.props.recolor
 
       if (wrapper) {
         fetch(this.props.src, {
@@ -28,7 +51,7 @@ class SvgImage extends Component {
             const img = wrapper.querySelector('img')
             const styleMap = {}
             if (svg && img) {
-              svg.setAttribute('class', styles.svg)
+              svg.setAttribute('class', 'svg')
               if (alt) {
                 svg.setAttribute('role', 'img')
                 svg.setAttribute('aria-label', alt)
@@ -88,7 +111,7 @@ class SvgImage extends Component {
                 }
                 classElement.setAttribute(
                   'class',
-                  `${className} hw-svg-built ${recolor ? styles.hw_svg_built : ''}`
+                  `${className} hw-svg-built`
                 )
               }
               wrapper.replaceChild(svg, img)
@@ -102,22 +125,31 @@ class SvgImage extends Component {
   }
 
   render() {
-    const { src, alt, additionalClassName, children, recolor, ...otherAttributes } = this.props
+    const {
+      src,
+      alt,
+      additionalClassName,
+      children,
+      recolor,
+      theme,
+      ...otherProps
+    } = this.props
+
     if (children || recolor) {
       // Peeled off invalid image attributes
     }
 
     return (
-      <span
-        className={`hw-structured-image-wrapper${
-          additionalClassName ? ' ' + additionalClassName : ''
-        }`}
+      <Root
+        className={classNames('hw-structured-image-wrapper', additionalClassName)}
         ref={wrapper => {
           this.imageWrapper = wrapper
         }}
+        recolor={recolor}
+        theme={theme}
       >
-        <img className={`hw-image ${styles.image}`} src={src} alt={alt} {...otherAttributes} />
-      </span>
+        <Image className="hw-image" src={src} alt={alt} {...otherProps} />
+      </Root>
     )
   }
 }
@@ -128,6 +160,9 @@ SvgImage.propTypes = {
   additionalClassName: PropTypes.string,
   recolor: PropTypes.bool,
   children: PropTypes.node,
+  theme: PropTypes.shape({
+    colorNeutral: PropTypes.string,
+  }),
 }
 
 SvgImage.defaultProps = {
@@ -135,6 +170,7 @@ SvgImage.defaultProps = {
   recolor: true,
   additionalClassName: null,
   children: null,
+  theme: defaultTheme,
 }
 
 export default SvgImage
