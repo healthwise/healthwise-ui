@@ -5,19 +5,31 @@ import styled from 'styled-components'
 import { defaultTheme } from '../Theme'
 import ScreenReaderOnly from '../ScreenReaderOnly'
 
+// Map data type of a cell to text-align value
+const dataTypeTextAlignMap = (dataType) => {
+  switch(dataType) {
+    case 'int':
+    case 'centered':
+      return 'center'
+    default:
+      return 'left'
+  }
+}
+
+// Cell is used for both <td> and <th> elements
+const Cell = styled.td`
+  padding: 0.5em 0.25em;
+  vertical-align: top;
+  text-align: ${props => dataTypeTextAlignMap(props.dataType)};
+  word-break: ${props => props.dataType === 'id' ? 'break-all' : 'normal'};
+`
+
 const DefaultTable = styled.table`
   width: 100%;
   font-size: 1em;
   line-height: 1em;
   padding: 0.5em 0.25em;
   border-collapse: collapse;
-
-  th,
-  td {
-    padding: 0.5em 0.25em;
-    vertical-align: top;
-    text-align: left;
-  }
 
   thead {
     background-color: ${props => props.theme.colorBackground};
@@ -27,7 +39,7 @@ const DefaultTable = styled.table`
     border-bottom: 4px solid ${props => props.theme.colorBackgroundLight};
   }
 
-  thead tr:first-child:not(:only-child) th {
+  thead tr:first-child:not(:only-child) ${Cell} {
     padding: 0.75em;
     font-size: 1.25em;
     text-align: center;
@@ -35,16 +47,16 @@ const DefaultTable = styled.table`
     border-right: 4px solid ${props => props.theme.colorBackgroundLight};
   }
 
-  thead tr:first-child:not(:only-child) th:last-child {
+  thead tr:first-child:not(:only-child) ${Cell}:last-child {
     border-right: none;
   }
 
-  thead th {
+  thead ${Cell} {
     font-weight: bold;
   }
 
-  tbody th,
-  tfoot th {
+  tbody ${Cell},
+  tfoot ${Cell} {
     font-weight: normal;
   }
 
@@ -66,8 +78,7 @@ const ListTable = styled(DefaultTable)`
   border-collapse: separate;
   border-spacing: 0 4px;
 
-  th,
-  td {
+  ${Cell} {
     padding: 0.5em;
     vertical-align: middle;
   }
@@ -85,13 +96,12 @@ const ListTable = styled(DefaultTable)`
     background-color: ${props => props.theme.colorBackgroundLight};
   }
 
-  tbody th:first-child,
-  tbody td:first-child {
+  tbody ${Cell}:first-child {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
   }
 
-  tbody td:last-child {
+  tbody ${Cell}:last-child {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
   }
@@ -100,123 +110,51 @@ const ListTable = styled(DefaultTable)`
 class Table extends Component {
   constructor(props) {
     super(props)
-    const metaData = this.buildMetaData(props.headers, props.data)
     this.state = {
-      metaData: metaData,
+      totals: this.calculateTotals(props.headers, props.data)
     }
-
-    this.renderHeaders = this.renderHeaders.bind(this)
-    this.renderHeaderRow = this.renderHeaderRow.bind(this)
-    this.renderRows = this.renderRows.bind(this)
-    this.renderTotals = this.renderTotals.bind(this)
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    const metaData = this.buildMetaData(nextProps.headers, nextProps.data)
     this.setState({
-      metaData: metaData,
+      totals: this.calculateTotals(nextProps.headers, nextProps.data),
     })
   }
 
-  buildMetaData(headers, data) {
-    // Get data types and calculate totals
-    let metaData = {}
-    headers.forEach(headerRow => {
-      headerRow.forEach(header => {
-        const key = header.key
-        const type = header.type || 'string'
-        metaData[key] = { type: type }
-        if (type === 'int') {
-          metaData[key]['total'] = 0
+  // Calculate totals if column is type int
+  calculateTotals(headers, data) {
+    // Flatten multi-dimensional headers array to an object
+    const headersObj = headers.reduce((obj, headersRow) => {
+      headersRow.forEach(header => {
+        obj[header.key] = header
+      })
+      return obj
+    }, {})
+
+    const totals = data.reduce((totalsObj, row) => {
+      Object.entries(row).forEach(([key, value]) => {
+        if (headersObj[key] && headersObj[key].type === 'int') {
+          totalsObj[key] = (totalsObj[key] || 0) + parseInt(value, 10)
         }
       })
-    })
-    data.forEach(row => {
-      headers.forEach(headerRow => {
-        headerRow.forEach(header => {
-          const key = header.key
-          if (metaData[key].type === 'int') {
-            metaData[key].total += parseInt(row[key], 10)
-          }
-        })
-      })
-    })
+      return totalsObj
+    }, {})
 
-    return metaData
-  }
-
-  renderHeaders(headers) {
-    return headers.map((headerRow, i) => {
-      return <tr key={`data-table-header-${i}`}>{this.renderHeaderRow(headerRow)}</tr>
-    })
-  }
-
-  renderHeaderRow(headerRow) {
-    return headerRow.map((header, i) => {
-      return (
-        <th
-          scope="col"
-          key={`data-table-header-row-${i}`}
-          colSpan={header.colspan}
-        >
-          {header.label}
-        </th>
-      )
-    })
-  }
-
-  renderRows(rowHeaders, data) {
-    let headers = rowHeaders[rowHeaders.length - 1]
-    return data.map((row, i) => {
-      const cells = headers.map((header, j) => {
-        const itemKey = `data-table-cell-${i}-${j}`
-        if (j === 0) {
-          return (
-            <th scope="row" key={itemKey} className={header.key} colSpan={header.colspan}>
-              {row[header.key]}
-            </th>
-          )
-        } else {
-          return (
-            <td key={itemKey} className={header.key} colSpan={header.colspan}>
-              {row[header.key]}
-            </td>
-          )
-        }
-      })
-
-      return <tr key={`data-table-row-${i}`}>{cells}</tr>
-    })
-  }
-
-  renderTotals(rowHeaders) {
-    let headers = rowHeaders[rowHeaders.length - 1]
-    const { metaData } = this.state
-
-    return headers.map((header, i) => {
-      if (i === 0) {
-        return (
-          <th scope="row" key={`data-table-footer-${i}`}>
-            Total
-          </th>
-        )
-      }
-      const type = this.state.metaData[header.key].type
-      if (type !== 'int') {
-        return <td key={`data-table-footer-${i}`} />
-      } else {
-        return (
-          <td key={`data-table-footer-${i}`}>
-            {metaData[header.key].total}
-          </td>
-        )
-      }
-    })
+    return totals
   }
 
   render() {
-    const { headers, data, includeTotal, caption, type, theme, ...otherProps } = this.props
+    const {
+      headers,
+      data,
+      includeTotal,
+      caption,
+      type,
+      theme,
+      ...otherProps
+    } = this.props
 
+    const { totals } = this.state
     const Root = type === 'list' ? ListTable : DefaultTable
 
     if (headers.length === 0) {
@@ -227,11 +165,60 @@ class Table extends Component {
           <caption className="hw-table-caption">
             <ScreenReaderOnly>{caption}</ScreenReaderOnly>
           </caption>
-          <thead>{this.renderHeaders(headers)}</thead>
-          <tbody>{this.renderRows(headers, data)}</tbody>
+          <thead>
+            {headers.map((headerRow, i) => (
+              <tr key={`data-table-header-${i}`}>
+                {headerRow.map((header, i) => (
+                  <Cell as="th"
+                    scope="col"
+                    key={`data-table-header-row-${i}`}
+                    colSpan={header.colspan}
+                    dataType={header.type || 'string'}
+                  >
+                    {header.label}
+                  </Cell>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {data.map((row, i) => (
+              <tr key={`data-table-row-${i}`}>
+                {headers[headers.length - 1].map((header, j) => (
+                  <Cell
+                    as={j === 0 ? 'th' : 'td'}
+                    scope={j === 0 ? 'row' : null}
+                    key={`data-table-cell-${i}-${j}`}
+                    className={header.key}
+                    colSpan={header.colspan}
+                    dataType={header.type || 'string'}
+                  >
+                    {row[header.key]}
+                  </Cell>
+                ))}
+              </tr>
+            ))}
+          </tbody>
           {includeTotal && (
             <tfoot>
-              <tr>{this.renderTotals(headers)}</tr>
+              <tr>
+                {headers[headers.length - 1].map((header, i) => i === 0 ? (
+                  <Cell
+                    as="th"
+                    scope="row"
+                    key={`data-table-footer-${i}`}
+                  >
+                    Total
+                  </Cell>
+                ) : (
+                  <Cell
+                    key={`data-table-footer-${i}`}
+                    dataType="int"
+                  >
+                    {totals[header.key]}
+                  </Cell>
+                ))}
+              </tr>
             </tfoot>
           )}
         </Root>
@@ -265,7 +252,7 @@ Table.propTypes = {
   })
 }
 
-Table.defaultProTypes = {
+Table.defaultProps = {
   includeTotal: false,
   type: 'data',
   theme: defaultTheme,

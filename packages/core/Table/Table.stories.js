@@ -177,14 +177,12 @@ storiesOf('core|Components/Table', module)
   .add(
     'List type table with two levels of headers',
     () => (
-      <div style={{ padding: '10px', background: '#edf6fb' }}>
-        <Table
-          headers={twoLevelsOfHeaders}
-          data={twoLevelData}
-          caption="Test caption"
-          type="list"
-        />
-      </div>
+      <Table
+        headers={twoLevelsOfHeaders}
+        data={twoLevelData}
+        caption="Test caption"
+        type="list"
+      />
     ),
     {
       info: `Renders a list type table with two levels of headers`
@@ -193,9 +191,7 @@ storiesOf('core|Components/Table', module)
   .add(
     'List type table with one level of headers',
     () => (
-      <div style={{ padding: '10px', background: '#edf6fb' }}>
-        <Table headers={oneLevelOfHeaders} data={oneLevelData} caption="Test caption" type="list" />
-      </div>
+      <Table headers={oneLevelOfHeaders} data={oneLevelData} caption="Test caption" type="list" />
     ),
     {
       info: `Renders a list type Table with one level of headers`
@@ -204,15 +200,13 @@ storiesOf('core|Components/Table', module)
   .add(
     'List type table with totals',
     () => (
-      <div style={{ padding: '10px', background: '#edf6fb' }}>
-        <Table
-          headers={oneLevelOfHeaders}
-          data={oneLevelData}
-          caption="Test caption"
-          type="list"
-          includeTotal
-        />
-      </div>
+      <Table
+        headers={oneLevelOfHeaders}
+        data={oneLevelData}
+        caption="Test caption"
+        type="list"
+        includeTotal
+      />
     ),
     {
       info: `Renders a list type Table with one level of headers and totals`
