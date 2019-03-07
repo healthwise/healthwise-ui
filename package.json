@@ -7,7 +7,7 @@
     "exec": "lerna exec",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "lint": "eslint --ignore-path .gitignore --fix ."
+    "lint": "eslint --fix ."
   },
   "husky": {
     "hooks": {
