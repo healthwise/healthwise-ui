@@ -4,25 +4,74 @@ import styled from 'styled-components'
 
 import { defaultTheme } from '../Theme'
 
+const IconOffPath = styled.path`
+  stroke: ${props => props.theme.colorNeutralLight};
+  fill: ${props => props.theme.colorNeutralLight};
+`
+
+const IconOnPath = styled.path`
+  stroke: ${props => props.theme.colorPrimaryDark};
+  fill: ${props => props.theme.colorPrimaryDark};
+`
+
+const IconRangePath = styled.path`
+  stroke: ${props => props.theme.colorPrimary};
+  fill: ${props => props.theme.colorPrimary};
+`
+
+const IconRowBreakCountSpan = styled.span`
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+  right: 0;
+  transform: translate(90%, -50%);
+`
+
+const IconRowBreakCountSvg = styled.svg`
+  max-height: 16px;
+  max-width: 100%;
+`
+
+const IconSpan = styled.span`
+  box-sizing: border-box;
+  display: inline-block;
+  width: 10%;
+
+  /* Thank you, IE, and the horse you rode in on */
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    padding-bottom: 160%;
+    height: 1px;
+    overflow: visible;
+    display: block;
+  }
+`
+
+const RowBreakDiv = styled.div`
+  box-sizing: border-box;
+  width: 95%;
+  border-top: solid 1px ${props => props.theme.colorBorder};
+  position: relative;
+`
+
+const IconSvg = styled.svg`
+  width: 100%;
+`
+
+const RowIconDiv = styled.div`
+  box-sizing: border-box;
+  width: 95%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+`
+
+const IconArrayDiv = styled.div`
+  box-sizing: border-box;
+  padding: 15px 0;
+  max-width: 100%;
+`
+
 function IconWrapper(props) {
-  const IconSpan = styled.span`
-    box-sizing: border-box;
-    display: inline-block;
-    width: 10%;
-
-    /* Thank you, IE, and the horse you rode in on */
-    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-      padding-bottom: 160%;
-      height: 1px;
-      overflow: visible;
-      display: block;
-    }
-  `
-
-  const IconSvg = styled.svg`
-    width: 100%;
-  `
-
   return (
     <IconSpan className={`hw-array-${props.iconStyle}`} key={props.id}>
       <IconSvg
@@ -49,36 +98,8 @@ IconWrapper.defaultProps = {
   theme: defaultTheme
 }
 
-const IconOffPath = styled.path`
-  stroke: ${props => props.theme.colorNeutralLight};
-  fill: ${props => props.theme.colorNeutralLight};
-`
-
-const IconOnPath = styled.path`
-  stroke: ${props => props.theme.colorPrimaryDark};
-  fill: ${props => props.theme.colorPrimaryDark};
-`
-
-const IconRangePath = styled.path`
-  stroke: ${props => props.theme.colorPrimary};
-  fill: ${props => props.theme.colorPrimary};
-`
-
 class IconArray extends Component {
   getCountMarker(keyBase, count = 0) {
-    const IconRowBreakCountSpan = styled.span`
-      box-sizing: border-box;
-      position: absolute;
-      display: block;
-      right: 0;
-      transform: translate(90%, -50%);
-    `
-
-    const IconRowBreakCountSvg = styled.svg`
-      max-height: 16px;
-      max-width: 100%;
-    `
-
     return (
       <IconRowBreakCountSpan
         className={'hw-icon-break-row-count'}
@@ -223,13 +244,6 @@ class IconArray extends Component {
   }
 
   getRowBreak(keyBase, count) {
-    const RowBreakDiv = styled.div`
-      box-sizing: border-box;
-      width: 95%;
-      border-top: solid 1px ${props => this.props.theme.colorBorder};
-      position: relative;
-    `
-
     return (
       <RowBreakDiv key={`row-break-${keyBase}-${count}`}>
         {this.getCountMarker(keyBase, count)}
@@ -238,24 +252,10 @@ class IconArray extends Component {
   }
 
   getIconRow(keyBase, icons, count) {
-    const RowIconDiv = styled.div`
-      box-sizing: border-box;
-      width: 95%;
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-    `
-
     return <RowIconDiv key={`row-${keyBase}-${count}`}>{icons}</RowIconDiv>
   }
 
   render() {
-    const IconArrayDiv = styled.div`
-      box-sizing: border-box;
-      padding: 15px 0;
-      max-width: 100%;
-    `
-
     const getIconFactory = {
       neutral: (key, style) => this.getNeutralIcon(key, style),
       female: (key, style) => this.getFemaleIcon(key, style),
@@ -309,7 +309,13 @@ IconArray.propTypes = {
   maxRange: PropTypes.string,
   total: PropTypes.string,
   iconType: PropTypes.oneOf(['male', 'female', 'neutral']),
-  forceBreakOn: PropTypes.number
+  forceBreakOn: PropTypes.number,
+  theme: PropTypes.shape({
+    colorNeutralLight: PropTypes.string,
+    colorPrimaryDark: PropTypes.string,
+    colorPrimary: PropTypes.string,
+    colorBorder: PropTypes.string
+  })
 }
 
 IconArray.defaultProps = {
