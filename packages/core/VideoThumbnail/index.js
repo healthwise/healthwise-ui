@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
+import { defaultTheme } from '../Theme'
+
 const Videothumbnail = styled.button`
   box-sizing: border-box;
   position: relative;
@@ -10,8 +12,8 @@ const Videothumbnail = styled.button`
   border: none;
 
   &:focus {
-    outline: var(--focus-indicator);
-    outline-offset: var(--focus-indicator-offset);
+    outline: ${props => props.theme.focusIndicator};
+    outline-offset: ${props => props.theme.focusIndicatorOffset};
   }
 
   &:hover .hw-video-thumbnail-overlay,
@@ -20,7 +22,7 @@ const Videothumbnail = styled.button`
   }
 
   & rect {
-    fill: var(--color-primary);
+    fill: ${props => props.theme.colorPrimary};
     fill-opacity: 0.8;
   }
 `
@@ -51,13 +53,14 @@ const VideoThumbnailIcon = styled.svg`
 
 class VideoThumbnail extends Component {
   render() {
-    const { title, src, alt, onThumbnailClick, ...otherProps } = this.props
+    const { title, src, alt, onThumbnailClick, theme, ...otherProps } = this.props
     const thumbSrc = src.replace('_640x360.jpg', '.jpg').replace('.jpg', '_640x360.jpg') // Normalize to correct aspect ratio
     return (
       <Videothumbnail
         type="button"
         className={`hw-video-thumbnail`}
         onClick={onThumbnailClick}
+        theme={theme}
         {...otherProps}
       >
         <VideoThumbnailImage
@@ -95,6 +98,15 @@ VideoThumbnail.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string,
   onThumbnailClick: PropTypes.func,
+  theme: PropTypes.shape({
+    colorPrimary: PropTypes.string,
+    focusIndicator: PropTypes.string,
+    focusIndicatorOffset: PropTypes.string,
+  })
+}
+
+VideoThumbnail.defaultProps = {
+  theme: defaultTheme
 }
 
 export default VideoThumbnail

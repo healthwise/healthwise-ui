@@ -3,7 +3,6 @@ import { configure, addDecorator, addParameters } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { create } from '@storybook/theming'
 import CssBaseline from '../packages/core/CssBaseline'
-import { CssVars, defaultTheme } from '../packages/core/Theme'
 
 addDecorator(withInfo)
 addDecorator(story => {
@@ -14,7 +13,6 @@ addDecorator(story => {
         minHeight: '100vh',
       }}
     >
-      <CssVars />
       <CssBaseline />
       {story()}
     </div>

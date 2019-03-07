@@ -11,7 +11,7 @@ const styles = {
   },
 }
 
-storiesOf('Components/ValidationError', module).add(
+storiesOf('core|UI Feedback/ValidationError', module).add(
   'with defaults',
   () => {
     /* Hack to make ValidationError show */

@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+
+import { defaultTheme } from '../Theme'
 import { getKey } from '../KeyGen'
 
 const Label = styled.label`
@@ -22,15 +24,15 @@ const TextArea = styled.textarea`
   width: 100%;
   padding: 0.5em;
   margin: 0;
-  border: 1px solid var(--color-border);
+  border: 1px solid ${props => props.theme.colorBorder};
   min-height: 88px;
   font-size: 1em;
   line-height: 1.5em;
   resize: vertical;
 
   &:focus {
-    outline: var(--focus-indicator);
-    outline-offset: var(--focus-indicator-offset);
+    outline: ${props => props.theme.focusIndicator};
+    outline-offset: ${props => props.theme.focusIndicatorOffset};
   }
 `
 
@@ -98,7 +100,7 @@ class Textarea extends React.Component {
   }
 
   render() {
-    let { id, name, defaultValue, value, label, maxCharacters, readonly } = this.props
+    let { id, name, defaultValue, value, label, maxCharacters, readonly, theme } = this.props
 
     let characterCounter = ''
     let title = label ? (
@@ -141,6 +143,7 @@ class Textarea extends React.Component {
           onBlur={this.onBlur}
           onKeyDown={this.onKeyDown}
           onChange={this.onChange}
+          theme={theme}
         />
         {characterCounter}
       </Wrapper>
@@ -167,6 +170,11 @@ Textarea.propTypes = {
   onKeyDown: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   readonly: PropTypes.bool,
+  theme: PropTypes.shape({
+    colorBorder: PropTypes.string,
+    focusIndicator: PropTypes.string,
+    focusIndicatorOffset: PropTypes.string,
+  })
 }
 
 Textarea.defaultProps = {
@@ -187,6 +195,7 @@ Textarea.defaultProps = {
   onChange: function(e) {
     return e
   },
+  theme: defaultTheme
 }
 
 export default Textarea
