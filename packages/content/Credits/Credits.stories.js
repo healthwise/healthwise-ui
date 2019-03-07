@@ -3,15 +3,11 @@ import { storiesOf } from '@storybook/react'
 import Credits from './index'
 
 storiesOf('content|Credits', module)
-  .add(
-    'with defaults (renders nothing)',
-    () => <Credits />,
-    {
-      info: `
+  .add('with defaults (renders nothing)', () => <Credits />, {
+    info: `
         Demonstates basic rendering with defaults
-      `
-    }
-  )
+      `,
+  })
   .add(
     'with author and no reviewers',
     () => (
@@ -26,7 +22,7 @@ storiesOf('content|Credits', module)
     {
       info: `
         Demonstrates rendering with author info only
-      `
+      `,
     }
   )
   .add(
@@ -51,7 +47,7 @@ storiesOf('content|Credits', module)
     {
       info: `
         Demonstrates rendering with author and primary reviewer info
-      `
+      `,
     }
   )
   .add(
@@ -85,7 +81,7 @@ storiesOf('content|Credits', module)
     {
       info: `
         Demonstrates rendering with a full data set and the default label values
-      `
+      `,
     }
   )
   .add(
@@ -122,6 +118,6 @@ storiesOf('content|Credits', module)
     {
       info: `
         Demonstrates rendering with a full data set and overriding default label values
-      `
+      `,
     }
   )

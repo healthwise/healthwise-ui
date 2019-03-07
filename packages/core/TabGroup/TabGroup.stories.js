@@ -10,43 +10,51 @@ const onClick = event => {
 }
 
 storiesOf('core|Components/Tab Group', module)
-  .add('with defaults', () => (
-    <div>
-      <TabGroup>
-        <Tab href="#" onClick={onClick}>
-          First
-        </Tab>
-        <Tab href="#" onClick={onClick}>
-          Second
-        </Tab>
-        <Tab href="#" onClick={onClick}>
-          Third
-        </Tab>
-      </TabGroup>
-    </div>
-  ), {
-  info: `Demonstates default rendering of a TabGroup`
-})
-  .add('with all statuses', () => (
-    <div>
-      <TabGroup>
-        <Tab href="#" onClick={onClick} isActive>
-          Active
-        </Tab>
-        <Tab href="#" onClick={onClick} visited>
-          Visited
-        </Tab>
-        <Tab href="#" onClick={onClick} disabled>
-          Disabled
-        </Tab>
-        <Tab href="#" onClick={onClick}>
-          Unvisited
-        </Tab>
-      </TabGroup>
-    </div>
-  ), {
-  info: `Demonstrates the various tab statuses`
-})
+  .add(
+    'with defaults',
+    () => (
+      <div>
+        <TabGroup>
+          <Tab href="#" onClick={onClick}>
+            First
+          </Tab>
+          <Tab href="#" onClick={onClick}>
+            Second
+          </Tab>
+          <Tab href="#" onClick={onClick}>
+            Third
+          </Tab>
+        </TabGroup>
+      </div>
+    ),
+    {
+      info: `Demonstates default rendering of a TabGroup`,
+    }
+  )
+  .add(
+    'with all statuses',
+    () => (
+      <div>
+        <TabGroup>
+          <Tab href="#" onClick={onClick} isActive>
+            Active
+          </Tab>
+          <Tab href="#" onClick={onClick} visited>
+            Visited
+          </Tab>
+          <Tab href="#" onClick={onClick} disabled>
+            Disabled
+          </Tab>
+          <Tab href="#" onClick={onClick}>
+            Unvisited
+          </Tab>
+        </TabGroup>
+      </div>
+    ),
+    {
+      info: `Demonstrates the various tab statuses`,
+    }
+  )
   .add(
     'without stretching',
     () => (
@@ -65,7 +73,7 @@ storiesOf('core|Components/Tab Group', module)
       </div>
     ),
     {
-      info: `Demonstrates a TabGroup which doesn't stretch to fill available space`
+      info: `Demonstrates a TabGroup which doesn't stretch to fill available space`,
     }
   )
   .add(
@@ -116,7 +124,7 @@ storiesOf('core|Components/Tab Group', module)
       </div>
     ),
     {
-      info: `Demonstrates a TabGroup which overflows its available space`
+      info: `Demonstrates a TabGroup which overflows its available space`,
     }
   )
   .add(
@@ -167,41 +175,45 @@ storiesOf('core|Components/Tab Group', module)
       </div>
     ),
     {
-      info: `Demonstrates a TabGroup which overflows its available space, and loads with the active tab shown`
+      info: `Demonstrates a TabGroup which overflows its available space, and loads with the active tab shown`,
     }
   )
-  .add('with min width', () => (
-    <div style={{ margin: '10px' }}>
-      <h3>With Min-Width</h3>
-      <div style={{ width: '350px', border: '1px solid #aaa', margin: '20px' }}>
-        <TabGroup>
-          <Tab href="#" onClick={onClick}>
-            First
-          </Tab>
-          <Tab href="#" minWidth="9em" onClick={onClick}>
-            `minWidth` of `9em` Applied
-          </Tab>
-          <Tab href="#" onClick={onClick}>
-            Third
-          </Tab>
-        </TabGroup>
-      </div>
+  .add(
+    'with min width',
+    () => (
+      <div style={{ margin: '10px' }}>
+        <h3>With Min-Width</h3>
+        <div style={{ width: '350px', border: '1px solid #aaa', margin: '20px' }}>
+          <TabGroup>
+            <Tab href="#" onClick={onClick}>
+              First
+            </Tab>
+            <Tab href="#" minWidth="9em" onClick={onClick}>
+              `minWidth` of `9em` Applied
+            </Tab>
+            <Tab href="#" onClick={onClick}>
+              Third
+            </Tab>
+          </TabGroup>
+        </div>
 
-      <h3>Without Min-Width</h3>
-      <div style={{ width: '350px', border: '1px solid #aaa', margin: '20px' }}>
-        <TabGroup>
-          <Tab href="#" onClick={onClick}>
-            First
-          </Tab>
-          <Tab href="#" onClick={onClick}>
-            Min Width Not Applied
-          </Tab>
-          <Tab href="#" onClick={onClick}>
-            Third
-          </Tab>
-        </TabGroup>
+        <h3>Without Min-Width</h3>
+        <div style={{ width: '350px', border: '1px solid #aaa', margin: '20px' }}>
+          <TabGroup>
+            <Tab href="#" onClick={onClick}>
+              First
+            </Tab>
+            <Tab href="#" onClick={onClick}>
+              Min Width Not Applied
+            </Tab>
+            <Tab href="#" onClick={onClick}>
+              Third
+            </Tab>
+          </TabGroup>
+        </div>
       </div>
-    </div>
-  ), {
-  info: `Demonstrates tab with 'minWidth' prop set`
-})
+    ),
+    {
+      info: `Demonstrates tab with 'minWidth' prop set`,
+    }
+  )

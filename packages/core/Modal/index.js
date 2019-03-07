@@ -40,10 +40,7 @@ const DialogContent = withStyles(theme => ({
 
 const Title = styled.h2`
   margin: 0;
-  padding: ${props => props.hasContent
-    ? `0 0 ${props.theme.spacingL}`
-    : 0
-  };
+  padding: ${props => (props.hasContent ? `0 0 ${props.theme.spacingL}` : 0)};
   color: ${props => props.theme.colorTextPrimary};
   font-size: 1.25rem;
   font-weight: 500;
@@ -97,19 +94,10 @@ class Modal extends Component {
         scroll="paper"
         maxWidth={maxWidth}
       >
-        <Title
-          id={this.titleId}
-          className="hw-modal-title"
-          theme={theme}
-          hasContent={hasContent}
-        >
+        <Title id={this.titleId} className="hw-modal-title" theme={theme} hasContent={hasContent}>
           {title}
         </Title>
-        {children && (
-          <DialogContent className="hw-modal-content">
-            {children}
-          </DialogContent>
-        )}
+        {children && <DialogContent className="hw-modal-content">{children}</DialogContent>}
         <Actions theme={theme}>
           <ButtonGroup className="hw-modal-actions">
             {actions || (
@@ -146,7 +134,7 @@ Modal.propTypes = {
   theme: PropTypes.shape({
     colorTextPrimary: PropTypes.string,
     spacingL: PropTypes.string,
-  })
+  }),
 }
 
 Modal.defaultProps = {

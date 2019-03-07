@@ -17,7 +17,7 @@ const Root = styled.ol`
   padding: 0 ${props => props.theme.spacingL};
   box-sizing: border-box;
   list-style: none;
-  width: ${props => props.stretch ? '100%' : 'auto'};
+  width: ${props => (props.stretch ? '100%' : 'auto')};
 
   @media screen and (max-width: 750px) {
     width: 100%;
@@ -30,7 +30,7 @@ const Container = styled.li`
   margin: ${props => `${props.theme.spacingXs} ${props.theme.spacingXs} 0`};
   text-align: center;
   box-sizing: border-box;
-  flex: ${props => props.stretch ? '1' : '0 1 auto'};
+  flex: ${props => (props.stretch ? '1' : '0 1 auto')};
 
   :first-child {
     margin-left: 0;
@@ -103,7 +103,7 @@ TabGroup.propTypes = {
   theme: PropTypes.shape({
     spacingXs: PropTypes.string,
     spacingL: PropTypes.string,
-  })
+  }),
 }
 
 TabGroup.defaultProps = {

@@ -13,7 +13,7 @@ storiesOf('core|Media/Icon Array', module)
     {
       info: `
         Default, empty, 100 member icon array
-      `
+      `,
     }
   )
   .add(
@@ -26,7 +26,7 @@ storiesOf('core|Media/Icon Array', module)
     {
       info: `
         With 23 of 100 males selected
-      `
+      `,
     }
   )
   .add(
@@ -39,7 +39,7 @@ storiesOf('core|Media/Icon Array', module)
     {
       info: `
         With 83-88 of 100 females selected
-      `
+      `,
     }
   )
   .add(
@@ -52,7 +52,7 @@ storiesOf('core|Media/Icon Array', module)
     {
       info: `
         With 11-14 of 25 persons selected - breaking every 5 persons
-      `
+      `,
     }
   )
   .add(
@@ -65,6 +65,6 @@ storiesOf('core|Media/Icon Array', module)
     {
       info: `
         Bound resizable with 62-73 of 100 peeps selected
-      `
+      `,
     }
   )

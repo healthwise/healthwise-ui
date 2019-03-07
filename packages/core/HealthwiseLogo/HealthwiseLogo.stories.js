@@ -12,6 +12,6 @@ storiesOf('core|Media/Healthwise Logo', module).add(
   {
     info: `
         Healthwise SVG logo
-      `
+      `,
   }
 )

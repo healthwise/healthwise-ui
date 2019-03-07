@@ -13,36 +13,33 @@ const Label = styled.label`
   display: inline-flex;
   flex-flow: column nowrap;
   align-items: flex-start;
-  cursor: ${props => props.disabled ? 'not-allowed' : 'auto'};
-  opacity: ${props => props.disabled ? '0.35' : '1'};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'auto')};
+  opacity: ${props => (props.disabled ? '0.35' : '1')};
 
   ::after {
-    display: ${props => props.underlined ? 'block' : 'none'};
-    content: "";
+    display: ${props => (props.underlined ? 'block' : 'none')};
+    content: '';
     position: absolute;
     left: 0;
     right: 0;
     bottom: 1.125em;
-    height: ${props => props.focused || (props.error && props.dirty)
-      ? '2px'
-      : '1px'
-    };
-    background: ${props => props.focused
-      ? 'transparent'
-      : props.error && props.dirty && !props.focused
-      ? props.theme.colorError
-      : props.theme.colorTextPrimary
-    };
-    background-image: ${props => props.focused
-      ? `repeating-linear-gradient(
+    height: ${props => (props.focused || (props.error && props.dirty) ? '2px' : '1px')};
+    background: ${props =>
+      props.focused
+        ? 'transparent'
+        : props.error && props.dirty && !props.focused
+        ? props.theme.colorError
+        : props.theme.colorTextPrimary};
+    background-image: ${props =>
+      props.focused
+        ? `repeating-linear-gradient(
         to right,
         ${props.theme.colorTextPrimary},
         ${props.theme.colorTextPrimary} 2px,
         transparent 0,
         transparent 4px
       )`
-      : 'none'
-    };
+        : 'none'};
   }
 `
 
@@ -58,22 +55,19 @@ const Input = styled.input`
   display: table-cell;
   width: 100%;
   height: 40px;
-  padding: ${props => props.underlined ? '0' : '0 8px'};
+  padding: ${props => (props.underlined ? '0' : '0 8px')};
   color: ${props => props.theme.colorTextPrimary};
   line-height: 30px;
   vertical-align: middle;
   box-sizing: border-box;
   font-size: 1em;
-  border: ${props => props.underlined
-    ? 'none'
-    : props.error && props.dirty && !props.focused
-    ? `1px solid ${props.theme.colorError}`
-    : `1px solid ${props.theme.colorTextPrimary}`
-  };
-  background: ${props => props.underlined
-    ? 'none'
-    : props.theme.colorBackgroundLight
-  };
+  border: ${props =>
+    props.underlined
+      ? 'none'
+      : props.error && props.dirty && !props.focused
+      ? `1px solid ${props.theme.colorError}`
+      : `1px solid ${props.theme.colorTextPrimary}`};
+  background: ${props => (props.underlined ? 'none' : props.theme.colorBackgroundLight)};
   transition: border ease 0.2s;
   box-shadow: none;
 
@@ -83,10 +77,7 @@ const Input = styled.input`
   }
 
   :focus {
-    outline: ${props => props.underlined
-      ? 'none'
-      : props.theme.focusIndicator
-    };
+    outline: ${props => (props.underlined ? 'none' : props.theme.focusIndicator)};
     outline-offset: ${props => props.theme.focusIndicatorOffset};
   }
 
@@ -95,10 +86,10 @@ const Input = styled.input`
   }
 
   :invalid:not(:focus) {
-    border-color: ${props => props.error && props.dirty && !props.focused
-      ? props.theme.colorError
-      : props.theme.colorTextPrimary
-    };
+    border-color: ${props =>
+      props.error && props.dirty && !props.focused
+        ? props.theme.colorError
+        : props.theme.colorTextPrimary};
   }
 `
 
@@ -313,20 +304,16 @@ class InputText extends Component {
           underlined={underlined}
           {...otherProps}
         />
-        <Error
-          id={this.errorId}
-          className="hw-input-text-error-container"
-        >
-          {!isValid &&
-            this.state.dirty && (
-              <Message
-                className={classNames('hw-input-text-error', `${className}-error`)}
-                type="error"
-                showIcon={false}
-              >
-                {this.state.error}
-              </Message>
-            )}
+        <Error id={this.errorId} className="hw-input-text-error-container">
+          {!isValid && this.state.dirty && (
+            <Message
+              className={classNames('hw-input-text-error', `${className}-error`)}
+              type="error"
+              showIcon={false}
+            >
+              {this.state.error}
+            </Message>
+          )}
         </Error>
       </Label>
     )
@@ -371,7 +358,7 @@ InputText.propTypes = {
     colorError: PropTypes.string,
     focusIndicator: PropTypes.string,
     focusIndicatorOffset: PropTypes.string,
-  })
+  }),
 }
 
 InputText.defaultProps = {

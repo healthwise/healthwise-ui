@@ -11,16 +11,16 @@ const Root = styled.span`
 `
 
 const Svg = styled.svg`
-  width: ${props => props.forPrint ? '1em' : '28px'};
-  height: ${props => props.forPrint ? '1em' : '28px'};
+  width: ${props => (props.forPrint ? '1em' : '28px')};
+  height: ${props => (props.forPrint ? '1em' : '28px')};
   margin-top: 8px;
 `
 
 const OuterCircle = styled.circle`
-  width: ${props => props.forPrint ? '28px' : 'auto'};
-  height: ${props => props.forPrint ? '28px' : 'auto'};
-  stroke: ${props => props.forPrint ? 'black' : props.theme.colorTextPrimary};
-  fill: ${props => props.forPrint ? 'white' : 'transparent'};
+  width: ${props => (props.forPrint ? '28px' : 'auto')};
+  height: ${props => (props.forPrint ? '28px' : 'auto')};
+  stroke: ${props => (props.forPrint ? 'black' : props.theme.colorTextPrimary)};
+  fill: ${props => (props.forPrint ? 'white' : 'transparent')};
   stroke-width: 2;
 `
 
@@ -33,7 +33,7 @@ const InnerCircle = styled.circle`
 
 const Input = styled.input`
   position: absolute;
-  display: ${props => props.forPrint ? 'none' : 'block'};
+  display: ${props => (props.forPrint ? 'none' : 'block')};
   height: 28px;
   width: 28px;
   margin: 0;
@@ -105,13 +105,7 @@ class Radio extends Component {
             forPrint={forPrint}
             theme={theme}
           />
-          <InnerCircle
-            className="hw-radio-checked"
-            cx="14"
-            cy="14"
-            r="5"
-            theme={theme}
-          />
+          <InnerCircle className="hw-radio-checked" cx="14" cy="14" r="5" theme={theme} />
         </Svg>
       </Root>
     )

@@ -20,6 +20,6 @@ storiesOf('content|Call to Action', module).add(
   'with defaults',
   () => <CallToAction item={item} actionButtons={<Button rounded>Action</Button>} />,
   {
-    info: `Demonstrates a default CallToAction`
+    info: `Demonstrates a default CallToAction`,
   }
 )

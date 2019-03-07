@@ -37,7 +37,7 @@ const GroupsIcon = props => {
 }
 
 GroupsIcon.defaultProps = {
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default GroupsIcon

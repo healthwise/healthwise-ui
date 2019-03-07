@@ -18,7 +18,7 @@ const Root = styled.div`
   justify-content: ${props => alignMap[props.align]};
 
   & > *:not(:last-child) {
-    margin-right: ${props => props.theme.spacingS}
+    margin-right: ${props => props.theme.spacingS};
   }
 `
 
@@ -40,7 +40,7 @@ ButtonGroup.propTypes = {
   align: PropTypes.oneOf(['left', 'center', 'right']),
   theme: PropTypes.shape({
     spacingS: PropTypes.string,
-  })
+  }),
 }
 
 ButtonGroup.defaultProps = {

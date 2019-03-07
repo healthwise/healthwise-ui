@@ -12,6 +12,6 @@ storiesOf('core|Dev Utilities/Screen Reader Only', module).add(
     </div>
   ),
   {
-    info: `Demonstrates basic rendering with defaults`
+    info: `Demonstrates basic rendering with defaults`,
   }
 )

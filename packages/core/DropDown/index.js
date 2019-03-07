@@ -4,7 +4,7 @@ import {
   Wrapper as AriaWrapper,
   Button as AriaButton,
   Menu as AriaMenu,
-  MenuItem as AriaMenuItem
+  MenuItem as AriaMenuItem,
 } from 'react-aria-menubutton'
 import uniqueId from 'lodash/uniqueId'
 import styled from 'styled-components'
@@ -87,11 +87,11 @@ const Button = styled(AriaButton)`
     outline-offset: ${props => props.theme.focusIndicatorOffset};
   }
 
-  &[aria-expanded="true"] ${UpArrowIconContainer} {
+  &[aria-expanded='true'] ${UpArrowIconContainer} {
     display: flex;
   }
 
-  &[aria-expanded="false"] ${DownArrowIconContainer} {
+  &[aria-expanded='false'] ${DownArrowIconContainer} {
     display: flex;
   }
 `
@@ -218,22 +218,13 @@ class DropDown extends Component {
   }
 
   render() {
-    const {
-      icon,
-      label,
-      prompt,
-      theme,
-    } = this.props
+    const { icon, label, prompt, theme } = this.props
     const { valueId, value, items } = this.state
 
     return (
       <Root className="hw-drop-down">
         {label && (
-          <Label
-            className="hw-drop-down-label"
-            aria-hidden="true"
-            role="presentation"
-          >
+          <Label className="hw-drop-down-label" aria-hidden="true" role="presentation">
             {label}
           </Label>
         )}
@@ -277,14 +268,8 @@ class DropDown extends Component {
             <MenuItems>
               {items.map((item, i) => (
                 <li key={i}>
-                  <MenuItem
-                    value={item.value}
-                    text={item.name}
-                    theme={theme}
-                  >
-                    <Value className="hw-drop-down-option">
-                      {item.component || item.name}
-                    </Value>
+                  <MenuItem value={item.value} text={item.name} theme={theme}>
+                    <Value className="hw-drop-down-option">{item.component || item.name}</Value>
                   </MenuItem>
                 </li>
               ))}
@@ -330,7 +315,7 @@ DropDown.propTypes = {
     focusIndicator: PropTypes.string,
     focusIndicatorOffset: PropTypes.string,
     focusIndicatorInset: PropTypes.string,
-  })
+  }),
 }
 
 DropDown.defaultProps = {

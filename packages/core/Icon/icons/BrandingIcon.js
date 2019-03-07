@@ -57,7 +57,7 @@ const BrandingIcon = props => {
 }
 
 BrandingIcon.defaultProps = {
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default BrandingIcon

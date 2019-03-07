@@ -372,7 +372,7 @@ const CssBaseline = createGlobalStyle`
 `
 
 CssBaseline.defaultProps = {
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default CssBaseline

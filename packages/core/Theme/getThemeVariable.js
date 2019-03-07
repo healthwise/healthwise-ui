@@ -14,12 +14,13 @@ const getThemeVariable = (variable, { variant = undefined } = {}) => props => {
   variant = variant ? upperFirst(variant) : undefined
   color = upperFirst(color)
 
-  switch(variable) {
-    case 'color': {
-      return theme[`color${color}${variant || ''}`]
-    }
+  switch (variable) {
     case 'colorText': {
       return theme[`colorTextOn${color}${variant || ''}`]
+    }
+    case 'color':
+    default: {
+      return theme[`color${color}${variant || ''}`]
     }
   }
 }

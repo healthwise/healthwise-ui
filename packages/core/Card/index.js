@@ -20,7 +20,7 @@ import { defaultTheme } from '../Theme'
 // their app.
 const Root = withStyles(theme => ({
   root: {
-    background: theme.colorBackgroundLight || '#fff'
+    background: theme.colorBackgroundLight || '#fff',
   },
 }))(MuiCard)
 
@@ -31,7 +31,7 @@ const CardContent = withStyles(theme => ({
       marginTop: 0,
     },
     '& > *:last-child': {
-        marginBottom: 0,
+      marginBottom: 0,
     },
   },
 }))(MuiCardContent)
@@ -39,15 +39,13 @@ const CardContent = withStyles(theme => ({
 const CardMedia = withStyles(theme => ({
   root: {
     height: 0,
-    paddingTop: '56.25%', /* 16:9 */
+    paddingTop: '56.25%' /* 16:9 */,
   },
 }))(MuiCardMedia)
 
 const TitleContainer = styled.div`
-  padding: ${props => props.hasContent
-    ? `${props.theme.spacingL} ${props.theme.spacingL} 0`
-    : props.theme.spacingL
-  };
+  padding: ${props =>
+    props.hasContent ? `${props.theme.spacingL} ${props.theme.spacingL} 0` : props.theme.spacingL};
 `
 
 const Title = styled.h2`
@@ -88,24 +86,22 @@ class Card extends Component {
 
     return (
       <Root className={classNames('hw-card', className)} {...otherProps}>
-        {mediaSrc && (
-          <CardMedia
-            className="hw-card-media"
-            image={mediaSrc}
-            title={mediaAltText}
-          />
-        )}
+        {mediaSrc && <CardMedia className="hw-card-media" image={mediaSrc} title={mediaAltText} />}
         {(title || subtitle) && (
           <TitleContainer hasContent={hasContent} theme={theme}>
-            {title && <Title className="hw-card-title" theme={theme}>{title}</Title>}
-            {subtitle && <Subtitle className="hw-card-subtitle" theme={theme}>{subtitle}</Subtitle>}
+            {title && (
+              <Title className="hw-card-title" theme={theme}>
+                {title}
+              </Title>
+            )}
+            {subtitle && (
+              <Subtitle className="hw-card-subtitle" theme={theme}>
+                {subtitle}
+              </Subtitle>
+            )}
           </TitleContainer>
         )}
-        {children && (
-          <CardContent className="hw-card-content">
-            {children}
-          </CardContent>
-        )}
+        {children && <CardContent className="hw-card-content">{children}</CardContent>}
         {actions && (
           <Actions theme={theme}>
             <ButtonGroup className="hw-card-actions">{actions}</ButtonGroup>
@@ -128,11 +124,11 @@ Card.propTypes = {
     colorTextPrimary: PropTypes.string,
     colorTextSecondary: PropTypes.string,
     spacingL: PropTypes.string,
-  })
+  }),
 }
 
 Card.defaultProps = {
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default Card

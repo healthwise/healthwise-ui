@@ -1,4 +1,4 @@
-/* global describe, it, expect, jest */
+/* global describe, it, expect */
 import renderer from 'react-test-renderer'
 import { Scenarios } from './References.scenarios'
 

@@ -1,4 +1,4 @@
-/* global describe, it, expect, jest */
+/* global describe, it, expect */
 import CssParser from './index'
 
 const styleParser = new CssParser()

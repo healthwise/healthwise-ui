@@ -32,10 +32,10 @@ const SpinnerOuter = styled.span`
   width: 30px;
   height: 30px;
   position: absolute;
-  border: ${props => props.inverted
-    ? `4px solid ${props.theme.colorPrimaryLight}`
-    : `4px solid ${props.theme.colorPrimaryDark}`
-  };
+  border: ${props =>
+    props.inverted
+      ? `4px solid ${props.theme.colorPrimaryLight}`
+      : `4px solid ${props.theme.colorPrimaryDark}`};
   top: 10px;
   left: 50%;
   transform: translateX(-15px);
@@ -46,10 +46,8 @@ const SpinnerInner = styled.span`
   vertical-align: top;
   display: inline-block;
   width: 100%;
-  background-color: ${props => props.inverted
-    ? props.theme.colorPrimaryLight
-    : props.theme.colorPrimaryDark
-  };
+  background-color: ${props =>
+    props.inverted ? props.theme.colorPrimaryLight : props.theme.colorPrimaryDark};
   animation: ${spinnerInnerAnimation} 4s infinite ease-in;
 `
 
@@ -74,7 +72,7 @@ LoadingIndicator.propTypes = {
   theme: PropTypes.shape({
     colorPrimaryLight: PropTypes.string,
     colorPrimaryDark: PropTypes.string,
-  })
+  }),
 }
 
 LoadingIndicator.defaultProps = {

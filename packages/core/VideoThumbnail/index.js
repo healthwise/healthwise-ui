@@ -102,11 +102,11 @@ VideoThumbnail.propTypes = {
     colorPrimary: PropTypes.string,
     focusIndicator: PropTypes.string,
     focusIndicatorOffset: PropTypes.string,
-  })
+  }),
 }
 
 VideoThumbnail.defaultProps = {
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default VideoThumbnail

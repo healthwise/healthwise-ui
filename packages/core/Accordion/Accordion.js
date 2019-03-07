@@ -26,17 +26,16 @@ const ExpansionPanel = withStyles(theme => ({
     margin: 0,
     boxShadow: 'none',
     '&:last-child': {
-      borderRadius: 0
+      borderRadius: 0,
     },
     '&:first-child': {
-      borderRadius: 0
+      borderRadius: 0,
     },
   },
   disabled: {
     opacity: 0.35,
   },
 }))(MuiExpansionPanel)
-
 
 const ExpansionPanelSummary = withStyles(theme => ({
   root: {
@@ -49,7 +48,7 @@ const ExpansionPanelSummary = withStyles(theme => ({
     },
     '&$expanded': {
       minHeight: 0,
-    }
+    },
   },
   content: {
     margin: 0,
@@ -84,24 +83,24 @@ const ExpansionPanelDetails = withStyles(theme => ({
   root: {
     padding: `${theme.spacingM || '16px'} ${theme.spacingL || '24px'} ${theme.spacingL || '24px'}`,
     '& > *:first-child': {
-      marginTop: 0
+      marginTop: 0,
     },
     '& > *:last-child': {
-      marginBottom: 0
-    }
-  }
+      marginBottom: 0,
+    },
+  },
 }))(MuiExpansionPanelDetails)
 
 const ExpandIcon = withStyles(theme => ({
   root: {
     fill: theme.colorTextSecondary || '#676767',
-  }
+  },
 }))(AddIcon)
 
 const CollapseIcon = withStyles(theme => ({
   root: {
     fill: theme.colorTextSecondary || '#676767',
-  }
+  },
 }))(RemoveIcon)
 
 const Title = styled.h2`
@@ -118,10 +117,7 @@ class Accordion extends Component {
     const { children, className, title, theme, ...otherProps } = this.props
 
     return (
-      <ExpansionPanel
-        className={classNames('hw-accordion', className)}
-        {...otherProps}
-      >
+      <ExpansionPanel className={classNames('hw-accordion', className)} {...otherProps}>
         {title && (
           <ExpansionPanelSummary
             className="hw-accordion-header"
@@ -141,13 +137,13 @@ class Accordion extends Component {
             {React.isValidElement(title) ? (
               <div className="hw-accordion-title">{title}</div>
             ) : (
-              <Title className="hw-accordion-title" theme={theme}>{title}</Title>
+              <Title className="hw-accordion-title" theme={theme}>
+                {title}
+              </Title>
             )}
           </ExpansionPanelSummary>
         )}
-        <ExpansionPanelDetails className="hw-accordion-content">
-          {children}
-        </ExpansionPanelDetails>
+        <ExpansionPanelDetails className="hw-accordion-content">{children}</ExpansionPanelDetails>
       </ExpansionPanel>
     )
   }

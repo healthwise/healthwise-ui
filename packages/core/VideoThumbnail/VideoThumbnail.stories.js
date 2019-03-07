@@ -17,6 +17,6 @@ storiesOf('core|Media/Video Thumbnail', module).add(
   {
     info: `
         Demonstates a basic video thumbnail
-      `
+      `,
   }
 )

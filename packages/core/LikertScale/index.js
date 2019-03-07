@@ -58,12 +58,7 @@ const ButtonDefault = styled.div`
   display: inline-block;
   box-sizing: border-box;
   width: 9.09092%;
-  height: ${props => props.readonly
-    ? '74px'
-    : props.forPrint
-    ? '80px'
-    : 'auto'
-  };
+  height: ${props => (props.readonly ? '74px' : props.forPrint ? '80px' : 'auto')};
   background: #fff;
   font-size: 1.25em;
   text-align: center;
@@ -71,12 +66,7 @@ const ButtonDefault = styled.div`
   border-right: none;
   margin: 0;
   padding: 0;
-  padding-top: ${props => props.readonly
-    ? '27px'
-    : props.forPrint
-    ? '16px'
-    : '0'
-  };
+  padding-top: ${props => (props.readonly ? '27px' : props.forPrint ? '16px' : '0')};
   transition: all 0.5s ease-out;
 
   :first-child {
@@ -93,11 +83,14 @@ const ButtonDefault = styled.div`
   @media screen and (max-width: 750px) {
     border-width: 1px;
     padding: 0;
-    ${props => props.readonly ? `
+    ${props =>
+      props.readonly
+        ? `
       padding-top: 0;
       height: inherit;
       line-height: 2em;
-    ` : ''}
+    `
+        : ''}
 
     :first-child {
       border-top-left-radius: 5px;
@@ -111,17 +104,20 @@ const ButtonDefault = styled.div`
   }
 
   @media print {
-    ${props => props.readonly ? `
+    ${props =>
+      props.readonly
+        ? `
       padding: 0.25em;
       border-color: #eee;
       height: auto;
       width: 9.09092%;
       font-weight: normal;
       color: #9e9e9e;
-    ` : ''}
+    `
+        : ''}
   }
 
-  input[type="radio"] {
+  input[type='radio'] {
     display: block;
     margin: 15px auto 5px;
     padding: 4px 2px 2px 4px;
@@ -130,14 +126,17 @@ const ButtonDefault = styled.div`
 
 const ButtonActive = styled(ButtonDefault)`
   @media print {
-    ${props => props.readonly ? `
+    ${props =>
+      props.readonly
+        ? `
       font-weight: bold;
       border-color: rgba(1, 122, 203, 1);
       border-right: 2px solid rgba(1, 122, 203, 1);
       border-left-width: 0;
       background-color: #fff;
       color: #000;
-    ` : ''}
+    `
+        : ''}
   }
 
   @media screen and (-ms-high-contrast: active) {
@@ -159,12 +158,12 @@ const ButtonLabel = styled.label`
   width: 100%;
   margin: 0;
   padding: 6px;
-  cursor: ${props => props.readonly ? 'default' : 'pointer'};
+  cursor: ${props => (props.readonly ? 'default' : 'pointer')};
 `
 
 const ButtonLabelNumber = styled.span`
   display: block;
-  padding: ${props => props.readonly ? '0' : '0.4em 0 0'};
+  padding: ${props => (props.readonly ? '0' : '0.4em 0 0')};
 `
 
 class LikertScale extends React.Component {
@@ -367,23 +366,14 @@ class LikertScale extends React.Component {
         data-hw-likert-max={maxValue}
       >
         <LabelsContainer className="hw-likert-labels">
-          <LeftScaleLabel
-            className="hw-likert-label hw-likert-label-left"
-            aria-hidden="true"
-          >
+          <LeftScaleLabel className="hw-likert-label hw-likert-label-left" aria-hidden="true">
             <ScaleLabelText>{minValueText}</ScaleLabelText>
           </LeftScaleLabel>
-          <RightScaleLabel
-            className="hw-likert-label hw-likert-label-right"
-            aria-hidden="true"
-          >
+          <RightScaleLabel className="hw-likert-label hw-likert-label-right" aria-hidden="true">
             <ScaleLabelText>{maxValueText}</ScaleLabelText>
           </RightScaleLabel>
         </LabelsContainer>
-        <div
-          id={scaleWrapperId}
-          className="hw-likert-scale-wrapper"
-        >
+        <div id={scaleWrapperId} className="hw-likert-scale-wrapper">
           <div className="hw-likert-axis" aria-hidden={readonly}>
             {labels}
           </div>

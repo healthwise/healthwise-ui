@@ -3,9 +3,13 @@ import { Scenarios } from './References.scenarios'
 
 const refStories = storiesOf('core|Components/References', module)
 for (const scenario of Scenarios) {
-  refStories.add(scenario.title, () => {
-    return scenario.element
-  }, {
-    info: scenario.description
-  })
+  refStories.add(
+    scenario.title,
+    () => {
+      return scenario.element
+    },
+    {
+      info: scenario.description,
+    }
+  )
 }

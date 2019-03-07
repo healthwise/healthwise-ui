@@ -20,37 +20,31 @@ const getFocusIndicator = props => {
 }
 
 const Root = styled.button`
-  padding: ${props => props.flat ? '0.75rem' : '0.75rem 1rem'};
-  border: ${props => props.flat ? 'none' : `1px solid ${getThemeVariable('color')(props)}`};
-  border-radius: ${props => props.rounded ? '4px' : '0'};
+  padding: ${props => (props.flat ? '0.75rem' : '0.75rem 1rem')};
+  border: ${props => (props.flat ? 'none' : `1px solid ${getThemeVariable('color')(props)}`)};
+  border-radius: ${props => (props.rounded ? '4px' : '0')};
   display: inline-flex;
   align-items: center;
-  background-color: ${props => props.flat || props.outlined
-    ? 'transparent'
-    : getThemeVariable('color')(props)
-  };
-  color: ${props => props.flat || props.outlined
-    ? getThemeVariable('color')(props)
-    : getThemeVariable('colorText')(props)
-  };
+  background-color: ${props =>
+    props.flat || props.outlined ? 'transparent' : getThemeVariable('color')(props)};
+  color: ${props =>
+    props.flat || props.outlined
+      ? getThemeVariable('color')(props)
+      : getThemeVariable('colorText')(props)};
   font-size: 1em;
   font-style: normal;
   text-decoration: none;
   line-height: 1;
   cursor: pointer;
-  box-shadow: ${props => props.raised && !props.disabled
-    ? '0 1px 3px 0 rgba(0, 0, 0, 0.1)'
-    : 'none'
-  };
-  opacity: ${props => props.disabled ? '0.35' : '1'};
-  pointer-events: ${props => props.disabled ? 'none' : 'auto'};
+  box-shadow: ${props =>
+    props.raised && !props.disabled ? '0 1px 3px 0 rgba(0, 0, 0, 0.1)' : 'none'};
+  opacity: ${props => (props.disabled ? '0.35' : '1')};
+  pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
 
   :hover,
   :active {
-    box-shadow: ${props => props.raised && !props.disabled
-      ? '0 1px 3px rgba(0, 0, 0, 0.4)'
-      : 'none'
-    };
+    box-shadow: ${props =>
+      props.raised && !props.disabled ? '0 1px 3px rgba(0, 0, 0, 0.4)' : 'none'};
   }
 
   :focus {
@@ -61,10 +55,10 @@ const Root = styled.button`
   svg {
     width: 1em;
     height: 1em;
-    fill: ${props => props.flat || props.outlined
-      ? getThemeVariable('color')(props)
-      : getThemeVariable('colorText')(props)
-    };
+    fill: ${props =>
+      props.flat || props.outlined
+        ? getThemeVariable('color')(props)
+        : getThemeVariable('colorText')(props)};
   }
 `
 
@@ -76,13 +70,7 @@ const Child = styled.div`
 
 class Button extends Component {
   render() {
-    const {
-      className,
-      disabled,
-      href,
-      render,
-      ...otherProps
-    } = this.props
+    const { className, disabled, href, render, ...otherProps } = this.props
 
     const ariaProps = href || otherProps.to ? { role: 'button', 'aria-disabled': disabled } : {}
 
@@ -102,7 +90,11 @@ class Button extends Component {
     if (render) {
       return render({ ...props, children })
     } else if (href) {
-      return <Root as="a" {...props}>{children}</Root>
+      return (
+        <Root as="a" {...props}>
+          {children}
+        </Root>
+      )
     } else {
       return <Root {...props}>{children}</Root>
     }

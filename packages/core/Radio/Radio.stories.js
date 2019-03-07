@@ -23,6 +23,6 @@ storiesOf('core|Form Controls/Radio', module).add(
     </div>
   ),
   {
-    info: `Demonstrates default rendering of Radio component`
+    info: `Demonstrates default rendering of Radio component`,
   }
 )

@@ -26,7 +26,7 @@ const Root = styled.span`
   color: ${getThemeVariable('color')};
 
   svg {
-    fill: ${getThemeVariable('color')}
+    fill: ${getThemeVariable('color')};
   }
 `
 
@@ -43,15 +43,7 @@ const Container = styled.div`
 
 class Message extends Component {
   render() {
-    const {
-      className,
-      children,
-      type,
-      align,
-      showIcon,
-      theme,
-      ...otherProps
-    } = this.props
+    const { className, children, type, align, showIcon, theme, ...otherProps } = this.props
 
     return (
       <Root

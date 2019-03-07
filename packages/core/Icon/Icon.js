@@ -22,7 +22,7 @@ class Icon extends Component {
     const { children, className, viewBox, ...otherProps } = this.props
     const iconClass = classNames({
       'hw-icon': true,
-      [className]: className
+      [className]: className,
     })
 
     return (
@@ -40,13 +40,13 @@ Icon.propTypes = {
   className: PropTypes.string,
   viewBox: PropTypes.string,
   theme: PropTypes.shape({
-    colorTextPrimary: PropTypes.string
-  })
+    colorTextPrimary: PropTypes.string,
+  }),
 }
 
 Icon.defaultProps = {
   viewBox: '0 0 24 24',
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default Icon

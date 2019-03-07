@@ -7,27 +7,9 @@ import { defaultTheme } from '../../Theme'
 const UsersIcon = props => {
   return (
     <Icon viewBox="0 0 96 96" {...props}>
-      <PathContrast
-        as="circle"
-        cx="81.27"
-        cy="67.13"
-        r="11.96"
-        theme={props.theme}
-      />
-      <PathContrast
-        as="circle"
-        cx="13.96"
-        cy="28.31"
-        r="11.96"
-        theme={props.theme}
-      />
-      <PathContrast
-        as="circle"
-        cx="81.19"
-        cy="28.31"
-        r="11.96"
-        theme={props.theme}
-      />
+      <PathContrast as="circle" cx="81.27" cy="67.13" r="11.96" theme={props.theme} />
+      <PathContrast as="circle" cx="13.96" cy="28.31" r="11.96" theme={props.theme} />
+      <PathContrast as="circle" cx="81.19" cy="28.31" r="11.96" theme={props.theme} />
       <PathPrimary
         d="M14.1 34.73a6.14 6.14 0 1 1 6.14-6.14 6.14 6.14 0 0 1-6.14 6.14zm0-10.54a4.41 4.41 0 1 0 4.41 4.4 4.41 4.41 0 0 0-4.41-4.4zm66.81 10.54A6.14 6.14 0 1 1 87 28.59a6.14 6.14 0 0 1-6.09 6.14zm0-10.54a4.41 4.41 0 1 0 4.4 4.4 4.42 4.42 0 0 0-4.4-4.4zM14.1 73.12A6.14 6.14 0 1 1 20.24 67a6.14 6.14 0 0 1-6.14 6.12zm0-10.54A4.4 4.4 0 1 0 18.51 67a4.4 4.4 0 0 0-4.41-4.42zm66.81 10.54A6.14 6.14 0 1 1 87 67a6.14 6.14 0 0 1-6.09 6.12zm0-10.54a4.4 4.4 0 1 0 4.4 4.4 4.41 4.41 0 0 0-4.4-4.4zM47.29 30.6a.87.87 0 0 1-.87-.87V14.35a.87.87 0 1 1 1.74 0v15.38a.87.87 0 0 1-.87.87zm0 51.14a.87.87 0 0 1-.87-.87V65.49a.87.87 0 1 1 1.74 0v15.38a.87.87 0 0 1-.87.87z"
         theme={props.theme}
@@ -62,7 +44,7 @@ const UsersIcon = props => {
 }
 
 UsersIcon.defaultProps = {
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default UsersIcon

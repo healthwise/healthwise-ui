@@ -6,8 +6,8 @@ import { defaultTheme } from '../Theme'
 import ScreenReaderOnly from '../ScreenReaderOnly'
 
 // Map data type of a cell to text-align value
-const dataTypeTextAlignMap = (dataType) => {
-  switch(dataType) {
+const dataTypeTextAlignMap = dataType => {
+  switch (dataType) {
     case 'int':
     case 'centered':
       return 'center'
@@ -21,7 +21,7 @@ const Cell = styled.td`
   padding: 0.5em 0.25em;
   vertical-align: top;
   text-align: ${props => dataTypeTextAlignMap(props.dataType)};
-  word-break: ${props => props.dataType === 'id' ? 'break-all' : 'normal'};
+  word-break: ${props => (props.dataType === 'id' ? 'break-all' : 'normal')};
 `
 
 const DefaultTable = styled.table`
@@ -55,8 +55,7 @@ const DefaultTable = styled.table`
     font-weight: bold;
   }
 
-  tbody ${Cell},
-  tfoot ${Cell} {
+  tbody ${Cell}, tfoot ${Cell} {
     font-weight: normal;
   }
 
@@ -111,7 +110,7 @@ class Table extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      totals: this.calculateTotals(props.headers, props.data)
+      totals: this.calculateTotals(props.headers, props.data),
     }
   }
 
@@ -144,15 +143,7 @@ class Table extends Component {
   }
 
   render() {
-    const {
-      headers,
-      data,
-      includeTotal,
-      caption,
-      type,
-      theme,
-      ...otherProps
-    } = this.props
+    const { headers, data, includeTotal, caption, type, theme, ...otherProps } = this.props
 
     const { totals } = this.state
     const Root = type === 'list' ? ListTable : DefaultTable
@@ -169,7 +160,8 @@ class Table extends Component {
             {headers.map((headerRow, i) => (
               <tr key={`data-table-header-${i}`}>
                 {headerRow.map((header, i) => (
-                  <Cell as="th"
+                  <Cell
+                    as="th"
                     scope="col"
                     key={`data-table-header-row-${i}`}
                     colSpan={header.colspan}
@@ -202,22 +194,17 @@ class Table extends Component {
           {includeTotal && (
             <tfoot>
               <tr>
-                {headers[headers.length - 1].map((header, i) => i === 0 ? (
-                  <Cell
-                    as="th"
-                    scope="row"
-                    key={`data-table-footer-${i}`}
-                  >
-                    Total
-                  </Cell>
-                ) : (
-                  <Cell
-                    key={`data-table-footer-${i}`}
-                    dataType="int"
-                  >
-                    {totals[header.key]}
-                  </Cell>
-                ))}
+                {headers[headers.length - 1].map((header, i) =>
+                  i === 0 ? (
+                    <Cell as="th" scope="row" key={`data-table-footer-${i}`}>
+                      Total
+                    </Cell>
+                  ) : (
+                    <Cell key={`data-table-footer-${i}`} dataType="int">
+                      {totals[header.key]}
+                    </Cell>
+                  )
+                )}
               </tr>
             </tfoot>
           )}
@@ -249,7 +236,7 @@ Table.propTypes = {
     colorBackground: PropTypes.string,
     colorBackgroundContrastLight: PropTypes.string,
     colorBorder: PropTypes.string,
-  })
+  }),
 }
 
 Table.defaultProps = {

@@ -15,6 +15,6 @@ storiesOf('content|Action', module).add(
   {
     info: `
         Demonstrates basic usage with defaults.
-      `
+      `,
   }
 )

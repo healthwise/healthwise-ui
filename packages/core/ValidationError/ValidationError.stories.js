@@ -31,6 +31,6 @@ storiesOf('core|UI Feedback/ValidationError', module).add(
     )
   },
   {
-    info: `Demonstrates default rendering of ValidationError component`
+    info: `Demonstrates default rendering of ValidationError component`,
   }
 )

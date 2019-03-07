@@ -215,24 +215,16 @@ const galleryWithImagesAndSlideshow = {
 }
 
 storiesOf('content|Media Gallery', module)
-  .add(
-    'with images',
-    () => <MediaGallery item={galleryWithImages} />,
-    {
-      info: `
+  .add('with images', () => <MediaGallery item={galleryWithImages} />, {
+    info: `
         Demonstrates rendering gallery of images
-      `
-    }
-  )
-  .add(
-    'with images and slideshow',
-    () => <MediaGallery item={galleryWithImagesAndSlideshow} />,
-    {
-      info: `
+      `,
+  })
+  .add('with images and slideshow', () => <MediaGallery item={galleryWithImagesAndSlideshow} />, {
+    info: `
         Demonstrates rendering gallery of images and slideshow
-      `
-    }
-  )
+      `,
+  })
   .add(
     'with events',
     () => (
@@ -247,6 +239,6 @@ storiesOf('content|Media Gallery', module)
     {
       info: `
         Demonstrates passing in events
-      `
+      `,
     }
   )

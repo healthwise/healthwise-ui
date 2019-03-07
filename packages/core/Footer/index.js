@@ -26,7 +26,7 @@ const FooterContent = styled.footer`
 `
 
 FooterContent.defaultProps = {
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 class Footer extends Component {
@@ -34,10 +34,7 @@ class Footer extends Component {
     const { className, children, theme } = this.props
 
     return (
-      <FooterContent
-        className={classNames('hw-content-footer', className)}
-        theme={theme}
-      >
+      <FooterContent className={classNames('hw-content-footer', className)} theme={theme}>
         {children}
       </FooterContent>
     )
@@ -50,8 +47,8 @@ Footer.propTypes = {
   theme: PropTypes.shape({
     colorBorder: PropTypes.string,
     spacingM: PropTypes.string,
-    spacingL: PropTypes.string
-  })
+    spacingL: PropTypes.string,
+  }),
 }
 
 export default Footer

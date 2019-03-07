@@ -44,6 +44,6 @@ storiesOf('core|Media/Media Credits', module).add(
     </div>
   ),
   {
-    info: `Demonstrates default rendering of MediaCredits component`
+    info: `Demonstrates default rendering of MediaCredits component`,
   }
 )

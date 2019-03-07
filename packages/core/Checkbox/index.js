@@ -42,8 +42,7 @@ const Input = styled.input`
   cursor: pointer;
   font-size: inherit;
 
-  :focus ~ ${CheckedIconContainer},
-  :focus ~ ${UncheckedIconContainer} {
+  :focus ~ ${CheckedIconContainer}, :focus ~ ${UncheckedIconContainer} {
     outline: ${props => props.theme.focusIndicator};
     outline-offset: ${props => props.theme.focusIndicatorOffset};
   }
@@ -52,8 +51,7 @@ const Input = styled.input`
     cursor: not-allowed;
   }
 
-  :disabled ~ ${CheckedIconContainer},
-  :disabled ~ ${UncheckedIconContainer} {
+  :disabled ~ ${CheckedIconContainer}, :disabled ~ ${UncheckedIconContainer} {
     opacity: 0.35;
     pointer-events: none;
   }
@@ -112,11 +110,11 @@ Checkbox.propTypes = {
     focusIndicator: PropTypes.string,
     focusIndicatorOffset: PropTypes.string,
     colorError: PropTypes.string,
-  })
+  }),
 }
 
 Checkbox.defaultProps = {
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default Checkbox

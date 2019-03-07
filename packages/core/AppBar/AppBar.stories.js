@@ -37,7 +37,7 @@ storiesOf('core|Components/AppBar', module)
       </div>
     ),
     {
-      info: `Demonstrates default rendering of AppBar component with a title`
+      info: `Demonstrates default rendering of AppBar component with a title`,
     }
   )
   .add(
@@ -57,7 +57,7 @@ storiesOf('core|Components/AppBar', module)
       </div>
     ),
     {
-      info: `Demonstrates an AppBar component with a title and menu component`
+      info: `Demonstrates an AppBar component with a title and menu component`,
     }
   )
   .add(
@@ -78,6 +78,6 @@ storiesOf('core|Components/AppBar', module)
       </div>
     ),
     {
-      info: `Demonstrates an AppBar component with a menu, title, and secondary content`
+      info: `Demonstrates an AppBar component with a menu, title, and secondary content`,
     }
   )

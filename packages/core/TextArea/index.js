@@ -174,7 +174,7 @@ Textarea.propTypes = {
     colorBorder: PropTypes.string,
     focusIndicator: PropTypes.string,
     focusIndicatorOffset: PropTypes.string,
-  })
+  }),
 }
 
 Textarea.defaultProps = {
@@ -195,7 +195,7 @@ Textarea.defaultProps = {
   onChange: function(e) {
     return e
   },
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default Textarea

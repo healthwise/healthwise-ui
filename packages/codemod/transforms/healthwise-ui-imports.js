@@ -58,12 +58,12 @@ const packageMap = {
   '@healthwise/theme': '@healthwise-ui/core/Theme',
   '@healthwise/translation': '@healthwise-ui/core/Translation',
   '@healthwise/validation-error': '@healthwise-ui/core/ValidationError',
-  '@healthwise/video-thumbnail': '@healthwise-ui/core/VideoThumbnail'
+  '@healthwise/video-thumbnail': '@healthwise-ui/core/VideoThumbnail',
 }
 
 const updateImports = declaration => {
   const importName = declaration.node.source.value
-  declaration.node.source.value = (packageMap[importName] || importName)
+  declaration.node.source.value = packageMap[importName] || importName
   return declaration.node
 }
 
@@ -75,7 +75,7 @@ const transformer = (file, api) => {
     .replaceWith(updateImports)
     .toSource({
       quote: 'single',
-      lineTerminator: '\n'
+      lineTerminator: '\n',
     })
 }
 

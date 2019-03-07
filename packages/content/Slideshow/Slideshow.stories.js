@@ -57,22 +57,18 @@ const slideshowJSON = {
 }
 
 storiesOf('content|Slideshow', module)
-  .add(
-    'with slideshow only',
-    () => <Slideshow item={slideshowJSON} />,
-    {
-      info: `
+  .add('with slideshow only', () => <Slideshow item={slideshowJSON} />, {
+    info: `
         Demonstrates default slideshow rendering
-      `
-    }
-  )
+      `,
+  })
   .add(
     'with slideshow & hidden disclaimer',
     () => <Slideshow item={slideshowJSON} hideDisclaimer />,
     {
       info: `
         Demonstrates slideshow rendering with hidden disclaimer
-      `
+      `,
     }
   )
   .add(
@@ -83,6 +79,6 @@ storiesOf('content|Slideshow', module)
     {
       info: `
         Demonstrates slideshow rendering with hidden disclaimer & slide select event
-      `
+      `,
     }
   )

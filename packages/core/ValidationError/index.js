@@ -37,12 +37,7 @@ class ValidationError extends React.Component {
     let { children, forId, ...otherAttributes } = this.props
 
     return (
-      <ErrorLabel
-        role="alert"
-        aria-atomic="true"
-        htmlFor={forId}
-        className={'hw-validation-label'}
-      >
+      <ErrorLabel role="alert" aria-atomic="true" htmlFor={forId} className={'hw-validation-label'}>
         <ValidationBox className={'hw-validation-box'} {...otherAttributes}>
           <ValidationGlyph className={'hw-validation-glyph'}>
             <svg

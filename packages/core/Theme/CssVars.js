@@ -7,14 +7,17 @@ import defaultTheme from './defaultTheme'
 // as var(--color-primary)
 const CssVars = createGlobalStyle`
   :root {
-    ${props => Object.entries(props.theme).map(([key, value]) => {
-      return `--${kebabCase(key)}: ${value};`
-    }).join('\n')}
+    ${props =>
+      Object.entries(props.theme)
+        .map(([key, value]) => {
+          return `--${kebabCase(key)}: ${value};`
+        })
+        .join('\n')}
   }
 `
 
 CssVars.defaultProps = {
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default CssVars

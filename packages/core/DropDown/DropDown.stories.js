@@ -1,18 +1,9 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import styled from 'styled-components'
 import DropDown from './index'
 
-const Container = styled.div`
-  max-width: 300px;
-`
-
-const ContainerDecorator = storyFn => (
-  <div style={{ maxWidth: '300px' }}>
-    {storyFn()}
-  </div>
-)
+const ContainerDecorator = storyFn => <div style={{ maxWidth: '300px' }}>{storyFn()}</div>
 
 const items = [
   'one',
@@ -61,30 +52,28 @@ const prompt = 'Select a key'
 
 storiesOf('core|Form Controls/Drop Down', module)
   .addDecorator(ContainerDecorator)
+  .add('Default options', () => <DropDown items={items} onSelect={action('selected')} />, {
+    info: `Demonstrates default rendering of the component.  With no size specified, it defaults to large.  With no prompt specified, it defaults to "Select a value."`,
+  })
   .add(
-    'Default options',
-    () => <DropDown items={items} onSelect={action('selected')} />,
+    'With label',
+    () => <DropDown items={items} onSelect={action('selected')} label="Test label" />,
     {
-      info: `Demonstrates default rendering of the component.  With no size specified, it defaults to large.  With no prompt specified, it defaults to "Select a value."`
+      info: `Demonstrates rendering of the component with a label`,
     }
   )
-  .add('With label', () => (
-    <DropDown items={items} onSelect={action('selected')} label="Test label" />
-  ), {
-  info: `Demonstrates rendering of the component with a label`
-})
   .add(
     'Preset value',
     () => <DropDown items={items} prompt={prompt} value="two" onSelect={action('selected')} />,
     {
-      info: `Demonstrates rendering of the component with a preset value.`
+      info: `Demonstrates rendering of the component with a preset value.`,
     }
   )
   .add(
     'Complex items',
     () => <DropDown items={complexItems} prompt={prompt} onSelect={action('selected')} />,
     {
-      info: `Demonstrates rendering of the component with a preset value.`
+      info: `Demonstrates rendering of the component with a preset value.`,
     }
   )
   .add(
@@ -93,14 +82,18 @@ storiesOf('core|Form Controls/Drop Down', module)
       <DropDown items={complexItems} prompt={prompt} value="two" onSelect={action('selected')} />
     ),
     {
-      info: `Demonstrates rendering of the component with a preset value.`
+      info: `Demonstrates rendering of the component with a preset value.`,
     }
   )
-  .add('Print DropDown', () => (
-    <DropDown items={printItems} prompt={'Print'} value="two" onSelect={action('selected')} />
-  ), {
-  info: `Print with 3 size options.`
-})
+  .add(
+    'Print DropDown',
+    () => (
+      <DropDown items={printItems} prompt={'Print'} value="two" onSelect={action('selected')} />
+    ),
+    {
+      info: `Print with 3 size options.`,
+    }
+  )
   .add(
     'Retain default text',
     () => (
@@ -113,7 +106,7 @@ storiesOf('core|Form Controls/Drop Down', module)
       />
     ),
     {
-      info: `Demonstrates a selection where the event is triggered, but the default text doesn't change.`
+      info: `Demonstrates a selection where the event is triggered, but the default text doesn't change.`,
     }
   )
   .add(
@@ -148,6 +141,6 @@ storiesOf('core|Form Controls/Drop Down', module)
       />
     ),
     {
-      info: `Demonstrates default rendering of the component with many items.`
+      info: `Demonstrates default rendering of the component with many items.`,
     }
   )

@@ -41,11 +41,11 @@ AccordionGroup.propTypes = {
   ),
   theme: PropTypes.shape({
     spacingM: PropTypes.string,
-  })
+  }),
 }
 
 AccordionGroup.defaultProps = {
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default AccordionGroup

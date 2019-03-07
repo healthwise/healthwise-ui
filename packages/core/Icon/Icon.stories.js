@@ -32,13 +32,13 @@ import Icon, {
   UpArrowIcon,
   UsersIcon,
   UsersSimpleIcon,
-  WarningIcon
+  WarningIcon,
 } from './index'
 
 const styles = {
   row: {
     display: 'flex',
-    flexFlow: 'row wrap'
+    flexFlow: 'row wrap',
   },
   container: {
     margin: '0 16px 16px 0',
@@ -49,16 +49,16 @@ const styles = {
     textAlign: 'center',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   largeIconContainer: {
     width: '96px',
-    marginBottom: '8px'
+    marginBottom: '8px',
   },
   smallIconContainer: {
     width: '48px',
-    marginBottom: '8px'
-  }
+    marginBottom: '8px',
+  },
 }
 
 const simpleSvg = (
@@ -74,7 +74,7 @@ storiesOf('core|Media/Icon', module)
       </div>
     ),
     {
-      info: `Demonstrates default rendering of Icon component`
+      info: `Demonstrates default rendering of Icon component`,
     }
   )
   .add(
@@ -283,6 +283,6 @@ storiesOf('core|Media/Icon', module)
       </div>
     ),
     {
-      info: `List of all available icons`
+      info: `List of all available icons`,
     }
   )

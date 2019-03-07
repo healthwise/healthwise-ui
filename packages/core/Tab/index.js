@@ -12,30 +12,25 @@ const Root = styled.a`
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  color: ${props => props.disabled
-    ? props.theme.colorTextDisabled
-    : props.theme.colorTextPrimary
-  };
+  color: ${props =>
+    props.disabled ? props.theme.colorTextDisabled : props.theme.colorTextPrimary};
   padding: ${props => props.theme.spacingM};
   font-size: 1.25em;
   text-align: center;
   text-decoration: none;
   border-bottom-width: 4px;
   border-bottom-style: solid;
-  border-bottom-color: ${props => props.isActive
-    ? props.theme.colorPrimary
-    : props.visited
-    ? props.theme.colorPrimaryLight
-    : 'transparent'
-  };
-  cursor: ${props => props.disabled ? 'default' : 'pointer'};
-  pointer-events: ${props => props.disabled ? 'none' : 'auto'};
+  border-bottom-color: ${props =>
+    props.isActive
+      ? props.theme.colorPrimary
+      : props.visited
+      ? props.theme.colorPrimaryLight
+      : 'transparent'};
+  cursor: ${props => (props.disabled ? 'default' : 'pointer')};
+  pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
 
   :hover {
-    border-bottom-color: ${props => props.disabled
-      ? 'transparent'
-      : props.theme.colorPrimary
-    };
+    border-bottom-color: ${props => (props.disabled ? 'transparent' : props.theme.colorPrimary)};
   }
 
   :focus {
@@ -43,10 +38,8 @@ const Root = styled.a`
   }
 
   :active {
-    border-bottom-color: ${props => props.disabled
-      ? 'transparent'
-      : props.theme.colorPrimaryDark
-    };
+    border-bottom-color: ${props =>
+      props.disabled ? 'transparent' : props.theme.colorPrimaryDark};
   }
 
   @media screen and (max-width: 750px) {
@@ -55,24 +48,13 @@ const Root = styled.a`
   }
 
   @media screen and (-ms-high-contrast: active) {
-    color: ${props => props.disabled
-      ? '#767676'
-      : '#fff'
-    };
-    border-bottom-color: ${props => props.isActive
-      ? '#fff'
-      : props.visited
-      ? '#fff'
-      : '#000'
-    };
+    color: ${props => (props.disabled ? '#767676' : '#fff')};
+    border-bottom-color: ${props => (props.isActive ? '#fff' : props.visited ? '#fff' : '#000')};
 
     :hover,
     :focus,
     :active {
-      border-bottom-color: ${props => props.disabled
-        ? '#000'
-        : '#fff'
-      };
+      border-bottom-color: ${props => (props.disabled ? '#000' : '#fff')};
     }
 
     :focus {
@@ -82,20 +64,12 @@ const Root = styled.a`
 
   @media screen and (-ms-high-contrast: black-on-white) {
     color: #000;
-    border-bottom-color: ${props => props.isActive
-      ? '#000'
-      : props.visited
-      ? '#000'
-      : '#fff'
-    };
+    border-bottom-color: ${props => (props.isActive ? '#000' : props.visited ? '#000' : '#fff')};
 
     :hover,
     :focus,
     :active {
-      border-bottom-color: ${props => props.disabled
-        ? '#fff'
-        : '#000'
-      };
+      border-bottom-color: ${props => (props.disabled ? '#fff' : '#000')};
     }
 
     :focus {
@@ -103,7 +77,6 @@ const Root = styled.a`
     }
   }
 `
-
 
 class Tab extends Component {
   render() {
@@ -121,11 +94,7 @@ class Tab extends Component {
       ...otherProps
     } = this.props
 
-    const tabClassName = classNames(
-      'hw-tab',
-      { 'hw-tab-is-active': isActive },
-      className,
-    )
+    const tabClassName = classNames('hw-tab', { 'hw-tab-is-active': isActive }, className)
 
     return (
       <Root
@@ -165,7 +134,7 @@ Tab.propTypes = {
     colorTextDisabled: PropTypes.string,
     focusIndicator: PropTypes.string,
     spacingM: PropTypes.string,
-  })
+  }),
 }
 
 Tab.defaultProps = {

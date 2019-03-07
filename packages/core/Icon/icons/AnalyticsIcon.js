@@ -32,7 +32,7 @@ const AnalyticsIcon = props => {
 }
 
 AnalyticsIcon.defaultProps = {
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default AnalyticsIcon

@@ -27,6 +27,6 @@ storiesOf('content|Story', module).add(
   {
     info: `
         Demonstrates basic usage with defaults.
-      `
+      `,
   }
 )

@@ -44,11 +44,11 @@ BlockHeading.propTypes = {
     colorTextOnPrimary: PropTypes.string,
     spacingM: PropTypes.string,
     spacingL: PropTypes.string,
-  })
+  }),
 }
 
 BlockHeading.defaultProps = {
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default BlockHeading

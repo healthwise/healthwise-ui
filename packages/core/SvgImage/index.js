@@ -1,4 +1,4 @@
-/* global fetch, DOMParser, document */
+/* global fetch, DOMParser */
 import React, { Component } from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
@@ -16,10 +16,13 @@ const Root = styled.span`
   }
 
   .hw-svg-built {
-    ${props => props.recolor ? `
+    ${props =>
+      props.recolor
+        ? `
       stroke: ${props.theme.colorNeutral};
       fill: ${props.theme.colorNeutral};
-    ` : ''}
+    `
+        : ''}
   }
 `
 
@@ -109,10 +112,7 @@ class SvgImage extends Component {
                 if (styleMap[`.${className}`]) {
                   className = styleMap[`.${className}`].substr(1)
                 }
-                classElement.setAttribute(
-                  'class',
-                  `${className} hw-svg-built`
-                )
+                classElement.setAttribute('class', `${className} hw-svg-built`)
               }
               wrapper.replaceChild(svg, img)
             }
@@ -125,15 +125,7 @@ class SvgImage extends Component {
   }
 
   render() {
-    const {
-      src,
-      alt,
-      additionalClassName,
-      children,
-      recolor,
-      theme,
-      ...otherProps
-    } = this.props
+    const { src, alt, additionalClassName, children, recolor, theme, ...otherProps } = this.props
 
     if (children || recolor) {
       // Peeled off invalid image attributes

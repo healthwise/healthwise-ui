@@ -7,6 +7,6 @@ storiesOf('core|Components/Footer', module).add(
   'with defaults',
   () => <Footer>Footer content</Footer>,
   {
-    info: `Demonstrates default rendering of Footer component`
+    info: `Demonstrates default rendering of Footer component`,
   }
 )

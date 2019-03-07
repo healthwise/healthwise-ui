@@ -67,7 +67,7 @@ storiesOf('core|Components/Table', module)
     'Default with two levels of headings',
     () => <Table headers={twoLevelsOfHeaders} data={twoLevelData} caption="Test caption" />,
     {
-      info: `Renders a Table with default options with two levels of headings`
+      info: `Renders a Table with default options with two levels of headings`,
     }
   )
   .add(
@@ -76,19 +76,21 @@ storiesOf('core|Components/Table', module)
       <Table headers={twoLevelsOfHeaders} data={twoLevelData} caption="Test caption" includeTotal />
     ),
     {
-      info: `Renders a Table with totals and two levels of headings`
+      info: `Renders a Table with totals and two levels of headings`,
     }
   )
-  .add('With one level of headers', () => (
-    <Table headers={oneLevelOfHeaders} data={oneLevelData} caption="Test caption" />
-  ), {
-  info: `Renders a Table with one level of headers`
-})
+  .add(
+    'With one level of headers',
+    () => <Table headers={oneLevelOfHeaders} data={oneLevelData} caption="Test caption" />,
+    {
+      info: `Renders a Table with one level of headers`,
+    }
+  )
   .add(
     'With one level of headers and a colspan',
     () => <Table headers={oneLevelOfHeadersColSpan} data={oneLevelData} caption="Test caption" />,
     {
-      info: `Renders a Table with one level of headers and a colspan`
+      info: `Renders a Table with one level of headers and a colspan`,
     }
   )
   .add(
@@ -111,7 +113,7 @@ storiesOf('core|Components/Table', module)
       />
     ),
     {
-      info: `Renders a Table with special formatting for number columns`
+      info: `Renders a Table with special formatting for number columns`,
     }
   )
   .add(
@@ -135,57 +137,69 @@ storiesOf('core|Components/Table', module)
       />
     ),
     {
-      info: `Renders a Table with number columns and a total row`
+      info: `Renders a Table with number columns and a total row`,
     }
   )
-  .add('With dates', () => (
-    <Table
-      headers={[
-        [
-          { key: 'firstColumn', label: 'First Column' },
-          { key: 'secondColumn', label: 'Second Column', type: 'date' },
-          { key: 'thirdColumn', label: 'Third Column', type: 'int' },
-          { key: 'fourthColumn', label: 'Fourth Column', type: 'int' },
-        ],
-      ]}
-      data={[
-        { firstColumn: 'test1', secondColumn: '01/01/2017', thirdColumn: '1', fourthColumn: '10' },
-        { firstColumn: 'test4', secondColumn: '02/25/2017', thirdColumn: '50', fourthColumn: '25' },
-        { firstColumn: 'test7', secondColumn: '12/15/2017', thirdColumn: '5', fourthColumn: '15' },
-      ]}
-      caption="Test caption"
-      includeTotal
-    />
-  ), {
-  info: `Renders a Table with formatting for date columns`
-})
-  .add('With no headers', () => (
-    <Table headers={[]} data={oneLevelData} caption="Test caption" />
-  ), {
-  info: `Renders a Table with no column headers`
-})
-  .add('With no data', () => (
-    <Table headers={oneLevelOfHeaders} data={[]} caption="Test caption" />
-  ), {
-  info: `Renders a Table with no data`
-})
-  .add('Empty', () => (
-    <Table headers={[]} data={[]} caption="Test caption" />
-  ), {
-  info: `Renders a Table with no data`
-})
   .add(
-    'List type table with two levels of headers',
+    'With dates',
     () => (
       <Table
-        headers={twoLevelsOfHeaders}
-        data={twoLevelData}
+        headers={[
+          [
+            { key: 'firstColumn', label: 'First Column' },
+            { key: 'secondColumn', label: 'Second Column', type: 'date' },
+            { key: 'thirdColumn', label: 'Third Column', type: 'int' },
+            { key: 'fourthColumn', label: 'Fourth Column', type: 'int' },
+          ],
+        ]}
+        data={[
+          {
+            firstColumn: 'test1',
+            secondColumn: '01/01/2017',
+            thirdColumn: '1',
+            fourthColumn: '10',
+          },
+          {
+            firstColumn: 'test4',
+            secondColumn: '02/25/2017',
+            thirdColumn: '50',
+            fourthColumn: '25',
+          },
+          {
+            firstColumn: 'test7',
+            secondColumn: '12/15/2017',
+            thirdColumn: '5',
+            fourthColumn: '15',
+          },
+        ]}
         caption="Test caption"
-        type="list"
+        includeTotal
       />
     ),
     {
-      info: `Renders a list type table with two levels of headers`
+      info: `Renders a Table with formatting for date columns`,
+    }
+  )
+  .add('With no headers', () => <Table headers={[]} data={oneLevelData} caption="Test caption" />, {
+    info: `Renders a Table with no column headers`,
+  })
+  .add(
+    'With no data',
+    () => <Table headers={oneLevelOfHeaders} data={[]} caption="Test caption" />,
+    {
+      info: `Renders a Table with no data`,
+    }
+  )
+  .add('Empty', () => <Table headers={[]} data={[]} caption="Test caption" />, {
+    info: `Renders a Table with no data`,
+  })
+  .add(
+    'List type table with two levels of headers',
+    () => (
+      <Table headers={twoLevelsOfHeaders} data={twoLevelData} caption="Test caption" type="list" />
+    ),
+    {
+      info: `Renders a list type table with two levels of headers`,
     }
   )
   .add(
@@ -194,7 +208,7 @@ storiesOf('core|Components/Table', module)
       <Table headers={oneLevelOfHeaders} data={oneLevelData} caption="Test caption" type="list" />
     ),
     {
-      info: `Renders a list type Table with one level of headers`
+      info: `Renders a list type Table with one level of headers`,
     }
   )
   .add(
@@ -209,6 +223,6 @@ storiesOf('core|Components/Table', module)
       />
     ),
     {
-      info: `Renders a list type Table with one level of headers and totals`
+      info: `Renders a list type Table with one level of headers and totals`,
     }
   )

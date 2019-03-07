@@ -52,7 +52,7 @@ const bufferAnimation = keyframes`
 
 const Root = styled.div`
   position: relative;
-  padding-top: ${props => props.showPercentage ? '1.25em' : '0'};
+  padding-top: ${props => (props.showPercentage ? '1.25em' : '0')};
 `
 
 const Value = styled.div`
@@ -68,7 +68,7 @@ const BarContainer = styled.div`
   width: 100%;
   height: 4px;
   overflow: hidden;
-  transform: ${props => props.progressBarType === 'query' ? 'rotate(180deg)' : 'none'};
+  transform: ${props => (props.progressBarType === 'query' ? 'rotate(180deg)' : 'none')};
 `
 
 const DefaultBar = styled.div`
@@ -100,11 +100,11 @@ const Buffer = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  background-image: radial-gradient(${
-    getThemeVariable('color', { variant: 'light' })
-  } 0%, ${
-    getThemeVariable('color', { variant: 'light'})
-  } 16%, transparent 42%);
+  background-image: radial-gradient(
+    ${getThemeVariable('color', { variant: 'light' })} 0%,
+    ${getThemeVariable('color', { variant: 'light' })} 16%,
+    transparent 42%
+  );
   background-size: 10px 10px;
   background-position: 0px -23px;
   animation: ${bufferAnimation} 3s infinite linear;
@@ -165,16 +165,8 @@ class ProgressBar extends Component {
           )}
           {(progressBarType === 'indeterminate' || progressBarType === 'query') && (
             <Fragment>
-              <IndeterminateBar1
-                className="hw-progress-bar-fill"
-                color={color}
-                theme={theme}
-              />
-              <IndeterminateBar2
-                className="hw-progress-bar-fill"
-                color={color}
-                theme={theme}
-              />
+              <IndeterminateBar1 className="hw-progress-bar-fill" color={color} theme={theme} />
+              <IndeterminateBar2 className="hw-progress-bar-fill" color={color} theme={theme} />
             </Fragment>
           )}
           {progressBarType === 'buffer' && (
@@ -185,11 +177,7 @@ class ProgressBar extends Component {
                 theme={theme}
                 style={{ width: percent + '%' }}
               />
-              <Buffer
-                className="hw-progress-bar-buffer"
-                color={color}
-                theme={theme}
-              />
+              <Buffer className="hw-progress-bar-buffer" color={color} theme={theme} />
             </Fragment>
           )}
           <Background
@@ -197,9 +185,7 @@ class ProgressBar extends Component {
             color={color}
             theme={theme}
             style={{
-              width: progressBarType === 'buffer'
-                ? bufferPercent + '%'
-                : '100%'
+              width: progressBarType === 'buffer' ? bufferPercent + '%' : '100%',
             }}
           />
         </BarContainer>
@@ -221,7 +207,7 @@ ProgressBar.propTypes = {
     colorNeutralLight: PropTypes.string,
     colorNeutral: PropTypes.string,
     colorTextPrimary: PropTypes.string,
-  })
+  }),
 }
 
 ProgressBar.defaultProps = {
