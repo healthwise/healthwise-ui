@@ -1,17 +1,101 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import styled from 'styled-components'
 
+import { defaultTheme } from '../Theme'
 import ScreenReaderOnly from '../ScreenReaderOnly'
-import styles from './Table.css'
 
-const typeClassMap = {
-  string: '',
-  date: styles.date,
-  int: styles.int,
-  id: styles.id,
-  centered: styles.centered,
-}
+const DefaultTable = styled.table`
+  width: 100%;
+  font-size: 1em;
+  line-height: 1em;
+  padding: 0.5em 0.25em;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 0.5em 0.25em;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  thead {
+    background-color: ${props => props.theme.colorBackground};
+  }
+
+  thead tr:not(:only-child) {
+    border-bottom: 4px solid ${props => props.theme.colorBackgroundLight};
+  }
+
+  thead tr:first-child:not(:only-child) th {
+    padding: 0.75em;
+    font-size: 1.25em;
+    text-align: center;
+    font-weight: normal;
+    border-right: 4px solid ${props => props.theme.colorBackgroundLight};
+  }
+
+  thead tr:first-child:not(:only-child) th:last-child {
+    border-right: none;
+  }
+
+  thead th {
+    font-weight: bold;
+  }
+
+  tbody th,
+  tfoot th {
+    font-weight: normal;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid ${props => props.theme.colorBorder};
+  }
+
+  tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  tfoot tr {
+    border-top: 2px solid ${props => props.theme.colorBorder};
+    border-bottom: none;
+  }
+`
+
+const ListTable = styled(DefaultTable)`
+  border-collapse: separate;
+  border-spacing: 0 4px;
+
+  th,
+  td {
+    padding: 0.5em;
+    vertical-align: middle;
+  }
+
+  thead,
+  thead tr {
+    background-color: transparent;
+  }
+
+  thead tr:first-child:not(:only-child) {
+    background-color: ${props => props.theme.colorBackgroundContrastLight};
+  }
+
+  tbody tr {
+    background-color: ${props => props.theme.colorBackgroundLight};
+  }
+
+  tbody th:first-child,
+  tbody td:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  tbody td:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+`
 
 class Table extends Component {
   constructor(props) {
@@ -21,7 +105,6 @@ class Table extends Component {
       metaData: metaData,
     }
 
-    this.getTypeClass = this.getTypeClass.bind(this)
     this.renderHeaders = this.renderHeaders.bind(this)
     this.renderHeaderRow = this.renderHeaderRow.bind(this)
     this.renderRows = this.renderRows.bind(this)
@@ -62,11 +145,6 @@ class Table extends Component {
     return metaData
   }
 
-  getTypeClass(cell) {
-    const { metaData } = this.state
-    return typeClassMap[metaData[cell.key].type]
-  }
-
   renderHeaders(headers) {
     return headers.map((headerRow, i) => {
       return <tr key={`data-table-header-${i}`}>{this.renderHeaderRow(headerRow)}</tr>
@@ -79,7 +157,6 @@ class Table extends Component {
         <th
           scope="col"
           key={`data-table-header-row-${i}`}
-          className={this.getTypeClass(header)}
           colSpan={header.colspan}
         >
           {header.label}
@@ -93,17 +170,15 @@ class Table extends Component {
     return data.map((row, i) => {
       const cells = headers.map((header, j) => {
         const itemKey = `data-table-cell-${i}-${j}`
-        const rowClassNames = classNames(this.getTypeClass(header), header.key)
         if (j === 0) {
           return (
-            <th scope="row" key={itemKey} className={rowClassNames} colSpan={header.colspan}>
+            <th scope="row" key={itemKey} className={header.key} colSpan={header.colspan}>
               {row[header.key]}
             </th>
           )
         } else {
-          const cellClassNames = classNames(this.getTypeClass(header), header.key)
           return (
-            <td key={itemKey} className={cellClassNames} colSpan={header.colspan}>
+            <td key={itemKey} className={header.key} colSpan={header.colspan}>
               {row[header.key]}
             </td>
           )
@@ -131,7 +206,7 @@ class Table extends Component {
         return <td key={`data-table-footer-${i}`} />
       } else {
         return (
-          <td key={`data-table-footer-${i}`} className={this.getTypeClass(header)}>
+          <td key={`data-table-footer-${i}`}>
             {metaData[header.key].total}
           </td>
         )
@@ -139,18 +214,16 @@ class Table extends Component {
     })
   }
 
-  render(props) {
-    const { headers, data, includeTotal, caption, type, ...otherProps } = this.props
-    const className = classNames({
-      'hw-table': true,
-      [styles.Table]: true,
-      [styles.list]: type === 'list',
-    })
+  render() {
+    const { headers, data, includeTotal, caption, type, theme, ...otherProps } = this.props
+
+    const Root = type === 'list' ? ListTable : DefaultTable
+
     if (headers.length === 0) {
-      return <table className={className} {...otherProps} />
+      return <Root className="hw-table" theme={theme} {...otherProps} />
     } else {
       return (
-        <table className={className} {...otherProps}>
+        <Root className="hw-table" theme={theme} {...otherProps}>
           <caption className="hw-table-caption">
             <ScreenReaderOnly>{caption}</ScreenReaderOnly>
           </caption>
@@ -161,7 +234,7 @@ class Table extends Component {
               <tr>{this.renderTotals(headers)}</tr>
             </tfoot>
           )}
-        </table>
+        </Root>
       )
     }
   }
@@ -184,11 +257,18 @@ Table.propTypes = {
   caption: PropTypes.string.isRequired,
   includeTotal: PropTypes.bool,
   type: PropTypes.oneOf(['data', 'list']),
+  theme: PropTypes.shape({
+    colorBackgroundLight: PropTypes.string,
+    colorBackground: PropTypes.string,
+    colorBackgroundContrastLight: PropTypes.string,
+    colorBorder: PropTypes.string,
+  })
 }
 
 Table.defaultProTypes = {
   includeTotal: false,
   type: 'data',
+  theme: defaultTheme,
 }
 
 export default Table
