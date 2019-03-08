@@ -1,5 +1,3 @@
-// export { default } from './Icon'
-
 export { default as Accordion } from './Accordion'
 export { default as AccordionGroup } from './AccordionGroup'
 export { default as AppBar } from './AppBar'
