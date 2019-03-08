@@ -1,0 +1,25 @@
+{
+  "name": "@healthwise-ui/eslint-plugin",
+  "version": "0.0.1",
+  "author": "Healthwise",
+  "description": "Custom Healthwise ESLint configuration",
+  "license": "MIT",
+  "repository": "healthwise/healthwise-ui",
+  "bugs": "https://github.com/healthwise/healthwise-ui/issues",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react-app": "^3.0.0"
+  },
+  "peerDependencies": {
+    "eslint": "^5.5.0",
+    "prettier": "^1.14.2"
+  }
+}

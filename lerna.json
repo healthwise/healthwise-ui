@@ -1,14 +1,16 @@
 {
-  "lerna": "2.11.0",
+  "version": "0.0.1",
   "packages": [
-    "src/archetypes/*",
-    "src/components/*",
-    "src/structured-content/*"
+    "packages/*"
   ],
-  "version": "independent",
   "command": {
     "publish": {
       "allowBranch": "master"
+    },
+    "bootstrap": {
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
     }
   }
 }

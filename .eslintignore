@@ -1,0 +1,9 @@
+.DS_Store
+npm-debug.log.*
+thumbs.db
+*.log
+node_modules/
+dist/
+coverage/
+storybook-static/
+__testfixtures__/
