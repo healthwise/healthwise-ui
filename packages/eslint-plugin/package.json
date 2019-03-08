@@ -1,6 +1,6 @@
 {
   "name": "@healthwise-ui/eslint-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Healthwise",
   "description": "Custom Healthwise ESLint configuration",
   "license": "MIT",
