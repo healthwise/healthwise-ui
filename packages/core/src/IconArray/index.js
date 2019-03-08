@@ -90,12 +90,12 @@ function IconWrapper(props) {
 IconWrapper.propTypes = {
   iconStyle: PropTypes.string,
   id: PropTypes.string,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 IconWrapper.defaultProps = {
   iconStyle: 'icon_off',
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 class IconArray extends Component {
@@ -133,37 +133,21 @@ class IconArray extends Component {
   getSvgPart(style, otherAttributes, as = 'path') {
     switch (style) {
       case 'icon_on':
-        return (
-          <IconOnPath as={as} {...otherAttributes} theme={this.props.theme} />
-        )
+        return <IconOnPath as={as} {...otherAttributes} theme={this.props.theme} />
       case 'icon_range':
-        return (
-          <IconRangePath
-            as={as}
-            {...otherAttributes}
-            theme={this.props.theme}
-          />
-        )
+        return <IconRangePath as={as} {...otherAttributes} theme={this.props.theme} />
       default:
-        return (
-          <IconOffPath as={as} {...otherAttributes} theme={this.props.theme} />
-        )
+        return <IconOffPath as={as} {...otherAttributes} theme={this.props.theme} />
     }
   }
 
   getNeutralIcon(key, iconStyle = 'icon_off') {
     return (
-      <IconWrapper
-        key={key}
-        id={key}
-        iconStyle={iconStyle}
-        theme={this.props.theme}
-      >
+      <IconWrapper key={key} id={key} iconStyle={iconStyle} theme={this.props.theme}>
         <g>
           {this.getSvgPart(iconStyle, {
             strokeWidth: '3',
-            d:
-              'm40.50356,32.83198l-15.50356,47.16802l-15.50356,-47.16802l31.00712,0z'
+            d: 'm40.50356,32.83198l-15.50356,47.16802l-15.50356,-47.16802l31.00712,0z',
           })}
           {this.getSvgPart(
             iconStyle,
@@ -171,7 +155,7 @@ class IconArray extends Component {
               strokeWidth: '3',
               cy: '20.5',
               cx: '25',
-              r: '9.0625'
+              r: '9.0625',
             },
             'circle'
           )}
@@ -182,12 +166,7 @@ class IconArray extends Component {
 
   getFemaleIcon(key, iconStyle = 'icon_off') {
     return (
-      <IconWrapper
-        key={key}
-        id={key}
-        iconStyle={iconStyle}
-        theme={this.props.theme}
-      >
+      <IconWrapper key={key} id={key} iconStyle={iconStyle} theme={this.props.theme}>
         <g>
           {this.getSvgPart(
             iconStyle,
@@ -195,7 +174,7 @@ class IconArray extends Component {
               strokeWidth: '1',
               cy: '15.99642',
               cx: '25',
-              r: '7.49054'
+              r: '7.49054',
             },
             'circle'
           )}
@@ -207,7 +186,7 @@ class IconArray extends Component {
             strokeOpacity: 'null',
             strokeWidth: '1',
             stroke: 'null',
-            fill: 'null'
+            fill: 'null',
           })}
         </g>
       </IconWrapper>
@@ -216,17 +195,12 @@ class IconArray extends Component {
 
   getMaleIcon(key, iconStyle = 'icon_off') {
     return (
-      <IconWrapper
-        key={key}
-        id={key}
-        iconStyle={iconStyle}
-        theme={this.props.theme}
-      >
+      <IconWrapper key={key} id={key} iconStyle={iconStyle} theme={this.props.theme}>
         <g>
           {this.getSvgPart(iconStyle, {
             strokeWidth: '1.53',
             d:
-              'm43.48424,33.63831l0,-2.74599c0,-2.88918 -3.36696,-5.23169 -7.52503,-5.23169l-21.92206,0c-4.15567,0 -7.52503,2.34251 -7.52503,5.23169l0,2.74599c-0.00727,0.06233 -0.01212,0.12635 -0.01212,0.1912l0,15.81639c0,1.22895 1.43208,2.22458 3.19975,2.22458c1.76525,0 3.20095,-0.99563 3.20095,-2.22458l0,-15.58222l2.14568,0l0,17.80848l0.01575,0l0,25.16285c0,1.6358 1.91065,2.96499 4.26592,2.96499c2.35649,0 4.26592,-1.3275 4.26592,-2.96499l0,-25.16285l2.81447,0l0,25.16285c0,1.6358 1.91183,2.96499 4.26592,2.96499c2.35648,0 4.26591,-1.3275 4.26591,-2.96499l0,-25.16285l0.01333,0l0,-17.80848l2.14568,0l0,15.58137c0,1.22896 1.4357,2.22543 3.20096,2.22543c1.76769,0 3.19975,-0.99647 3.19975,-2.22543l0,-15.81638c-0.0012,-0.0657 -0.0085,-0.12804 -0.01575,-0.19037l0,0l0,0.00001z'
+              'm43.48424,33.63831l0,-2.74599c0,-2.88918 -3.36696,-5.23169 -7.52503,-5.23169l-21.92206,0c-4.15567,0 -7.52503,2.34251 -7.52503,5.23169l0,2.74599c-0.00727,0.06233 -0.01212,0.12635 -0.01212,0.1912l0,15.81639c0,1.22895 1.43208,2.22458 3.19975,2.22458c1.76525,0 3.20095,-0.99563 3.20095,-2.22458l0,-15.58222l2.14568,0l0,17.80848l0.01575,0l0,25.16285c0,1.6358 1.91065,2.96499 4.26592,2.96499c2.35649,0 4.26592,-1.3275 4.26592,-2.96499l0,-25.16285l2.81447,0l0,25.16285c0,1.6358 1.91183,2.96499 4.26592,2.96499c2.35648,0 4.26591,-1.3275 4.26591,-2.96499l0,-25.16285l0.01333,0l0,-17.80848l2.14568,0l0,15.58137c0,1.22896 1.4357,2.22543 3.20096,2.22543c1.76769,0 3.19975,-0.99647 3.19975,-2.22543l0,-15.81638c-0.0012,-0.0657 -0.0085,-0.12804 -0.01575,-0.19037l0,0l0,0.00001z',
           })}
           {this.getSvgPart(
             iconStyle,
@@ -234,7 +208,7 @@ class IconArray extends Component {
               strokeWidth: '1.5',
               cy: '15.99642',
               cx: '25',
-              r: '7.49054'
+              r: '7.49054',
             },
             'circle'
           )}
@@ -259,13 +233,13 @@ class IconArray extends Component {
     const getIconFactory = {
       neutral: (key, style) => this.getNeutralIcon(key, style),
       female: (key, style) => this.getFemaleIcon(key, style),
-      male: (key, style) => this.getMaleIcon(key, style)
+      male: (key, style) => this.getMaleIcon(key, style),
     }
 
     const iconStyles = {
       on: 'icon_on',
       off: 'icon_off',
-      midRange: 'icon_range'
+      midRange: 'icon_range',
     }
 
     let { minRange, maxRange, total, iconType, forceBreakOn } = this.props
@@ -314,8 +288,8 @@ IconArray.propTypes = {
     colorNeutralLight: PropTypes.string,
     colorPrimaryDark: PropTypes.string,
     colorPrimary: PropTypes.string,
-    colorBorder: PropTypes.string
-  })
+    colorBorder: PropTypes.string,
+  }),
 }
 
 IconArray.defaultProps = {
@@ -323,7 +297,7 @@ IconArray.defaultProps = {
   total: '100',
   iconType: 'neutral',
   forceBreakOn: 10,
-  theme: defaultTheme
+  theme: defaultTheme,
 }
 
 export default IconArray
