@@ -2,10 +2,10 @@ import React from 'react'
 import { configure, addDecorator, addParameters } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { create } from '@storybook/theming'
-import CssBaseline from '../packages/core/CssBaseline'
+import CssBaseline from '../packages/core/src/CssBaseline'
 // TODO: We shouldn't need the CssVars component once we finish refactoring
 // the content package to use styled-components
-import { CssVars } from '../packages/core/Theme'
+import { CssVars } from '../packages/core/src/Theme'
 
 addDecorator(withInfo)
 addDecorator(story => {
@@ -28,18 +28,28 @@ addParameters({
       base: 'light',
       brandTitle: 'Healthwise UI',
       brandUrl: 'https://github.com/healthwise/healthwise-ui',
-    })
-  }
+    }),
+  },
 })
 
 // Automatically import all files ending in *.stories.js
-const req = require.context(
-  '../packages',
-  true,
-  /^((?![/\\\\]node_modules[/\\\\]).)*\.stories\.js$/
-)
+// const req = require.context(
+//   '../packages',
+//   true,
+//   /^((?![/\\\\]node_modules[/\\\\]).)*\.stories\.js$/
+// )
+// function loadStories() {
+//   req.keys().forEach(filename => req(filename))
+//}
+
 function loadStories() {
+  const req = require.context(
+    '../packages',
+    true,
+    /^((?![/\\\\]node_modules[/\\\\]).)*\.stories\.js$/
+  )
   req.keys().forEach(filename => req(filename))
 }
+configure(loadStories, module)
 
 configure(loadStories, module)
