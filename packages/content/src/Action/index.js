@@ -1,15 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-import styles from './Action.css'
+const Div = styled.div`
+  display: block;
+`
 
 class Action extends React.Component {
   render() {
     let { data, ...otherProps } = this.props
-    const outerClasses = 'hw-content-action ' + styles.action
+    const outerClasses = 'hw-content-action'
 
     return (
-      <div
+      <Div
         className={outerClasses}
         {...otherProps}
         dangerouslySetInnerHTML={{ __html: data.html }}

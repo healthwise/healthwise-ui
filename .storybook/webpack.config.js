@@ -13,7 +13,7 @@ module.exports = ({ config, mode }) => {
   cssLoader.use[1].options = {
     importLoaders: 1,
     modules: true,
-    localIdentName: '[name]--[local]'
+    localIdentName: '[name]--[local]',
   }
 
   // TODO: Lerna should make this unnecessary, but for some reason components in

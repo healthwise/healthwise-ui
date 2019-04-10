@@ -1,7 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-import styles from './Credits.css'
+const P = styled.p`
+  margin: 0;
+  :first-child {
+    margin-top: 1em;
+  }
+  :last-child {
+    margin-bottom: 1em;
+  }
+`
+
+const Span = styled.span`
+  font-weight: 600;
+`
 
 class Credits extends Component {
   render() {
@@ -30,25 +43,24 @@ class Credits extends Component {
     return (
       <div className={className + ' hw-structured-content-credits'} {...otherAttributes}>
         {asOfDate ? (
-          <p className={styles.credits_wrapper}>
-            <span className={styles.credits_label}>{currentLabel}:</span> {asOfDate}
-          </p>
+          <P>
+            <Span>{currentLabel}:</Span> {asOfDate}
+          </P>
         ) : (
           ''
         )}
         {credits.author && credits.author.name ? (
-          <p className={styles.credits_wrapper}>
-            <span className={styles.credits_label}>{authorLabel}:</span> {credits.author.name}
-          </p>
+          <P>
+            <Span>{authorLabel}:</Span> {credits.author.name}
+          </P>
         ) : (
           ''
         )}
         {primaryReviewers.length ? (
-          <p className={styles.credits_wrapper}>
-            <span className={styles.credits_label}>{reviewLabel}:</span>{' '}
-            {primaryReviewers.join('; ')}
+          <P>
+            <Span>{reviewLabel}:</Span> {primaryReviewers.join('; ')}
             {secondaryReviewers.length ? ' & ' + secondaryReviewers.join('; ') : ''}
-          </p>
+          </P>
         ) : (
           ''
         )}

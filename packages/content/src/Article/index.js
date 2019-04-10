@@ -1,9 +1,23 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-
-import styles from './Article.css'
+import styled from 'styled-components'
 
 import Insights from '../Insights'
+
+const Div = styled.div`
+  :global(.HwImageWrapper) {
+    display: inline;
+    float: right;
+    padding: 0 0 1em 1em;
+  }
+  li :global(.HwCmd) {
+    display: inline;
+    font-weight: bold;
+  }
+  li :global(.HwInfo) {
+    padding-left: 30px;
+  }
+`
 
 class Article extends Component {
   constructor(props) {
@@ -24,11 +38,11 @@ class Article extends Component {
 
     if (sections && sections.length) {
       return (
-        <div className={styles.article}>
+        <Div>
           {sections.map(function(item, i) {
             return <div key={i} dangerouslySetInnerHTML={{ __html: item.html }} />
           })}
-        </div>
+        </Div>
       )
     }
   }
