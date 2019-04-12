@@ -1,9 +1,86 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styles from './Slideshow.css'
+import styled from 'styled-components'
 
 import Insights from '../Insights'
 import MediaCredits from '../MediaCredits'
+
+const UlNav = styled.span`
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin-right: 4px;
+  }
+`
+
+const NavItemButton = styled.button`
+  display: block;
+  width: 36px;
+  height: 36px;
+  line-height: 32px;
+  font-size: 1em;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  background: #fff;
+  border: 1px solid #abb2c1;
+  border-radius: 1px;
+
+  :focus,
+  :hover {
+    background: #99caeb;
+    outline: solid 1px #000;
+    outline-offset: 1px;
+    cursor: pointer;
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    background: #000;
+    border: 1px solid #fff;
+
+    :focus,
+    :hover {
+      background: #fff;
+      color: #000;
+    }
+  }
+
+  @media screen and (-ms-high-contrast: black-on-white) {
+    background: #fff;
+    border: 1px solid #000;
+
+    :focus,
+    :hover {
+      background: #000;
+      color: #fff;
+    }
+  }
+`
+
+const NavItemActiveButton = styled.NavItemButton`
+  background: #017acd;
+  border: 1px solid #abb2c1;
+  color: #fff;
+
+  @media screen and (-ms-high-contrast: active) {
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+  }
+
+  @media screen and (-ms-high-contrast: black-on-white) {
+    background: #000;
+    border: 1px solid #fff;
+    color: #fff;
+  }
+`
+
+/* ensures that larger images don't exceed the slideshow wrapper */
+const SlideshowDiv = styled.Div`
+  max-width: 100%;
+`
 
 class Slideshow extends Component {
   constructor(props) {
@@ -87,27 +164,37 @@ class Slideshow extends Component {
     if (len > 1) {
       for (var i = 1; i <= len; i++) {
         const num = i
-        const currentItemClass = i === current ? styles.activeNav : ''
+        const currentItem = i === current
 
         /* eslint-disable react/jsx-no-bind */
         navLis.push(
           <li key={'nav_' + i}>
-            <button
-              type="button"
-              className={`${styles.nav_item} ${currentItemClass}`}
-              onClick={function() {
-                onNavClick(num - 1)
-              }}
-            >
-              {i}
-            </button>
+            {currentItem ? (
+              <NavItemActiveButton
+                type="button"
+                onClick={function() {
+                  onNavClick(num - 1)
+                }}
+              >
+                {i}
+              </NavItemActiveButton>
+            ) : (
+              <NavItemButton
+                type="button"
+                onClick={function() {
+                  onNavClick(num - 1)
+                }}
+              >
+                {i}
+              </NavItemButton>
+            )}
           </li>
         )
         /* eslint-enable react/jsx-no-bind */
       }
     }
 
-    return <ul className={styles.nav}>{navLis}</ul>
+    return <UlNav>{navLis}</UlNav>
   }
 
   render() {
@@ -122,7 +209,7 @@ class Slideshow extends Component {
 
     if (item) {
       toReturn = (
-        <div className={'hw-sc-slideshow ' + styles.slideshow}>
+        <SlideshowDiv className={'hw-sc-slideshow'}>
           {this.renderSlide()}
           <MediaCredits
             hideDisclaimer={hideDisclaimer}
@@ -134,7 +221,7 @@ class Slideshow extends Component {
           <div style={{ display: 'none' }} aria-hidden="true">
             {previewItems}
           </div>
-        </div>
+        </SlideshowDiv>
       )
     }
 

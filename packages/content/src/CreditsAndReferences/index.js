@@ -1,11 +1,48 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-
-import styles from './CreditsAndReferences.css'
+import styled from 'styled-components'
 
 import Credits from '../Credits'
 import References from '@healthwise-ui/core/References'
 import { getKey } from '@healthwise-ui/core/KeyGen'
+
+const SpanIcon = styled.span`
+  box-sizing: border-box;
+  width: 16px;
+  padding: 0 4px 4px 0;
+  svg {
+    width: 100%;
+  }
+  svg path {
+    fill: #017acd;
+  }
+`
+
+const Button = styled.button`
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background: transparent;
+  border: none;
+  color: #017acd;
+  cursor: pointer;
+
+  :hover,
+  :focus {
+    outline: 2px #017acd solid;
+  }
+`
+
+const Div = styled.div`
+  margin: 19px 0 0;
+
+  p {
+    font-size: 0.8em;
+  }
+`
 
 class CreditsAndReferences extends Component {
   constructor(props) {
@@ -25,7 +62,7 @@ class CreditsAndReferences extends Component {
   getIcon(id) {
     if (this.state.showCredits) {
       return (
-        <span className={styles.icon}>
+        <SpanIcon>
           <title>Close</title>
           <svg
             role="presentation"
@@ -37,11 +74,11 @@ class CreditsAndReferences extends Component {
           >
             <path d="M0 5l5-5 5 5" fillRule="evenodd" />
           </svg>
-        </span>
+        </SpanIcon>
       )
     }
     return (
-      <span className={styles.icon}>
+      <SpanIcon>
         <svg
           role="presentation"
           focusable="false"
@@ -53,7 +90,7 @@ class CreditsAndReferences extends Component {
           <title>Open</title>
           <path d="M10 0H0l5 5" fillRule="evenodd" />
         </svg>
-      </span>
+      </SpanIcon>
     )
   }
 
@@ -69,7 +106,6 @@ class CreditsAndReferences extends Component {
       this.state.showCredits || this.props.readOnly ? (
         <div
           id={id}
-          className={styles.regon_wrapper}
           role="region"
           aria-live="polite"
           aria-atomic="false"
@@ -90,22 +126,17 @@ class CreditsAndReferences extends Component {
     const toggleButton = this.props.readOnly ? (
       <h3>{this.props.buttonLabel}</h3>
     ) : (
-      <button
-        aria-controls={creditsId}
-        type="button"
-        className={styles.button}
-        onClick={this.toggleCredits}
-      >
+      <Button aria-controls={creditsId} type="button" onClick={this.toggleCredits}>
         {this.getIcon()}
         <span>{this.props.buttonLabel}</span>
-      </button>
+      </Button>
     )
 
     return (
-      <div className={styles.wrapper}>
-        <div className={styles.button_wrapper}>{toggleButton}</div>
+      <Div>
+        <div>{toggleButton}</div>
         {this.renderRegion(creditsId)}
-      </div>
+      </Div>
     )
   }
 }

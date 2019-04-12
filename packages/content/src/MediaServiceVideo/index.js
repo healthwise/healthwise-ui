@@ -1,7 +1,33 @@
 import React, { Component } from 'react'
 import MediaCredits from '../MediaCredits'
 import PropTypes from 'prop-types'
-import styles from './MediaServiceVideo.css'
+import styled from 'styled-components'
+
+const SpanAbstract = styled.span`
+  padding-left: 0;
+  padding-right: 0;
+  display: block;
+  margin: 1em 0;
+`
+
+const H3Title = styled.h3`
+  margin: 0.5em 0;
+  font-size: 1.375em;
+  line-height: 1.1em;
+  font-weight: 400;
+`
+
+const SpanType = styled.span`
+  font-size: 0.75em;
+  margin: 0.75em 0 0;
+  padding-left: 0;
+  padding-right: 0;
+  display: block;
+`
+
+const Video = styled.div`
+  width: 100%;
+`
 
 class MediaServiceVideo extends Component {
   constructor(props) {
@@ -87,30 +113,30 @@ class MediaServiceVideo extends Component {
 
     if (!hideAbstract) {
       const dom = this.parseHtml(`<div>${item.html}</div>`)
-      abstract = <span className={styles.abstract}>{item.abstract.consumer}</span>
-      title = <h3 className={styles.title}>{dom.querySelector('h3').firstChild.nodeValue}</h3>
+      abstract = <SpanAbstract>{item.abstract.consumer}</SpanAbstract>
+      title = <H3Title>{dom.querySelector('h3').firstChild.nodeValue}</H3Title>
     }
 
     if (!hideType) {
-      type = <span className={styles.type}>{videoLabel}</span>
+      type = <SpanType>{videoLabel}</SpanType>
     }
 
     return (
-      <div
+      <Video
         ref={el => {
           this.videoWrapperElement = el
         }}
-        className={styles.videoWrapper}
       >
         {type}
         {title}
         {abstract}
-        <iframe
+        <Video
+          as="iframe"
           ref={el => {
             this.videoElement = el
           }}
           title="Video"
-          className={`hw-slide-video ${styles.video}`}
+          className={`hw-slide-video`}
           src={videoUrl}
           frameBorder="0"
           scrolling="no"
@@ -123,7 +149,7 @@ class MediaServiceVideo extends Component {
           credits={item.credits || undefined}
           transcriptHtml={item.transcript.html}
         />
-      </div>
+      </Video>
     )
   }
 }

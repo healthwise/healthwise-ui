@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import Button from '../../core/Button'
+import Button from '@healthwise-ui/core/Button'
 import CallToAction from './index'
 
 const item = {

@@ -1,10 +1,73 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
-import styles from './CallToAction.css'
+import styled from 'styled-components'
 
 import SVGImage from '@healthwise-ui/core/SvgImage'
+
+const TextWrapperDiv = styled.div`
+  padding-bottom: 0.75em;
+  text-align: left;
+`
+
+const WrapperSection = styled.section`
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 14px 24px 24px;
+  text-align: center;
+  background-color: var(--color-background);
+
+  h3 {
+    margin-top: 23px;
+    margin-left: 65px;
+    font-size: 2em;
+    line-height: 1em;
+    font-weight: normal;
+    color: var(--color-primary);
+  }
+
+  img,
+  svg {
+    position: absolute;
+    top: 27px;
+    max-width: 48px;
+    max-height: 48px;
+  }
+
+  p {
+    font-size: 1em;
+    line-height: 1.33;
+    color: var(--color-text-primary);
+  }
+
+  button {
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 1.5em;
+    border-radius: 0.25em;
+    border-color: transparent;
+    color: var(--color-text-on-primary);
+    background: var(--color-primary);
+  }
+
+  button:hover {
+    color: var(--color-text-on-primary-light);
+    background: var(--color-primary-light);
+  }
+
+  @media screen and (max-width: 750px) {
+    h3 {
+      margin-top: 26px;
+    }
+  }
+
+  @media print {
+    display: none;
+  }
+`
 
 class CallToAction extends Component {
   constructor(props) {
@@ -51,11 +114,11 @@ class CallToAction extends Component {
   renderHtmlParts() {
     const elements = this.parseHtml()
     return (
-      <div className={styles.text_wrapper}>
+      <TextWrapperDiv>
         {elements.title}
         {elements.img}
         {elements.paragraphs}
-      </div>
+      </TextWrapperDiv>
     )
   }
 
@@ -64,14 +127,13 @@ class CallToAction extends Component {
 
     const wrapperClasses = classNames({
       'hw-call-to-action': true,
-      [styles.wrapper]: true,
     })
 
     return (
-      <section className={wrapperClasses}>
+      <WrapperSection className={wrapperClasses}>
         {renderHtmlParts()}
         {this.props.actionButtons}
-      </section>
+      </WrapperSection>
     )
   }
 }

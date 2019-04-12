@@ -1,11 +1,122 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styles from './MediaGallery.css'
+import styled from 'styled-components'
 
 import Insights from '../Insights'
 import Slideshow from '../Slideshow'
 import MediaServiceVideo from '../MediaServiceVideo'
 import Image from './Image'
+
+const SvgVideoThumbnailOverlay = styled.svg`
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+`
+
+const SectionGallery = styled.section`
+  padding: 0 48px;
+  margin-bottom: 40px;
+
+  h3,
+  :global(.HwCmd) {
+    margin: 0.5em 0;
+    font-size: 1.375em;
+    line-height: 1.1em;
+    font-weight: normal;
+    color: #212121;
+  }
+
+  :global(.HwInfo),
+  :global(.HwVideo) {
+    padding: 8px;
+    border: 1px solid #abb2c1;
+    line-height: 0;
+  }
+
+  :global(.HwInfo) {
+    text-align: center;
+  }
+
+  :global(.HwInfo) p,
+  :global(.HwVideo) p {
+    padding: 0 8px;
+    line-height: 1.3em;
+    text-align: left;
+  }
+
+  :global(.HwImageWrapper) {
+    display: inline-block;
+    width: 50%;
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  :global(.HwImageWrapper:only-of-type) {
+    float: none;
+    width: 100%;
+  }
+
+  :global(.HwImageWrapper) img {
+    max-width: 100%;
+  }
+
+  :global(.HwInfo .HwSection) {
+    clear: both;
+  }
+
+  @media screen and (max-width: 750px) {
+    padding: 0;
+
+    :global(.HwImageWrapper) {
+      float: none;
+      width: 100%;
+    }
+
+    :global(.HwMedicalImage) {
+      width: 100%;
+    }
+  }
+`
+
+const UlList = styled.ul`
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin-right: 4px;
+  }
+`
+
+const ThumbnailButton = styled.button`
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 84px;
+  height: 56px;
+  border: 1px solid #abb2c1;
+  cursor: pointer;
+
+  :focus,
+  :hover {
+    border: 1px solid #99caeb;
+    outline: 2px solid #000;
+  }
+
+  img {
+    width: 84px;
+    height: 56px;
+  }
+`
+
+const ActiveThumbnailButton = styled.ThumbnailButton`
+  border: 1px solid #017acd;
+`
 
 class MediaGallery extends Component {
   constructor(props) {
@@ -87,47 +198,76 @@ class MediaGallery extends Component {
         itemList.topics.length > this.state.currentSlide ? this.state.currentSlide : 0
 
       itemList.topics.forEach((item, i) => {
-        const activeThumbnail = currentSlide === i ? styles.activeThumbnail : ''
+        const activeThumbnail = currentSlide === i ? true : false
         const userIndex = i + 1
 
         switch (item.type) {
           case 'hwVideo':
             thumbnails.push(
               <li key={i}>
-                <button
-                  type="button"
-                  aria-controls="hwGallery_slide"
-                  className={`${styles.thumbnail} ${activeThumbnail}`}
-                  onClick={() => {
-                    onThumbnailClick(i, item)
-                  }}
-                >
-                  <img
-                    src={item.thumbnail}
-                    alt={`load video, ${userIndex} of ${itemList.topics.length} items`}
-                  />
-                  <svg
-                    role="presentation"
-                    focusable="false"
-                    className={styles.videoThumbnailOverlay}
-                    width="40"
-                    height="40"
-                    viewBox="0 0 40 40"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
+                {activeThumbnail ? (
+                  <ActiveThumbnailButton
+                    type="button"
+                    aria-controls="hwGallery_slide"
+                    onClick={() => {
+                      onThumbnailClick(i, item)
+                    }}
                   >
-                    <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                      <rect fillOpacity="0.8" fill="#017ACD" x="0" y="0" width="40" height="40" />
-                      <g transform="translate(12.5, 12.5)" fill="#FAFAFA">
-                        <polygon points="5 3.125 5 11.875 11.875 7.5" />
+                    <img
+                      src={item.thumbnail}
+                      alt={`load video, ${userIndex} of ${itemList.topics.length} items`}
+                    />
+                    <SvgVideoThumbnailOverlay
+                      role="presentation"
+                      focusable="false"
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                        <rect fillOpacity="0.8" fill="#017ACD" x="0" y="0" width="40" height="40" />
+                        <g transform="translate(12.5, 12.5)" fill="#FAFAFA">
+                          <polygon points="5 3.125 5 11.875 11.875 7.5" />
+                        </g>
                       </g>
-                    </g>
-                  </svg>
-                </button>
+                    </SvgVideoThumbnailOverlay>
+                  </ActiveThumbnailButton>
+                ) : (
+                  <ThumbnailButton
+                    type="button"
+                    aria-controls="hwGallery_slide"
+                    onClick={() => {
+                      onThumbnailClick(i, item)
+                    }}
+                  >
+                    <img
+                      src={item.thumbnail}
+                      alt={`load video, ${userIndex} of ${itemList.topics.length} items`}
+                    />
+                    <SvgVideoThumbnailOverlay
+                      role="presentation"
+                      focusable="false"
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                        <rect fillOpacity="0.8" fill="#017ACD" x="0" y="0" width="40" height="40" />
+                        <g transform="translate(12.5, 12.5)" fill="#FAFAFA">
+                          <polygon points="5 3.125 5 11.875 11.875 7.5" />
+                        </g>
+                      </g>
+                    </SvgVideoThumbnailOverlay>
+                  </ThumbnailButton>
+                )}
               </li>
             )
             slides.push(
-              <div className={styles.slide} key={i}>
+              <div className="slide" key={i}>
                 <MediaServiceVideo
                   hideDisclaimer
                   item={item}
@@ -144,23 +284,37 @@ class MediaGallery extends Component {
 
             thumbnails.push(
               <li key={i}>
-                <button
-                  type="button"
-                  aria-controls="hwGallery_slide"
-                  className={`${styles.thumbnail} ${activeThumbnail}`}
-                  onClick={() => {
-                    onThumbnailClick(i, item)
-                  }}
-                >
-                  <img
-                    src={slideshowThumbSrc}
-                    alt={`load slideshow, ${userIndex} of ${itemList.topics.length} items`}
-                  />
-                </button>
+                {activeThumbnail ? (
+                  <ActiveThumbnailButton
+                    type="button"
+                    aria-controls="hwGallery_slide"
+                    onClick={() => {
+                      onThumbnailClick(i, item)
+                    }}
+                  >
+                    <img
+                      src={slideshowThumbSrc}
+                      alt={`load slideshow, ${userIndex} of ${itemList.topics.length} items`}
+                    />
+                  </ActiveThumbnailButton>
+                ) : (
+                  <ThumbnailButton
+                    type="button"
+                    aria-controls="hwGallery_slide"
+                    onClick={() => {
+                      onThumbnailClick(i, item)
+                    }}
+                  >
+                    <img
+                      src={slideshowThumbSrc}
+                      alt={`load slideshow, ${userIndex} of ${itemList.topics.length} items`}
+                    />
+                  </ThumbnailButton>
+                )}
               </li>
             )
             slides.push(
-              <div className={styles.slide} key={i}>
+              <div className="slide" key={i}>
                 <Slideshow hideDisclaimer item={item} onSlideSelected={onSlideSelected} />
               </div>
             )
@@ -171,24 +325,39 @@ class MediaGallery extends Component {
 
             thumbnails.push(
               <li key={i}>
-                <button
-                  type="button"
-                  aria-controls="hwGallery_slide"
-                  className={`${styles.thumbnail} ${activeThumbnail}`}
-                  onClick={() => {
-                    onThumbnailClick(i, item)
-                  }}
-                >
-                  {/* eslint-disable-next-line react-app/jsx-a11y/img-redundant-alt */}
-                  <img
-                    src={mediaThumbSrc}
-                    alt={`load image, ${userIndex} of ${itemList.topics.length} items`}
-                  />
-                </button>
+                {activeThumbnail ? (
+                  <ActiveThumbnailButton
+                    type="button"
+                    aria-controls="hwGallery_slide"
+                    onClick={() => {
+                      onThumbnailClick(i, item)
+                    }}
+                  >
+                    {/* eslint-disable-next-line react-app/jsx-a11y/img-redundant-alt */}
+                    <img
+                      src={mediaThumbSrc}
+                      alt={`load image, ${userIndex} of ${itemList.topics.length} items`}
+                    />
+                  </ActiveThumbnailButton>
+                ) : (
+                  <ThumbnailButton
+                    type="button"
+                    aria-controls="hwGallery_slide"
+                    onClick={() => {
+                      onThumbnailClick(i, item)
+                    }}
+                  >
+                    {/* eslint-disable-next-line react-app/jsx-a11y/img-redundant-alt */}
+                    <img
+                      src={mediaThumbSrc}
+                      alt={`load image, ${userIndex} of ${itemList.topics.length} items`}
+                    />
+                  </ThumbnailButton>
+                )}
               </li>
             )
             slides.push(
-              <div className={styles.slide} key={i}>
+              <div className="slide" key={i}>
                 <Image hideDisclaimer item={item} />
               </div>
             )
@@ -199,8 +368,8 @@ class MediaGallery extends Component {
       })
 
       return (
-        <section className={styles.gallery}>
-          <ul className={styles.list}>{thumbnails}</ul>
+        <SectionGallery>
+          <UlList>{thumbnails}</UlList>
 
           <div
             id="hwGallery_slide"
@@ -212,7 +381,7 @@ class MediaGallery extends Component {
           >
             {slides[currentSlide]}
           </div>
-        </section>
+        </SectionGallery>
       )
     } else {
       return null
