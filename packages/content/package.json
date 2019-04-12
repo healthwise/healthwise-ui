@@ -1,6 +1,6 @@
 {
   "name": "@healthwise-ui/content",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Shared React UI library to use with Healthwise content.",
   "main": "index.js",
   "unpkg": "healthwise-ui.min.js",
@@ -34,7 +34,7 @@
     "video.js": "^6.8.0"
   },
   "peerDependencies": {
-    "@healthwise-ui/core": "^0.0.3",
+    "@healthwise-ui/core": "^0.0.4",
     "react": ">=16.3.0"
   }
 }
