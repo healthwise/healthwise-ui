@@ -114,7 +114,28 @@ const ThumbnailButton = styled.button`
   }
 `
 
-const ActiveThumbnailButton = styled.ThumbnailButton`
+const ActiveThumbnailButton = styled.button`
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 84px;
+  height: 56px;
+  border: 1px solid #abb2c1;
+  cursor: pointer;
+
+  :focus,
+  :hover {
+    border: 1px solid #99caeb;
+    outline: 2px solid #000;
+  }
+
+  img {
+    width: 84px;
+    height: 56px;
+  }
+
   border: 1px solid #017acd;
 `
 

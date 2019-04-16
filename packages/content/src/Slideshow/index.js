@@ -59,7 +59,49 @@ const NavItemButton = styled.button`
   }
 `
 
-const NavItemActiveButton = styled.NavItemButton`
+const NavItemActiveButton = styled.button`
+  display: block;
+  width: 36px;
+  height: 36px;
+  line-height: 32px;
+  font-size: 1em;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  background: #fff;
+  border: 1px solid #abb2c1;
+  border-radius: 1px;
+
+  :focus,
+  :hover {
+    background: #99caeb;
+    outline: solid 1px #000;
+    outline-offset: 1px;
+    cursor: pointer;
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    background: #000;
+    border: 1px solid #fff;
+
+    :focus,
+    :hover {
+      background: #fff;
+      color: #000;
+    }
+  }
+
+  @media screen and (-ms-high-contrast: black-on-white) {
+    background: #fff;
+    border: 1px solid #000;
+
+    :focus,
+    :hover {
+      background: #000;
+      color: #fff;
+    }
+  }
+
   background: #017acd;
   border: 1px solid #abb2c1;
   color: #fff;

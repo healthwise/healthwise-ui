@@ -88,7 +88,40 @@ const NavItemButton = styled.button`
   }
 `
 
-const NavItemActiveButton = styled.NavItemButton`
+const NavItemActiveButton = styled.button`
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8em;
+  margin: 5px 2px 0;
+  padding: 10px 15px;
+  color: #017acd;
+  border: none;
+  background: transparent;
+
+  :focus,
+  :hover {
+    color: #015c9a;
+    cursor: pointer;
+    outline: 2px solid #000;
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    :focus,
+    :hover {
+      outline: 2px solid #fff;
+    }
+  }
+
+  @media screen and (-ms-high-contrast: black-on-white) {
+    :focus,
+    :hover {
+      outline: 2px solid #000;
+    }
+  }
+
   background: #f0f1f4;
   border-radius: 1px;
 
@@ -103,7 +136,40 @@ const NavItemActiveButton = styled.NavItemButton`
   }
 `
 
-const NavTranscriptItemButton = styled.NavItemButton`
+const NavTranscriptItemButton = styled.button`
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8em;
+  margin: 5px 2px 0;
+  padding: 10px 15px;
+  color: #017acd;
+  border: none;
+  background: transparent;
+
+  :focus,
+  :hover {
+    color: #015c9a;
+    cursor: pointer;
+    outline: 2px solid #000;
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    :focus,
+    :hover {
+      outline: 2px solid #fff;
+    }
+  }
+
+  @media screen and (-ms-high-contrast: black-on-white) {
+    :focus,
+    :hover {
+      outline: 2px solid #000;
+    }
+  }
+
   padding: 5px 15px;
   :disabled {
     padding: 0;
@@ -115,7 +181,50 @@ const NavTranscriptItemButton = styled.NavItemButton`
   }
 `
 
-const NavTranscriptItemActiveButton = styled.NavTranscriptItemButton`
+const NavTranscriptItemActiveButton = styled.button`
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8em;
+  margin: 5px 2px 0;
+  padding: 10px 15px;
+  color: #017acd;
+  border: none;
+  background: transparent;
+
+  :focus,
+  :hover {
+    color: #015c9a;
+    cursor: pointer;
+    outline: 2px solid #000;
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    :focus,
+    :hover {
+      outline: 2px solid #fff;
+    }
+  }
+
+  @media screen and (-ms-high-contrast: black-on-white) {
+    :focus,
+    :hover {
+      outline: 2px solid #000;
+    }
+  }
+
+  padding: 5px 15px;
+  :disabled {
+    padding: 0;
+  }
+  :disabled:focus,
+  :disabled:hover {
+    outline: none;
+    cursor: default;
+  }
+
   background: #f0f1f4;
   border-radius: 1px;
 
