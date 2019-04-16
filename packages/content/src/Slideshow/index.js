@@ -120,7 +120,7 @@ const NavItemActiveButton = styled.button`
 `
 
 /* ensures that larger images don't exceed the slideshow wrapper */
-const SlideshowDiv = styled.Div`
+const SlideshowDiv = styled.div`
   max-width: 100%;
 `
 
