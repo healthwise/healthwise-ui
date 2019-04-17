@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import uniqueId from 'lodash/uniqueId'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
 import Message from '../Message'
@@ -370,4 +370,4 @@ InputText.defaultProps = {
   theme: defaultTheme,
 }
 
-export default InputText
+export default withTheme(InputText)

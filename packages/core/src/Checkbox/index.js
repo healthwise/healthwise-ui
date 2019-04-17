@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
 import { CheckboxCheckedIcon, CheckboxUncheckedIcon } from '../Icon'
@@ -117,4 +117,4 @@ Checkbox.defaultProps = {
   theme: defaultTheme,
 }
 
-export default Checkbox
+export default withTheme(Checkbox)

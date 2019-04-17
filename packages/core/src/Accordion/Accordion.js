@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel'
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
@@ -169,4 +169,4 @@ Accordion.defaultProps = {
   theme: defaultTheme,
 }
 
-export default Accordion
+export default withTheme(Accordion)

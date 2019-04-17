@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
 import ScreenReaderOnly from '../ScreenReaderOnly'
@@ -81,4 +81,4 @@ LoadingIndicator.defaultProps = {
   theme: defaultTheme,
 }
 
-export default LoadingIndicator
+export default withTheme(LoadingIndicator)

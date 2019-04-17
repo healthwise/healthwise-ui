@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
 
@@ -49,4 +49,4 @@ Icon.defaultProps = {
   theme: defaultTheme,
 }
 
-export default Icon
+export default withTheme(Icon)

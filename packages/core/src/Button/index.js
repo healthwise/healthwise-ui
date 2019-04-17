@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme, getThemeVariable } from '../Theme'
 
@@ -154,4 +154,4 @@ Button.defaultProps = {
   theme: defaultTheme,
 }
 
-export default Button
+export default withTheme(Button)

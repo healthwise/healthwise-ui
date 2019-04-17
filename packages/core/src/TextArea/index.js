@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
 import { getKey } from '../KeyGen'
@@ -198,4 +198,4 @@ Textarea.defaultProps = {
   theme: defaultTheme,
 }
 
-export default Textarea
+export default withTheme(Textarea)

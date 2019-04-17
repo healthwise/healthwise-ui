@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import MuiDialog from '@material-ui/core/Dialog'
 import MuiDialogContent from '@material-ui/core/DialogContent'
 import { withStyles } from '@material-ui/core/styles'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import uniqueId from 'lodash/uniqueId'
 
 import Button from '../Button'
@@ -146,4 +146,4 @@ Modal.defaultProps = {
   theme: defaultTheme,
 }
 
-export default Modal
+export default withTheme(Modal)

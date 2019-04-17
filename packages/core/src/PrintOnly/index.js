@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 const Root = styled.div`
   display: none;
@@ -23,4 +23,4 @@ PrintOnly.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default PrintOnly
+export default withTheme(PrintOnly)

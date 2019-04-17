@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
 import CssParser from '../CssParser'
@@ -165,4 +165,4 @@ SvgImage.defaultProps = {
   theme: defaultTheme,
 }
 
-export default SvgImage
+export default withTheme(SvgImage)

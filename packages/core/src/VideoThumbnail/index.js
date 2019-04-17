@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { defaultTheme } from '../Theme'
@@ -109,4 +109,4 @@ VideoThumbnail.defaultProps = {
   theme: defaultTheme,
 }
 
-export default VideoThumbnail
+export default withTheme(VideoThumbnail)

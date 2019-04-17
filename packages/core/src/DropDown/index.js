@@ -7,7 +7,7 @@ import {
   MenuItem as AriaMenuItem,
 } from 'react-aria-menubutton'
 import uniqueId from 'lodash/uniqueId'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
 import { DownArrowIcon, UpArrowIcon } from '../Icon'
@@ -324,4 +324,4 @@ DropDown.defaultProps = {
   theme: defaultTheme,
 }
 
-export default DropDown
+export default withTheme(DropDown)

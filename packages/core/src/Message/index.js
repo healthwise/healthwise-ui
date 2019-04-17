@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme, getThemeVariable } from '../Theme'
 import { InfoIcon, WarningIcon } from '../Icon'
@@ -82,4 +82,4 @@ Message.defaultProps = {
   theme: defaultTheme,
 }
 
-export default Message
+export default withTheme(Message)

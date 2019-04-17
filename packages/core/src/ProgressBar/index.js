@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, withTheme } from 'styled-components'
 
 import { defaultTheme, getThemeVariable } from '../Theme'
 
@@ -219,4 +219,4 @@ ProgressBar.defaultProps = {
   theme: defaultTheme,
 }
 
-export default ProgressBar
+export default withTheme(ProgressBar)

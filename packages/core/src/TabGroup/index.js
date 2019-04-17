@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
 import Tab from '../Tab'
@@ -111,4 +111,4 @@ TabGroup.defaultProps = {
   theme: defaultTheme,
 }
 
-export default TabGroup
+export default withTheme(TabGroup)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
 
@@ -300,4 +300,4 @@ IconArray.defaultProps = {
   theme: defaultTheme,
 }
 
-export default IconArray
+export default withTheme(IconArray)

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import Radio from '../Radio'
 import ScreenReaderOnly from '../ScreenReaderOnly'
@@ -417,4 +417,4 @@ LikertScale.defaultProps = {
   onAnswer: function() {},
 }
 
-export default LikertScale
+export default withTheme(LikertScale)
