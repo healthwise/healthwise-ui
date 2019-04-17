@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 const Img = styled.img`
   width: 100%;
@@ -27,4 +27,4 @@ Image.defaultProps = {
   alt: '',
 }
 
-export default Image
+export default withTheme(Image)

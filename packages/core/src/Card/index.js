@@ -5,7 +5,7 @@ import MuiCard from '@material-ui/core/Card'
 import MuiCardContent from '@material-ui/core/CardContent'
 import MuiCardMedia from '@material-ui/core/CardMedia'
 import { withStyles } from '@material-ui/core/styles'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import ButtonGroup from '../ButtonGroup'
 import { defaultTheme } from '../Theme'
@@ -131,4 +131,4 @@ Card.defaultProps = {
   theme: defaultTheme,
 }
 
-export default Card
+export default withTheme(Card)

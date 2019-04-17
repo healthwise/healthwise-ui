@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
 import ScreenReaderOnly from '../ScreenReaderOnly'
@@ -245,5 +245,5 @@ Table.defaultProps = {
   theme: defaultTheme,
 }
 
-export default Table
+export default withTheme(Table)
 export { dataPropShape, headersPropShape }

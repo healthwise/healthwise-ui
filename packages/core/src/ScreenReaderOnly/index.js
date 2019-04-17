@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
 const Root = styled.div`
   position: absolute;
@@ -29,4 +29,4 @@ ScreenReaderOnly.propTypes = {
   children: PropTypes.node,
 }
 
-export default ScreenReaderOnly
+export default withTheme(ScreenReaderOnly)

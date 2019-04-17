@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 
 const ErrorLabel = styled.label`
@@ -71,4 +71,4 @@ ValidationError.propTypes = {
   forId: PropTypes.string,
 }
 
-export default ValidationError
+export default withTheme(ValidationError)
