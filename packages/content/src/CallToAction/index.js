@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import styled, { withTheme } from 'styled-components'
 
-import { defaultTheme } from '../Theme'
+import { defaultTheme } from '@healthwise-ui/core/Theme'
 
 import SVGImage from '@healthwise-ui/core/SvgImage'
 

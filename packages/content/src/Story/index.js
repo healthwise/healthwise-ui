@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 
-import { defaultTheme } from '../Theme'
+import { defaultTheme } from '@healthwise-ui/core/Theme'
 
 const StoryDiv = styled.div`
   :global(.HwImageWrapper) {
