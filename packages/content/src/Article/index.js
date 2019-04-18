@@ -5,16 +5,16 @@ import styled from 'styled-components'
 import Insights from '../Insights'
 
 const Div = styled.div`
-  :global(.HwImageWrapper) {
+  &:global(.HwImageWrapper) {
     display: inline;
     float: right;
     padding: 0 0 1em 1em;
   }
-  li :global(.HwCmd) {
+  & li :global(.HwCmd) {
     display: inline;
     font-weight: bold;
   }
-  li :global(.HwInfo) {
+  & li :global(.HwInfo) {
     padding-left: 30px;
   }
 `

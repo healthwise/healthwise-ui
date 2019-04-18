@@ -22,7 +22,7 @@ const WrapperSection = styled.section`
   text-align: center;
   background-color: ${props => props.theme.colorBackground};
 
-  h3 {
+  & h3 {
     margin-top: 23px;
     margin-left: 65px;
     font-size: 2em;
@@ -31,21 +31,21 @@ const WrapperSection = styled.section`
     color: ${props => props.theme.colorPrimary};
   }
 
-  img,
-  svg {
+  & img,
+  & svg {
     position: absolute;
     top: 27px;
     max-width: 48px;
     max-height: 48px;
   }
 
-  p {
+  & p {
     font-size: 1em;
     line-height: 1.33;
     color: ${props => props.theme.colorTextPrimary};
   }
 
-  button {
+  & button {
     margin-right: 0.5em;
     margin-bottom: 0.5em;
     font-size: 1.5em;
@@ -55,13 +55,13 @@ const WrapperSection = styled.section`
     background: ${props => props.theme.colorPrimary};
   }
 
-  button:hover {
+  & button:hover {
     color: ${props => props.theme.colorTextOnPrimaryLight};
     background: ${props => props.theme.colorPrimaryLight};
   }
 
   @media screen and (max-width: 750px) {
-    h3 {
+    & h3 {
       margin-top: 26px;
     }
   }

@@ -5,7 +5,7 @@ import styled, { withTheme } from 'styled-components'
 import { defaultTheme } from '@healthwise-ui/core/Theme'
 
 const StoryDiv = styled.div`
-  :global(.HwImageWrapper) {
+  &:global(.HwImageWrapper) {
     float: right;
     margin: 0 0 0 20px;
     background: ${props => props.theme.colorBackgroundContrastLight};
@@ -13,11 +13,11 @@ const StoryDiv = styled.div`
     line-height: 1;
   }
 
-  :global(.HwImageWrapper) img {
+  &:global(.HwImageWrapper) img {
     border: 3px solid ${props => props.theme.colorBorder};
   }
 
-  :global(.HwNote) {
+  &:global(.HwNote) {
     float: right;
     clear: both;
     margin-bottom: 20px;
@@ -27,7 +27,7 @@ const StoryDiv = styled.div`
     color: ${props => props.theme.colorTextPrimary};
   }
 
-  :global(.HwNote) ~ :global(.HwNote) {
+  &:global(.HwNote) ~ &:global(.HwNote) {
     display: none;
   }
 `

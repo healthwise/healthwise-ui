@@ -4,10 +4,10 @@ import styled from 'styled-components'
 
 const P = styled.p`
   margin: 0;
-  :first-child {
+  &:first-child {
     margin-top: 1em;
   }
-  :last-child {
+  &:last-child {
     margin-bottom: 1em;
   }
 `

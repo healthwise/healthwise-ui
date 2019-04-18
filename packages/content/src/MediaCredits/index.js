@@ -10,7 +10,7 @@ const DivWrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
 
-  p {
+  & p {
     font-size: 0.8em;
   }
 `
@@ -28,7 +28,7 @@ const NavUl = styled.ul`
   margin: 0;
   padding: 0;
 
-  li {
+  & li {
     display: inline-block;
   }
 
@@ -48,7 +48,7 @@ const IconSpan = styled.span`
   width: 18px;
   margin-right: 4px;
 
-  svg {
+  & svg {
     width: 100%;
   }
 `
@@ -66,23 +66,23 @@ const NavItemButton = styled.button`
   border: none;
   background: transparent;
 
-  :focus,
-  :hover {
+  &:focus,
+  &:hover {
     color: #015c9a;
     cursor: pointer;
     outline: 2px solid #000;
   }
 
   @media screen and (-ms-high-contrast: active) {
-    :focus,
-    :hover {
+    &:focus,
+    &:hover {
       outline: 2px solid #fff;
     }
   }
 
   @media screen and (-ms-high-contrast: black-on-white) {
-    :focus,
-    :hover {
+    &:focus,
+    &:hover {
       outline: 2px solid #000;
     }
   }
@@ -101,23 +101,23 @@ const NavItemActiveButton = styled.button`
   border: none;
   background: transparent;
 
-  :focus,
-  :hover {
+  &:focus,
+  &:hover {
     color: #015c9a;
     cursor: pointer;
     outline: 2px solid #000;
   }
 
   @media screen and (-ms-high-contrast: active) {
-    :focus,
-    :hover {
+    &:focus,
+    &:hover {
       outline: 2px solid #fff;
     }
   }
 
   @media screen and (-ms-high-contrast: black-on-white) {
-    :focus,
-    :hover {
+    &:focus,
+    &:hover {
       outline: 2px solid #000;
     }
   }
@@ -149,33 +149,33 @@ const NavTranscriptItemButton = styled.button`
   border: none;
   background: transparent;
 
-  :focus,
-  :hover {
+  &:focus,
+  &:hover {
     color: #015c9a;
     cursor: pointer;
     outline: 2px solid #000;
   }
 
   @media screen and (-ms-high-contrast: active) {
-    :focus,
-    :hover {
+    &:focus,
+    &:hover {
       outline: 2px solid #fff;
     }
   }
 
   @media screen and (-ms-high-contrast: black-on-white) {
-    :focus,
-    :hover {
+    &:focus,
+    &:hover {
       outline: 2px solid #000;
     }
   }
 
   padding: 5px 15px;
-  :disabled {
+  &:disabled {
     padding: 0;
   }
-  :disabled:focus,
-  :disabled:hover {
+  &:disabled:focus,
+  &:disabled:hover {
     outline: none;
     cursor: default;
   }
@@ -194,33 +194,33 @@ const NavTranscriptItemActiveButton = styled.button`
   border: none;
   background: transparent;
 
-  :focus,
-  :hover {
+  &:focus,
+  &:hover {
     color: #015c9a;
     cursor: pointer;
     outline: 2px solid #000;
   }
 
   @media screen and (-ms-high-contrast: active) {
-    :focus,
-    :hover {
+    &:focus,
+    &:hover {
       outline: 2px solid #fff;
     }
   }
 
   @media screen and (-ms-high-contrast: black-on-white) {
-    :focus,
-    :hover {
+    &:focus,
+    &:hover {
       outline: 2px solid #000;
     }
   }
 
   padding: 5px 15px;
-  :disabled {
+  &:disabled {
     padding: 0;
   }
-  :disabled:focus,
-  :disabled:hover {
+  &:disabled:focus,
+  &:disabled:hover {
     outline: none;
     cursor: default;
   }
