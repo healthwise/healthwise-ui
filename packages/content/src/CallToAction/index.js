@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
+
+import { defaultTheme } from '../Theme'
 
 import SVGImage from '@healthwise-ui/core/SvgImage'
 
@@ -18,7 +20,7 @@ const WrapperSection = styled.section`
   margin: 0;
   padding: 14px 24px 24px;
   text-align: center;
-  background-color: var(--color-background);
+  background-color: ${props => props.theme.colorBackground};
 
   h3 {
     margin-top: 23px;
@@ -26,7 +28,7 @@ const WrapperSection = styled.section`
     font-size: 2em;
     line-height: 1em;
     font-weight: normal;
-    color: var(--color-primary);
+    color: ${props => props.theme.colorPrimary};
   }
 
   img,
@@ -40,7 +42,7 @@ const WrapperSection = styled.section`
   p {
     font-size: 1em;
     line-height: 1.33;
-    color: var(--color-text-primary);
+    color: ${props => props.theme.colorTextPrimary};
   }
 
   button {
@@ -49,13 +51,13 @@ const WrapperSection = styled.section`
     font-size: 1.5em;
     border-radius: 0.25em;
     border-color: transparent;
-    color: var(--color-text-on-primary);
-    background: var(--color-primary);
+    color: ${props => props.theme.colorTextOnPrimary};
+    background: ${props => props.theme.colorPrimary};
   }
 
   button:hover {
-    color: var(--color-text-on-primary-light);
-    background: var(--color-primary-light);
+    color: ${props => props.theme.colorTextOnPrimaryLight};
+    background: ${props => props.theme.colorPrimaryLight};
   }
 
   @media screen and (max-width: 750px) {
@@ -143,4 +145,8 @@ CallToAction.propTypes = {
   actionButtons: PropTypes.node,
 }
 
-export default CallToAction
+CallToAction.defaultProps = {
+  theme: defaultTheme,
+}
+
+export default withTheme(CallToAction)

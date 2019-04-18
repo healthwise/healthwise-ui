@@ -1,18 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
+
+import { defaultTheme } from '../Theme'
 
 const StoryDiv = styled.div`
   :global(.HwImageWrapper) {
     float: right;
     margin: 0 0 0 20px;
-    background: var(--color-background-contrast-light);
+    background: ${props => props.theme.colorBackgroundContrastLight};
     padding: 10px 10px 30px;
     line-height: 1;
   }
 
   :global(.HwImageWrapper) img {
-    border: 3px solid var(--color-border);
+    border: 3px solid ${props => props.theme.colorBorder};
   }
 
   :global(.HwNote) {
@@ -22,7 +24,7 @@ const StoryDiv = styled.div`
     font-style: italic;
     padding-right: 10px;
     margin-top: -30px;
-    color: var(--color-text-primary);
+    color: ${props => props.theme.colorTextPrimary};
   }
 
   :global(.HwNote) ~ :global(.HwNote) {
@@ -50,4 +52,8 @@ Story.propTypes = {
   }),
 }
 
-export default Story
+Story.defaultProps = {
+  theme: defaultTheme,
+}
+
+export default withTheme(Story)
