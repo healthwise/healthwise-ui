@@ -5,7 +5,7 @@ import { withTheme, createGlobalStyle } from 'styled-components'
 import { defaultTheme } from '@healthwise-ui/core/Theme'
 
 const GlobalStyle = createGlobalStyle`
-  .HwImageWrapper {
+  .hw-content-story .HwImageWrapper {
     float: right;
     margin: 0 0 0 20px;
     background: ${props => props.theme.colorBackgroundContrastLight};
@@ -13,11 +13,11 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1;
   }
 
-  .HwImageWrapper img {
+  .hw-content-story .HwImageWrapper img {
     border: 3px solid ${props => props.theme.colorBorder};
   }
 
-  .HwNote {
+  .hw-content-story .HwNote {
     float: right;
     clear: both;
     margin-bottom: 20px;
@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colorTextPrimary};
   }
 
-  .HwNote ~ .HwNote {
+  .hw-content-story .HwNote ~ .hw-content-story .HwNote {
     display: none;
   }
 
