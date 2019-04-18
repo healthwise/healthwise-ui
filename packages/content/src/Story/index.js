@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { withTheme } from 'styled-components'
+import { withTheme, createGlobalStyle } from 'styled-components'
 
 import { defaultTheme } from '@healthwise-ui/core/Theme'
 
-const StoryDiv = styled.div`
-  &:global(.HwImageWrapper) {
+const GlobalStyle = createGlobalStyle`
+  .HwImageWrapper {
     float: right;
     margin: 0 0 0 20px;
     background: ${props => props.theme.colorBackgroundContrastLight};
@@ -13,11 +13,11 @@ const StoryDiv = styled.div`
     line-height: 1;
   }
 
-  &:global(.HwImageWrapper) img {
+  .HwImageWrapper img {
     border: 3px solid ${props => props.theme.colorBorder};
   }
 
-  &:global(.HwNote) {
+  .HwNote {
     float: right;
     clear: both;
     margin-bottom: 20px;
@@ -27,9 +27,10 @@ const StoryDiv = styled.div`
     color: ${props => props.theme.colorTextPrimary};
   }
 
-  &:global(.HwNote) ~ &:global(.HwNote) {
+  .HwNote ~ .HwNote {
     display: none;
   }
+
 `
 
 class Story extends React.Component {
@@ -37,11 +38,13 @@ class Story extends React.Component {
     let { data, ...otherProps } = this.props
 
     return (
-      <StoryDiv
+      <div
         className="hw-content-story"
         dangerouslySetInnerHTML={{ __html: data.html }}
         {...otherProps}
-      />
+      >
+        <GlobalStyle theme={this.props.theme} />
+      </div>
     )
   }
 }

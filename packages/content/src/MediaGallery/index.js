@@ -1,11 +1,72 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 import Insights from '../Insights'
 import Slideshow from '../Slideshow'
 import MediaServiceVideo from '../MediaServiceVideo'
 import Image from './Image'
+
+const GlobalStyle = createGlobalStyle`
+  .hw-section-gallery-style h3,
+  .hw-section-gallery-style .HwCmd {
+    margin: 0.5em 0;
+    font-size: 1.375em;
+    line-height: 1.1em;
+    font-weight: normal;
+    color: #212121;
+  }
+
+  .hw-section-gallery-style .HwInfo,
+  .hw-section-gallery-style .HwVideo {
+    padding: 8px;
+    border: 1px solid #abb2c1;
+    line-height: 0;
+  }
+
+  .hw-section-gallery-style .HwInfo {
+    text-align: center;
+  }
+
+  .hw-section-gallery-style .HwInfo p,
+  .hw-section-gallery-style .HwVideo p {
+    padding: 0 8px;
+    line-height: 1.3em;
+    text-align: left;
+  }
+
+  .hw-section-gallery-style .HwImageWrapper {
+    display: inline-block;
+    width: 50%;
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .hw-section-gallery-style .HwImageWrapper:only-of-type {
+    float: none;
+    width: 100%;
+  }
+
+  .hw-section-gallery-style .HwImageWrapper img {
+    max-width: 100%;
+  }
+
+  .hw-section-gallery-style .HwInfo .HwSection {
+    clear: both;
+  }
+
+  @media screen and (max-width: 750px) {
+    .hw-section-gallery-style .HwImageWrapper {
+      float: none;
+      width: 100%;
+    }
+
+    .hw-section-gallery-style .HwMedicalImage {
+      width: 100%;
+    }
+  }
+`
 
 const SvgVideoThumbnailOverlay = styled.svg`
   position: absolute;
@@ -19,65 +80,8 @@ const SectionGallery = styled.section`
   padding: 0 48px;
   margin-bottom: 40px;
 
-  & h3,
-  &:global(.HwCmd) {
-    margin: 0.5em 0;
-    font-size: 1.375em;
-    line-height: 1.1em;
-    font-weight: normal;
-    color: #212121;
-  }
-
-  &:global(.HwInfo),
-  &:global(.HwVideo) {
-    padding: 8px;
-    border: 1px solid #abb2c1;
-    line-height: 0;
-  }
-
-  &:global(.HwInfo) {
-    text-align: center;
-  }
-
-  &:global(.HwInfo) p,
-  &:global(.HwVideo) p {
-    padding: 0 8px;
-    line-height: 1.3em;
-    text-align: left;
-  }
-
-  &:global(.HwImageWrapper) {
-    display: inline-block;
-    width: 50%;
-    padding: 8px;
-    box-sizing: border-box;
-    text-align: center;
-  }
-
-  &:global(.HwImageWrapper:only-of-type) {
-    float: none;
-    width: 100%;
-  }
-
-  &:global(.HwImageWrapper) img {
-    max-width: 100%;
-  }
-
-  &:global(.HwInfo .HwSection) {
-    clear: both;
-  }
-
   @media screen and (max-width: 750px) {
     padding: 0;
-
-    &:global(.HwImageWrapper) {
-      float: none;
-      width: 100%;
-    }
-
-    &:global(.HwMedicalImage) {
-      width: 100%;
-    }
   }
 `
 
@@ -129,11 +133,6 @@ const ActiveThumbnailButton = styled.button`
   &:hover {
     border: 1px solid #99caeb;
     outline: 2px solid #000;
-  }
-
-  & img {
-    width: 84px;
-    height: 56px;
   }
 
   border: 1px solid #017acd;
@@ -230,6 +229,7 @@ class MediaGallery extends Component {
                   <ActiveThumbnailButton
                     type="button"
                     aria-controls="hwGallery_slide"
+                    className="thumbnailButton"
                     onClick={() => {
                       onThumbnailClick(i, item)
                     }}
@@ -259,6 +259,7 @@ class MediaGallery extends Component {
                   <ThumbnailButton
                     type="button"
                     aria-controls="hwGallery_slide"
+                    className="thumbnailButton"
                     onClick={() => {
                       onThumbnailClick(i, item)
                     }}
@@ -309,6 +310,7 @@ class MediaGallery extends Component {
                   <ActiveThumbnailButton
                     type="button"
                     aria-controls="hwGallery_slide"
+                    className="thumbnailButton"
                     onClick={() => {
                       onThumbnailClick(i, item)
                     }}
@@ -322,6 +324,7 @@ class MediaGallery extends Component {
                   <ThumbnailButton
                     type="button"
                     aria-controls="hwGallery_slide"
+                    className="thumbnailButton"
                     onClick={() => {
                       onThumbnailClick(i, item)
                     }}
@@ -350,6 +353,7 @@ class MediaGallery extends Component {
                   <ActiveThumbnailButton
                     type="button"
                     aria-controls="hwGallery_slide"
+                    className="thumbnailButton"
                     onClick={() => {
                       onThumbnailClick(i, item)
                     }}
@@ -364,6 +368,7 @@ class MediaGallery extends Component {
                   <ThumbnailButton
                     type="button"
                     aria-controls="hwGallery_slide"
+                    className="thumbnailButton"
                     onClick={() => {
                       onThumbnailClick(i, item)
                     }}
@@ -389,8 +394,9 @@ class MediaGallery extends Component {
       })
 
       return (
-        <SectionGallery>
-          <UlList>{thumbnails}</UlList>
+        <SectionGallery className="hw-section-gallery-style">
+          <GlobalStyle />
+          <UlList className="ulist">{thumbnails}</UlList>
 
           <div
             id="hwGallery_slide"
