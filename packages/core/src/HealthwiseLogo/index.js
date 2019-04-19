@@ -9,10 +9,10 @@ class HealthwiseLogo extends Component {
     return (
       <svg
         className={classNames('hw-healthwise-logo', className)}
-        {...otherProps}
         width="165px"
         height="74px"
         viewBox="0 0 317.68 141.93"
+        {...otherProps}
       >
         <defs>
           <style>{`.svg-hw-logo-color-1{fill:#58595b}.svg-hw-logo-color-2{fill:#f0534a}`}</style>
