@@ -229,7 +229,6 @@ class MediaGallery extends Component {
                   <ActiveThumbnailButton
                     type="button"
                     aria-controls="hwGallery_slide"
-                    className="thumbnailButton"
                     onClick={() => {
                       onThumbnailClick(i, item)
                     }}
@@ -259,7 +258,6 @@ class MediaGallery extends Component {
                   <ThumbnailButton
                     type="button"
                     aria-controls="hwGallery_slide"
-                    className="thumbnailButton"
                     onClick={() => {
                       onThumbnailClick(i, item)
                     }}
@@ -310,7 +308,6 @@ class MediaGallery extends Component {
                   <ActiveThumbnailButton
                     type="button"
                     aria-controls="hwGallery_slide"
-                    className="thumbnailButton"
                     onClick={() => {
                       onThumbnailClick(i, item)
                     }}
@@ -324,7 +321,6 @@ class MediaGallery extends Component {
                   <ThumbnailButton
                     type="button"
                     aria-controls="hwGallery_slide"
-                    className="thumbnailButton"
                     onClick={() => {
                       onThumbnailClick(i, item)
                     }}
@@ -353,7 +349,6 @@ class MediaGallery extends Component {
                   <ActiveThumbnailButton
                     type="button"
                     aria-controls="hwGallery_slide"
-                    className="thumbnailButton"
                     onClick={() => {
                       onThumbnailClick(i, item)
                     }}
@@ -368,7 +363,6 @@ class MediaGallery extends Component {
                   <ThumbnailButton
                     type="button"
                     aria-controls="hwGallery_slide"
-                    className="thumbnailButton"
                     onClick={() => {
                       onThumbnailClick(i, item)
                     }}
