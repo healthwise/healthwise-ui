@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
 import Insights from '../Insights'
 
-const Div = styled.div`
-  :global(.HwImageWrapper) {
+const GlobalStyle = createGlobalStyle`
+  .hw-article-style .HwImageWrapper {
     display: inline;
     float: right;
     padding: 0 0 1em 1em;
   }
-  li :global(.HwCmd) {
+  .hw-article-style li .HwCmd {
     display: inline;
     font-weight: bold;
   }
-  li :global(.HwInfo) {
+  .hw-article-style li .HwInfo {
     padding-left: 30px;
   }
 `
@@ -38,11 +38,12 @@ class Article extends Component {
 
     if (sections && sections.length) {
       return (
-        <Div>
+        <div className="hw-article-style">
+          <GlobalStyle />
           {sections.map(function(item, i) {
             return <div key={i} dangerouslySetInnerHTML={{ __html: item.html }} />
           })}
-        </Div>
+        </div>
       )
     }
   }

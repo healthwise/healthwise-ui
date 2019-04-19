@@ -9,7 +9,7 @@ const UlNav = styled.span`
   margin: 0;
   padding: 0;
 
-  li {
+  & li {
     display: inline-block;
     margin-right: 4px;
   }
@@ -28,8 +28,8 @@ const NavItemButton = styled.button`
   border: 1px solid #abb2c1;
   border-radius: 1px;
 
-  :focus,
-  :hover {
+  &:focus,
+  &:hover {
     background: #99caeb;
     outline: solid 1px #000;
     outline-offset: 1px;
@@ -40,8 +40,8 @@ const NavItemButton = styled.button`
     background: #000;
     border: 1px solid #fff;
 
-    :focus,
-    :hover {
+    &:focus,
+    &:hover {
       background: #fff;
       color: #000;
     }
@@ -51,8 +51,8 @@ const NavItemButton = styled.button`
     background: #fff;
     border: 1px solid #000;
 
-    :focus,
-    :hover {
+    &:focus,
+    &:hover {
       background: #000;
       color: #fff;
     }
@@ -72,8 +72,8 @@ const NavItemActiveButton = styled.button`
   border: 1px solid #abb2c1;
   border-radius: 1px;
 
-  :focus,
-  :hover {
+  &:focus,
+  &:hover {
     background: #99caeb;
     outline: solid 1px #000;
     outline-offset: 1px;
@@ -84,8 +84,8 @@ const NavItemActiveButton = styled.button`
     background: #000;
     border: 1px solid #fff;
 
-    :focus,
-    :hover {
+    &:focus,
+    &:hover {
       background: #fff;
       color: #000;
     }
@@ -95,8 +95,8 @@ const NavItemActiveButton = styled.button`
     background: #fff;
     border: 1px solid #000;
 
-    :focus,
-    :hover {
+    &:focus,
+    &:hover {
       background: #000;
       color: #fff;
     }

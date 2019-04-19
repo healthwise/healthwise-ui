@@ -10,10 +10,10 @@ const SpanIcon = styled.span`
   box-sizing: border-box;
   width: 16px;
   padding: 0 4px 4px 0;
-  svg {
+  & svg {
     width: 100%;
   }
-  svg path {
+  & svg path {
     fill: #017acd;
   }
 `
@@ -30,8 +30,8 @@ const Button = styled.button`
   color: #017acd;
   cursor: pointer;
 
-  :hover,
-  :focus {
+  &:hover,
+  &:focus {
     outline: 2px #017acd solid;
   }
 `
@@ -39,7 +39,7 @@ const Button = styled.button`
 const Div = styled.div`
   margin: 19px 0 0;
 
-  p {
+  & p {
     font-size: 0.8em;
   }
 `

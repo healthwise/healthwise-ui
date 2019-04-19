@@ -1,6 +1,6 @@
 {
   "name": "@healthwise-ui/content",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Shared React UI library to use with Healthwise content.",
   "main": "index.js",
   "unpkg": "healthwise-ui.min.js",
