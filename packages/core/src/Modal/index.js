@@ -78,6 +78,8 @@ class Modal extends Component {
       TransitionComponent,
       transitionDuration,
       TransitionProps,
+      showTitle,
+      showActions,
       /* eslint-enable */
       ...otherProps
     } = this.props
@@ -94,19 +96,23 @@ class Modal extends Component {
         scroll="paper"
         maxWidth={maxWidth}
       >
-        <Title id={this.titleId} className="hw-modal-title" theme={theme} hasContent={hasContent}>
-          {title}
-        </Title>
+        {showTitle && (
+          <Title id={this.titleId} className="hw-modal-title" theme={theme} hasContent={hasContent}>
+            {title}
+          </Title>
+        )}
         {children && <DialogContent className="hw-modal-content">{children}</DialogContent>}
-        <Actions theme={theme}>
-          <ButtonGroup className="hw-modal-actions">
-            {actions || (
-              <Button color="neutralLight" rounded onClick={onClose}>
-                Close
-              </Button>
-            )}
-          </ButtonGroup>
-        </Actions>
+        {showActions && (
+          <Actions theme={theme}>
+            <ButtonGroup className="hw-modal-actions">
+              {actions || (
+                <Button color="neutralLight" rounded onClick={onClose}>
+                  Close
+                </Button>
+              )}
+            </ButtonGroup>
+          </Actions>
+        )}
       </Dialog>
     )
   }
@@ -129,6 +135,8 @@ Modal.propTypes = {
   onExited: PropTypes.func,
   open: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
+  showTitle: PropTypes.bool,
+  showActions: PropTypes.bool,
   // TODO: update this propType with all the variables being used in the modal
   // once @material-ui/styles package is being used.
   theme: PropTypes.shape({
@@ -144,6 +152,8 @@ Modal.defaultProps = {
   maxWidth: 'sm',
   onClose: () => {},
   theme: defaultTheme,
+  showTitle: true,
+  showActions: true,
 }
 
 export default withTheme(Modal)
