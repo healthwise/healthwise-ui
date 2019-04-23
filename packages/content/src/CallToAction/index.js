@@ -35,7 +35,7 @@ const WrapperSection = styled.section`
   & svg {
     position: absolute;
     top: 27px;
-    max-width: 48px;
+    max-width: 48px !important;
     max-height: 48px;
   }
 
