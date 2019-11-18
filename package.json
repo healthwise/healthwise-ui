@@ -1,5 +1,5 @@
 {
-  "name": "@malyons/healthwise-ui"
+  "name": "@malyons/healthwise-ui",
   "private": true,
   "scripts": {
     "postinstall": "lerna bootstrap",
