@@ -10,11 +10,12 @@ module.exports = ({ config, mode }) => {
 
   // TODO: Modifying the CSS loader should be unnecessary once we finish refactoring
   // the content package to use styled-components
-  cssLoader.use[1].options = {
-    importLoaders: 1,
-    modules: true,
-    localIdentName: '[name]--[local]',
-  }
+  // TEMP: commented out for now, since we are also narrowing the Storybook to "core" (since the full path is broken)
+  // cssLoader.use[1].options = {
+  //   importLoaders: 1,
+  //   modules: true,
+  //   localIdentName: '[name]--[local]',
+  // }
 
   // TODO: Lerna should make this unnecessary, but for some reason components in
   // the content package can't find core components.
