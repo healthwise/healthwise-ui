@@ -34,6 +34,7 @@ addParameters({
 
 // Automatically import all files ending in *.stories.js
 const req = require.context(
+  // TODO: swap back to '../packages' once we resolve issues with duplicated "styled-components" dependency (in /core & /content)
   '../packages/core',
   true,
   /^((?![/\\\\]node_modules[/\\\\]).)*\.stories\.js$/
