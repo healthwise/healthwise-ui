@@ -1,28 +1,41 @@
-# Theme
+# 0.0.15
+
+## DropDown
+
+- Added `disabled` prop
+
+## General
+
+- Added `README.md`
+- Modified `CHANGELOG.md` to allow version-based comments
+
+# 0.0.14 & previous
+
+## Theme
 
 - **BREAKING**: Removed default export. Changed to `createTheme` named export.
 - **BREAKING**: Changed some color palette variables
 - Added `ThemeProvider` component
 - Added `CssVars` component
 
-# Button
+## Button
 
 - **BREAKING**: Renamed `theme` prop to `color`
 - **BREAKING**: Changed `color` props from kebab-case to camelCase (e.g. `primary-light` to `primaryLight`)
 
-# CssBaseline
+## CssBaseline
 
 - **BREAKING**: Removed `children` prop
 
-# DropDown
+## DropDown
 
 - **BREAKING**: Removed `hw-icon-white` class on arrow icons
 
-# ProgressBar
+## ProgressBar
 
 - **BREAKING**: Renamed `theme` prop to `color`
 
-# TextArea
+## TextArea
 
 - **BREAKING**: Added prop `defaultValue`; mapped `value` to native `value` attribute (formerly `defaultValue`)
 
