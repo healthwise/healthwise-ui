@@ -1,3 +1,10 @@
+# 0.0.16
+
+- New attempt at hopefully successful `npm publish`
+- Specified `rimraf` dependency
+- Slight update to README
+- Updated LICENSE copyright date
+
 # 0.0.15
 
 ## DropDown
