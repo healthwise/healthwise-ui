@@ -25,13 +25,14 @@
     "prebuild": "npm run clean",
     "postbuild": "node scripts/copyFiles.js",
     "clean": "rimraf build",
-    "publish": "npm publish build"
+    "publish": "npm publish build",
+    "test": "jest"
   },
   "dependencies": {
     "@material-ui/core": "^3.0.0",
     "@material-ui/icons": "^3.0.0",
     "classnames": "^2.2.5",
-    "lodash": "^4.17.4",
+    "lodash": ">=4.17.12",
     "prop-types": "^15.5.7",
     "react-aria-menubutton": "^4.3.1",
     "styled-components": "^4.1.3"

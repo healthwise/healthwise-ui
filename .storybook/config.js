@@ -34,7 +34,7 @@ addParameters({
 
 // Automatically import all files ending in *.stories.js
 const req = require.context(
-  '../packages',
+  '../packages/core',
   true,
   /^((?![/\\\\]node_modules[/\\\\]).)*\.stories\.js$/
 )
