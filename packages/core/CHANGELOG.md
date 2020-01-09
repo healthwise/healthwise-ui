@@ -16,6 +16,7 @@
 
 # DropDown
 
+- Added `disabled` prop
 - **BREAKING**: Removed `hw-icon-white` class on arrow icons
 
 # ProgressBar
