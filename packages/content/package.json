@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "npm run build:cjs && npm run build:iife",
-    "build:cjs": "babel --root-mode upward src -d build",
+    "build:cjs": "npx babel --root-mode upward-optional src -d build",
     "build:iife": "rollup -c",
     "prebuild": "npm run clean",
     "postbuild": "node scripts/copyFiles.js",
@@ -35,7 +35,11 @@
     "video.js": "^6.8.0"
   },
   "peerDependencies": {
-    "@healthwise-ui/core": "^0.0.4",
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@healthwise-ui/core": "^0.0.14",
     "react": ">=16.3.0"
   }
 }

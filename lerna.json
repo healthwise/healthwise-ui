@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2",
+  "version": "independent",
   "packages": [
     "packages/*"
   ],
@@ -12,5 +12,9 @@
         "--no-package-lock"
       ]
     }
-  }
+  },
+  "ignoreChanges": [
+    "**/*.test.js",
+    "**/*.stories.js"
+  ]
 }
