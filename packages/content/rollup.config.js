@@ -14,7 +14,7 @@ export default {
   plugins: [
     nodeResolve(),
     babel({
-      rootMode: 'upward',
+      rootMode: 'upward-optional',
       exclude: 'node_modules/**',
     }),
     commonjs({

@@ -9,7 +9,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint --fix .",
-    "publish": "lerna run publish"
+    "publish": "lerna run publish",
+    "publish:dryrun": "lerna run publish:dryrun"
   },
   "husky": {
     "hooks": {
