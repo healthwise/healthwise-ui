@@ -25,3 +25,10 @@ storiesOf('core|Form Controls/Textarea', module)
       info: `Demonstrates controlled TextArea component`,
     }
   )
+  .add(
+    'disabled',
+    () => <TextArea label="TextArea Label" value="Controlled value" disabled />,
+    {
+      info: `Demonstrates disabled TextArea component`,
+    }
+  )

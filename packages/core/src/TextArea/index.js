@@ -9,6 +9,11 @@ const Label = styled.label`
   margin-bottom: 0.25em;
   font-size: 0.75em;
   letter-spacing: 0.5px;
+
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `
 
 const Wrapper = styled.div`
@@ -29,6 +34,11 @@ const TextArea = styled.textarea`
   font-size: 1em;
   line-height: 1.5em;
   resize: vertical;
+
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 
   &:focus {
     outline: ${props => props.theme.focusIndicator};
@@ -100,11 +110,11 @@ class Textarea extends React.Component {
   }
 
   render() {
-    let { id, name, defaultValue, value, label, maxCharacters, readonly, theme } = this.props
+    let { id, name, defaultValue, value, label, disabled, maxCharacters, readonly, theme } = this.props
 
     let characterCounter = ''
     let title = label ? (
-      <Label htmlFor={id} className={'hw-textarea-label'}>
+      <Label htmlFor={id} className={'hw-textarea-label'} aria-disabled={disabled}>
         {label}
       </Label>
     ) : null
@@ -138,6 +148,7 @@ class Textarea extends React.Component {
           name={name}
           defaultValue={defaultValue}
           value={value}
+          disabled={disabled}
           aria-describedby={this.counterId}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
@@ -150,7 +161,7 @@ class Textarea extends React.Component {
     )
 
     return (
-      <div className={'hw-textarea'}>
+      <div className={'hw-textarea'} aria-disabled={disabled}>
         {title}
         {textarea}
       </div>
@@ -164,6 +175,7 @@ Textarea.propTypes = {
   defaultValue: PropTypes.string,
   value: PropTypes.string,
   label: PropTypes.string,
+  disabled: PropTypes.bool,
   maxCharacters: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   onFocus: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
@@ -182,6 +194,7 @@ Textarea.defaultProps = {
   defaultValue: null,
   value: null,
   readonly: false,
+  disabled: false,
   maxCharacters: null,
   onFocus: function(e) {
     return e
