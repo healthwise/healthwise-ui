@@ -13,3 +13,5 @@ const copyToBuild = (baseDir, filename) => {
 
 copyToBuild(paths.root, 'LICENSE')
 copyToBuild(paths.packageRoot, 'package.json')
+copyToBuild(paths.packageRoot, 'README.md')
+copyToBuild(paths.packageRoot, 'CHANGELOG.md')

@@ -6,7 +6,7 @@
 
 # 0.0.16
 
-- New attempt at hopefully successful `npm publish`
+- New attempt at successful `npm publish`
 - Specified `rimraf` dependency
 - Slight update to README
 - Updated LICENSE copyright date
