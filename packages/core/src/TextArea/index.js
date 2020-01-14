@@ -35,7 +35,7 @@ const TextArea = styled.textarea`
   line-height: 1.5em;
   resize: vertical;
 
-  &[aria-disabled='true'] {
+  &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
