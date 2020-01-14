@@ -110,7 +110,17 @@ class Textarea extends React.Component {
   }
 
   render() {
-    let { id, name, defaultValue, value, label, disabled, maxCharacters, readonly, theme } = this.props
+    let {
+      id,
+      name,
+      defaultValue,
+      value,
+      label,
+      disabled,
+      maxCharacters,
+      readonly,
+      theme,
+    } = this.props
 
     let characterCounter = ''
     let title = label ? (
