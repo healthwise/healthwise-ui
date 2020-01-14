@@ -1,3 +1,9 @@
+# 0.0.17
+
+## TextArea
+
+- Added `disabled` prop
+
 # 0.0.16
 
 - New attempt at successful `npm publish`
