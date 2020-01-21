@@ -1,6 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
+import { withState } from '@dump247/storybook-state'
 
 import InputText from './index'
 
@@ -93,6 +94,24 @@ storiesOf('core|Form Controls/Input Text', module)
     }
   )
   .add(
+    'with focus',
+    () => (
+      <div>
+        <div style={styles.container}>
+          <InputText
+            autoFocus
+            label="Label"
+            placeholder="Placeholder text"
+            onChange={action('onChange')}
+          />
+        </div>
+      </div>
+    ),
+    {
+      info: `Demonstrates InputText with a label`,
+    }
+  )
+  .add(
     'disabled',
     () => (
       <div>
@@ -145,6 +164,23 @@ storiesOf('core|Form Controls/Input Text', module)
     {
       info: `Demonstrates an InputText component with error messages`,
     }
+  )
+  .add(
+    'with custom error',
+    withState({ error: 'This needs a click!' })(({ store }) => (
+      <div style={styles.container}>
+        <p>Click the input to toggle the custom error.</p>
+        <InputText
+          label="Label"
+          placeholder="Placeholder text"
+          error={store.state.error}
+          onClick={() => {
+            const error = store.state.error ? '' : store.initialState.error
+            store.set({ error })
+          }}
+        />
+      </div>
+    ))
   )
   .add(
     'with all types',
