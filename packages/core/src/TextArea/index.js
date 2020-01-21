@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
+import Message from '../Message'
 import { getKey } from '../KeyGen'
 
 const Label = styled.label`
@@ -29,7 +31,7 @@ const TextArea = styled.textarea`
   width: 100%;
   padding: 0.5em;
   margin: 0;
-  border: 1px solid ${props => props.theme.colorBorder};
+  border: 1px solid ${props => (props.error ? props.theme.colorError : props.theme.colorBorder)};
   min-height: 88px;
   font-size: 1em;
   line-height: 1.5em;
@@ -51,11 +53,14 @@ const ReadOnly = styled(TextArea)`
   padding: 0;
   min-height: 0;
 `
-
-const Counter = styled.div`
+const Subtext = styled.div`
   font-size: 0.75em;
+  margin-top: 0.25em;
+  line-height: 1;
   letter-spacing: 0.5px;
-  line-height: 1.7;
+  height: 1em;
+  display: inline-block;
+  margin-right: 10px;
 `
 
 class Textarea extends React.Component {
@@ -111,12 +116,14 @@ class Textarea extends React.Component {
 
   render() {
     let {
+      className,
       id,
       name,
       defaultValue,
       value,
       label,
       disabled,
+      error,
       maxCharacters,
       readonly,
       theme,
@@ -133,7 +140,7 @@ class Textarea extends React.Component {
       value = value && value.length ? value.substring(0, maxCharacters) : null
 
       characterCounter = (
-        <Counter
+        <Subtext
           id={this.counterId}
           ref={el => {
             this.charCountElement = el
@@ -141,9 +148,21 @@ class Textarea extends React.Component {
           className={'hw-textarea-counter'}
         >
           {this.getMaxCharLabel(maxCharacters, readonly)}
-        </Counter>
+        </Subtext>
       )
     }
+
+    let errorLabel = error ? (
+      <Subtext className="hw-text-area-error-container">
+        <Message
+          className={classNames('hw-text-area-error', `${className}-error`)}
+          type="error"
+          showIcon={false}
+        >
+          {error}
+        </Message>
+      </Subtext>
+    ) : null
 
     // if it's readonly, just display the text
     const textarea = readonly ? (
@@ -159,6 +178,7 @@ class Textarea extends React.Component {
           defaultValue={defaultValue}
           value={value}
           disabled={disabled}
+          error={error}
           aria-describedby={this.counterId}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
@@ -167,6 +187,7 @@ class Textarea extends React.Component {
           theme={theme}
         />
         {characterCounter}
+        {errorLabel}
       </Wrapper>
     )
 
@@ -186,6 +207,7 @@ Textarea.propTypes = {
   value: PropTypes.string,
   label: PropTypes.string,
   disabled: PropTypes.bool,
+  error: PropTypes.string,
   maxCharacters: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   onFocus: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
@@ -194,6 +216,7 @@ Textarea.propTypes = {
   readonly: PropTypes.bool,
   theme: PropTypes.shape({
     colorBorder: PropTypes.string,
+    colorError: PropTypes.string,
     focusIndicator: PropTypes.string,
     focusIndicatorOffset: PropTypes.string,
   }),
