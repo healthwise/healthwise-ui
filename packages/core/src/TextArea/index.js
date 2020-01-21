@@ -56,7 +56,7 @@ const ReadOnly = styled(TextArea)`
 const Subtext = styled.div`
   font-size: 0.75em;
   margin-top: 0.25em;
-  line-height: 1;
+  line-height: 1.7;
   letter-spacing: 0.5px;
   height: 1em;
   display: inline-block;
