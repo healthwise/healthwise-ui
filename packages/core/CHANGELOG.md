@@ -1,3 +1,15 @@
+# 0.0.18
+
+- Added [Storybook State](https://github.com/dump247/storybook-state/) addon for showing changes in state within one component story
+
+## InputText
+
+- Improved `error` prop handling (allow error to be cleared & revalidated)
+- Updated deprecated component lifecycle method, from `UNSAFE_componentWillReceiveProps` to `componentDidUpdate`
+- Added support for HTML5 `autoFocus` (while retaining `focused` for now)
+- Removed focus from being handled internally
+- Added stories for focus and custom error states
+
 # 0.0.17
 
 ## TextArea
