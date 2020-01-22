@@ -76,7 +76,7 @@ const Button = styled(AriaButton)`
   padding-right: 0.5rem;
   display: flex;
   align-items: center;
-  border: 1px solid ${props => props.theme.colorTextPrimary};
+  border: 1px solid ${props => (props.error ? props.theme.colorError : props.theme.colorBorder)};
   box-sizing: border-box;
   background: ${props => props.theme.colorBackgroundLight};
   color: ${props => props.theme.colorTextPrimary};
@@ -228,7 +228,7 @@ class DropDown extends Component {
   }
 
   render() {
-    const { icon, label, prompt, disabled, theme } = this.props
+    const { icon, label, prompt, disabled, error, theme } = this.props
     const { valueId, value, items } = this.state
 
     return (
@@ -249,6 +249,7 @@ class DropDown extends Component {
             aria-label={label || prompt}
             aria-describedby={valueId}
             theme={theme}
+            error={error}
             disabled={disabled}
           >
             {icon && (
@@ -311,6 +312,7 @@ DropDown.propTypes = {
   ).isRequired,
   icon: PropTypes.any,
   label: PropTypes.string,
+  error: PropTypes.bool,
   disabled: PropTypes.bool,
   prompt: PropTypes.string,
   maintainPrompt: PropTypes.bool,

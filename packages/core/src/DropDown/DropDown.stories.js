@@ -76,6 +76,9 @@ storiesOf('core|Form Controls/Drop Down', module)
       info: `Demonstrates rendering of the component disabled`,
     }
   )
+  .add('with error', () => <DropDown items={items} onSelect={action('selected')} error />, {
+    info: `Demonstrates rendering of the component in error`,
+  })
   .add(
     'Complex items',
     () => <DropDown items={complexItems} prompt={prompt} onSelect={action('selected')} />,
