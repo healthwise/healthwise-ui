@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions'
 
 import TextArea from './index'
 
-storiesOf('core|Form Controls/Textarea', module)
+storiesOf('core|Form Controls/Text Area', module)
   .add('with defaults', () => <TextArea label="TextArea Label" />, {
     info: `Demonstrates default rendering of TextArea component`,
   })
