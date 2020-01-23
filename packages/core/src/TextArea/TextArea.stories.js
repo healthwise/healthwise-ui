@@ -28,6 +28,9 @@ storiesOf('core|Form Controls/Text Area', module)
   .add('disabled', () => <TextArea label="TextArea Label" value="Controlled value" disabled />, {
     info: `Demonstrates disabled TextArea component`,
   })
+  .add('required', () => <TextArea label="TextArea Label" required />, {
+    info: 'Demonstrates required TextArea component',
+  })
   .add('with default error', () => <TextArea label="TextArea Label" error={true} />, {
     info: 'Demonstrates a TextArea component with a default error',
   })

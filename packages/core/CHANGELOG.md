@@ -1,9 +1,15 @@
 # 0.0.19
 
-- Added error prop on DropDown Form Control
-- Added story to DropDown stories to reflect error prop
-- Added error prop to Textarea Form Control
-- Added stories to Textarea stories to reflect error prop
+## DropDown
+- Added `error` prop on DropDown Form Control
+- Added story to DropDown stories to reflect `error` prop
+
+## TextArea
+- Added `error` prop to TextArea Form Control
+- Added `required` prop to TextArea Form Control
+- Added stories to TextArea stories to reflect `error` prop
+- Added story to TextArea stories to reflect `required` prop
+
 
 # 0.0.18
 
