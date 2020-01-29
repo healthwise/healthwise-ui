@@ -1,3 +1,16 @@
+# 0.0.19
+
+## DropDown
+- Added `error` prop on DropDown Form Control
+- Added story to DropDown stories to reflect `error` prop
+
+## TextArea
+- Added `error` prop to TextArea Form Control
+- Added `required` prop to TextArea Form Control
+- Added stories to TextArea stories to reflect `error` prop
+- Added story to TextArea stories to reflect `required` prop
+
+
 # 0.0.18
 
 - Added [Storybook State](https://github.com/dump247/storybook-state/) addon for showing changes in state within one component story
