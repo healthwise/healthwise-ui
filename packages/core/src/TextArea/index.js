@@ -340,10 +340,10 @@ Textarea.propTypes = {
   error: PropTypes.string,
   required: PropTypes.bool,
   maxCharacters: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  onFocus: PropTypes.func.isRequired,
-  onBlur: PropTypes.func.isRequired,
-  onKeyDown: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  onChange: PropTypes.func,
   readonly: PropTypes.bool,
   theme: PropTypes.shape({
     colorBorder: PropTypes.string,
@@ -355,25 +355,17 @@ Textarea.propTypes = {
 
 Textarea.defaultProps = {
   id: getKey(),
-  defaultValue: null,
-  value: null,
+  defaultValue: undefined,
+  value: undefined,
   readonly: false,
   disabled: false,
   maxCharacters: null,
-  onFocus: function(e) {
-    return e
-  },
-  onBlur: function(e) {
-    return e
-  },
-  onKeyDown: function(e) {
-    return e
-  },
-  onChange: function(e) {
-    return e
-  },
-  onValid: () => {},
-  onInvalid: () => {},
+  onFocus: e => e,
+  onBlur: e => e,
+  onKeyDown: e => e,
+  onChange: e => e,
+  onValid: val => val,
+  onInvalid: (val, errType) => ({ val, errType }),
   theme: defaultTheme,
 }
 
