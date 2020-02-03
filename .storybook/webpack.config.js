@@ -10,7 +10,6 @@ module.exports = ({ config, mode }) => {
 
   // TODO: Modifying the CSS loader should be unnecessary once we finish refactoring
   // the content package to use styled-components
-  // TEMP: commented out for now, since we are also narrowing the Storybook to "core" (since the full path is broken)
   // cssLoader.use[1].options = {
   //   importLoaders: 1,
   //   modules: true,

@@ -29,6 +29,11 @@ const Label = styled.span`
   margin-bottom: 0.25rem;
   font-size: 0.75rem;
   letter-spacing: 0.5px;
+
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `
 
 const Icon = styled.span`
@@ -71,7 +76,7 @@ const Button = styled(AriaButton)`
   padding-right: 0.5rem;
   display: flex;
   align-items: center;
-  border: 1px solid ${props => props.theme.colorTextPrimary};
+  border: 1px solid ${props => (props.error ? props.theme.colorError : props.theme.colorBorder)};
   box-sizing: border-box;
   background: ${props => props.theme.colorBackgroundLight};
   color: ${props => props.theme.colorTextPrimary};
@@ -93,6 +98,11 @@ const Button = styled(AriaButton)`
 
   &[aria-expanded='false'] ${DownArrowIconContainer} {
     display: flex;
+  }
+
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 `
 
@@ -218,13 +228,18 @@ class DropDown extends Component {
   }
 
   render() {
-    const { icon, label, prompt, theme } = this.props
+    const { icon, label, prompt, disabled, error, theme } = this.props
     const { valueId, value, items } = this.state
 
     return (
       <Root className="hw-drop-down">
         {label && (
-          <Label className="hw-drop-down-label" aria-hidden="true" role="presentation">
+          <Label
+            className="hw-drop-down-label"
+            aria-hidden="true"
+            role="presentation"
+            aria-disabled={disabled}
+          >
             {label}
           </Label>
         )}
@@ -234,6 +249,8 @@ class DropDown extends Component {
             aria-label={label || prompt}
             aria-describedby={valueId}
             theme={theme}
+            error={error}
+            disabled={disabled}
           >
             {icon && (
               <Icon aria-hidden="true" role="presentation">
@@ -295,6 +312,8 @@ DropDown.propTypes = {
   ).isRequired,
   icon: PropTypes.any,
   label: PropTypes.string,
+  error: PropTypes.bool,
+  disabled: PropTypes.bool,
   prompt: PropTypes.string,
   maintainPrompt: PropTypes.bool,
   value: PropTypes.oneOfType([
@@ -321,6 +340,7 @@ DropDown.propTypes = {
 DropDown.defaultProps = {
   prompt: 'Select a value',
   maintainPrompt: false,
+  disabled: false,
   theme: defaultTheme,
 }
 

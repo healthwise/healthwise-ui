@@ -104,9 +104,7 @@ class MediaServiceVideo extends Component {
       videoLabel,
     } = this.props
     const videoParts = this.getVideoInformationFromUrl(item.html)
-    const videoUrl = `${mediaServiceUrl}/html/${mediaToken}/${videoParts.id}/${
-      videoParts.lang
-    }?autostart=false&rt=${mediaToken}&hash=${mediaHash}&disclaimer=false`
+    const videoUrl = `${mediaServiceUrl}/html/${mediaToken}/${videoParts.id}/${videoParts.lang}?autostart=false&rt=${mediaToken}&hash=${mediaHash}&disclaimer=false`
     let abstract = null
     let type = null
     let title = null

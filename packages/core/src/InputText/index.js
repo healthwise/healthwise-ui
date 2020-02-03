@@ -23,15 +23,16 @@ const Label = styled.label`
     left: 0;
     right: 0;
     bottom: 1.125em;
-    height: ${props => (props.focused || (props.error && props.dirty) ? '2px' : '1px')};
+    height: ${props =>
+      props.autoFocus || props.focused || (props.error && props.dirty) ? '2px' : '1px'};
     background: ${props =>
-      props.focused
+      props.autoFocus || props.focused
         ? 'transparent'
-        : props.error && props.dirty && !props.focused
+        : props.error && props.dirty && (!props.autoFocus || !props.focused)
         ? props.theme.colorError
         : props.theme.colorTextPrimary};
     background-image: ${props =>
-      props.focused
+      props.autoFocus || props.focused
         ? `repeating-linear-gradient(
         to right,
         ${props.theme.colorTextPrimary},
@@ -64,7 +65,7 @@ const Input = styled.input`
   border: ${props =>
     props.underlined
       ? 'none'
-      : props.error && props.dirty && !props.focused
+      : props.error && props.dirty && (!props.autoFocus || !props.focused)
       ? `1px solid ${props.theme.colorError}`
       : `1px solid ${props.theme.colorTextPrimary}`};
   background: ${props => (props.underlined ? 'none' : props.theme.colorBackgroundLight)};
@@ -87,7 +88,7 @@ const Input = styled.input`
 
   :invalid:not(:focus) {
     border-color: ${props =>
-      props.error && props.dirty && !props.focused
+      props.error && props.dirty && (!props.autoFocus || !props.focused)
         ? props.theme.colorError
         : props.theme.colorTextPrimary};
   }
@@ -126,7 +127,6 @@ class InputText extends Component {
       isValid: !hasError,
       error: hasError ? props.error : null, // error message string
       dirty: hasError,
-      focused: false,
       validationErrors: validationErrors,
     }
     this.errorId = uniqueId('hw-input-text-error')
@@ -145,20 +145,25 @@ class InputText extends Component {
     this.props.getValidator(null)
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    const propsHaveError = nextProps.error && nextProps.error.length
-    let newState
-
-    if (propsHaveError) {
-      newState = {
-        isValid: false,
-        error: nextProps.error,
-        dirty: true,
-        focused: false,
+  componentDidUpdate(prevProps) {
+    if (prevProps.error !== this.props.error) {
+      // if error is truthy, fire off an error, otherwise recheck it
+      if (this.props.error && this.props.error.length) {
+        this.setState({
+          isValid: false,
+          error: this.props.error,
+          dirty: true,
+        })
+      } else {
+        this.setState(
+          {
+            isValid: true,
+            error: this.props.error,
+          },
+          () => this.checkValidity(false)
+        )
       }
     }
-
-    if (newState) this.setState(newState)
   }
 
   checkValidity(calledExternally = true) {
@@ -221,7 +226,6 @@ class InputText extends Component {
     this.setState({
       isValid: isValid,
       error: errorMessage,
-      focused: false,
       dirty: true,
     })
 
@@ -230,7 +234,6 @@ class InputText extends Component {
 
   handleFocus(event) {
     this.setState({
-      focused: true,
       dirty: true,
     })
   }
@@ -239,7 +242,6 @@ class InputText extends Component {
     this.checkValidity(false)
 
     this.setState({
-      focused: false,
       dirty: true,
     })
 
@@ -255,6 +257,8 @@ class InputText extends Component {
       disabled,
       readonly,
       underlined,
+      autoFocus,
+      focused,
       label,
       error,
       theme,
@@ -266,13 +270,13 @@ class InputText extends Component {
       getValidator, // eslint-disable-line no-unused-vars
       ...otherProps
     } = this.props
-    const { focused, dirty, isValid } = this.state
+    const { dirty, isValid } = this.state
 
     return (
       <Label
         disabled={disabled}
         underlined={underlined}
-        focused={focused}
+        autoFocus={autoFocus || focused}
         error={error || !isValid}
         dirty={dirty}
         theme={theme}
@@ -299,7 +303,7 @@ class InputText extends Component {
           onBlur={this.handleBlur}
           error={error || !isValid}
           dirty={dirty}
-          focused={focused}
+          autoFocus={autoFocus || focused}
           theme={theme}
           underlined={underlined}
           {...otherProps}
@@ -342,6 +346,7 @@ InputText.propTypes = {
   disabled: PropTypes.bool,
   readonly: PropTypes.bool,
   underlined: PropTypes.bool,
+  autoFocus: PropTypes.bool,
   label: PropTypes.node,
   onBlur: PropTypes.func,
   error: PropTypes.string,
