@@ -280,7 +280,7 @@ class MediaCredits extends Component {
     this.setState({
       showDisclaimer: false,
       showCredits: false,
-      showTranscript: newState,
+      showTranscript: newState,      
     })
   }
 
@@ -361,6 +361,7 @@ class MediaCredits extends Component {
           aria-controls={transcriptId}
           type="button"
           onClick={this.toggleTranscript}
+          aria-expanded={this.state.showTranscript}
         >
           <IconSpan>
             <svg
@@ -387,6 +388,7 @@ class MediaCredits extends Component {
           aria-controls={transcriptId}
           type="button"
           onClick={this.toggleTranscript}
+          aria-expanded={this.state.showTranscript}
         >
           <IconSpan>
             <svg
@@ -433,11 +435,12 @@ class MediaCredits extends Component {
                   aria-controls={creditsId}
                   type="button"
                   onClick={this.toggleCredits}
+                  aria-expanded={this.state.showCredits}
                 >
                   Credits
                 </NavItemActiveButton>
               ) : (
-                <NavItemButton aria-controls={creditsId} type="button" onClick={this.toggleCredits}>
+                <NavItemButton aria-controls={creditsId} type="button" onClick={this.toggleCredits} aria-expanded={this.state.showCredits}>
                   Credits
                 </NavItemButton>
               )}
