@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-
+import classNames from 'classnames'
 import styled, { withTheme } from 'styled-components'
+
 import { defaultTheme, getThemeVariable } from '../Theme'
 
 import Button from '../Button'
 import { DownArrowIcon } from '../Icon'
-
-import uniqueId from 'lodash/uniqueId'
 
 const Root = styled.div`
   position: relative;
@@ -15,31 +14,27 @@ const Root = styled.div`
   align-items: stretch;
 `
 
-const DownButton = styled.button`
-  display: flex;
-  align-items: center;
-  width: 40px;
-  margin-left: 4px;
-  border: ${props => (props.flat ? 'none' : `1px solid ${getThemeVariable('color')(props)}`)};
-  border-top-right-radius: ${props => (props.rounded ? '4px' : '0')};
-  border-bottom-right-radius: ${props => (props.rounded ? '4px' : '0')};
-  background: ${props =>
-    props.flat || props.outlined ? 'transparent' : getThemeVariable('color')(props)};
-  text-align: center;
-
-  background: ${props => (props.rounded ? 'pink' : 'purple')};
+const MainButton = styled(Button)`
+  border-radius: ${props => (props.rounded ? '4px 0 0 4px' : '0')};
 `
 
-const Icon = styled.span`
-  width: 20px;
-  height: 20px;
-  margin: auto;
+const DownButton = styled(Button)`
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  padding: 0;
+  margin-left: 4px;
+  border-radius: ${props => (props.rounded ? '0 4px 4px 0' : '0')};
+  text-align: center;
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 50%;
+    height: 50%;
     margin: auto;
-    fill: #fff;
+    fill: ${props =>
+      props.flat || props.outlined
+        ? getThemeVariable('color')(props)
+        : getThemeVariable('colorText')(props)};
   }
 `
 
@@ -49,7 +44,7 @@ const Drawer = styled.div`
   left: 0;
   margin-top: 4px;
   border: 1px solid #979797;
-  border-radius: ${props => (props.rounded ? '4px' : '0')};
+  border-radius: 3px;
   background: #fff;
   z-index: 50;
 
@@ -57,6 +52,7 @@ const Drawer = styled.div`
     margin: 0;
     padding: 0;
   }
+
   li {
     margin: 0;
     padding: 0;
@@ -68,6 +64,7 @@ const Drawer = styled.div`
   li:last-child button {
     border-radius: 0 0 3px 3px;
   }
+
   button {
     all: unset;
     font-family: inherit;
@@ -96,85 +93,106 @@ const Drawer = styled.div`
 `
 
 class SplitButton extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.container = React.createRef()
-    this.buttonId = uniqueId()
     this.domButton = null
 
     this.state = {
       isOpen: false,
     }
+
+    // based on https://stackoverflow.com/a/3028037/706891
+    this.outsideClickListener = e => {
+      const element = this.container.current
+      const isVisible = el =>
+        !!el && !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length)
+
+      if (this.state.isOpen && element && !element.contains(e.target) && isVisible(element)) {
+        this.setState({ isOpen: false })
+      }
+    }
   }
 
   componentDidMount() {
-    this.domButton = document.getElementById(this.buttonId)
+    // listen for outside click
+    document.addEventListener('click', this.outsideClickListener)
+  }
+
+  componentWillUnmount() {
+    // stop listening for outside click
+    document.removeEventListener('click', this.outsideClickListener)
   }
 
   render() {
     let {
+      id,
       className,
       items,
-      buttonProps,
       children,
-      outlined,
-      raised,
-      rounded,
       onItemClick,
+      open,
+      onToggleClick,
       onOpen,
       onClose,
       ...otherProps
     } = this.props
+    const classes = classNames('hw-split-button', className)
 
-    const classes = ['hw-split-button', className].join(' ').trim()
-    const buttonOverrides = {
-      position: 'relative',
-      borderTopRightRadius: 0,
-      borderBottomRightRadius: 0,
-    }
+    // remove "render", "type", & "on..." (that is, events) from down button
+    const otherPropKeys = Object.keys(otherProps)
+    let downBtnProps = { ...otherProps }
+    otherPropKeys.forEach(key => {
+      if (key.substr(0, 2) === 'on' || key === 'render' || key === 'type') delete downBtnProps[key]
+    })
 
     return (
-      <Root className={classes} {...otherProps} ref={this.container}>
-        <Button
-          {...buttonProps}
-          style={buttonOverrides}
-          id={this.buttonId}
+      <Root id={id} className={classes} ref={this.container}>
+        <MainButton
+          className="hw-split-button-main-button"
+          {...otherProps}
           onClick={e => {
             e.preventDefault()
             this.setState({ isOpen: false })
-            buttonProps.onClick && buttonProps.onClick(e)
+            otherProps.onClick && otherProps.onClick(e)
           }}
         >
           {children}
-        </Button>
+        </MainButton>
 
         <DownButton
-          onClick={() => {
-            this.state.isOpen ? onClose() : onOpen()
-            this.setState({ isOpen: !this.state.isOpen })
+          className="hw-split-button-toggle-button"
+          {...downBtnProps}
+          onClick={e => {
+            e.preventDefault()
+            e.stopPropagation()
+            this.state.isOpen ? onToggleClick(true) : onToggleClick(false)
+            this.setState({ isOpen: !this.state.isOpen }, () =>
+              this.state.isOpen ? onOpen() : onClose()
+            )
           }}
         >
-          <Icon>
-            <DownArrowIcon />
-          </Icon>
+          <DownArrowIcon />
         </DownButton>
 
-        {this.state.isOpen ? (
-          <Drawer>
+        {open !== false && (open || this.state.isOpen) ? (
+          <Drawer className="hw-split-button-drawer">
             <ul>
-              {items.map((item, i) => (
-                <li key={'splitButton_item_' + i}>
-                  <button
-                    onClick={() => {
-                      onItemClick(item, i)
-                      this.setState({ isOpen: false })
-                    }}
-                  >
-                    {item}
-                  </button>
-                </li>
-              ))}
+              {items &&
+                items.length &&
+                items.map((item, i) => (
+                  <li key={'item_' + i}>
+                    <button
+                      onClick={() => {
+                        onItemClick(item, i)
+                        this.setState({ isOpen: false })
+                      }}
+                    >
+                      {item}
+                    </button>
+                  </li>
+                ))}
             </ul>
           </Drawer>
         ) : null}
@@ -186,20 +204,65 @@ class SplitButton extends Component {
 SplitButton.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.string),
+  onItemClick: PropTypes.func,
+  onToggleClick: PropTypes.func,
+  onOpen: PropTypes.func,
+  onClose: PropTypes.func,
+
+  open: PropTypes.bool, // for use as a controlled component
+
+  // these are all copied over from <Button />
+  children: PropTypes.node.isRequired,
+  id: PropTypes.string,
+  render: PropTypes.func,
   disabled: PropTypes.bool,
   flat: PropTypes.bool,
+  href: PropTypes.string,
   outlined: PropTypes.bool,
   raised: PropTypes.bool,
   rounded: PropTypes.bool,
-  onItemClick: PropTypes.func,
-  onOpen: PropTypes.func,
-  onClose: PropTypes.func,
+  color: PropTypes.oneOf([
+    'primary',
+    'primaryLight',
+    'primaryDark',
+    'primaryDarker',
+    'accent',
+    'accentDark',
+    'neutral',
+    'neutralLight',
+    'neutralDark',
+  ]),
+  theme: PropTypes.shape({
+    colorPrimaryLight: PropTypes.string,
+    colorPrimary: PropTypes.string,
+    colorPrimaryDark: PropTypes.string,
+    colorPrimaryDarker: PropTypes.string,
+    colorAccent: PropTypes.string,
+    colorAccentDark: PropTypes.string,
+    colorNeutralLight: PropTypes.string,
+    colorNeutral: PropTypes.string,
+    colorNeutralDark: PropTypes.string,
+    colorTextOnPrimaryLight: PropTypes.string,
+    colorTextOnPrimary: PropTypes.string,
+    colorTextOnPrimaryDark: PropTypes.string,
+    colorTextOnPrimaryDarker: PropTypes.string,
+    colorTextOnAccent: PropTypes.string,
+    colorTextOnAccentDark: PropTypes.string,
+    colorTextOnNeutralLight: PropTypes.string,
+    colorTextOnNeutral: PropTypes.string,
+    colorTextOnNeutralDark: PropTypes.string,
+    focusIndicator: PropTypes.string,
+    focusIndicatorContrast: PropTypes.string,
+    focusIndicatorOffset: PropTypes.string,
+  }),
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
 }
 
 SplitButton.defaultProps = {
   color: 'primary',
   theme: defaultTheme,
   onItemClick: () => {},
+  onToggleClick: () => {},
   onOpen: () => {},
   onClose: () => {},
 }
