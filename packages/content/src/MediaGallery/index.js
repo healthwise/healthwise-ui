@@ -86,9 +86,7 @@ const SectionGallery = styled.section`
 `
 
 const UlList = styled.ul`
-  display: flex;
-  flex-direction: row;
-  margin: 0 0 18px 0;
+  margin: 0;
   padding: 0;
 
   & li {
@@ -128,7 +126,7 @@ const ActiveThumbnailButton = styled.button`
   padding: 0;
   width: 84px;
   height: 56px;
-  border: 1px solid #abb2c1;
+  border: 1px solid #017acd;
   cursor: pointer;
 
   &:focus,
@@ -137,7 +135,11 @@ const ActiveThumbnailButton = styled.button`
     outline: 2px solid #000;
   }
 
-  border: 1px solid #017acd;
+  & img {
+    width: 84px;
+    height: 56px;
+  }
+
 `
 
 class MediaGallery extends Component {
