@@ -86,7 +86,9 @@ const SectionGallery = styled.section`
 `
 
 const UlList = styled.ul`
-  margin: 0;
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 18px 0;
   padding: 0;
 
   & li {
