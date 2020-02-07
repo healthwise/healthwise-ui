@@ -107,12 +107,14 @@ class MediaServiceVideo extends Component {
     const videoUrl = `${mediaServiceUrl}/html/${mediaToken}/${videoParts.id}/${videoParts.lang}?autostart=false&rt=${mediaToken}&hash=${mediaHash}&disclaimer=false`
     let abstract = null
     let type = null
-    let title = null
+    let titleText = null
+    let titleElement = null
 
     if (!hideAbstract) {
       const dom = this.parseHtml(`<div>${item.html}</div>`)
       abstract = <SpanAbstract>{item.abstract.consumer}</SpanAbstract>
-      title = <H3Title>{dom.querySelector('h3').firstChild.nodeValue}</H3Title>
+      titleText = dom.querySelector('h3').firstChild.nodeValue
+      titleElement = <H3Title>{dom.querySelector('h3').firstChild.nodeValue}</H3Title>
     }
 
     if (!hideType) {
@@ -126,14 +128,14 @@ class MediaServiceVideo extends Component {
         }}
       >
         {type}
-        {title}
+        {titleElement}
         {abstract}
         <Video
           as="iframe"
           ref={el => {
             this.videoElement = el
           }}
-          title="Video"
+          title={`Play Video ${titleText}`}
           className={`hw-slide-video`}
           src={videoUrl}
           frameBorder="0"
