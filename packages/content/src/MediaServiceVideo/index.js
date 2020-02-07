@@ -133,7 +133,7 @@ class MediaServiceVideo extends Component {
           ref={el => {
             this.videoElement = el
           }}
-          title="Video"
+          title={`Video ${title}`}
           className={`hw-slide-video`}
           src={videoUrl}
           frameBorder="0"
