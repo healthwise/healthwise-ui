@@ -56,9 +56,8 @@ storiesOf('core|Components/Modal', module)
       <ModalContainer>
         <Modal
           title="Lorem ipsum dolor sit amet"
-          onEnter={action('onEnter')}
           onEntered={action('onEntered')}
-          onExit={action('onExit')}
+          onClose={action('onClose')}
           onExited={action('onExited')}
         />
       </ModalContainer>
@@ -73,9 +72,8 @@ storiesOf('core|Components/Modal', module)
       <ModalContainer>
         <Modal
           title="Lorem ipsum dolor sit amet"
-          onEnter={action('onEnter')}
           onEntered={action('onEntered')}
-          onExit={action('onExit')}
+          onClose={action('onClose')}
           onExited={action('onExited')}
         >
           <p>
@@ -99,9 +97,8 @@ storiesOf('core|Components/Modal', module)
       <ModalContainer>
         <Modal
           title="Are you sure you want to delete?"
-          onEnter={action('onEnter')}
           onEntered={action('onEntered')}
-          onExit={action('onExit')}
+          onClose={action('onClose')}
           onExited={action('onExited')}
           actions={[
             <Button key="action-1" color="primary" rounded>
