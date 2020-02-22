@@ -139,7 +139,6 @@ const ActiveThumbnailButton = styled.button`
     width: 84px;
     height: 56px;
   }
-
 `
 
 class MediaGallery extends Component {
