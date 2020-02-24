@@ -64,6 +64,7 @@ class Modal extends Component {
       className,
       maxWidth,
       onClose,
+      onExited,
       open,
       title,
       theme,
@@ -71,7 +72,9 @@ class Modal extends Component {
       /* eslint-disable */
       classes,
       fullWidth,
+      onEnter,
       onEntering,
+      onExit,
       onExiting,
       PaperProps,
       scroll,
@@ -92,7 +95,11 @@ class Modal extends Component {
         aria-labelledby={this.titleId}
         className={classNames('hw-modal', className)}
         open={open}
-        onClose={onClose}
+        // this is because the Material dialog ONLY fires its native onClose with escape or overlay click, not any time the modal is closed
+        onExited={() => {
+          onClose()
+          onExited && onExited()
+        }}
         scroll="paper"
         maxWidth={maxWidth}
       >
@@ -128,11 +135,9 @@ Modal.propTypes = {
   maxWidth: PropTypes.oneOf(['xs', 'sm', 'md', false]),
   onBackdropClick: PropTypes.func,
   onClose: PropTypes.func,
-  onEnter: PropTypes.func,
   onEntered: PropTypes.func,
-  onEscapeKeyDown: PropTypes.func,
-  onExit: PropTypes.func,
   onExited: PropTypes.func,
+  onEscapeKeyDown: PropTypes.func,
   open: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   showTitle: PropTypes.bool,

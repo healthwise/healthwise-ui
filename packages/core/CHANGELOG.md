@@ -1,3 +1,9 @@
+# 1.0.0
+
+## Modal
+- **BREAKING**: Removed `onEnter`, `onEntering`, `onExit`, and `onExiting` props
+- **BREAKING**: Mapped our `onClose` prop to the MaterialUI `onExited` handler (for a clearer API)
+
 # 0.0.20
 
 ## Checkbox

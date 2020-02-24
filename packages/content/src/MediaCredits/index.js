@@ -280,7 +280,7 @@ class MediaCredits extends Component {
     this.setState({
       showDisclaimer: false,
       showCredits: false,
-      showTranscript: newState,      
+      showTranscript: newState,
     })
   }
 
@@ -440,7 +440,12 @@ class MediaCredits extends Component {
                   Credits
                 </NavItemActiveButton>
               ) : (
-                <NavItemButton aria-controls={creditsId} type="button" onClick={this.toggleCredits} aria-expanded={this.state.showCredits}>
+                <NavItemButton
+                  aria-controls={creditsId}
+                  type="button"
+                  onClick={this.toggleCredits}
+                  aria-expanded={this.state.showCredits}
+                >
                   Credits
                 </NavItemButton>
               )}
