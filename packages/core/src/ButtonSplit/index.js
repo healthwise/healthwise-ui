@@ -44,7 +44,7 @@ const Drawer = styled.div`
   top: 42px;
   left: 0;
   margin-top: 4px;
-  border: 1px solid #979797;
+  border: ${props => `1px solid ${getThemeVariable('colorBorder')(props)}`};
   border-radius: 3px;
   background: #fff;
   z-index: 50;
@@ -140,12 +140,14 @@ class SplitButton extends Component {
       ...otherProps
     } = this.props
     const classes = classNames('hw-split-button', className)
+    const isOpen = !!(open !== false && (open || this.state.isOpen))
 
-    // remove "render", "type", & "on..." (that is, events) from down button
+    // remove props we don't want from down button and menu: "render", "type", & events (that is, "on...")
     const otherPropKeys = Object.keys(otherProps)
-    let downBtnProps = { ...otherProps }
+    let downBtnAndMenuProps = { ...otherProps }
     otherPropKeys.forEach(key => {
-      if (key.substr(0, 2) === 'on' || key === 'render' || key === 'type') delete downBtnProps[key]
+      if (key.substr(0, 2) === 'on' || key === 'render' || key === 'type')
+        delete downBtnAndMenuProps[key]
     })
 
     return (
@@ -164,7 +166,8 @@ class SplitButton extends Component {
 
         <DownButton
           className="hw-split-button-toggle-button"
-          {...downBtnProps}
+          aria-expanded={isOpen}
+          {...downBtnAndMenuProps}
           onClick={e => {
             e.preventDefault()
             e.stopPropagation()
@@ -177,26 +180,24 @@ class SplitButton extends Component {
           <DownArrowIcon />
         </DownButton>
 
-        {open !== false && (open || this.state.isOpen) ? (
-          <Drawer className="hw-split-button-drawer">
-            <ul>
-              {items &&
-                items.length &&
-                items.map((item, i) => (
-                  <li key={'item_' + i}>
-                    <button
-                      onClick={() => {
-                        onItemClick(item, i)
-                        this.setState({ isOpen: false })
-                      }}
-                    >
-                      {item}
-                    </button>
-                  </li>
-                ))}
-            </ul>
-          </Drawer>
-        ) : null}
+        <Drawer className="hw-split-button-drawer" hidden={!isOpen} {...downBtnAndMenuProps}>
+          <ul>
+            {items &&
+              items.length &&
+              items.map((item, i) => (
+                <li key={'item_' + i}>
+                  <button
+                    onClick={() => {
+                      onItemClick(item, i)
+                      this.setState({ isOpen: false })
+                    }}
+                  >
+                    {item}
+                  </button>
+                </li>
+              ))}
+          </ul>
+        </Drawer>
       </Root>
     )
   }
