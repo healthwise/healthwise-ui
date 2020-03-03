@@ -24,6 +24,7 @@ const DownButton = styled(Button)`
   width: 40px;
   padding: 0;
   margin-left: 4px;
+  border-left: ${props => `1px solid ${getThemeVariable('color')(props)}`};
   border-radius: ${props => (props.rounded ? '0 4px 4px 0' : '0')};
   text-align: center;
 
