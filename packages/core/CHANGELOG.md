@@ -1,3 +1,8 @@
+# 1.0.1
+
+## SplitButton
+- Added `SplitButton` component
+
 # 1.0.0
 
 ## Modal
