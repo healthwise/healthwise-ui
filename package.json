@@ -1,4 +1,5 @@
 {
+  "name": "healthwise-ui",
   "private": true,
   "scripts": {
     "postinstall": "lerna bootstrap",
@@ -9,8 +10,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint --fix .",
-    "publish": "lerna run publish",
-    "publish:dryrun": "lerna run publish:dryrun",
+    "dopublish": "lerna run dopublish",
+    "dopublish:dryrun": "lerna run dopublish:dryrun",
     "reset": "npm run clean && rimraf node_modules && npm install"
   },
   "husky": {

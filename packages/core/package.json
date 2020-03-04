@@ -1,6 +1,6 @@
 {
   "name": "@healthwise-ui/core",
-  "version": "0.0.20",
+  "version": "1.0.0",
   "description": "Shared React UI library that implements the Healthwise design language.",
   "main": "index.js",
   "unpkg": "healthwise-ui.min.js",
@@ -25,8 +25,8 @@
     "prebuild": "npm run clean",
     "postbuild": "node scripts/copyFiles.js",
     "clean": "rimraf build",
-    "publish": "npm run build && npm publish build",
-    "publish:dryrun": "npm run build && npm publish build --dry-run",
+    "dopublish": "npm run build && npm publish build",
+    "dopublish:dryrun": "npm run build && npm publish build --dry-run",
     "test": "jest"
   },
   "dependencies": {
