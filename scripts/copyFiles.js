@@ -2,8 +2,7 @@ const fs = require('fs-extra')
 const path = require('path')
 
 const paths = {
-  root: path.resolve(__dirname, '..', '..', '..'),
-  packageRoot: path.resolve(__dirname, '..'),
+  root: path.resolve(__dirname, '..'),
   build: path.resolve(__dirname, '..', 'build'),
 }
 
@@ -12,6 +11,6 @@ const copyToBuild = (baseDir, filename) => {
 }
 
 copyToBuild(paths.root, 'LICENSE')
-copyToBuild(paths.packageRoot, 'package.json')
-copyToBuild(paths.packageRoot, 'README.md')
-copyToBuild(paths.packageRoot, 'CHANGELOG.md')
+copyToBuild(paths.root, 'package.json')
+copyToBuild(paths.root, 'README.md')
+copyToBuild(paths.root, 'CHANGELOG.md')

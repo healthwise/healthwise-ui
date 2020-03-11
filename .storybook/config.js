@@ -2,10 +2,10 @@ import React from 'react'
 import { configure, addDecorator, addParameters } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { create } from '@storybook/theming'
-import CssBaseline from '../packages/core/src/CssBaseline'
+import CssBaseline from '../src/CssBaseline'
 // TODO: We shouldn't need the CssVars component once we finish refactoring
 // the content package to use styled-components
-import { CssVars } from '../packages/core/src/Theme'
+import { CssVars } from '../src/Theme'
 
 addDecorator(withInfo)
 addDecorator(story => {
@@ -34,7 +34,7 @@ addParameters({
 
 // Automatically import all files ending in *.stories.js
 const req = require.context(
-  '../packages/core',
+  '../src',
   true,
   /^((?![/\\\\]node_modules[/\\\\]).)*\.stories\.js$/
 )
