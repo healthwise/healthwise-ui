@@ -105,6 +105,8 @@ class InputText extends Component {
   constructor(props) {
     super(props)
 
+    this.input = React.createRef()
+
     this.fallbackError = 'Value is unexpected.'
     const validationErrors = Object.assign(
       {
@@ -171,8 +173,8 @@ class InputText extends Component {
 
     const validationErrors = this.state.validationErrors
     const fallbackError = this.fallbackError
-    const input = this.input
-    const validity = input.validity
+    const input = this.input.current
+    const validity = input && input.validity
     let isValid = !error
     let errorType = error ? 'supplied' : null
     let errorMessage = error || null
@@ -289,9 +291,7 @@ class InputText extends Component {
         )}
         <Input
           className={classNames('hw-input-text', `hw-input-text-${type}`, className)}
-          ref={el => {
-            this.input = el
-          }}
+          ref={this.input}
           type={type}
           placeholder={placeholder}
           required={required}
