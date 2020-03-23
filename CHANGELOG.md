@@ -1,3 +1,8 @@
+# 1.0.2
+
+## InputText
+- Swapped `InputText` ref over to createRef (to fix `ref` potentially being `null`)
+
 # 1.0.1
 
 ## SplitButton
