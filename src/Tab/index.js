@@ -94,7 +94,6 @@ class Tab extends Component {
       disabled,
       onClick,
       theme,
-      // onKeyUp, // from clonedProps. Is this an anti-pattern?
       ...otherProps
     } = this.props
 
@@ -109,7 +108,6 @@ class Tab extends Component {
         tabIndex={tabIndex}
         aria-disabled={disabled}
         accessKey={accessKey}
-        // onKeyUp={onKeyUp}
         onClick={onClick}
         theme={theme}
         visited={visited}
@@ -135,7 +133,6 @@ Tab.propTypes = {
   minWidth: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
-  // onKeyUp: PropTypes.func,
   theme: PropTypes.shape({
     colorPrimaryLight: PropTypes.string,
     colorPrimary: PropTypes.string,
