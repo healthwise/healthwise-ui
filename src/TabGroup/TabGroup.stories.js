@@ -9,6 +9,8 @@ const onClick = event => {
   event.preventDefault()
 }
 
+const selectTab = (index, direction) => {}
+
 storiesOf('core|Components/Tab Group', module)
   .add(
     'with defaults',
@@ -215,5 +217,29 @@ storiesOf('core|Components/Tab Group', module)
     ),
     {
       info: `Demonstrates tab with 'minWidth' prop set`,
+    }
+  )
+  .add(
+    'with all statuses and tab selection handler props',
+    () => (
+      <div>
+        <TabGroup selectTab={selectTab}>
+          <Tab href="#" onClick={onClick} isActive>
+            Active
+          </Tab>
+          <Tab href="#" onClick={onClick} visited>
+            Visited
+          </Tab>
+          <Tab href="#" onClick={onClick} disabled>
+            Disabled
+          </Tab>
+          <Tab href="#" onClick={onClick}>
+            Unvisited
+          </Tab>
+        </TabGroup>
+      </div>
+    ),
+    {
+      info: `Demonstrates the various tab statuses with a tab selection handler passed in`,
     }
   )
