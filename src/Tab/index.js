@@ -94,10 +94,11 @@ class Tab extends Component {
       disabled,
       onClick,
       theme,
+      onKeyUp,
       ...otherProps
     } = this.props
 
-    const tabIndex = this.props.isActive ? null : '-1'
+    const tabIndex = this.props.onKeyUp ? (this.props.isActive ? null : '-1') : null
 
     const tabClassName = classNames('hw-tab', { 'hw-tab-is-active': isActive }, className)
 
@@ -112,6 +113,7 @@ class Tab extends Component {
         theme={theme}
         visited={visited}
         isActive={isActive}
+        onKeyUp={onKeyUp}
         disabled={disabled}
         style={{ minWidth }}
         role="tab"
@@ -133,6 +135,7 @@ Tab.propTypes = {
   minWidth: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  onKeyUp: PropTypes.func,
   theme: PropTypes.shape({
     colorPrimaryLight: PropTypes.string,
     colorPrimary: PropTypes.string,

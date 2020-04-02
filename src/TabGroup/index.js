@@ -50,6 +50,7 @@ class TabGroup extends Component {
   constructor() {
     super()
     this.tabGroup = React.createRef()
+    this.handleKeyup = this.handleKeyup.bind(this)
   }
 
   componentDidMount() {
@@ -72,8 +73,29 @@ class TabGroup extends Component {
     }
   }
 
+  handleKeyup(e, index) {
+    e.preventDefault()
+    if (e.which === 13 || e.which === 32) this.props.selectTab(index, 'CURRENT')
+    else if (e.which === 37 || e.which === 38) this.props.selectTab(index, 'PREV')
+    else if (e.which === 39 || e.which === 40) this.props.selectTab(index, 'NEXT')
+  }
+
   render() {
-    const { children, className, stretch, theme, ...otherProps } = this.props
+    const { children, className, stretch, theme, selectTab, ...otherProps } = this.props
+
+    const childrenTabs = selectTab
+      ? React.Children.map(this.props.children, (childTab, index) => {
+          // if a tab selection function was passed as props, we need to also map the keyup function to the children
+          // to ensure that the user can navigate with the keyboard
+          // since they were defined in the parent of the tabgroup (this element)
+          // and passed in as child(ren)
+          return React.cloneElement(childTab, {
+            onKeyUp: e => {
+              this.handleKeyup(e, index)
+            },
+          })
+        })
+      : [...children]
 
     return (
       <Root
@@ -84,7 +106,7 @@ class TabGroup extends Component {
         theme={theme}
         {...otherProps}
       >
-        {React.Children.map(children, (tab, index) => (
+        {React.Children.map(childrenTabs, (tab, index) => (
           <Container key={index} stretch={stretch} theme={theme} role="presentation">
             {tab}
           </Container>
@@ -105,6 +127,7 @@ TabGroup.propTypes = {
     spacingXs: PropTypes.string,
     spacingL: PropTypes.string,
   }),
+  selectTab: PropTypes.func,
 }
 
 TabGroup.defaultProps = {
