@@ -50,6 +50,7 @@ class TabGroup extends Component {
   constructor() {
     super()
     this.tabGroup = React.createRef()
+    // this.handleKeyup = this.handleKeyup.bind(this)
   }
 
   componentDidMount() {
@@ -72,19 +73,44 @@ class TabGroup extends Component {
     }
   }
 
+  // previousTab(index) {
+  //   console.log("PREVIOUS TAB")
+  //   //TODO: DOUBLE CHECK FOR DISABLED PREV ELEMENT
+  //   if (index > 0) {
+  //     return this.props.selectTab(index - 1)
+  //   }
+  //   this.props.selectTab(this.props.children.length - 1)
+  // }
+
+  // nextTab(index) {
+  //   console.log("NEXT TAB")
+  //   //TODO: DOUBLE CHECK FOR DISABLED NEXT ELEMENT
+  //   if (index < this.props.children.length - 1) {
+  //     return this.props.selectTab(index + 1)
+  //   }
+  //   this.props.selectTab(0)
+  // }
+
+  // handleKeyup(e, tab) {
+  //   e.preventDefault()
+  //   if (e.which === 13) this.selectTab(tab)
+  //   else if (e.which === 37) this.previousTab(tab)
+  //   else if (e.which === 39) this.nextTab(tab)
+  // }
+
   render() {
     const { children, className, stretch, theme, ...otherProps } = this.props
 
-    const childrenWithProps = React.Children.map(this.props.children, (child, index) => {
-      // need to add the function to the props of each child
-      // since they were defined in the parent of the tabgroup (this element)
-      // and passed in as child(ren)
-      return React.cloneElement(child, {
-        onKeyUp: e => {
-          this.handleKeyup(e, index)
-        },
-      })
-    })
+    // const childrenWithProps = React.Children.map(this.props.children, (child, index) => {
+    //   // need to add the function to the props of each child
+    //   // since they were defined in the parent of the tabgroup (this element)
+    //   // and passed in as child(ren)
+    //   return React.cloneElement(child, {
+    //     onKeyUp: e => {
+    //       this.handleKeyup(e, index)
+    //     },
+    //   })
+    // })
 
     return (
       <Root
@@ -95,7 +121,7 @@ class TabGroup extends Component {
         theme={theme}
         {...otherProps}
       >
-        {React.Children.map(childrenWithProps, (tab, index) => (
+        {React.Children.map(/* childrenWithProps */ children, (tab, index) => (
           <Container key={index} stretch={stretch} theme={theme} role="presentation">
             {tab}
           </Container>
@@ -116,7 +142,7 @@ TabGroup.propTypes = {
     spacingXs: PropTypes.string,
     spacingL: PropTypes.string,
   }),
-  selectTab: PropTypes.func,
+  // selectTab: PropTypes.func,
 }
 
 TabGroup.defaultProps = {

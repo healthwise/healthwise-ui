@@ -94,7 +94,7 @@ class Tab extends Component {
       disabled,
       onClick,
       theme,
-      onKeyUp, // from clonedProps. Is this an anti-pattern?
+      // onKeyUp, // from clonedProps. Is this an anti-pattern?
       ...otherProps
     } = this.props
 
@@ -105,9 +105,11 @@ class Tab extends Component {
     return (
       <Root
         className={tabClassName}
+        href={href}
         tabIndex={tabIndex}
         aria-disabled={disabled}
-        onKeyUp={onKeyUp}
+        accessKey={accessKey}
+        // onKeyUp={onKeyUp}
         onClick={onClick}
         theme={theme}
         visited={visited}
@@ -133,7 +135,7 @@ Tab.propTypes = {
   minWidth: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
-  onKeyUp: PropTypes.func,
+  // onKeyUp: PropTypes.func,
   theme: PropTypes.shape({
     colorPrimaryLight: PropTypes.string,
     colorPrimary: PropTypes.string,
