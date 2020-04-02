@@ -5,7 +5,8 @@ import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
 
-const Root = styled.a`
+const Root = styled.button`
+  width: 100%;
   box-sizing: border-box;
   height: 100%;
   display: flex;
@@ -91,23 +92,27 @@ class Tab extends Component {
       disabled,
       onClick,
       theme,
+      onKeyUp, // from clonedProps. Is this an anti-pattern?
       ...otherProps
     } = this.props
+
+    const tabIndex = this.props.isActive ? null : '-1'
 
     const tabClassName = classNames('hw-tab', { 'hw-tab-is-active': isActive }, className)
 
     return (
       <Root
         className={tabClassName}
-        href={href}
+        tabIndex={tabIndex}
         aria-disabled={disabled}
-        accessKey={accessKey}
+        onKeyUp={onKeyUp}
         onClick={onClick}
         theme={theme}
         visited={visited}
         isActive={isActive}
         disabled={disabled}
         style={{ minWidth }}
+        role="tab"
         {...otherProps}
       >
         <div>{children}</div>
@@ -126,6 +131,7 @@ Tab.propTypes = {
   minWidth: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  onKeyUp: PropTypes.func,
   theme: PropTypes.shape({
     colorPrimaryLight: PropTypes.string,
     colorPrimary: PropTypes.string,

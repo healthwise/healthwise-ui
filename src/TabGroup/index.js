@@ -75,16 +75,28 @@ class TabGroup extends Component {
   render() {
     const { children, className, stretch, theme, ...otherProps } = this.props
 
+    const childrenWithProps = React.Children.map(this.props.children, (child, index) => {
+      // need to add the function to the props of each child
+      // since they were defined in the parent of the tabgroup (this element)
+      // and passed in as child(ren)
+      return React.cloneElement(child, {
+        onKeyUp: e => {
+          this.handleKeyup(e, index)
+        },
+      })
+    })
+
     return (
       <Root
+        role="tablist"
         ref={this.tabGroup}
         className={classNames('hw-tab-group', className)}
         stretch={stretch}
         theme={theme}
         {...otherProps}
       >
-        {React.Children.map(children, (tab, index) => (
-          <Container key={index} stretch={stretch} theme={theme}>
+        {React.Children.map(childrenWithProps, (tab, index) => (
+          <Container key={index} stretch={stretch} theme={theme} role="presentation">
             {tab}
           </Container>
         ))}
@@ -104,6 +116,7 @@ TabGroup.propTypes = {
     spacingXs: PropTypes.string,
     spacingL: PropTypes.string,
   }),
+  selectTab: PropTypes.func,
 }
 
 TabGroup.defaultProps = {
