@@ -6,6 +6,7 @@ import styled, { withTheme } from 'styled-components'
 import { defaultTheme } from '../Theme'
 
 const Root = styled.button`
+  background-color: transparent; /* let the container set background color */
   width: 100%;
   box-sizing: border-box;
   height: 100%;
@@ -19,6 +20,7 @@ const Root = styled.button`
   font-size: 1.25em;
   text-align: center;
   text-decoration: none;
+  border: none; /* reset since buttons have borders */
   border-bottom-width: 4px;
   border-bottom-style: solid;
   border-bottom-color: ${props =>
