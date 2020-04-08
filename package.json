@@ -20,7 +20,7 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook",
+    "storybook:build": "build-storybook -o docs",
     "prebuild": "rimraf build",
     "build": "npm run build:cjs && npm run build:iife",
     "build:cjs": "babel --root-mode upward-optional src -d build",
@@ -34,7 +34,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "storybook:build"
     }
   },
   "lint-staged": {
