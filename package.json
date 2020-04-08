@@ -35,7 +35,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "storybook:build"
+      "pre-push": "npm run storybook:build"
     }
   },
   "lint-staged": {
