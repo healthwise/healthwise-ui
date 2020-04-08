@@ -3,3 +3,4 @@ npm-debug.log
 thumbs.db
 *.log
 node_modules/
+docs/
