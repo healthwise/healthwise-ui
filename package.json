@@ -34,13 +34,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "rimraf docs && npm run lint -- && npm run storybook:build && git add ."
     }
   },
   "lint-staged": {
     "*.js": [
       "npm run lint --",
-      "npm run storybook:build",
       "git add"
     ]
   },
