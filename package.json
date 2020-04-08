@@ -34,13 +34,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run storybook:build"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "*.js": [
       "npm run lint --",
+      "npm run storybook:build",
       "git add"
     ]
   },
