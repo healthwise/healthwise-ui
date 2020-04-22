@@ -9,6 +9,16 @@ import { CheckboxCheckedIcon, CheckboxUncheckedIcon } from '../Icon'
 const Root = styled.div`
   position: relative;
   display: block;
+  line-height: 1;
+
+  opacity: ${props => (props.disabled ? 0.35 : 1)};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'default')};
+`
+
+const Label = styled.label`
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 `
 
 const CheckedIconContainer = styled.div`
@@ -52,7 +62,6 @@ const Input = styled.input`
   }
 
   :disabled ~ ${CheckedIconContainer}, :disabled ~ ${UncheckedIconContainer} {
-    opacity: 0.35;
     pointer-events: none;
   }
 
@@ -70,29 +79,50 @@ const Input = styled.input`
   }
 `
 
+const LabelContent = styled.span`
+  padding-left: 0.75rem;
+  font-size: 0.75em;
+`
+
 class Checkbox extends React.Component {
   render() {
-    const { className, name, value, checked, onClick, required, theme, ...otherProps } = this.props
+    const {
+      className,
+      label,
+      name,
+      value,
+      checked,
+      onClick,
+      required,
+      disabled,
+      theme,
+      ...otherProps
+    } = this.props
 
     return (
-      <Root className="hw-checkbox-wrapper">
-        <Input
-          type="checkbox"
-          name={name}
-          value={value}
-          checked={checked}
-          required={required}
-          className={classNames('hw-checkbox', className)}
-          onClick={onClick}
-          theme={theme}
-          {...otherProps}
-        />
-        <CheckedIconContainer theme={theme}>
-          <CheckboxCheckedIcon role="presentation" />
-        </CheckedIconContainer>
-        <UncheckedIconContainer theme={theme}>
-          <CheckboxUncheckedIcon role="presentation" />
-        </UncheckedIconContainer>
+      <Root disabled={disabled} className="hw-checkbox-wrapper">
+        <Label className="hw-checkbox-wrapper-label">
+          <Input
+            type="checkbox"
+            disabled={disabled}
+            name={name}
+            value={value}
+            checked={checked}
+            required={required}
+            className={classNames('hw-checkbox', className)}
+            onClick={onClick}
+            theme={theme}
+            {...otherProps}
+          />
+          <CheckedIconContainer theme={theme}>
+            <CheckboxCheckedIcon role="presentation" />
+          </CheckedIconContainer>
+          <UncheckedIconContainer theme={theme}>
+            <CheckboxUncheckedIcon role="presentation" />
+          </UncheckedIconContainer>
+
+          <LabelContent className="hw-checkbox-wrapper-label-text">{label}</LabelContent>
+        </Label>
       </Root>
     )
   }
@@ -100,6 +130,7 @@ class Checkbox extends React.Component {
 
 Checkbox.propTypes = {
   className: PropTypes.string,
+  label: PropTypes.string,
   name: PropTypes.string,
   value: PropTypes.string,
   checked: PropTypes.bool,

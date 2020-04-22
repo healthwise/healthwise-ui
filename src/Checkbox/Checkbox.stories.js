@@ -21,6 +21,9 @@ storiesOf('core|Form Controls/Checkbox', module)
         <div style={styles.container}>
           <Checkbox name="test 2" value="test" defaultChecked />
         </div>
+        <div style={styles.container}>
+          <Checkbox name="test 3" value="test" label="This is a label" />
+        </div>
       </div>
     ),
     {
@@ -37,6 +40,9 @@ storiesOf('core|Form Controls/Checkbox', module)
         <div style={styles.container}>
           <Checkbox name="test 2" value="test" disabled defaultChecked />
         </div>
+        <div style={styles.container}>
+          <Checkbox name="test 3" value="test" label="This is a label" disabled />
+        </div>
       </div>
     ),
     {
@@ -52,6 +58,9 @@ storiesOf('core|Form Controls/Checkbox', module)
         </div>
         <div style={styles.container}>
           <Checkbox name="test 2" value="test" required defaultChecked />
+        </div>
+        <div style={styles.container}>
+          <Checkbox name="test 3" value="test" label="This is a label" required />
         </div>
       </div>
     ),

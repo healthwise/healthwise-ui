@@ -1,6 +1,6 @@
 {
   "name": "@healthwise-ui/core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Shared React UI library that implements the Healthwise design language.",
   "main": "index.js",
   "unpkg": "healthwise-ui.min.js",
