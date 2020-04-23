@@ -10,19 +10,34 @@ const styles = {
   },
 }
 
-storiesOf('core|Form Controls/Radio', module).add(
-  'with defaults',
-  () => (
-    <div>
-      <div style={styles.container}>
-        <Radio name="test" value="test" />
+storiesOf('core|Form Controls/Radio', module)
+  .add(
+    'with defaults',
+    () => (
+      <div>
+        <div style={styles.container}>
+          <Radio name="test" value="test" />
+          <Radio name="test" value="test 2" defaultChecked />
+          <Radio name="test" value="test 3" label="This is a label" />
+        </div>
       </div>
-      <div style={styles.container}>
-        <Radio name="test 2" value="test" defaultChecked />
+    ),
+    {
+      info: `Demonstrates default rendering of Radio component`,
+    }
+  )
+  .add(
+    'disabled',
+    () => (
+      <div>
+        <div style={styles.container}>
+          <Radio name="test" value="test" disabled />
+          <Radio name="test" value="test 2" disabled defaultChecked />
+          <Radio name="test" value="test 3" label="This is a label" disabled />
+        </div>
       </div>
-    </div>
-  ),
-  {
-    info: `Demonstrates default rendering of Radio component`,
-  }
-)
+    ),
+    {
+      info: `Demonstrates a disabled Radio component`,
+    }
+  )

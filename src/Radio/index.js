@@ -7,7 +7,15 @@ import { defaultTheme } from '../Theme'
 const Root = styled.span`
   position: relative;
   display: block;
-  line-height: 28px;
+
+  opacity: ${props => (props.readonly || props.disabled ? 0.35 : 1)};
+  cursor: ${props => (props.readonly || props.disabled ? 'not-allowed' : 'default')};
+`
+
+const Label = styled.label`
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 `
 
 const Svg = styled.svg`
@@ -57,8 +65,13 @@ const Input = styled.input`
   }
 
   :disabled {
-    cursor: default;
+    cursor: not-allowed;
   }
+`
+
+const LabelContent = styled.span`
+  padding-left: 0.3rem;
+  font-size: 0.75em;
 `
 
 class Radio extends Component {
@@ -66,47 +79,53 @@ class Radio extends Component {
     let {
       id,
       name,
+      label,
       value,
       isRequired,
       onClick,
       readonly,
+      disabled,
       forPrint,
       theme,
       ...otherProps
     } = this.props
 
     return (
-      <Root className="hw-radio-wrapper">
-        <Input
-          type="radio"
-          id={id}
-          name={name}
-          value={value}
-          required={isRequired}
-          className="hw-radio"
-          onClick={onClick}
-          disabled={readonly}
-          forPrint={forPrint}
-          theme={theme}
-          {...otherProps}
-        />
-        <Svg
-          role="presentation"
-          viewBox="0 0 28 28"
-          className="hw-radio-image"
-          focusable="false"
-          forPrint={forPrint}
-        >
-          <OuterCircle
-            className="hw-radio-outer-circle"
-            cx="14"
-            cy="14"
-            r="9"
+      <Root disabled={readonly || disabled} className="hw-radio-wrapper">
+        <Label className="hw-radio-wrapper-label">
+          <Input
+            type="radio"
+            id={id}
+            name={name}
+            value={value}
+            required={isRequired}
+            className="hw-radio"
+            onClick={onClick}
+            disabled={readonly || disabled}
             forPrint={forPrint}
             theme={theme}
+            {...otherProps}
           />
-          <InnerCircle className="hw-radio-checked" cx="14" cy="14" r="5" theme={theme} />
-        </Svg>
+          <Svg
+            role="presentation"
+            viewBox="0 0 28 28"
+            className="hw-radio-image"
+            focusable="false"
+            forPrint={forPrint}
+          >
+            <OuterCircle
+              className="hw-radio-outer-circle"
+              cx="14"
+              cy="14"
+              r="9"
+              forPrint={forPrint}
+              theme={theme}
+            />
+            <InnerCircle className="hw-radio-checked" cx="14" cy="14" r="5" theme={theme} />
+          </Svg>
+
+          <LabelContent className="hw-checkbox-wrapper-label-text">{label}</LabelContent>
+        </Label>
       </Root>
     )
   }
@@ -119,6 +138,7 @@ Radio.propTypes = {
   value: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   readonly: PropTypes.bool,
+  disabled: PropTypes.bool,
   forPrint: PropTypes.bool,
   theme: PropTypes.shape({
     colorTextPrimary: PropTypes.string,

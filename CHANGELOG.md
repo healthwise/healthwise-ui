@@ -1,3 +1,11 @@
+# 1.0.3
+
+## Checkbox
+- Added `label` prop to `Checkbox`
+
+## Radio
+- Added `label` prop to `Radio`
+
 # 1.0.2
 
 ## InputText
