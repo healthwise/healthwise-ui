@@ -135,6 +135,7 @@ Checkbox.propTypes = {
   value: PropTypes.string,
   checked: PropTypes.bool,
   onClick: PropTypes.func,
+  disabled: PropTypes.bool,
   required: PropTypes.bool,
   theme: PropTypes.shape({
     colorTextPrimary: PropTypes.string,
