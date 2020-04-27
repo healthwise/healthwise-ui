@@ -46,7 +46,12 @@ class LoadingIndicator extends React.Component {
     const { hiddenText, inverted, theme, ...otherProps } = this.props
 
     return (
-      <Root className="hw-loading-indicator-wrapper" aria-label="loading" {...otherProps}>
+      <Root
+        className="hw-loading-indicator-wrapper"
+        role="alert"
+        aria-label="loading"
+        {...otherProps}
+      >
         <ScreenReaderOnly>{hiddenText}</ScreenReaderOnly>
         <Dots aria-hidden className={'hw-loading-indicator-dots'}>
           <Dot

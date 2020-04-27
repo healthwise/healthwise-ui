@@ -1,3 +1,8 @@
+# 1.1.0
+
+## LoadingIndicator
+- Migrated from rotating box to animated dots
+
 # 1.0.3
 
 ## Checkbox
