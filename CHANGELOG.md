@@ -1,7 +1,7 @@
-# 1.1.0
+# 2.0.0
 
 ## LoadingIndicator
-- Migrated from rotating box to animated dots
+- **BREAKING**: Migrated from rotating box to animated dots
 
 # 1.0.3
 

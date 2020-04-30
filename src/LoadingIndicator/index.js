@@ -41,38 +41,36 @@ const Dot = styled.div`
   }};
 `
 
-class LoadingIndicator extends React.Component {
-  render() {
-    const { hiddenText, inverted, theme, ...otherProps } = this.props
+const LoadingIndicator = props => {
+  const { hiddenText, inverted, theme, ...otherProps } = props
 
-    return (
-      <Root
-        className="hw-loading-indicator-wrapper"
-        role="alert"
-        aria-label="loading"
-        {...otherProps}
-      >
-        <ScreenReaderOnly>{hiddenText}</ScreenReaderOnly>
-        <Dots aria-hidden className={'hw-loading-indicator-dots'}>
-          <Dot
-            aria-hidden
-            className="hw-loading-indicator-dot"
-            position={1}
-            inverted={inverted}
-            theme={theme}
-          />
-          <Dot
-            aria-hidden
-            className="hw-loading-indicator-dot"
-            position={2}
-            inverted={inverted}
-            theme={theme}
-          />
-          <Dot aria-hidden className="hw-loading-indicator-dot" inverted={inverted} theme={theme} />
-        </Dots>
-      </Root>
-    )
-  }
+  return (
+    <Root
+      className="hw-loading-indicator-wrapper"
+      role="alert"
+      aria-label="loading"
+      {...otherProps}
+    >
+      <ScreenReaderOnly>{hiddenText}</ScreenReaderOnly>
+      <Dots aria-hidden className={'hw-loading-indicator-dots'}>
+        <Dot
+          aria-hidden
+          className="hw-loading-indicator-dot"
+          position={1}
+          inverted={inverted}
+          theme={theme}
+        />
+        <Dot
+          aria-hidden
+          className="hw-loading-indicator-dot"
+          position={2}
+          inverted={inverted}
+          theme={theme}
+        />
+        <Dot aria-hidden className="hw-loading-indicator-dot" inverted={inverted} theme={theme} />
+      </Dots>
+    </Root>
+  )
 }
 
 LoadingIndicator.propTypes = {
