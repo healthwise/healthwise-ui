@@ -1,7 +1,19 @@
 # 2.0.0
 
+## DropDown
+- **BREAKING**: Swapped dependency on `react-aria-menubutton` for a CSS-styled native `select`
+- **BREAKING**: Removed some class names attached to previous structure
+- **BREAKING**: Removed `onSelect` prop (in favor of `onChange`) & return value (for native)
+- Added `valueKey` and `nameKey` props, enabling `items` objects to have user-specified keys
+- Added `underlined` prop & functionality
+- Added `required` prop & functionality
+- Enabled `error` to take string (or bool) & display error text
+- Tidied up `propTypes`
+- Added, documented, & improved several Storybook stories
+
 ## LoadingIndicator
 - **BREAKING**: Migrated from rotating box to animated dots
+- **BREAKING**: Removed some class names attached to previous structure
 
 # 1.0.3
 
