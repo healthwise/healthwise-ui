@@ -5,65 +5,72 @@ import styled, { keyframes, withTheme } from 'styled-components'
 import { defaultTheme } from '../Theme'
 import ScreenReaderOnly from '../ScreenReaderOnly'
 
-const spinnerOuterAnimation = keyframes`
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(180deg); }
-  50% { transform: rotate(180deg); }
-  75% { transform: rotate(360deg); }
-  100% { transform: rotate(360deg); }
-`
-
-const spinnerInnerAnimation = keyframes`
-  0% { height: 0%; }
-  25% { height: 0%; }
-  50% { height: 100%; }
-  75% { height: 100%; }
-  100% { height: 0%; }
+const skbouncedelay = keyframes`
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
 `
 
 const Root = styled.div`
   min-height: 50px;
   position: relative;
+  padding: 0.75rem 0;
+  text-align: center;
 `
 
-const SpinnerOuter = styled.span`
+const Dots = styled.div`
+  margin: 0;
+  width: 60px;
   display: inline-block;
-  box-sizing: border-box;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  border: ${props =>
-    props.inverted
-      ? `4px solid ${props.theme.colorPrimaryLight}`
-      : `4px solid ${props.theme.colorPrimaryDark}`};
-  top: 10px;
-  left: 50%;
-  transform: translateX(-15px);
-  animation: ${spinnerOuterAnimation} 4s infinite ease;
 `
 
-const SpinnerInner = styled.span`
-  vertical-align: top;
-  display: inline-block;
-  width: 100%;
+const Dot = styled.div`
+  width: 18px;
+  height: 18px;
   background-color: ${props =>
     props.inverted ? props.theme.colorPrimaryLight : props.theme.colorPrimaryDark};
-  animation: ${spinnerInnerAnimation} 4s infinite ease-in;
+
+  border-radius: 100%;
+  display: inline-block;
+  animation: ${skbouncedelay} 1.4s infinite ease-in-out both;
+  animation-delay: ${props => {
+    if (props.position === 1) {
+      return '-0.32s'
+    } else if (props.position === 2) {
+      return '-0.16s'
+    } else return '1.4s'
+  }};
 `
 
-class LoadingIndicator extends React.Component {
-  render() {
-    const { hiddenText, inverted, theme, ...otherProps } = this.props
+const LoadingIndicator = props => {
+  const { hiddenText, inverted, theme, ...otherProps } = props
 
-    return (
-      <Root className="hw-loading-indicator-wrapper" {...otherProps}>
-        <ScreenReaderOnly>{hiddenText}</ScreenReaderOnly>
-        <SpinnerOuter className="hw-loading-indicator" inverted={inverted} theme={theme}>
-          <SpinnerInner className="hw-loading-indicator-inner" inverted={inverted} theme={theme} />
-        </SpinnerOuter>
-      </Root>
-    )
-  }
+  return (
+    <Root
+      className="hw-loading-indicator-wrapper"
+      role="alert"
+      aria-label="loading"
+      {...otherProps}
+    >
+      <ScreenReaderOnly>{hiddenText}</ScreenReaderOnly>
+      <Dots aria-hidden className={'hw-loading-indicator-dots'}>
+        <Dot
+          aria-hidden
+          className="hw-loading-indicator-dot"
+          position={1}
+          inverted={inverted}
+          theme={theme}
+        />
+        <Dot
+          aria-hidden
+          className="hw-loading-indicator-dot"
+          position={2}
+          inverted={inverted}
+          theme={theme}
+        />
+        <Dot aria-hidden className="hw-loading-indicator-dot" inverted={inverted} theme={theme} />
+      </Dots>
+    </Root>
+  )
 }
 
 LoadingIndicator.propTypes = {

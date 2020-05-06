@@ -1,158 +1,333 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import DropDown from './index'
 
-const ContainerDecorator = storyFn => <div style={{ maxWidth: '300px' }}>{storyFn()}</div>
+const ContainerDecorator = storyFn => <div style={{ maxWidth: '450px' }}>{storyFn()}</div>
+
+const styles = {
+  container: {
+    marginBottom: '16px',
+  },
+}
 
 const items = [
-  'one',
-  'two',
+  'First option',
+  'Second option',
   'Lorem ipsum dolor sit amet consectetur adipiscing elit. Phasellus lorem tellus scelerisque ut fermentum sit amet semper vel neque.',
 ]
 const complexItems = [
-  { name: 'one', value: 1 },
-  { name: 'two', value: 2 },
+  { name: 'First complex option', value: 1 },
+  { name: 'Second complex option', value: 2 },
   {
     name:
       'Lorem ipsum dolor sit amet consectetur adipiscing elit. Phasellus lorem tellus scelerisque ut fermentum sit amet semper vel neque.',
     value: 3,
   },
 ]
-const printItems = [
+const customKeys = [
+  { text: 'First custom key option', id: 1 },
+  { text: 'Second custom key option', id: 2 },
   {
-    name: 'Small',
-    value: '12pt',
-    component: (
-      <span className="hw-classy-class-name" style={{ fontSize: '1em' }}>
-        Small
-      </span>
-    ),
-  },
-  {
-    name: 'Medium',
-    value: '14pt',
-    component: (
-      <span className="hw-classy-class-name" style={{ fontSize: '1.25em' }}>
-        Medium
-      </span>
-    ),
-  },
-  {
-    name: 'Large',
-    value: '16pt',
-    component: (
-      <span className="hw-classy-class-name" style={{ fontSize: '1.75em' }}>
-        Large
-      </span>
-    ),
+    text:
+      'Lorem ipsum dolor sit amet consectetur adipiscing elit. Phasellus lorem tellus scelerisque ut fermentum sit amet semper vel neque.',
+    id: 3,
   },
 ]
-const prompt = 'Select a key'
+const manyItems = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+  '18',
+  '19',
+  '20',
+]
+
+const prompt = 'Select a value'
 
 storiesOf('core|Form Controls/Drop Down', module)
   .addDecorator(ContainerDecorator)
-  .add('Default options', () => <DropDown items={items} onSelect={action('selected')} />, {
-    info: `Demonstrates default rendering of the component.  With no size specified, it defaults to large.  With no prompt specified, it defaults to "Select a value."`,
+  .add('with defaults', () => <DropDown items={items} onChange={action('selected')} />, {
+    info: `Demonstrates default rendering of the component.`,
+  })
+  .add('underlined', () => <DropDown items={items} onChange={action('selected')} underlined />, {
+    info: `Demonstrates component with underline styling.`,
   })
   .add(
-    'With label',
-    () => <DropDown items={items} onSelect={action('selected')} label="Test label" />,
+    'prompt',
+    () => (
+      <Fragment>
+        <div style={styles.container}>
+          <DropDown items={items} onChange={action('selected')} prompt={prompt} />
+        </div>
+        <div style={styles.container}>
+          <DropDown items={items} onChange={action('selected')} prompt={prompt} underlined />
+        </div>
+      </Fragment>
+    ),
+    {
+      info: `Demonstrates component with default prompt.`,
+    }
+  )
+  .add(
+    'labeled',
+    () => (
+      <Fragment>
+        <div style={styles.container}>
+          <DropDown items={items} onChange={action('selected')} label="This is a label" />
+        </div>
+        <div style={styles.container}>
+          <DropDown
+            items={items}
+            onChange={action('selected')}
+            label="This is a label"
+            underlined
+          />
+        </div>
+      </Fragment>
+    ),
     {
       info: `Demonstrates rendering of the component with a label`,
     }
   )
   .add(
-    'Preset value',
-    () => <DropDown items={items} prompt={prompt} value="two" onSelect={action('selected')} />,
-    {
-      info: `Demonstrates rendering of the component with a preset value.`,
-    }
-  )
-  .add(
-    'Disabled',
-    () => <DropDown items={items} onSelect={action('selected')} label="Test label" disabled />,
-    {
-      info: `Demonstrates rendering of the component disabled`,
-    }
-  )
-  .add(
-    'with error',
-    () => <DropDown items={items} onSelect={action('selected')} label="Test label" error />,
-    {
-      info: `Demonstrates rendering of the component in error`,
-    }
-  )
-  .add(
-    'Complex items',
-    () => <DropDown items={complexItems} prompt={prompt} onSelect={action('selected')} />,
-    {
-      info: `Demonstrates rendering of the component with a preset value.`,
-    }
-  )
-  .add(
-    'Complex items with preset value',
+    'preset value',
     () => (
-      <DropDown items={complexItems} prompt={prompt} value="two" onSelect={action('selected')} />
+      <Fragment>
+        <div style={styles.container}>
+          <DropDown
+            items={items}
+            prompt={prompt}
+            defaultValue="Second option"
+            onChange={action('selected')}
+          />
+        </div>
+        <div style={styles.container}>
+          <DropDown
+            items={items}
+            prompt={prompt}
+            defaultValue="Second option"
+            onChange={action('selected')}
+            underlined
+          />
+        </div>
+      </Fragment>
+    ),
+    {
+      info: `Demonstrates rendering of the component with a preset (and uncontrolled) value.`,
+    }
+  )
+  .add(
+    'unchanging value',
+    () => (
+      <Fragment>
+        <div style={styles.container}>
+          <DropDown
+            items={items}
+            prompt={prompt}
+            value="Second option"
+            onChange={action('selected')}
+          />
+        </div>
+        <div style={styles.container}>
+          <DropDown
+            items={items}
+            prompt={prompt}
+            value="Second option"
+            onChange={action('selected')}
+            underlined
+          />
+        </div>
+      </Fragment>
+    ),
+    {
+      info: `Demonstrates rendering of the component with a set/controlled value.  The event is triggered, but the default text doesn't change.`,
+    }
+  )
+  .add(
+    'disabled',
+    () => (
+      <Fragment>
+        <div style={styles.container}>
+          <DropDown items={items} onChange={action('selected')} label="Test label" disabled />
+        </div>
+        <div style={styles.container}>
+          <DropDown
+            items={items}
+            onChange={action('selected')}
+            label="Test label"
+            disabled
+            underlined
+          />
+        </div>
+      </Fragment>
+    ),
+    {
+      info: `Demonstrates rendering of the component when disabled.`,
+    }
+  )
+  .add(
+    'required',
+    () => (
+      <Fragment>
+        <div style={styles.container}>
+          <DropDown items={items} onChange={action('selected')} label="Test label" required />
+        </div>
+        <div style={styles.container}>
+          <DropDown
+            items={items}
+            onChange={action('selected')}
+            label="Test label"
+            required
+            underlined
+          />
+        </div>
+      </Fragment>
+    ),
+    {
+      info: `Demonstrates rendering of the component when disabled.`,
+    }
+  )
+  .add(
+    'error',
+    () => (
+      <Fragment>
+        <p>Error property without text (boolean):</p>
+        <div style={styles.container}>
+          <DropDown items={items} onChange={action('selected')} label="Test label" error />
+        </div>
+        <div style={styles.container}>
+          <DropDown
+            items={items}
+            onChange={action('selected')}
+            label="Test label"
+            error
+            underlined
+          />
+        </div>
+        <p>Error property with text:</p>
+        <div style={styles.container}>
+          <DropDown
+            items={items}
+            onChange={action('selected')}
+            label="Test label"
+            error="Error text here"
+          />
+        </div>
+        <div style={styles.container}>
+          <DropDown
+            items={items}
+            onChange={action('selected')}
+            label="Test label"
+            error="Error text here"
+            underlined
+          />
+        </div>
+      </Fragment>
+    ),
+    {
+      info: `Demonstrates rendering of the component in error.`,
+    }
+  )
+  .add(
+    'complex items (object array)',
+    () => (
+      <Fragment>
+        <div style={styles.container}>
+          <DropDown items={complexItems} prompt={prompt} onChange={action('selected')} />
+        </div>
+        <div style={styles.container}>
+          <DropDown items={complexItems} prompt={prompt} onChange={action('selected')} underlined />
+        </div>
+        <p>
+          The <code>items</code> prop takes either an array of strings or an array of objects (each
+          of which should have a <code>value</code> and <code>name</code> key).
+        </p>
+      </Fragment>
+    ),
+    {
+      info: `Demonstrates rendering of the items from an array of objects.`,
+    }
+  )
+  .add(
+    'complex items & preset value',
+    () => (
+      <Fragment>
+        <div style={styles.container}>
+          <DropDown
+            items={complexItems}
+            prompt={prompt}
+            defaultValue="2"
+            onChange={action('selected')}
+          />
+        </div>
+        <div style={styles.container}>
+          <DropDown
+            items={complexItems}
+            prompt={prompt}
+            defaultValue="2"
+            onChange={action('selected')}
+            underlined
+          />
+        </div>
+      </Fragment>
     ),
     {
       info: `Demonstrates rendering of the component with a preset value.`,
     }
   )
   .add(
-    'Print DropDown',
+    'custom keys',
     () => (
-      <DropDown items={printItems} prompt={'Print'} value="two" onSelect={action('selected')} />
+      <Fragment>
+        <div style={styles.container}>
+          <DropDown items={customKeys} valueKey="id" nameKey="text" onChange={action('selected')} />
+        </div>
+        <div style={styles.container}>
+          <DropDown
+            items={customKeys}
+            valueKey="id"
+            nameKey="text"
+            onChange={action('selected')}
+            underlined
+          />
+        </div>
+        <p>
+          When passing in an array of objects to the <code>items</code> prop, you can use the{' '}
+          <code>valueKey</code> and <code>nameKey</code> props to identify the property names of the
+          object(s) being passed in.
+        </p>
+      </Fragment>
     ),
     {
-      info: `Print with 3 size options.`,
+      info: `Use an array of objects, and specify the keys that reference each item's value and "friendly" name.`,
     }
   )
   .add(
-    'Retain default text',
+    'many items',
     () => (
-      <DropDown
-        items={printItems}
-        prompt={'Print'}
-        maintainPrompt
-        value="two"
-        onSelect={action('selected')}
-      />
-    ),
-    {
-      info: `Demonstrates a selection where the event is triggered, but the default text doesn't change.`,
-    }
-  )
-  .add(
-    'Many items',
-    () => (
-      <DropDown
-        items={[
-          '1',
-          '2',
-          '3',
-          '4',
-          '5',
-          '6',
-          '7',
-          '8',
-          '9',
-          '10',
-          '11',
-          '12',
-          '13',
-          '14',
-          '15',
-          '16',
-          '17',
-          '18',
-          '19',
-          '20',
-          'Lorem ipsum dolor sit amet consectetur adipiscing elit. Phasellus lorem tellus scelerisque ut fermentum sit amet semper vel neque.',
-        ]}
-        prompt={prompt}
-        onSelect={action('selected')}
-      />
+      <Fragment>
+        <div style={styles.container}>
+          <DropDown prompt={prompt} items={manyItems} onChange={action('selected')} />
+        </div>
+        <div style={styles.container}>
+          <DropDown prompt={prompt} items={manyItems} onChange={action('selected')} underlined />
+        </div>
+      </Fragment>
     ),
     {
       info: `Demonstrates default rendering of the component with many items.`,

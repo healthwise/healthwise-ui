@@ -1,31 +1,87 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  Wrapper as AriaWrapper,
-  Button as AriaButton,
-  Menu as AriaMenu,
-  MenuItem as AriaMenuItem,
-} from 'react-aria-menubutton'
-import uniqueId from 'lodash/uniqueId'
 import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
-import { DownArrowIcon, UpArrowIcon } from '../Icon'
 
-const Root = styled.div`
-  height: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-`
+import uniqueId from 'lodash/uniqueId'
+import Message from '../Message'
 
-const Wrapper = styled(AriaWrapper)`
+// NOTE: most CSS taken from https://github.com/filamentgroup/select-css
+
+const Select = styled.select`
+  display: block;
+  font-size: 1em;
+  font-family: sans-serif;
+  font-weight: normal;
+  color: ${props => props.theme.colorTextPrimary};
   width: 100%;
   height: 40px;
-  position: relative;
-  flex: 1 1 auto;
+  line-height: 40px;
+  padding: 0 32px 0 8px;
+  padding-left: ${props => (props.underlined ? '0' : '8px')};
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+
+  border: 1px solid ${props => (props.error ? props.theme.colorError : props.theme.colorBorder)};
+  border-top-color: ${props =>
+    props.underlined
+      ? 'transparent'
+      : props.error
+      ? props.theme.colorError
+      : props.theme.colorBorder};
+  border-right-color: ${props =>
+    props.underlined
+      ? 'transparent'
+      : props.error
+      ? props.theme.colorError
+      : props.theme.colorBorder};
+  border-left-color: ${props =>
+    props.underlined
+      ? 'transparent'
+      : props.error
+      ? props.theme.colorError
+      : props.theme.colorBorder};   
+
+  box-shadow: none;
+  border-radius: 0;
+  appearance: none;
+  background-color: #fff;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23${props =>
+    encodeURIComponent(
+      props.theme.colorTextPrimary
+    )}%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+    linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+  background-repeat: no-repeat, repeat;
+  /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
+  background-position: right 0.7em top 50%, 0 0;
+  /* icon size, then gradient */
+  background-size: 0.65em auto, 100%;
+
+  &:focus {
+    outline: ${props => props.theme.focusIndicator};
+    outline-offset: ${props => props.theme.focusIndicatorOffset};
+  }
+
+  &:disabled,
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  ::-ms-expand {
+    display: none;
+  }
 `
 
-const Label = styled.span`
+// /* Support for rtl text, explicit support for Arabic and Hebrew */
+// *[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
+// 	background-position: left .7em top 50%, 0 0;
+// 	padding: 0 8px 0 32px;
+// }
+
+const LabelText = styled.span`
   margin-bottom: 0.25rem;
   font-size: 0.75rem;
   letter-spacing: 0.5px;
@@ -36,269 +92,75 @@ const Label = styled.span`
   }
 `
 
-const Icon = styled.span`
-  height: 1rem;
-  width: 1rem;
-  margin-right: 5px;
-  margin-left: 0.5rem;
-  pointer-events: none;
-  display: flex;
+const Error = styled.div`
+  margin-top: 0.25em;
+  font-size: 0.75em;
+  line-height: 1;
+  height: 1em;
 `
 
-const DownArrowIconContainer = styled.span`
-  display: none;
-  height: 1rem;
-  width: 1rem;
-  margin-right: 5px;
-  margin-left: 0.5rem;
-  pointer-events: none;
-  svg {
-    fill: ${props => props.colorTextSecondary};
-  }
-`
+const DropDown = props => {
+  const {
+    label,
+    prompt,
+    items,
+    valueKey,
+    nameKey,
+    required,
+    disabled,
+    error,
+    ...otherProps
+  } = props
+  const errorId = uniqueId('hw-input-text-error')
 
-const UpArrowIconContainer = styled.span`
-  display: none;
-  height: 1rem;
-  width: 1rem;
-  margin-right: 5px;
-  margin-left: 0.5rem;
-  pointer-events: none;
-  svg {
-    fill: ${props => props.colorTextSecondary};
-  }
-`
-
-const Button = styled(AriaButton)`
-  width: 100%;
-  height: 100%;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  display: flex;
-  align-items: center;
-  border: 1px solid ${props => (props.error ? props.theme.colorError : props.theme.colorBorder)};
-  box-sizing: border-box;
-  background: ${props => props.theme.colorBackgroundLight};
-  color: ${props => props.theme.colorTextPrimary};
-  font-weight: normal;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  list-style-type: none;
-  cursor: pointer;
-
-  :focus {
-    outline: ${props => props.theme.focusIndicator};
-    outline-offset: ${props => props.theme.focusIndicatorOffset};
-  }
-
-  &[aria-expanded='true'] ${UpArrowIconContainer} {
-    display: flex;
-  }
-
-  &[aria-expanded='false'] ${DownArrowIconContainer} {
-    display: flex;
-  }
-
-  &[aria-disabled='true'] {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-`
-
-const Value = styled.span`
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  user-select: none;
-  pointer-events: none;
-  display: inline-block;
-  margin-right: auto;
-  flex: 1 1 auto;
-  overflow: hidden;
-`
-
-const Menu = styled(AriaMenu)`
-  position: absolute;
-  width: 100%;
-  height: auto;
-  background-color: ${props => props.theme.colorBackgroundLight};
-  z-index: 1000;
-`
-
-const MenuItems = styled.ul`
-  width: 100%;
-  max-height: 24rem;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  overflow-y: auto;
-  overflow-x: hidden;
-`
-
-const MenuItem = styled(AriaMenuItem)`
-  width: 100%;
-  height: 2rem; /* Force IE to properly align flex items */
-  min-height: 2rem;
-  max-height: 3rem;
-  border: 1px solid ${props => props.theme.colorBorder};
-  border-top-color: transparent;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  font-weight: normal;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  cursor: pointer;
-
-  :focus {
-    outline: ${props => props.theme.focusIndicator};
-    outline-offset: ${props => props.theme.focusIndicatorInset};
-  }
-`
-
-class DropDown extends Component {
-  constructor(props) {
-    super(props)
-
-    let mappedItems = this.mapItemsToObjects(props.items)
-    this.state = {
-      valueId: uniqueId('DropDownValue'),
-      value: this.findItemInArray(props.value, mappedItems) || {
-        name: props.prompt,
-        value: props.prompt,
-      },
-      items: mappedItems,
-    }
-
-    this.onSelectNewValue = this.onSelectNewValue.bind(this)
-  }
-
-  mapItemsToObjects(items) {
-    if (items && items.length > 0) {
-      return items.map(function(item) {
-        if (typeof item.value !== 'undefined' && typeof item.name !== 'undefined') {
-          return item
-        }
-
-        return {
-          value: item,
-          name: item.toString(),
-        }
-      })
-    }
-    return []
-  }
-
-  findItemInArray(value, items) {
-    if (value) {
-      return items.find(item => item.value === value || item.name === value)
-    }
-
-    return undefined
-  }
-
-  onSelectNewValue(value, event) {
-    let selectedItem = this.findItemInArray(value, this.state.items)
-    if (selectedItem !== null && this.state.value !== selectedItem) {
-      if (!this.props.maintainPrompt) {
-        this.setState({ value: selectedItem })
-      }
-
-      this.props.onSelect(value, event)
-    }
-  }
-
-  UNSAFE_componentWillReceiveProps(newProps) {
-    let itemsToSearch = this.state.items
-    if (newProps.items && newProps.items !== this.state.items) {
-      itemsToSearch = this.mapItemsToObjects(newProps.items)
-      this.setState({ items: itemsToSearch })
-    }
-
-    let newValue = this.findItemInArray(newProps.value, itemsToSearch) || {
-      name: newProps.prompt,
-      value: newProps.prompt,
-    }
-    if (newValue.value !== this.state.value.value) {
-      this.setState({ value: newValue })
-    }
-  }
-
-  render() {
-    const { icon, label, prompt, disabled, error, theme } = this.props
-    const { valueId, value, items } = this.state
-
-    return (
-      <Root className="hw-drop-down">
+  return (
+    <div className="hw-drop-down">
+      <label className="hw-drop-down-label" aria-disabled={disabled}>
         {label && (
-          <Label
-            className="hw-drop-down-label"
-            aria-hidden="true"
-            role="presentation"
-            aria-disabled={disabled}
-          >
+          <LabelText className="hw-drop-down-label-text">
             {label}
-          </Label>
+            {required && ' *'}
+          </LabelText>
         )}
-        <Wrapper onSelection={this.onSelectNewValue}>
-          <Button
-            className="hw-drop-down-button"
-            aria-label={label || prompt}
-            aria-describedby={valueId}
-            theme={theme}
-            error={error}
-            disabled={disabled}
-          >
-            {icon && (
-              <Icon aria-hidden="true" role="presentation">
-                {icon}
-              </Icon>
-            )}
-            <Value
-              id={valueId}
-              tabIndex="-1" // Makes IE read aria-describedby element
-              className="hw-drop-down-value"
-            >
-              {value.name}
-            </Value>
-            <DownArrowIconContainer
-              className="hw-drop-down-icon-arrow"
-              aria-hidden="true"
-              role="presentation"
-              theme={theme}
-            >
-              <DownArrowIcon role="presentation" />
-            </DownArrowIconContainer>
-            <UpArrowIconContainer
-              className="hw-drop-down-icon-arrow"
-              aria-hidden="true"
-              role="presentation"
-              theme={theme}
-            >
-              <UpArrowIcon role="presentation" />
-            </UpArrowIconContainer>
-          </Button>
-          <Menu theme={theme}>
-            <MenuItems>
-              {items.map((item, i) => (
-                <li key={i}>
-                  <MenuItem value={item.value} text={item.name} theme={theme}>
-                    <Value className="hw-drop-down-option">{item.component || item.name}</Value>
-                  </MenuItem>
-                </li>
-              ))}
-            </MenuItems>
-          </Menu>
-        </Wrapper>
-      </Root>
-    )
-  }
+        <Select
+          class="hw-drop-down-select"
+          disabled={disabled}
+          aria-disabled={disabled}
+          required={required}
+          aria-required={required}
+          error={error}
+          {...otherProps}
+        >
+          {prompt && (
+            <option key="prompt" value="">
+              {prompt}
+            </option>
+          )}
+          {items.map((item, i) => {
+            const isObj = item instanceof Object
+            return (
+              <option key={i} className="hw-drop-down-option" value={isObj ? item[valueKey] : item}>
+                {isObj ? item[nameKey] : item}
+              </option>
+            )
+          })}
+        </Select>
+
+        <Error id={errorId} className="hw-drop-down-error-container">
+          {error && error.length && (
+            <Message className="hw-drop-down-error" type="error" showIcon={false}>
+              {error}
+            </Message>
+          )}
+        </Error>
+      </label>
+    </div>
+  )
 }
 
 DropDown.propTypes = {
+  label: PropTypes.string,
+  prompt: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.string,
@@ -306,40 +168,42 @@ DropDown.propTypes = {
       PropTypes.shape({
         name: PropTypes.string,
         value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        component: PropTypes.node,
       }),
     ])
   ).isRequired,
-  icon: PropTypes.any,
-  label: PropTypes.string,
-  error: PropTypes.bool,
-  disabled: PropTypes.bool,
-  prompt: PropTypes.string,
-  maintainPrompt: PropTypes.bool,
+  nameKey: PropTypes.string,
+  valueKey: PropTypes.string,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
     PropTypes.shape({
       name: PropTypes.string,
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      component: PropTypes.node,
     }),
   ]),
-  onSelect: PropTypes.func.isRequired,
+  defaultValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.shape({
+      name: PropTypes.string,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    }),
+  ]),
+  required: PropTypes.bool,
+  disabled: PropTypes.bool,
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   theme: PropTypes.shape({
     colorTextPrimary: PropTypes.string,
-    colorTextSecondary: PropTypes.string,
-    colorBackgroundLight: PropTypes.string,
+    colorError: PropTypes.string,
     colorBorder: PropTypes.string,
     focusIndicator: PropTypes.string,
     focusIndicatorOffset: PropTypes.string,
-    focusIndicatorInset: PropTypes.string,
   }),
 }
 
 DropDown.defaultProps = {
-  prompt: 'Select a value',
-  maintainPrompt: false,
+  nameKey: 'name',
+  valueKey: 'value',
   disabled: false,
   theme: defaultTheme,
 }
