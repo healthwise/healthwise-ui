@@ -1,0 +1,113 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions'
+
+import Accordion from './index';
+import AccordionGroup from '../AccordionGroup/index'
+
+<Meta title="core|Components/Accordion" component={Accordion} />
+
+# Accordion
+
+Default rendering.
+
+<Preview>
+  <Story name="default">
+    <Accordion title="Lorem ipsum dolor sit amet">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+        est laborum.
+      </p>
+    </Accordion>
+  </Story>
+</Preview>
+
+Expanded at load.
+
+<Preview>
+  <Story name="expanded by default">
+    <Accordion title="Lorem ipsum dolor sit amet" defaultExpanded>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+        est laborum.
+      </p>
+    </Accordion>
+  </Story>
+</Preview>
+
+Disabled.
+
+<Preview>
+  <Story name="disabled">
+    <Accordion title="Lorem ipsum dolor sit amet" disabled>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+        est laborum.
+      </p>
+    </Accordion>
+  </Story>
+</Preview>
+
+Group of Accordions.
+
+<Preview>
+  <Story name="group of accordions">
+    <AccordionGroup
+      items={[
+        {
+          title: 'Lorem ipsum dolor sit amet',
+          content: (
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+              deserunt mollit anim id est laborum.
+            </p>
+          ),
+          onChange: action('onChange'),
+        },
+        {
+          title: 'Lorem ipsum dolor sit amet',
+          content: (
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+              deserunt mollit anim id est laborum.
+            </p>
+          ),
+          onChange: action('onChange'),
+        },
+        {
+          title: 'Lorem ipsum dolor sit amet',
+          content: (
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+              deserunt mollit anim id est laborum.
+            </p>
+          ),
+          onChange: action('onChange'),
+        },
+      ]}
+    />
+  </Story>
+</Preview>

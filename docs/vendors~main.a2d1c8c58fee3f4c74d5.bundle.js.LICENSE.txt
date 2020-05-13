@@ -11,6 +11,13 @@ object-assign
 */
 
 /*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @license  MIT
+ */
+
+/*!
  * escape-html
  * Copyright(c) 2012-2013 TJ Holowaychuk
  * Copyright(c) 2015 Andreas Lubbe
@@ -62,8 +69,6 @@ MERCHANTABLITY OR NON-INFRINGEMENT.
 See the Apache Version 2.0 License for specific language governing permissions
 and limitations under the License.
 ***************************************************************************** */
-
-/*! https://mths.be/he v1.2.0 by @mathias | MIT license */
 
 /**
     * CSS Vendor prefix detection and property feature testing.
