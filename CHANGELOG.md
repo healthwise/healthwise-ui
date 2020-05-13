@@ -1,3 +1,9 @@
+# 2.0.1
+
+## DropDown
+- Corrected errant prop, from `class` to `className`
+- Created fallback for undefined `items` prop
+
 # 2.0.0
 
 ## DropDown
