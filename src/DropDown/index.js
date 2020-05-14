@@ -123,7 +123,7 @@ const DropDown = props => {
           </LabelText>
         )}
         <Select
-          class="hw-drop-down-select"
+          className="hw-drop-down-select"
           disabled={disabled}
           aria-disabled={disabled}
           required={required}
@@ -136,14 +136,19 @@ const DropDown = props => {
               {prompt}
             </option>
           )}
-          {items.map((item, i) => {
-            const isObj = item instanceof Object
-            return (
-              <option key={i} className="hw-drop-down-option" value={isObj ? item[valueKey] : item}>
-                {isObj ? item[nameKey] : item}
-              </option>
-            )
-          })}
+          {items &&
+            items.map((item, i) => {
+              const isObj = item instanceof Object
+              return (
+                <option
+                  key={i}
+                  className="hw-drop-down-option"
+                  value={isObj ? item[valueKey] : item}
+                >
+                  {isObj ? item[nameKey] : item}
+                </option>
+              )
+            })}
         </Select>
 
         <Error id={errorId} className="hw-drop-down-error-container">
