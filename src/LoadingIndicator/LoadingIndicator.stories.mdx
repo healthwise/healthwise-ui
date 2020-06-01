@@ -1,0 +1,40 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+import LoadingIndicator from './index'
+
+<Meta title="core|UI Feedback/Loading Indicator" component={LoadingIndicator} />
+
+export const styles = {
+  invertedContainer: {
+    background: '#F86E12',
+  },
+}
+
+# Loading Indicator
+
+Default rendering.
+
+<Preview>
+  <Story name="default">
+    <LoadingIndicator />
+  </Story>
+</Preview>
+
+With hidden text.
+
+<Preview>
+  <Story name="with hidden text">
+    <LoadingIndicator hiddenText="This is the custom hidden text" />
+    Use a screen reader to hear custom hidden text
+  </Story>
+</Preview>
+
+With inverted color.
+
+<Preview>
+  <Story name="inverted">
+    <div style={styles.invertedContainer}>
+      <LoadingIndicator inverted />
+    </div>
+  </Story>
+</Preview>
