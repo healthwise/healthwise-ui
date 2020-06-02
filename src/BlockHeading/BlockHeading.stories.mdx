@@ -1,0 +1,18 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions'
+
+import BlockHeading from './index'
+
+<Meta title="core|Components/Block Heading" component={BlockHeading} />
+
+# Block Heading
+
+Default rendering.
+
+<Preview>
+  <Story name="with content">
+    <BlockHeading>
+      Sample Content
+    </BlockHeading>
+  </Story>
+</Preview>
