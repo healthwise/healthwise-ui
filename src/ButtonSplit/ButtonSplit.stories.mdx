@@ -1,0 +1,61 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions'
+
+import SplitButton from './index'
+import Button from '../Button'
+
+import { createTheme } from '../Theme'
+import { ProfileIcon } from '../Icon'
+
+export const theme = createTheme()
+
+export const styles = {
+  row: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+  },
+  header: {
+    paddingLeft: '16px',
+  },
+  container: {
+    padding: '16px',
+  },
+  container_light: {
+    padding: '16px',
+    background: theme.colorBackgroundLight,
+  },
+  container_contrast: {
+    padding: '16px',
+    background: theme.colorBackgroundContrastDark,
+  },
+}
+
+export const items = ['First Option', 'Second Option', 'Third Option']
+
+export const onClickAction = action('onClick')
+export const handleClick = event => {
+  event.preventDefault()
+  onClickAction(event)
+}
+
+<Meta title="core|Form Controls/Button Split" component={SplitButton} />
+
+# Button Group
+
+With defaults.
+<Story name="with defaults">
+  <div style={styles.row}>
+    <div style={styles.container}>
+      <SplitButton
+        items={items}
+        onItemClick={action('item clicked')}
+        onOpen={action('menu opened')}
+        onClose={action('menu closed')}
+      >
+        Default
+      </SplitButton>
+    </div>
+  </div>
+</Story>
+
+
