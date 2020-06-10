@@ -17,6 +17,7 @@ Demonstrates default rendering of Modal component.
   <Story name="default">
     <Modal
       title="Lorem ipsum dolor sit amet"
+      open={false}
       onEntered={action('onEntered')}
       onClose={action('onClose')}
       onExited={action('onExited')}
@@ -30,6 +31,7 @@ Demonstrates a Modal with content.
   <Story name="with content">
     <Modal
       title="Lorem ipsum dolor sit amet"
+      open={false}
       onEntered={action('onEntered')}
       onClose={action('onClose')}
       onExited={action('onExited')}
@@ -52,6 +54,7 @@ Demonstrates a Modal with actions.
   <Story name="with actions">
     <Modal
       title="Are you sure you want to delete?"
+      open={false}
       onEntered={action('onEntered')}
       onClose={action('onClose')}
       onExited={action('onExited')}
