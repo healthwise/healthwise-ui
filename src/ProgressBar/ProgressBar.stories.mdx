@@ -1,0 +1,90 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions'
+
+import ProgressBar from './index'
+
+<Meta title="core|Components/Progress Bar" component={ProgressBar}/>
+
+export const styles = {
+  container: {
+    width: '100%',
+    maxWidth: '600px'
+  }
+}
+
+# Progress Bar
+
+Demonstrates default rendering of ProgressBar component
+
+<Preview>
+  <Story name="default">
+    <div style={styles.container}>
+      <ProgressBar
+          showPercentage
+          percentComplete={45}
+        />
+    </div>
+  </Story>
+</Preview>
+
+Demonstrates default rendering of ProgressBar component with neutral color
+
+<Preview>
+  <Story name="neutral">
+    <div style={styles.container}>
+      <ProgressBar
+          color="neutral"
+          showPercentage
+          percentComplete={45}
+        />
+    </div>
+  </Story>
+</Preview>
+
+Demonstrates default rendering of ProgressBar component without percentage
+
+<Preview>
+  <Story name="without text percentage">
+    <div style={styles.container}>
+      <ProgressBar
+          color="primary"
+          percentComplete={45}
+        />
+    </div>
+  </Story>
+</Preview>
+
+Demonstrates rendering of ProgressBar with indeterminate type
+
+<Preview>
+  <Story name="indeterminate type">
+    <div style={styles.container}>
+      <ProgressBar progressBarType="indeterminate" />
+    </div>
+  </Story>
+</Preview>
+
+Demonstrates rendering of ProgressBar using the query type
+
+<Preview>
+  <Story name="query type">
+    <div style={styles.container}>
+      <ProgressBar progressBarType="query" />
+    </div>
+  </Story>
+</Preview>
+
+Demonstrates rendering of ProgressBar the buffer type
+
+<Preview>
+  <Story name="buffer type">
+    <div style={styles.container}>
+      <ProgressBar 
+        progressBarType="buffer" 
+        showPercentage
+        percentComplete={45}
+        buffer={60}
+      />
+    </div>
+  </Story>
+</Preview>
