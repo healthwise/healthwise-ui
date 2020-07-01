@@ -1,0 +1,18 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+import ScreenReaderOnly from './index';
+
+<Meta title="core|Dev Utilities/Screen Reader Only" component={ScreenReaderOnly} />
+
+# ScreenReaderOnly
+
+Demonstrates basic rendering with defaults.
+
+<Preview>
+  <Story name="default">
+    <div>
+      <p>Use a screen reader to hear the ScreenReaderOnly message.</p>
+      <ScreenReaderOnly>This message is only visible for a screen reader.</ScreenReaderOnly>
+    </div>
+  </Story>
+</Preview>
