@@ -1,3 +1,8 @@
+# 2.0.2
+
+- Updated to newest version of Storybook
+- Converted to MDX stories
+
 # 2.0.0
 
 ## DropDown
