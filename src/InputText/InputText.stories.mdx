@@ -1,0 +1,164 @@
+import { Meta, Story, Preview} from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+
+import InputText from './index'
+
+<Meta title="core|Form Controls/InputText" component={InputText} />
+
+# InputText
+
+default
+
+<Preview>
+  <Story name="default">
+    <div>
+      <InputText onChange={action('onChange')} />
+      <InputText underlined onChange={action('onChange')} />
+    </div>    
+  </Story>
+</Preview>
+
+placeholder
+
+<Preview>
+  <Story name="placeholder">
+    <div>
+      <InputText placeholder="Placeholder text" onChange={action('onChange')} />
+      <InputText placeholder="Placeholder text" underlined onChange={action('onChange')} />
+    </div>
+  </Story>
+</Preview>
+
+label
+
+<Preview>
+  <Story name="label">
+    <div>
+      <InputText label="Label" placeholder="Placeholder text" onChange={action('onChange')} />
+      <InputText
+            label="Label"
+            underlined
+            placeholder="Placeholder text"
+            onChange={action('onChange')}
+          />
+    </div>
+  </Story>
+</Preview>
+
+required
+
+<Preview>
+  <Story name="required">
+    <div>
+      <InputText
+        required
+        label="Required"
+        placeholder="Placeholder text"
+        onChange={action('onChange')}
+      />
+      <InputText
+        required
+        underlined
+        label="Required"
+        placeholder="Placeholder text"
+        onChange={action('onChange')}
+      />
+    </div>
+  </Story>
+</Preview>
+
+focus
+
+<Preview>
+  <Story name="focus">
+    <InputText
+      autoFocus
+      label="Label"
+      placeholder="Placeholder text"
+      onChange={action('onChange')}
+    />
+  </Story>
+</Preview>
+
+disabled
+
+<Preview>
+  <Story name="disabled">
+    <div>
+      <InputText
+        disabled
+        label="Disabled"
+        placeholder="Placeholder text"
+        onChange={action('onChange')}
+      />
+      <InputText
+        disabled
+        underlined
+        label="Disabled"
+        placeholder="Placeholder text"
+        onChange={action('onChange')}
+      />
+    </div>
+  </Story>
+</Preview>
+
+errors
+
+<Preview>
+  <Story name="errors">
+    <div>
+      <InputText
+        label="Label"
+        placeholder="Placeholder text"
+        error="Error message"
+        onChange={action('onChange')}
+      />
+      <InputText
+        label="Label"
+        underlined
+        placeholder="Placeholder text"
+        error="Error message"
+        onChange={action('onChange')}
+      />
+    </div>
+  </Story>
+</Preview>
+
+types
+
+<Preview>
+  <Story name="types">
+    <div>
+      Type: text
+      <InputText type="text" placeholder="Type: text" onChange={action('onChange')} />
+      Type: tel
+      <InputText type="tel" placeholder="Type: tel" onChange={action('onChange')} />
+      Type: password
+      <InputText type="password" placeholder="Type: password" onChange={action('onChange')} />
+      Type: email
+      <InputText type="email" placeholder="Type: email" onChange={action('onChange')} />
+      Type: search
+      <InputText type="search" placeholder="Type: search" onChange={action('onChange')} />
+      Type: url
+      <InputText type="url" placeholder="Type: url" onChange={action('onChange')} />
+      Type: number
+      <InputText type="number" placeholder="Type: number" onChange={action('onChange')} />
+      Type: date
+      <InputText type="date" placeholder="Type: date" onChange={action('onChange')} />
+      Type: datetime
+      <InputText type="datetime" placeholder="Type: datetime" onChange={action('onChange')} />
+      Type: datetime-local
+      <InputText
+        type="datetime-local"
+        placeholder="Type: datetime-local"
+        onChange={action('onChange')}
+      />
+      Type: month
+      <InputText type="month" placeholder="Type: month" onChange={action('onChange')} />
+      Type: week
+      <InputText type="week" placeholder="Type: week" onChange={action('onChange')} />
+      Type: time
+      <InputText type="time" placeholder="Type: time" onChange={action('onChange')} />
+    </div>
+  </Story>
+</Preview>

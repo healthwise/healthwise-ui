@@ -1,0 +1,44 @@
+import { Meta, Story, Preview} from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+
+import Checkbox from './index'
+
+<Meta title="core|Form Controls/Checkbox" component={Checkbox} />
+
+# Checkbox
+
+default
+
+<Preview>
+  <Story name="default">
+    <div>
+      <Checkbox name="test 1" value="test" />
+      <Checkbox name="test 2" value="test" defaultChecked />
+      <Checkbox name="test 3" value="test" label="This is a label" />
+    </div>
+  </Story>
+</Preview>
+
+disabled
+
+<Preview>
+  <Story name="Disabled">
+    <div>
+      <Checkbox name="test 1" value="test" disabled />
+      <Checkbox name="test 2" value="test" defaultChecked disabled />
+      <Checkbox name="test 3" value="test" label="This is a label" disabled />
+    </div>
+  </Story>
+</Preview>
+
+required
+
+<Preview>
+  <Story name="Required">
+    <div>
+      <Checkbox name="test 1" value="test" required />
+      <Checkbox name="test 2" value="test" defaultChecked required />
+      <Checkbox name="test 3" value="test" label="This is a label" required />
+    </div>
+  </Story>
+</Preview>

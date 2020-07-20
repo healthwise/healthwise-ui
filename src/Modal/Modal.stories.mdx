@@ -1,0 +1,88 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions'
+
+import Modal from './index'
+import ModalStoryWrapper from './ModalStoryWrapper'
+import Button from '../Button'
+
+export const ContainerDecorator = storyFn => <ModalStoryWrapper>{storyFn()}</ModalStoryWrapper>
+
+<Meta title="core|Components/Modal" component={Modal} decorators={[ ContainerDecorator ]} />
+
+# Modal
+
+Demonstrates default rendering of Modal component.
+
+<Preview>
+  <Story name="default">
+    <Modal
+      title="Lorem ipsum dolor sit amet"
+      open={false}
+      onEntered={action('onEntered')}
+      onClose={action('onClose')}
+      onExited={action('onExited')}
+    />
+  </Story>
+</Preview>
+
+Demonstrates a Modal with content.
+
+<Preview>
+  <Story name="with content">
+    <Modal
+      title="Lorem ipsum dolor sit amet"
+      open={false}
+      onEntered={action('onEntered')}
+      onClose={action('onClose')}
+      onExited={action('onExited')}
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+    </Modal>
+  </Story>
+</Preview>
+
+Demonstrates a Modal with actions.
+
+<Preview>
+  <Story name="with actions">
+    <Modal
+      title="Are you sure you want to delete?"
+      open={false}
+      onEntered={action('onEntered')}
+      onClose={action('onClose')}
+      onExited={action('onExited')}
+      actions={[
+        <Button key="action-1" color="primary" rounded>
+          Accept
+        </Button>,
+        <Button key="action-2" color="neutralDark" flat>
+          Cancel
+        </Button>,
+      ]}
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+    </Modal>
+  </Story>
+</Preview>
