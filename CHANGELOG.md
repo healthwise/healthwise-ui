@@ -2,6 +2,7 @@
 
 - **BREAKING**: Removed `Appbar`
 - **BREAKING**: Completely new `Table` (TODO)
+- **BREAKING**: Fixed `ButtonGroup` class name spelling
 
 # 2.0.2
 
