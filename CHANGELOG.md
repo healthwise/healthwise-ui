@@ -1,3 +1,8 @@
+# 3.0.0
+
+- **BREAKING**: Removed `Appbar`
+- **BREAKING**: Completely new `Table` (TODO)
+
 # 2.0.2
 
 - Updated to newest version of Storybook
