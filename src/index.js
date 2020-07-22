@@ -1,6 +1,5 @@
 export { default as Accordion } from './Accordion'
 export { default as AccordionGroup } from './AccordionGroup'
-export { default as AppBar } from './AppBar'
 export { default as BlockHeading } from './BlockHeading'
 export { default as Button } from './Button'
 export { default as ButtonGroup } from './ButtonGroup'
