@@ -133,14 +133,24 @@ class Accordion extends Component {
   }
 
   toggle() {
-    this.props.onChange(!this.state.isOpen)
+    this.props.onChange && this.props.onChange(!this.state.isOpen)
     this.setState({
       isOpen: !this.state.isOpen,
     })
   }
 
   render() {
-    const { children, className, title, theme, disabled, tabIndex, ...otherProps } = this.props
+    const {
+      children,
+      className,
+      title,
+      theme,
+      disabled,
+      tabIndex,
+      defaultExpanded,
+      expanded,
+      ...otherProps
+    } = this.props
 
     return (
       <div
