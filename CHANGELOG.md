@@ -3,6 +3,7 @@
 - **BREAKING**: Removed `Appbar`
 - **BREAKING**: Completely new `Table` (TODO)
 - **BREAKING**: Fixed `ButtonGroup` class name spelling
+- **BREAKING**: Migrated `Accordion` from Material-UI to home grown
 
 # 2.0.2
 

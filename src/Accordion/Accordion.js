@@ -113,38 +113,67 @@ const Title = styled.h2`
 `
 
 class Accordion extends Component {
+  constructor(props) {
+    super(props)
+
+    this.uniqueId = `hw-accordion_${new Date().getTime()}_${Math.floor(
+      Math.random() * Math.floor(1337)
+    )}`
+    this.state = {
+      isOpen: props.defaultExpanded || props.expanded,
+    }
+
+    this.toggle = this.toggle.bind(this)
+  }
+
+  componentDidUpdate() {
+    if (this.props.hasOwnProperty('expanded') && this.props.expanded !== this.state.isOpen) {
+      this.setState({ isOpen: this.props.expanded })
+    }
+  }
+
+  toggle() {
+    this.props.onChange(!this.state.isOpen)
+    this.setState({
+      isOpen: !this.state.isOpen,
+    })
+  }
+
   render() {
-    const { children, className, title, theme, ...otherProps } = this.props
+    const { children, className, title, theme, disabled, tabIndex, ...otherProps } = this.props
 
     return (
-      <ExpansionPanel className={classNames('hw-accordion', className)} {...otherProps}>
-        {title && (
-          <ExpansionPanelSummary
-            className="hw-accordion-header"
-            expandIcon={
-              <Fragment>
-                <ExpandIcon className="hw-accordion-expand-icon" />
-                <CollapseIcon className="hw-accordion-collapse-icon" />
-              </Fragment>
-            }
-            disableRipple
-            disableTouchRipple
-            IconButtonProps={{
-              disableRipple: true,
-              disableTouchRipple: true,
-            }}
-          >
-            {React.isValidElement(title) ? (
-              <div className="hw-accordion-title">{title}</div>
+      <div
+        className={classNames('hw-accordion', className)}
+        aria-label="Accordion Control"
+        {...otherProps}
+      >
+        <button
+          aria-controls={this.uniqueId}
+          aria-expanded={this.state.isOpen}
+          tabIndex={disabled ? -1 : tabIndex}
+          onClick={this.toggle}
+          disabled={disabled}
+          className="hw-accordion-header"
+        >
+          <span className="hw-accordion-title">{title}</span>
+          <span className="hw-accordion-icon">
+            {this.state.isOpen ? (
+              <CollapseIcon className="hw-accordion-icon-collapse" />
             ) : (
-              <Title className="hw-accordion-title" theme={theme}>
-                {title}
-              </Title>
+              <ExpandIcon className="hw-accordion-icon-expand" />
             )}
-          </ExpansionPanelSummary>
-        )}
-        <ExpansionPanelDetails className="hw-accordion-content">{children}</ExpansionPanelDetails>
-      </ExpansionPanel>
+          </span>
+        </button>
+        <div
+          id={this.uniqueId}
+          aria-hidden={!this.state.isOpen}
+          tabIndex="-1"
+          className="hw-accordion-content"
+        >
+          {children}
+        </div>
+      </div>
     )
   }
 }
@@ -153,8 +182,9 @@ Accordion.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   defaultExpanded: PropTypes.bool,
-  disabled: PropTypes.bool,
   expanded: PropTypes.bool,
+  disabled: PropTypes.bool,
+  tabIndex: PropTypes.number,
   onChange: PropTypes.func,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // TODO: update this propType with all the variables being used in the accordion
@@ -166,6 +196,8 @@ Accordion.propTypes = {
 }
 
 Accordion.defaultProps = {
+  defaultExpanded: false,
+  tabIndex: 1,
   theme: defaultTheme,
 }
 
