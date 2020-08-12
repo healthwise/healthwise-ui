@@ -1,115 +1,85 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import styled, { withTheme } from 'styled-components'
-import MuiExpansionPanel from '@material-ui/core/ExpansionPanel'
-import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
-import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
-import { withStyles } from '@material-ui/core/styles'
-import AddIcon from '@material-ui/icons/Add'
-import RemoveIcon from '@material-ui/icons/Remove'
 
 import { defaultTheme } from '../Theme'
 
-// TODO: Material UI doesn't support overriding a theme locally by using the
-// theme prop, like styled-components does. The theme argument in the
-// withStyles function can only be updated using the MuiThemeProvider. The
-// @material-ui/styles package (currently in alpha) is supposed to release
-// with material-ui v4, and will support this functionality. Until then, we
-// need these inline default values, to support a component having a default
-// theme without requiring the consumer to use a ThemeProvider component in
-// their app.
-const ExpansionPanel = withStyles(theme => ({
-  root: {
-    border: `1px solid ${theme.colorBorder || '#727272'}`,
-    background: theme.colorBackgroundLight || '#fff',
-    margin: 0,
-    boxShadow: 'none',
-    '&:last-child': {
-      borderRadius: 0,
-    },
-    '&:first-child': {
-      borderRadius: 0,
-    },
-  },
-  disabled: {
-    opacity: 0.35,
-  },
-}))(MuiExpansionPanel)
+const Root = styled.div`
+  margin: 0;
+  border: 1px solid ${props => props.theme.colorBorder || '#727272'};
+  background: ${props => props.theme.colorBackgroundLight || '#fff'};
+  box-shadow: none;
 
-const ExpansionPanelSummary = withStyles(theme => ({
-  root: {
-    padding: `${theme.spacingM || '16px'} ${theme.spacingL || '24px'}`,
-    minHeight: 0,
-    '&:focus': {
-      backgroundColor: theme.colorBackgroundLight || '#fff',
-      outline: theme.focusIndicator || '2px dotted #424242',
-      outlineOffset: theme.focusIndicatorOffset || '2px',
-    },
-    '&$expanded': {
-      minHeight: 0,
-    },
-  },
-  content: {
-    margin: 0,
-  },
-  expanded: {
-    '& $content': {
-      margin: 0,
-    },
-  },
-  disabled: {
-    opacity: '1 !important',
-  },
-  expandIcon: {
-    transform: 'translateY(-50%)',
-    transition: 'none',
-    '&$expanded': {
-      transform: 'translateY(-50%)',
-      '& .hw-accordion-expand-icon': {
-        display: 'none',
-      },
-      '& .hw-accordion-collapse-icon': {
-        display: 'block',
-      },
-    },
-    '& .hw-accordion-collapse-icon': {
-      display: 'none',
-    },
-  },
-}))(MuiExpansionPanelSummary)
+  &[aria-disabled='true'] {
+    opacity: 0.35;
+  }
+  &:last-child: {
+    border-radius: 0;
+  }
+  &:first-child: {
+    border-radius: 0;
+  }
+`
 
-const ExpansionPanelDetails = withStyles(theme => ({
-  root: {
-    padding: `${theme.spacingM || '16px'} ${theme.spacingL || '24px'} ${theme.spacingL || '24px'}`,
-    '& > *:first-child': {
-      marginTop: 0,
-    },
-    '& > *:last-child': {
-      marginBottom: 0,
-    },
-  },
-}))(MuiExpansionPanelDetails)
+const ToggleButton = styled.button`
+  display: block;
+  width: 100%;
+  position: relative;
+  padding: ${props => props.theme.spacingM || '16px'} ${props => props.theme.spacingL || '24px'};
+  min-height: 0;
+  text-align: left;
+  background: ${props => props.theme.colorBackgroundLight || '#fff'};
+  box-shadow: none;
+  border: 0;
 
-const ExpandIcon = withStyles(theme => ({
-  root: {
-    fill: theme.colorTextSecondary || '#676767',
-  },
-}))(AddIcon)
+  :focus {
+    outline: ${props => props.theme.focusIndicator || '2px dotted #424242'};
+    outline-offset: ${props => props.theme.focusIndicatorOffset || '2px'};
+  }
+  &[aria-expanded='true'] {
+    min-height: 0;
+  }
+`
 
-const CollapseIcon = withStyles(theme => ({
-  root: {
-    fill: theme.colorTextSecondary || '#676767',
-  },
-}))(RemoveIcon)
-
-const Title = styled.h2`
+const Title = styled.h3`
+  width: 100%;
+  position: relative;
   margin: 0;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.5;
   margin-right: ${props => props.theme.spacingXxl};
   color: ${props => props.theme.colorTextPrimary};
+`
+
+const Icon = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+`
+
+const CollapseIcon = styled.span`
+  color: ${props => props.theme.colorTextSecondary || '#676767'};
+`
+const ExpandIcon = styled.span`
+  color: ${props => props.theme.colorTextSecondary || '#676767'};
+`
+
+const Content = styled.div`
+  padding: ${props => props.theme.spacingM || '16px'} ${props => props.theme.spacingL || '24px'}
+    ${props => props.theme.spacingL || '24px'};
+
+  &[aria-hidden='true'] {
+    display: none;
+  }
+
+  & > :first-child {
+    margin-top: 0;
+  }
+  & > :last-child {
+    margin-bottom: 0;
+  }
 `
 
 class Accordion extends Component {
@@ -153,37 +123,45 @@ class Accordion extends Component {
     } = this.props
 
     return (
-      <div
+      <Root
         className={classNames('hw-accordion', className)}
         aria-label="Accordion Control"
+        aria-disabled={disabled}
         {...otherProps}
       >
-        <button
+        <ToggleButton
           aria-controls={this.uniqueId}
           aria-expanded={this.state.isOpen}
           tabIndex={disabled ? -1 : tabIndex}
           onClick={this.toggle}
           disabled={disabled}
+          theme={theme}
           className="hw-accordion-header"
         >
-          <span className="hw-accordion-title">{title}</span>
-          <span className="hw-accordion-icon">
-            {this.state.isOpen ? (
-              <CollapseIcon className="hw-accordion-icon-collapse" />
-            ) : (
-              <ExpandIcon className="hw-accordion-icon-expand" />
-            )}
-          </span>
-        </button>
-        <div
+          <Title className="hw-accordion-title">
+            {title}
+            <Icon className="hw-accordion-icon">
+              {this.state.isOpen ? (
+                <CollapseIcon theme={theme} className="hw-accordion-icon-collapse">
+                  －
+                </CollapseIcon>
+              ) : (
+                <ExpandIcon theme={theme} className="hw-accordion-icon-expand">
+                  ＋
+                </ExpandIcon>
+              )}
+            </Icon>
+          </Title>
+        </ToggleButton>
+        <Content
           id={this.uniqueId}
           aria-hidden={!this.state.isOpen}
           tabIndex="-1"
           className="hw-accordion-content"
         >
           {children}
-        </div>
-      </div>
+        </Content>
+      </Root>
     )
   }
 }
@@ -198,7 +176,6 @@ Accordion.propTypes = {
   onChange: PropTypes.func,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // TODO: update this propType with all the variables being used in the accordion
-  // once @material-ui/styles package is being used.
   theme: PropTypes.shape({
     colorTextPrimary: PropTypes.string,
     spacingXxl: PropTypes.string,
