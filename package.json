@@ -68,7 +68,7 @@
     "@storybook/addon-links": "^5.3.14",
     "@storybook/addon-viewport": "^5.3.14",
     "@storybook/addons": "^5.3.14",
-    "@storybook/react": "^5.3.14",
+    "@storybook/react": "^6.0.20",
     "@storybook/theming": "^5.3.14",
     "babel-loader": "^8.0.6",
     "eslint": "^5.16.0",
