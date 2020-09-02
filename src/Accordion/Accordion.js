@@ -103,10 +103,10 @@ class Accordion extends Component {
   }
 
   toggle() {
-    // this.props.onChange && this.props.onChange(!this.state.isOpen)
-    // this.setState({
-    //   isOpen: !this.state.isOpen,
-    // })
+    this.props.onChange && this.props.onChange(!this.state.isOpen)
+    this.setState({
+      isOpen: !this.state.isOpen,
+    })
   }
 
   render() {

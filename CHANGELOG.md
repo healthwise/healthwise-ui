@@ -5,6 +5,9 @@
 - **BREAKING**: Fixed `ButtonGroup` class name spelling
 - **BREAKING**: Migrated `Accordion` from Material-UI to home grown
 
+- `Accordion` TODO: focus interaction; animation?
+- Overall TODO: accessibility testing on new components
+
 # 2.0.2
 
 - Updated to newest version of Storybook
