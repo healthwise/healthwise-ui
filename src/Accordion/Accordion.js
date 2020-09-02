@@ -7,8 +7,8 @@ import { defaultTheme } from '../Theme'
 
 const Root = styled.div`
   margin: 0;
-  border: 1px solid ${props => props.theme.colorBorder || '#727272'};
-  background: ${props => props.theme.colorBackgroundLight || '#fff'};
+  border: 1px solid ${({ theme }) => theme.colorBorder || '#727272'};
+  background: ${({ theme }) => theme.colorBackgroundLight || '#fff'};
   box-shadow: none;
 
   &[aria-disabled='true'] {
@@ -26,16 +26,16 @@ const ToggleButton = styled.button`
   display: block;
   width: 100%;
   position: relative;
-  padding: ${props => props.theme.spacingM || '16px'} ${props => props.theme.spacingL || '24px'};
+  padding: ${({ theme }) => theme.spacingM || '16px'} ${({ theme }) => theme.spacingL || '24px'};
   min-height: 0;
   text-align: left;
-  background: ${props => props.theme.colorBackgroundLight || '#fff'};
+  background: ${({ theme }) => theme.colorBackgroundLight || '#fff'};
   box-shadow: none;
   border: 0;
 
   :focus {
-    outline: ${props => props.theme.focusIndicator || '2px dotted #424242'};
-    outline-offset: ${props => props.theme.focusIndicatorOffset || '2px'};
+    outline: ${({ theme }) => theme.focusIndicator || '2px dotted #424242'};
+    outline-offset: ${({ theme }) => theme.focusIndicatorOffset || '2px'};
   }
   &[aria-expanded='true'] {
     min-height: 0;
@@ -49,8 +49,8 @@ const Title = styled.h3`
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.5;
-  margin-right: ${props => props.theme.spacingXxl};
-  color: ${props => props.theme.colorTextPrimary};
+  margin-right: ${({ theme }) => theme.spacingXxl || '64px'};
+  color: ${({ theme }) => theme.colorTextPrimary || '#424242'};
 `
 
 const Icon = styled.div`
@@ -60,15 +60,15 @@ const Icon = styled.div`
 `
 
 const CollapseIcon = styled.span`
-  color: ${props => props.theme.colorTextSecondary || '#676767'};
+  color: ${({ theme }) => theme.colorTextSecondary || '#676767'};
 `
 const ExpandIcon = styled.span`
-  color: ${props => props.theme.colorTextSecondary || '#676767'};
+  color: ${({ theme }) => theme.colorTextSecondary || '#676767'};
 `
 
 const Content = styled.div`
-  padding: ${props => props.theme.spacingM || '16px'} ${props => props.theme.spacingL || '24px'}
-    ${props => props.theme.spacingL || '24px'};
+  padding: ${({ theme }) => theme.spacingM || '16px'} ${({ theme }) => theme.spacingL || '24px'}
+    ${({ theme }) => theme.spacingL || '24px'};
 
   &[aria-hidden='true'] {
     display: none;
@@ -103,10 +103,10 @@ class Accordion extends Component {
   }
 
   toggle() {
-    this.props.onChange && this.props.onChange(!this.state.isOpen)
-    this.setState({
-      isOpen: !this.state.isOpen,
-    })
+    // this.props.onChange && this.props.onChange(!this.state.isOpen)
+    // this.setState({
+    //   isOpen: !this.state.isOpen,
+    // })
   }
 
   render() {
@@ -138,7 +138,7 @@ class Accordion extends Component {
           theme={theme}
           className="hw-accordion-header"
         >
-          <Title className="hw-accordion-title">
+          <Title className="hw-accordion-title" theme={theme}>
             {title}
             <Icon className="hw-accordion-icon">
               {this.state.isOpen ? (
@@ -156,6 +156,7 @@ class Accordion extends Component {
         <Content
           id={this.uniqueId}
           aria-hidden={!this.state.isOpen}
+          theme={theme}
           tabIndex="-1"
           className="hw-accordion-content"
         >
@@ -184,7 +185,7 @@ Accordion.propTypes = {
 
 Accordion.defaultProps = {
   defaultExpanded: false,
-  tabIndex: 1,
+  tabIndex: 0,
   theme: defaultTheme,
 }
 
