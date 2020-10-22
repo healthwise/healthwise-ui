@@ -5,8 +5,10 @@
 - **BREAKING**: Fixed `ButtonGroup` class name spelling
 - **BREAKING**: Migrated `Accordion` from Material-UI to home grown
 
-- `Accordion` TODO: focus interaction; animation?
+- `Accordion` TODO: animation?
 - Overall TODO: accessibility testing on new components
+- Overall TODO?: components spread unknown props?
+- Overall TODO?: loading state (especially for form components)??
 
 # 2.0.2
 
