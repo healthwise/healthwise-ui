@@ -249,6 +249,7 @@ class Textarea extends React.Component {
       maxCharacters,
       readonly,
       theme,
+      ...otherProps
     } = this.props
     const { isValid } = this.state
 
@@ -315,6 +316,7 @@ class Textarea extends React.Component {
           onKeyDown={this.onKeyDown}
           onChange={this.onChange}
           theme={theme}
+          {...otherProps}
         />
         {characterCounter}
         {errorLabel}
