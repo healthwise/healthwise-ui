@@ -1,3 +1,7 @@
+# 2.0.3
+
+- Added pass through for props not explicitly defined in `TextArea` component
+
 # 2.0.2
 
 - Updated to newest version of Storybook
