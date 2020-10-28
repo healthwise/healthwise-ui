@@ -220,10 +220,10 @@ class Textarea extends React.Component {
       }
 
       // invalid callback
-      onInvalid(input.value, errorType)
+      if (onInvalid) onInvalid(input.value, errorType)
     } else {
       // valid callback
-      onValid(input.value)
+      if (onValid) onValid(input.value)
     }
 
     this.setState({
@@ -251,7 +251,7 @@ class Textarea extends React.Component {
       theme,
     } = this.props
 
-    const { onBlur, onChange, onFocus, onKeyDown, ...otherProps } = this.props
+    const { onBlur, onChange, onFocus, onKeyDown, onInvalid, onValid, ...otherProps } = this.props
     const { isValid } = this.state
 
     let characterCounter = ''
@@ -340,7 +340,7 @@ Textarea.propTypes = {
   value: PropTypes.string,
   label: PropTypes.string,
   disabled: PropTypes.bool,
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   required: PropTypes.bool,
   maxCharacters: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   onFocus: PropTypes.func,
