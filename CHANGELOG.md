@@ -1,6 +1,7 @@
 # 2.0.3
 
 - Added pass through for props not explicitly defined in `TextArea` component
+- Added story using custom validator for `TextArea` component
 
 # 2.0.2
 
