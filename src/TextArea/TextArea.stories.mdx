@@ -5,6 +5,17 @@ import TextArea from './index'
 
 <Meta title="Form Controls/Text Area" component={TextArea}/>
 
+export const validatorFuncs = { 
+  typeMismatch: (val) => {
+    let regex = /^[a-z0-9]+$/i
+    return regex.test(val)
+  }, 
+  tooShort: (val) => {
+    return val.length > 5
+  }
+}
+
+
 #TextArea
 
 Demonstrates default rendering of TextArea component
@@ -76,5 +87,14 @@ Demonstrates a TextArea component with a text error message and max characters
 <Preview>
   <Story name="error and max characters">
     <TextArea label="TextArea Label" maxCharacters="100" error="A basic error message" />
+  </Story>
+</Preview>
+
+Demonstrates a TextArea component using custom validators
+
+*Only Accepts Alpha Numeric strings of length greater than 5*
+<Preview>  
+  <Story name="validator">    
+    <TextArea label="TextArea Label" validators={validatorFuncs} onValid={action('isValid')} onInvalid={action('isNotValid')}  />
   </Story>
 </Preview>
