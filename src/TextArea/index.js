@@ -251,7 +251,7 @@ class Textarea extends React.Component {
       theme,
     } = this.props
 
-    const { onBlur, onChange, onFocus, onKeyDown, onInvalid, onValid, ...otherProps } = this.props
+    const { ...otherProps } = this.props
     const { isValid } = this.state
 
     let characterCounter = ''
@@ -299,6 +299,7 @@ class Textarea extends React.Component {
     ) : (
       <Wrapper className={'hw-textarea-textarea-wrapper'}>
         <TextArea
+          {...otherProps}
           className={'hw-textarea-textarea'}
           ref={el => {
             this.input = el
@@ -317,7 +318,6 @@ class Textarea extends React.Component {
           onKeyDown={this.onKeyDown}
           onChange={this.onChange}
           theme={theme}
-          {...otherProps}
         />
         {characterCounter}
         {errorLabel}
