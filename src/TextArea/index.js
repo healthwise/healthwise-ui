@@ -249,9 +249,9 @@ class Textarea extends React.Component {
       maxCharacters,
       readonly,
       theme,
+      ...otherProps
     } = this.props
 
-    const { ...otherProps } = this.props
     const { isValid } = this.state
 
     let characterCounter = ''
