@@ -341,6 +341,8 @@ Textarea.propTypes = {
   label: PropTypes.string,
   disabled: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  validationErrors: PropTypes.object,
+  validators: PropTypes.object,
   required: PropTypes.bool,
   maxCharacters: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   onFocus: PropTypes.func,
