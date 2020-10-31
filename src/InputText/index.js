@@ -14,10 +14,9 @@ const Label = styled.label`
   flex-flow: column nowrap;
   align-items: flex-start;
   cursor: ${props => (props.disabled ? 'not-allowed' : 'auto')};
-  opacity: ${props => (props.disabled ? '0.35' : '1')};
 
   ::after {
-    display: ${props => (props.underlined ? 'block' : 'none')};
+    display: ${props => (!props.viewOnly && props.underlined ? 'block' : 'none')};
     content: '';
     position: absolute;
     left: 0;
@@ -56,19 +55,20 @@ const Input = styled.input`
   display: table-cell;
   width: 100%;
   height: 40px;
-  padding: ${props => (props.underlined ? '0' : '0 8px')};
+  padding: ${props => ((props.underlined && !props.disabled) || props.viewOnly ? '0' : '0 8px')};
   color: ${props => props.theme.colorTextPrimary};
   line-height: 30px;
   vertical-align: middle;
   box-sizing: border-box;
   font-size: 1em;
   border: ${props =>
-    props.underlined
+    props.underlined || props.viewOnly
       ? 'none'
       : props.error && props.dirty && (!props.autoFocus || !props.focused)
       ? `1px solid ${props.theme.colorError}`
       : `1px solid ${props.theme.colorTextPrimary}`};
-  background: ${props => (props.underlined ? 'none' : props.theme.colorBackgroundLight)};
+  background: ${props =>
+    props.disabled ? '#eee' : props.underlined ? 'none' : props.theme.colorBackgroundLight};
   transition: border ease 0.2s;
   box-shadow: none;
 
@@ -78,7 +78,7 @@ const Input = styled.input`
   }
 
   :focus {
-    outline: ${props => (props.underlined ? 'none' : props.theme.focusIndicator)};
+    outline: ${props => (props.underlined || props.viewOnly ? 'none' : props.theme.focusIndicator)};
     outline-offset: ${props => props.theme.focusIndicatorOffset};
   }
 
@@ -258,6 +258,7 @@ class InputText extends Component {
       required,
       disabled,
       readonly,
+      viewOnly,
       underlined,
       autoFocus,
       focused,
@@ -277,6 +278,7 @@ class InputText extends Component {
     return (
       <Label
         disabled={disabled}
+        viewOnly={viewOnly}
         underlined={underlined}
         autoFocus={autoFocus || focused}
         error={error || !isValid}
@@ -293,14 +295,15 @@ class InputText extends Component {
           className={classNames('hw-input-text', `hw-input-text-${type}`, className)}
           ref={this.input}
           type={type}
-          placeholder={placeholder}
+          placeholder={!viewOnly && placeholder}
           required={required}
           disabled={disabled}
-          readOnly={readonly}
+          readOnly={viewOnly || readonly}
+          viewOnly={viewOnly}
           aria-required={required}
           aria-describedby={this.errorId}
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
+          onFocus={!viewOnly && this.handleFocus}
+          onBlur={!viewOnly && this.handleBlur}
           error={error || !isValid}
           dirty={dirty}
           autoFocus={autoFocus || focused}
@@ -345,6 +348,7 @@ InputText.propTypes = {
   required: PropTypes.bool,
   disabled: PropTypes.bool,
   readonly: PropTypes.bool,
+  viewOnly: PropTypes.bool,
   underlined: PropTypes.bool,
   autoFocus: PropTypes.bool,
   label: PropTypes.node,
