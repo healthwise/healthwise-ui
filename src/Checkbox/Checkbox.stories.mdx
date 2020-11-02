@@ -11,9 +11,11 @@ default
 
 <Preview>
   <Story name="default">
-    <Checkbox name="test 1" value="test" />
-    <Checkbox name="test 2" value="test" defaultChecked />
-    <Checkbox name="test 3" value="test" label="This is a label" />
+    <>
+    <Checkbox name="test 1" value="test" label="Label 1" />
+    <Checkbox name="test 2" value="test" label="Label 2" defaultChecked />
+    <Checkbox name="test 3" value="test" label="Label 3" />
+    </>
   </Story>
 </Preview>
 
@@ -21,9 +23,11 @@ disabled
 
 <Preview>
   <Story name="disabled">
-    <Checkbox name="test 1" value="test" disabled />
-    <Checkbox name="test 2" value="test" defaultChecked disabled />
-    <Checkbox name="test 3" value="test" label="This is a label" disabled />
+    <>
+    <Checkbox name="test 1" value="test" label="Label 1" disabled />
+    <Checkbox name="test 2" value="test" label="Label 2" disabled defaultChecked/>
+    <Checkbox name="test 3" value="test" label="Label 3" disabled />
+    </>
   </Story>
 </Preview>
 
@@ -31,9 +35,11 @@ viewOnly
 
 <Preview>
   <Story name="viewOnly">
-    <Checkbox name="test 1" value="test" label="Label 1" viewOnly />
-    <Checkbox name="test 2" value="test" label="Label 2" defaultChecked viewOnly />
-    <Checkbox name="test 3" value="test" label="Label 3" viewOnly />
+    <>
+      <Checkbox name="test 1" value="test" label="Label 1" viewOnly />
+      <Checkbox name="test 2" value="test" label="Label 2" viewOnly defaultChecked />
+      <Checkbox name="test 3" value="test" label="Label 3" viewOnly />
+    </>
   </Story>
 </Preview>
 
@@ -41,8 +47,10 @@ required
 
 <Preview>
   <Story name="required">
+    <>
     <Checkbox name="test 1" value="test" label="Label 1" required />
-    <Checkbox name="test 2" value="test" label="Label 2" defaultChecked required />
+    <Checkbox name="test 2" value="test" label="Label 2" required defaultChecked />
     <Checkbox name="test 3" value="test" label="Label 3" required />
+    </>
   </Story>
 </Preview>
