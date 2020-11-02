@@ -220,10 +220,10 @@ class Textarea extends React.Component {
       }
 
       // invalid callback
-      onInvalid(input.value, errorType)
+      if (onInvalid) onInvalid(input.value, errorType)
     } else {
       // valid callback
-      onValid(input.value)
+      if (onValid) onValid(input.value)
     }
 
     this.setState({
@@ -249,7 +249,9 @@ class Textarea extends React.Component {
       maxCharacters,
       readonly,
       theme,
+      ...otherProps
     } = this.props
+
     const { isValid } = this.state
 
     let characterCounter = ''
@@ -297,6 +299,7 @@ class Textarea extends React.Component {
     ) : (
       <Wrapper className={'hw-textarea-textarea-wrapper'}>
         <TextArea
+          {...otherProps}
           className={'hw-textarea-textarea'}
           ref={el => {
             this.input = el
@@ -337,7 +340,9 @@ Textarea.propTypes = {
   value: PropTypes.string,
   label: PropTypes.string,
   disabled: PropTypes.bool,
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  validationErrors: PropTypes.object,
+  validators: PropTypes.object,
   required: PropTypes.bool,
   maxCharacters: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   onFocus: PropTypes.func,
