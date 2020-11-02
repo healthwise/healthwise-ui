@@ -71,7 +71,7 @@ const Input = styled.input`
 
 const LabelContent = styled.span`
   padding: ${props =>
-    props.viewOnly && (props.checked || props.defaultChecked) ? '3px 10px' : 'inherit 0.3rem'};
+    props.viewOnly && (props.checked || props.defaultChecked) ? '3px 0.5rem' : 'inherit 0.3rem'};
   font-size: 0.75em;
 `
 

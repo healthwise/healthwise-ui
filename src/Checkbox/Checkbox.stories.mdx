@@ -11,34 +11,38 @@ default
 
 <Preview>
   <Story name="default">
-    <div>
-      <Checkbox name="test 1" value="test" />
-      <Checkbox name="test 2" value="test" defaultChecked />
-      <Checkbox name="test 3" value="test" label="This is a label" />
-    </div>
+    <Checkbox name="test 1" value="test" />
+    <Checkbox name="test 2" value="test" defaultChecked />
+    <Checkbox name="test 3" value="test" label="This is a label" />
   </Story>
 </Preview>
 
 disabled
 
 <Preview>
-  <Story name="Disabled">
-    <div>
-      <Checkbox name="test 1" value="test" disabled />
-      <Checkbox name="test 2" value="test" defaultChecked disabled />
-      <Checkbox name="test 3" value="test" label="This is a label" disabled />
-    </div>
+  <Story name="disabled">
+    <Checkbox name="test 1" value="test" disabled />
+    <Checkbox name="test 2" value="test" defaultChecked disabled />
+    <Checkbox name="test 3" value="test" label="This is a label" disabled />
+  </Story>
+</Preview>
+
+viewOnly
+
+<Preview>
+  <Story name="viewOnly">
+    <Checkbox name="test 1" value="test" label="Label 1" viewOnly />
+    <Checkbox name="test 2" value="test" label="Label 2" defaultChecked viewOnly />
+    <Checkbox name="test 3" value="test" label="Label 3" viewOnly />
   </Story>
 </Preview>
 
 required
 
 <Preview>
-  <Story name="Required">
-    <div>
-      <Checkbox name="test 1" value="test" required />
-      <Checkbox name="test 2" value="test" defaultChecked required />
-      <Checkbox name="test 3" value="test" label="This is a label" required />
-    </div>
+  <Story name="required">
+    <Checkbox name="test 1" value="test" label="Label 1" required />
+    <Checkbox name="test 2" value="test" label="Label 2" defaultChecked required />
+    <Checkbox name="test 3" value="test" label="Label 3" required />
   </Story>
 </Preview>
