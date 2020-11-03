@@ -21,7 +21,6 @@ const Label = styled.label`
 const Svg = styled.svg`
   width: ${props => (props.forPrint ? '1em' : '28px')};
   height: ${props => (props.forPrint ? '1em' : '28px')};
-  margin-top: 8px;
 `
 
 const OuterCircle = styled.circle`
@@ -71,7 +70,6 @@ const Input = styled.input`
 
 const LabelContent = styled.span`
   padding-left: 0.3rem;
-  font-size: 0.75em;
 `
 
 class Radio extends Component {

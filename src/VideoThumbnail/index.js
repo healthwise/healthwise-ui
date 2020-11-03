@@ -37,8 +37,8 @@ const VideoThumbnailOverlay = styled.span`
   box-sizing: border-box;
   position: absolute;
   display: block;
-  width: 3em;
-  height: 3em;
+  width: 3rem;
+  height: 3rem;
   left: 50%;
   top: 50%;
   transform: translate(-1.5em, -1.5em);

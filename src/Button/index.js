@@ -31,7 +31,6 @@ const Root = styled.button`
     props.flat || props.outlined
       ? getThemeVariable('color')(props)
       : getThemeVariable('colorText')(props)};
-  font-size: 1em;
   font-style: normal;
   text-decoration: none;
   line-height: 1;

@@ -23,8 +23,8 @@ const Label = styled.label`
 
 const CheckedIconContainer = styled.div`
   display: none;
-  width: 1em;
-  height: 1em;
+  width: 1rem;
+  height: 1rem;
   svg {
     fill: ${props => props.theme.colorTextPrimary};
   }
@@ -32,8 +32,8 @@ const CheckedIconContainer = styled.div`
 
 const UncheckedIconContainer = styled.div`
   display: none;
-  width: 1em;
-  height: 1em;
+  width: 1rem;
+  height: 1rem;
   svg {
     fill: ${props => props.theme.colorTextPrimary};
   }
@@ -42,15 +42,14 @@ const UncheckedIconContainer = styled.div`
 const Input = styled.input`
   position: absolute;
   display: block;
-  width: 1em;
-  height: 1em;
+  width: 1rem;
+  height: 1rem;
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
   opacity: 0;
   cursor: pointer;
-  font-size: inherit;
 
   :focus ~ ${CheckedIconContainer}, :focus ~ ${UncheckedIconContainer} {
     outline: ${props => props.theme.focusIndicator};
@@ -80,8 +79,7 @@ const Input = styled.input`
 `
 
 const LabelContent = styled.span`
-  padding-left: 0.75rem;
-  font-size: 0.75em;
+  padding-left: 0.5rem;
 `
 
 class Checkbox extends React.Component {

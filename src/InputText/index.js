@@ -22,7 +22,7 @@ const Label = styled.label`
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 1.125em;
+    bottom: 1.125rem;
     height: ${props =>
       props.autoFocus || props.focused || (props.error && props.dirty) ? '2px' : '1px'};
     background: ${props =>
@@ -45,9 +45,9 @@ const Label = styled.label`
 `
 
 const LabelText = styled.span`
-  margin-bottom: 0.25em;
+  margin-bottom: 0.25rem;
   flex: 1 0 auto;
-  font-size: 0.75em;
+  font-size: 0.75rem;
   letter-spacing: 0.5px;
   color: ${props => props.theme.colorTextPrimary};
 `
@@ -61,7 +61,6 @@ const Input = styled.input`
   line-height: 30px;
   vertical-align: middle;
   box-sizing: border-box;
-  font-size: 1em;
   border: ${props =>
     props.underlined
       ? 'none'
@@ -95,10 +94,10 @@ const Input = styled.input`
 `
 
 const Error = styled.div`
-  margin-top: 0.25em;
-  font-size: 0.75em;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
   line-height: 1;
-  height: 1em;
+  height: 1rem;
 `
 
 class InputText extends Component {

@@ -3,12 +3,6 @@ import { action } from '@storybook/addon-actions'
 
 import Radio from './index'
 
-export const styles = {
-  container: {
-    fontSize: '24px',
-  },
-}
-
 <Meta title="Form Controls/Radio" component={Radio} />
 
 # Radio
@@ -17,7 +11,7 @@ Demonstrates default rendering of Radio component.
 
 <Preview>
   <Story name="default">
-    <div style={styles.container}>
+    <div>
       <Radio name="test" value="test" />
       <Radio name="test" value="test 2" defaultChecked />
       <Radio name="test" value="test 3" label="This is a label" />
@@ -29,7 +23,7 @@ Demonstrates a disabled Radio component.
 
 <Preview>
   <Story name="disabled">
-    <div style={styles.container}>
+    <div>
       <Radio name="test" value="test" disabled />
       <Radio name="test" value="test 2" disabled defaultChecked />
       <Radio name="test" value="test 3" label="This is a label" disabled />
