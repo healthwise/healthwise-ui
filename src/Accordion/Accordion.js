@@ -33,7 +33,8 @@ const ExpansionPanel = withStyles(theme => ({
     },
   },
   disabled: {
-    opacity: 0.35,
+    opacity: 0.6,
+    cursor: 'not-allowed'
   },
 }))(MuiExpansionPanel)
 
