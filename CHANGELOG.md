@@ -1,4 +1,8 @@
-# 2.1.0
+# 2.1.1
+
+- Iterating version for new `npm publish`
+
+# 2.1.0 (DEPRECATED - due to `npm publish` mistake)
 
 - Brought more consistency and accessibility to disabled states (`Accordion`, `Button`, `Checkbox`, `DropDown`, `InputText`, `Radio` & `TextArea`)
 - Added `viewOnly` prop for `Checkbox`, `InputText`, `Radio` & `TextArea` components (and associated stories)
