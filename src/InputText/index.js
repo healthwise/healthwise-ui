@@ -68,7 +68,11 @@ const Input = styled.input`
       ? `1px solid ${props.theme.colorError}`
       : `1px solid ${props.theme.colorTextPrimary}`};
   background: ${props =>
-    props.disabled ? '#eee' : props.underlined ? 'none' : props.theme.colorBackgroundLight};
+    props.disabled
+      ? '#eee'
+      : props.underlined || props.viewOnly
+      ? 'none'
+      : props.theme.colorBackgroundLight};
   transition: border ease 0.2s;
   box-shadow: none;
 

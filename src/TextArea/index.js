@@ -44,6 +44,7 @@ const TextArea = styled.textarea`
   line-height: 1.5em;
   resize: vertical;
   color: var(--color-text-primary, #424242);
+  ${props => (props.viewOnly ? 'background: none;' : '')}
 
   &:disabled {
     cursor: not-allowed;
