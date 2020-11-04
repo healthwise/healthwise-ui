@@ -32,6 +32,11 @@
     "dopublish:dryrun": "npm run build && npm publish build --dry-run",
     "reset": "npm run clean && rimraf node_modules && npm install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test && lint-staged"
+    }
+  },
   "lint-staged": {
     "*.js": [
       "npm run lint --",
