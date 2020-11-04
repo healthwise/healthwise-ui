@@ -34,12 +34,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test && lint-staged"
+      "pre-commit": "lint-staged && npm run test -- --watchAll=false && npm run build"
     }
   },
   "lint-staged": {
-    "*.js": [
-      "npm run lint --",
+    "*.+(js|css|mdx)": [
+      "npm run lint",
       "git add"
     ]
   },
@@ -60,7 +60,7 @@
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
     "@dump247/storybook-state": "^1.6.1",
     "@storybook/addon-actions": "^5.3.21",
     "@storybook/addon-docs": "^5.3.21",
