@@ -1,3 +1,10 @@
+# 2.1.0
+
+- Brought more consistency and accessibility to disabled states (`Accordion`, `Button`, `Checkbox`, `DropDown`, `InputText`, `Radio` & `TextArea`)
+- Added `viewOnly` prop for `Checkbox`, `InputText`, `Radio` & `TextArea` components (and associated stories)
+- Improved a few stories
+- Removed manual Storybook build-on-commit process (replaced by Github Action to build/deploy Storybook)
+
 # 2.0.3
 
 - Added pass through for props not explicitly defined in `TextArea` component

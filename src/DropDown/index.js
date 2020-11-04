@@ -14,15 +14,16 @@ const Select = styled.select`
   font-size: 1em;
   font-family: sans-serif;
   font-weight: normal;
-  color: ${props => props.theme.colorTextPrimary};
+  color: ${props => props.theme.colorTextPrimary || 'var(--color-text-primary, #424242)'};
   width: 100%;
   height: 40px;
   line-height: 40px;
   padding: 0 32px 0 8px;
-  padding-left: ${props => (props.underlined ? '0' : '8px')};
+  padding-left: ${props => (props.underlined && !props.disabled ? '0' : '8px')};
   max-width: 100%;
   box-sizing: border-box;
   margin: 0;
+  opacity: 1;
 
   border: 1px solid ${props => (props.error ? props.theme.colorError : props.theme.colorBorder)};
   border-top-color: ${props =>
@@ -66,8 +67,8 @@ const Select = styled.select`
 
   &:disabled,
   &[aria-disabled='true'] {
-    opacity: 0.5;
     cursor: not-allowed;
+    background: #eee;
   }
 
   ::-ms-expand {
@@ -87,7 +88,6 @@ const LabelText = styled.span`
   letter-spacing: 0.5px;
 
   &[aria-disabled='true'] {
-    opacity: 0.5;
     cursor: not-allowed;
   }
 `

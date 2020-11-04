@@ -1,6 +1,6 @@
 {
   "name": "@healthwise-ui/core",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "Shared React UI library that implements the Healthwise design language.",
   "main": "index.js",
   "unpkg": "healthwise-ui.min.js",
@@ -31,11 +31,6 @@
     "dopublish": "npm run build && npm publish build",
     "dopublish:dryrun": "npm run build && npm publish build --dry-run",
     "reset": "npm run clean && rimraf node_modules && npm install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "rimraf docs && npm run lint -- && npm run storybook:build && git add ."
-    }
   },
   "lint-staged": {
     "*.js": [

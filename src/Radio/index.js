@@ -7,21 +7,26 @@ import { defaultTheme } from '../Theme'
 const Root = styled.span`
   position: relative;
   display: block;
-
-  opacity: ${props => (props.readonly || props.disabled ? 0.35 : 1)};
-  cursor: ${props => (props.readonly || props.disabled ? 'not-allowed' : 'default')};
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
 `
 
 const Label = styled.label`
   display: inline-flex;
   align-items: center;
   line-height: 1;
+  cursor: ${props => (props.readonly || props.disabled ? 'not-allowed' : 'default')};
+  border: ${props =>
+    props.viewOnly && (props.checked || props.defaultChecked) ? '2px solid #999' : '0'};
+  border-width: ${props =>
+    props.viewOnly && (props.checked || props.defaultChecked) ? '0 2px' : '0'};
+  border-radius: 10px;
 `
 
 const Svg = styled.svg`
+  display: ${props => (props.readonly || props.viewOnly ? 'none' : 'default')};
   width: ${props => (props.forPrint ? '1em' : '28px')};
   height: ${props => (props.forPrint ? '1em' : '28px')};
-  margin-top: 8px;
+  margin-top: 8px; // TODO: remove this?
 `
 
 const OuterCircle = styled.circle`
@@ -49,7 +54,6 @@ const Input = styled.input`
   border: 0;
   outline: 0;
   opacity: 0;
-  cursor: pointer;
 
   :focus + ${Svg} {
     outline: ${props => props.theme.focusIndicator};
@@ -63,14 +67,11 @@ const Input = styled.input`
   :checked + ${Svg} ${InnerCircle} {
     display: inline-block;
   }
-
-  :disabled {
-    cursor: not-allowed;
-  }
 `
 
 const LabelContent = styled.span`
-  padding-left: 0.3rem;
+  padding: ${props =>
+    props.viewOnly && (props.checked || props.defaultChecked) ? '3px 0.5rem' : 'inherit 0.3rem'};
   font-size: 0.75em;
 `
 
@@ -81,27 +82,40 @@ class Radio extends Component {
       name,
       label,
       value,
+      checked,
+      defaultChecked,
       isRequired,
       onClick,
       readonly,
       disabled,
+      viewOnly,
+      className,
       forPrint,
       theme,
       ...otherProps
     } = this.props
 
     return (
-      <Root disabled={readonly || disabled} className="hw-radio-wrapper">
-        <Label className="hw-radio-wrapper-label">
+      <Root disabled={readonly || disabled} className={`hw-radio-wrapper ${className}`}>
+        <Label
+          className="hw-radio-wrapper-label"
+          checked={checked}
+          defaultChecked={defaultChecked}
+          disabled={disabled}
+          viewOnly={viewOnly}
+        >
           <Input
             type="radio"
             id={id}
             name={name}
             value={value}
+            checked={checked}
+            defaultChecked={defaultChecked}
             required={isRequired}
             className="hw-radio"
             onClick={onClick}
-            disabled={readonly || disabled}
+            disabled={readonly || viewOnly || disabled}
+            viewOnly={viewOnly}
             forPrint={forPrint}
             theme={theme}
             {...otherProps}
@@ -112,6 +126,7 @@ class Radio extends Component {
             className="hw-radio-image"
             focusable="false"
             forPrint={forPrint}
+            viewOnly={viewOnly}
           >
             <OuterCircle
               className="hw-radio-outer-circle"
@@ -124,7 +139,14 @@ class Radio extends Component {
             <InnerCircle className="hw-radio-checked" cx="14" cy="14" r="5" theme={theme} />
           </Svg>
 
-          <LabelContent className="hw-checkbox-wrapper-label-text">{label}</LabelContent>
+          <LabelContent
+            className="hw-checkbox-wrapper-label-text"
+            checked={checked}
+            defaultChecked={defaultChecked}
+            viewOnly={viewOnly}
+          >
+            {label}
+          </LabelContent>
         </Label>
       </Root>
     )

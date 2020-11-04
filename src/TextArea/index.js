@@ -13,7 +13,6 @@ const Label = styled.label`
   letter-spacing: 0.5px;
 
   &[aria-disabled='true'] {
-    opacity: 0.5;
     cursor: not-allowed;
   }
 `
@@ -29,17 +28,26 @@ const TextArea = styled.textarea`
   box-sizing: border-box;
   display: block;
   width: 100%;
-  padding: 0.5em;
+  padding: ${props => (props.viewOnly ? '0.5rem 0' : '0.5rem')};
   margin: 0;
-  border: 1px solid ${props => (props.error ? props.theme.colorError : props.theme.colorBorder)};
+  border-width: 1px;
+  border-style: solid;
+  border-color: ${props =>
+    props.viewOnly
+      ? 'transparent'
+      : props.error
+      ? props.theme.colorError
+      : props.theme.colorBorder};
+
   min-height: 88px;
   font-size: 1em;
   line-height: 1.5em;
   resize: vertical;
+  color: var(--color-text-primary, #424242);
 
   &:disabled {
-    opacity: 0.5;
     cursor: not-allowed;
+    background: #eee;
   }
 
   &:focus {
@@ -244,6 +252,7 @@ class Textarea extends React.Component {
       value,
       label,
       disabled,
+      viewOnly,
       error,
       required,
       maxCharacters,
@@ -309,6 +318,7 @@ class Textarea extends React.Component {
           defaultValue={defaultValue}
           value={value}
           disabled={disabled}
+          viewOnly={viewOnly}
           error={error || !isValid}
           required={required}
           aria-required={required}
@@ -340,6 +350,7 @@ Textarea.propTypes = {
   value: PropTypes.string,
   label: PropTypes.string,
   disabled: PropTypes.bool,
+  viewOnly: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   validationErrors: PropTypes.object,
   validators: PropTypes.object,
