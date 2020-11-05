@@ -52,7 +52,7 @@ const TextArea = styled.textarea`
   }
 
   &:focus {
-    outline: ${props => props.theme.focusIndicator};
+    outline: ${props => (props.underlined || props.viewOnly ? 'none' : props.theme.focusIndicator)};
     outline-offset: ${props => props.theme.focusIndicatorOffset};
   }
 `
@@ -320,6 +320,7 @@ class Textarea extends React.Component {
           value={value}
           disabled={disabled}
           viewOnly={viewOnly}
+          readOnly={viewOnly}
           error={error || !isValid}
           required={required}
           aria-required={required}
