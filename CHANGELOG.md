@@ -1,3 +1,8 @@
+# 2.1.2
+
+- Overriding browser default backgrounds for `viewOnly` state on `InputText` and `TextArea`
+- Added precommit testing, linting
+
 # 2.1.1
 
 - Iterating version for new `npm publish`
