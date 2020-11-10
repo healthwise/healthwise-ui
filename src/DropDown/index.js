@@ -9,6 +9,10 @@ import Message from '../Message'
 
 // NOTE: most CSS taken from https://github.com/filamentgroup/select-css
 
+const Label = styled.label`
+  opacity: ${props => (props.disabled ? '0.7' : '1')};
+`
+
 const Select = styled.select`
   display: block;
   font-size: 1em;
@@ -23,32 +27,17 @@ const Select = styled.select`
   max-width: 100%;
   box-sizing: border-box;
   margin: 0;
-  opacity: 1;
-
-  border: 1px solid ${props => (props.error ? props.theme.colorError : props.theme.colorBorder)};
-  border-top-color: ${props =>
-    props.underlined
-      ? 'transparent'
-      : props.error
-      ? props.theme.colorError
-      : props.theme.colorBorder};
-  border-right-color: ${props =>
-    props.underlined
-      ? 'transparent'
-      : props.error
-      ? props.theme.colorError
-      : props.theme.colorBorder};
-  border-left-color: ${props =>
-    props.underlined
-      ? 'transparent'
-      : props.error
-      ? props.theme.colorError
-      : props.theme.colorBorder};   
-
+  
+  border-style: solid;
+  border-color: ${props =>
+    props.error ? props.theme.colorError : props.disabled ? '#bbb' : props.theme.colorBorder};
+  border-width: ${props => (props.underlined ? '0 0 1px 0' : '1px')};
+  
   box-shadow: none;
   border-radius: 0;
   appearance: none;
-  background-color: #fff;
+  background-color: ${props =>
+    props.underlined || props.viewOnly ? 'none' : props.theme.colorBackgroundLight};
   background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23${props =>
     encodeURIComponent(
       props.theme.colorTextPrimary
@@ -68,7 +57,6 @@ const Select = styled.select`
   &:disabled,
   &[aria-disabled='true'] {
     cursor: not-allowed;
-    background: #eee;
   }
 
   ::-ms-expand {
@@ -115,7 +103,7 @@ const DropDown = props => {
 
   return (
     <div className="hw-drop-down">
-      <label className="hw-drop-down-label" aria-disabled={disabled}>
+      <Label className="hw-drop-down-label" aria-disabled={disabled} disabled={disabled}>
         {label && (
           <LabelText className="hw-drop-down-label-text">
             {label}
@@ -158,7 +146,7 @@ const DropDown = props => {
             </Message>
           )}
         </Error>
-      </label>
+      </Label>
     </div>
   )
 }

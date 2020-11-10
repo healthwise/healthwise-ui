@@ -1,3 +1,8 @@
+# 2.1.3
+
+- Modified disabled states for `TextArea`, `InputText`, and `DropDown`
+- A few logic improvements for `Checkbox` and `Radio`
+
 # 2.1.2
 
 - Overriding browser default backgrounds for `viewOnly` state on `InputText` and `TextArea`

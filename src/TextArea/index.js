@@ -7,6 +7,10 @@ import { defaultTheme } from '../Theme'
 import Message from '../Message'
 import { getKey } from '../KeyGen'
 
+const Wrapper = styled.div`
+  ${props => (props.disabled ? 'opacity: 0.7;' : '')}
+`
+
 const Label = styled.label`
   margin-bottom: 0.25em;
   font-size: 0.75em;
@@ -17,7 +21,7 @@ const Label = styled.label`
   }
 `
 
-const Wrapper = styled.div`
+const TextareaWrapper = styled.div`
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -37,6 +41,8 @@ const TextArea = styled.textarea`
       ? 'transparent'
       : props.error
       ? props.theme.colorError
+      : props.disabled
+      ? '#bbb'
       : props.theme.colorBorder};
 
   min-height: 88px;
@@ -44,11 +50,15 @@ const TextArea = styled.textarea`
   line-height: 1.5em;
   resize: vertical;
   color: var(--color-text-primary, #424242);
-  ${props => (props.viewOnly ? 'background: none;' : '')}
+  background: ${props => (props.viewOnly ? 'none' : props.theme.colorBackgroundLight)};
+
+  ::placeholder {
+    color: ${props => props.theme.colorTextSecondary};
+    opacity: 1;
+  }
 
   &:disabled {
     cursor: not-allowed;
-    background: #eee;
   }
 
   &:focus {
@@ -307,7 +317,7 @@ class Textarea extends React.Component {
         {value || defaultValue || ''}
       </ReadOnly>
     ) : (
-      <Wrapper className={'hw-textarea-textarea-wrapper'}>
+      <TextareaWrapper className={'hw-textarea-textarea-wrapper'}>
         <TextArea
           {...otherProps}
           className={'hw-textarea-textarea'}
@@ -333,14 +343,14 @@ class Textarea extends React.Component {
         />
         {characterCounter}
         {errorLabel}
-      </Wrapper>
+      </TextareaWrapper>
     )
 
     return (
-      <div className={'hw-textarea'} aria-disabled={disabled}>
+      <Wrapper className={'hw-textarea'} aria-disabled={disabled} disabled={disabled}>
         {title}
         {textarea}
-      </div>
+      </Wrapper>
     )
   }
 }
