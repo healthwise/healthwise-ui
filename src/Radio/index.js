@@ -87,6 +87,7 @@ class Radio extends Component {
       isRequired,
       onClick,
       readonly,
+      readOnly,
       disabled,
       viewOnly,
       className,
@@ -96,7 +97,7 @@ class Radio extends Component {
     } = this.props
 
     return (
-      <Root disabled={readonly || disabled} className={`hw-radio-wrapper ${className}`}>
+      <Root disabled={disabled} className={`hw-radio-wrapper ${className}`}>
         <Label
           className="hw-radio-wrapper-label"
           checked={checked}
@@ -114,7 +115,7 @@ class Radio extends Component {
             required={isRequired}
             className="hw-radio"
             onClick={onClick}
-            disabled={readonly || viewOnly || disabled}
+            disabled={readonly || readOnly || viewOnly || disabled}
             viewOnly={viewOnly}
             forPrint={forPrint}
             theme={theme}

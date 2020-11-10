@@ -14,8 +14,7 @@ const Label = styled.label`
   flex-flow: column nowrap;
   align-items: flex-start;
   cursor: ${props => (props.disabled ? 'not-allowed' : 'auto')};
-
-  ::after {
+  ${props => (props.disabled ? 'opacity: 0.7;' : '')} ::after {
     display: ${props => (!props.viewOnly && props.underlined ? 'block' : 'none')};
     content: '';
     position: absolute;
@@ -29,6 +28,8 @@ const Label = styled.label`
         ? 'transparent'
         : props.error && props.dirty && (!props.autoFocus || !props.focused)
         ? props.theme.colorError
+        : props.disabled
+        ? '#bbb'
         : props.theme.colorTextPrimary};
     background-image: ${props =>
       props.autoFocus || props.focused
@@ -55,7 +56,7 @@ const Input = styled.input`
   display: table-cell;
   width: 100%;
   height: 40px;
-  padding: ${props => ((props.underlined && !props.disabled) || props.viewOnly ? '0' : '0 8px')};
+  padding: ${props => (props.underlined || props.viewOnly ? '0' : '0 8px')};
   color: ${props => props.theme.colorTextPrimary};
   line-height: 30px;
   vertical-align: middle;
@@ -66,13 +67,11 @@ const Input = styled.input`
       ? 'none'
       : props.error && props.dirty && (!props.autoFocus || !props.focused)
       ? `1px solid ${props.theme.colorError}`
+      : props.disabled
+      ? `1px solid #bbb`
       : `1px solid ${props.theme.colorTextPrimary}`};
   background: ${props =>
-    props.disabled
-      ? '#eee'
-      : props.underlined || props.viewOnly
-      ? 'none'
-      : props.theme.colorBackgroundLight};
+    props.underlined || props.viewOnly ? 'none' : props.theme.colorBackgroundLight};
   transition: border ease 0.2s;
   box-shadow: none;
 

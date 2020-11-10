@@ -102,6 +102,7 @@ class Checkbox extends React.Component {
       defaultChecked,
       onClick,
       required,
+      readOnly,
       disabled,
       viewOnly,
       theme,
@@ -118,7 +119,7 @@ class Checkbox extends React.Component {
         >
           <Input
             type="checkbox"
-            disabled={disabled}
+            disabled={readOnly || viewOnly || disabled}
             name={name}
             value={value}
             checked={checked}
