@@ -3,6 +3,7 @@
 - **BREAKING**: Removed `Appbar`
 - **BREAKING**: Fixed `ButtonGroup` class name spelling
 - **BREAKING**: Migrated `Accordion` from Material-UI to home grown
+- **BREAKING**: Migrated `Card` from Material-UI to home grown
 - **BREAKING**: Cleaned up size declarations (mostly font sizes) on `ButtonSplit`, `Checkbox`, `Message`, `ProgressBar`, `Radio`, `References`, `Tab`, `TextArea`
 - **BREAKING**: Tidied up spacing for `Checkbox`, `Radio`, `References`
 - **BREAKING**: Changed to _rem_ units (from _em_) throughout app
