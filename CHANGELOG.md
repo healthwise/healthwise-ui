@@ -12,7 +12,7 @@
 - `Table` TODO: swap for the new one
 - Overall TODO: accessibility testing on new components
 - Overall TODO: review & standardize font-size declarations
-- Overall TODO: swap from EM to REM units where possible?
+- Overall TODO: wrap up the remaining EM to REM migration
 - Overall TODO?: components spread unknown props?
 - Overall TODO?: loading state (especially for form components)??
 
