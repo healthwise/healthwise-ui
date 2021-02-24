@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-import MuiDialog from '@material-ui/core/Dialog'
-import MuiDialogContent from '@material-ui/core/DialogContent'
-import { withStyles } from '@material-ui/core/styles'
 import styled, { withTheme } from 'styled-components'
 import uniqueId from 'lodash/uniqueId'
 
@@ -11,32 +8,21 @@ import Button from '../Button'
 import ButtonGroup from '../ButtonGroup'
 import { defaultTheme } from '../Theme'
 
-// TODO: Material UI doesn't support overriding a theme locally by using the
-// theme prop, like styled-components does. The theme argument in the
-// withStyles function can only be updated using the MuiThemeProvider. The
-// @material-ui/styles package (currently in alpha) is supposed to release
-// with material-ui v4, and will support this functionality. Until then, we
-// need these inline default values, to support a component having a default
-// theme without requiring the consumer to use a ThemeProvider component in
-// their app.
-const Dialog = withStyles(theme => ({
-  paper: {
-    margin: `${theme.spacingXxl || '64px'} ${theme.spacingL || '24px'}`,
-    padding: theme.spacingL || '24px',
-  },
-}))(MuiDialog)
+const Dialog = styled.dialog`
+  margin: ${props => [props.theme.spacingXxl || '64px', props.theme.spacingL || '24px']};
+  padding: ${props => props.theme.spacingL || '24px'};
+`
 
-const DialogContent = withStyles(theme => ({
-  root: {
-    padding: '0',
-    '& > *:first-child': {
-      marginTop: 0,
-    },
-    '& > *:last-child': {
-      marginBottom: 0,
-    },
-  },
-}))(MuiDialogContent)
+const DialogContent = styled.div`
+  padding: 0;
+
+  & > *:first-child {
+    margin-bottom: 0;
+  }
+  & > *:last-child {
+    margin-top: 0;
+  }
+`
 
 const Title = styled.h2`
   margin: 0;
@@ -142,8 +128,6 @@ Modal.propTypes = {
   title: PropTypes.string.isRequired,
   showTitle: PropTypes.bool,
   showActions: PropTypes.bool,
-  // TODO: update this propType with all the variables being used in the modal
-  // once @material-ui/styles package is being used.
   theme: PropTypes.shape({
     colorTextPrimary: PropTypes.string,
     spacingL: PropTypes.string,
