@@ -1,0 +1,198 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+
+import Tab from '../Tab'
+import TabGroup from './index'
+
+<Meta title="Components/Tab Group" component={TabGroup} />
+
+# Tab Group
+
+Demonstrates default rendering of a group of tabs.
+
+<Preview>
+  <Story name="default">
+    <TabGroup>
+      <Tab href="#">
+        First
+      </Tab>
+      <Tab href="#">
+        Second
+      </Tab>
+      <Tab href="#">
+        Third
+      </Tab>
+    </TabGroup>
+  </Story>
+</Preview>
+
+Demonstrates the various types of tabs.
+
+<Preview>
+  <Story name="with all statuses">
+    <TabGroup>
+      <Tab href="#" isActive>
+        Active
+      </Tab>
+      <Tab href="#" visited>
+        Visited
+      </Tab>
+      <Tab href="#" disabled>
+        Disabled
+      </Tab>
+      <Tab href="#">
+        Unvisited
+      </Tab>
+    </TabGroup>
+  </Story>
+</Preview>
+
+Demonstrates a TabGroup which doesn't stretch to fill available space.
+
+<Preview>
+  <Story name="without stretching">
+    <TabGroup stretch={false}>
+      <Tab href="#">
+        First
+      </Tab>
+      <Tab href="#">
+        Second
+      </Tab>
+      <Tab href="#">
+        Third
+      </Tab>
+    </TabGroup>
+  </Story>
+</Preview>
+
+Demonstrates a TabGroup which overflows its available space.
+
+<Preview>
+  <Story name="with overflow">
+    <div
+      style={{
+        width: '80%',
+        maxWidth: '500px',
+        margin: '20px auto',
+        padding: '20px',
+        overflow: 'hidden',
+        border: '1px solid #999',
+      }}
+    >
+      <TabGroup data-something>
+        <Tab href="#">
+          First
+        </Tab>
+        <Tab href="#">
+          Second
+        </Tab>
+        <Tab href="#">
+          Third
+        </Tab>
+        <Tab href="#">
+          Fourth
+        </Tab>
+        <Tab href="#">
+          Fifth
+        </Tab>
+        <Tab href="#">
+          Sixth
+        </Tab>
+        <Tab href="#">
+          Seventh
+        </Tab>
+        <Tab href="#">
+          Eighth
+        </Tab>
+        <Tab href="#">
+          Ninth
+        </Tab>
+        <Tab href="#">
+          Tenth
+        </Tab>
+      </TabGroup>
+    </div>
+  </Story>
+</Preview>
+
+Demonstrates a TabGroup which overflows its available space, and loads with the active tab shown.
+
+<Preview>
+  <Story name="with overflow and active scrolled">
+    <div
+      style={{
+        width: '80%',
+        maxWidth: '500px',
+        margin: '20px auto',
+        padding: '20px',
+        overflow: 'hidden',
+        border: '1px solid #999',
+      }}
+    >
+      <TabGroup data-something>
+        <Tab href="#">
+          First
+        </Tab>
+        <Tab href="#">
+          Second
+        </Tab>
+        <Tab href="#">
+          Third
+        </Tab>
+        <Tab href="#">
+          Fourth
+        </Tab>
+        <Tab href="#">
+          Fifth
+        </Tab>
+        <Tab href="#" isActive>
+          Sixth
+        </Tab>
+        <Tab href="#">
+          Seventh
+        </Tab>
+        <Tab href="#">
+          Eighth
+        </Tab>
+        <Tab href="#">
+          Ninth
+        </Tab>
+        <Tab href="#">
+          Tenth
+        </Tab>
+      </TabGroup>
+    </div>
+  </Story>
+</Preview>
+
+Demonstrates tab with 'minWidth' prop set.
+
+<Preview>
+  <Story name="with min width">
+    <div style={{ width: '350px', margin: '20px', border: '1px solid #aaa', borderRadius: '8px' }}>
+      <TabGroup>
+        <Tab href="#">
+          First
+        </Tab>
+        <Tab href="#" minWidth="9em">
+          `minWidth` of `9em` Applied
+        </Tab>
+        <Tab href="#">
+          Third
+        </Tab>
+      </TabGroup>
+      
+      <TabGroup>
+        <Tab href="#">
+          First
+        </Tab>
+        <Tab href="#">
+          Min Width Not Applied
+        </Tab>
+        <Tab href="#">
+          Third
+        </Tab>
+      </TabGroup>
+    </div>
+  </Story>
+</Preview>

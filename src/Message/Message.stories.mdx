@@ -1,0 +1,33 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions'
+
+import Message from './index'
+
+<Meta title="UI Feedback/Message" component={Message} />
+
+# Message
+
+Demonstrates 'info', 'warning', and 'error' Message types.
+
+<Preview>
+  <Story name="message types">
+    <Fragment>
+      <Message type="info">This is an 'info' message</Message>
+      <Message type="warning">This is a 'warning' message</Message>
+      <Message type="error">This is an 'error' message</Message>
+    </Fragment>
+  </Story>
+</Preview>
+
+Demonstrates alignment options of Message component.
+
+<Preview>
+  <Story name="varied alignment">
+    <Fragment>
+      <Message align="left">This message is aligned left</Message>
+      <Message align="center">This message is aligned center</Message>
+      <Message align="right">This message is aligned right</Message>
+    </Fragment>
+  </Story>
+</Preview>

@@ -1,0 +1,50 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions'
+
+import IconArray from './index';
+
+export const ContainerDecorator = storyFn => <div style={{ width: '200px' }}>{storyFn()}</div>
+
+<Meta title="Media/Icon Array" component={IconArray} decorators={[ ContainerDecorator ]} />
+
+# IconArray
+
+Default, empty, 100 member icon array.
+
+<Preview>
+  <Story name="default">
+    <IconArray />
+  </Story>
+</Preview>
+
+With 23 of 100 males selected.
+
+<Preview>
+  <Story name="23 of 100 males selected">
+    <IconArray minRange="23" maxRange="23" total="100" iconType="male" />
+  </Story>
+</Preview>
+
+With 83-88 of 100 females highlighted.
+
+<Preview>
+  <Story name="83-88 of 100 females selected">
+    <IconArray minRange="83" maxRange="88" iconType="female" />
+  </Story>
+</Preview>
+
+With 11-14 of 25 persons selected - breaking every 5 persons.
+
+<Preview>
+  <Story name="12-14 peeps out of 25">
+    <IconArray minRange="11" maxRange="14" total="25" iconType="neutral" forceBreakOn={5} />
+  </Story>
+</Preview>
+
+Responsive.
+
+<Preview>
+  <Story name="responsive">
+    <IconArray minRange="62" maxRange="73" iconType="male" />
+  </Story>
+</Preview>

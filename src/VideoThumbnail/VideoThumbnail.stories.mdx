@@ -1,0 +1,29 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions'
+
+import VideoThumbnail from './index'
+
+<Meta title="Media/Video Thumbnail" component={VideoThumbnail}/>
+
+export const styles = {
+  container: {
+    width: '200px',
+    height: '100px'
+  }
+}
+
+# Video Thumbnail
+
+Demonstrates default rendering of VideoThumbnail component
+
+<Preview>
+  <Story name="default">
+    <div style={styles.container}>
+      <VideoThumbnail
+        onThumbnailClick={action('clicked')}
+        title="Sample Video"
+        src="http://via.placeholder.com/640x360"
+      />
+    </div>
+  </Story>
+</Preview>

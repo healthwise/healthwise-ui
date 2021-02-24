@@ -5,4 +5,3 @@ thumbs.db
 node_modules/
 build/
 coverage/
-storybook-static/

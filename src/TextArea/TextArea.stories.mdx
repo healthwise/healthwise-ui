@@ -1,0 +1,107 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions'
+
+import TextArea from './index'
+
+export const validatorFuncs = { 
+  typeMismatch: (val) => {
+    let regex = /^[a-z0-9]+$/i;
+    return regex.test(val);
+  }, 
+  tooShort: (val) => {
+    return val.length > 5;
+  }
+}
+
+<Meta title="Form Controls/Text Area" component={TextArea} />
+
+# TextArea
+
+Demonstrates default rendering of TextArea component
+
+<Preview>
+  <Story name="default">
+    <TextArea label="TextArea Label" />
+  </Story>
+</Preview>
+
+Demonstrates TextArea with max characters
+
+<Preview>
+  <Story name="max characters">
+    <TextArea label="TextArea Label" maxCharacters="100" />
+  </Story>
+</Preview>
+
+Demonstrates uncontrolled TextArea component
+
+<Preview>
+  <Story name="uncontrolled">
+    <TextArea label="TextArea Label" defaultValue="Default initial value" />
+  </Story>
+</Preview>
+
+Demonstrates controlled TextArea component
+
+<Preview>
+  <Story name="controlled">
+    <TextArea label="TextArea Label" value="Controlled value" onChange={action('changed')} />
+  </Story>
+</Preview>
+
+Demonstrates disabled TextArea component
+
+<Preview>
+  <Story name="disabled">
+    <TextArea label="TextArea Label" value="Saved value" onChange={action('changed')} disabled />
+  </Story>
+</Preview>
+
+Demonstrates viewOnly TextArea component
+
+<Preview>
+  <Story name="viewOnly">
+    <TextArea label="TextArea Label" value="Text to display" onChange={action('changed')} viewOnly />
+  </Story>
+</Preview>
+
+Demonstrates required TextArea component
+
+<Preview>
+  <Story name="required">
+    <TextArea label="TextArea Label" required />
+  </Story>
+</Preview>
+
+Demonstrates a TextArea component with a default error
+
+<Preview>
+  <Story name="default error">
+    <TextArea label="TextArea Label" error={true} />
+  </Story>
+</Preview>
+
+Demonstrates a TextArea component with a text error message
+
+<Preview>
+  <Story name="text error">
+    <TextArea label="TextArea Label" error="A basic error message" />
+  </Story>
+</Preview>
+
+Demonstrates a TextArea component with a text error message and max characters
+
+<Preview>
+  <Story name="error and max characters">
+    <TextArea label="TextArea Label" maxCharacters="100" error="A basic error message" />
+  </Story>
+</Preview>
+
+Demonstrates a TextArea component using custom validators
+
+*Only Accepts Alpha Numeric strings of length greater than 5*
+<Preview>  
+  <Story name="validator">    
+    <TextArea label="TextArea Label" validators={validatorFuncs} onValid={action('isValid')} onInvalid={action('isNotValid')}  />
+  </Story>
+</Preview>

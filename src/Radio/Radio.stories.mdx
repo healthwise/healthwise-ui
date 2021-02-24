@@ -1,0 +1,50 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+
+import Radio from './index'
+
+export const styles = {
+  container: {
+    fontSize: '24px',
+  },
+}
+
+<Meta title="Form Controls/Radio" component={Radio} />
+
+# Radio
+
+Demonstrates default rendering of Radio component.
+
+<Preview>
+  <Story name="default">
+    <div style={styles.container}>
+      <Radio name="test" value="test 1" label="Label 1" />
+      <Radio name="test" value="test 2" label="Label 2" defaultChecked />
+      <Radio name="test" value="test 3" label="Label 3" />
+    </div>
+  </Story>
+</Preview>
+
+Demonstrates a disabled Radio component.
+
+<Preview>
+  <Story name="disabled">
+    <div style={styles.container}>
+      <Radio name="test2" value="test 1" label="Label 1" disabled />
+      <Radio name="test2" value="test 2" label="Label 2" disabled defaultChecked />
+      <Radio name="test2" value="test 3" label="Label 3" disabled />
+    </div>
+  </Story>
+</Preview>
+
+Demonstrates a view-only Radio component.
+
+<Preview>
+  <Story name="viewOnly">
+    <div style={styles.container}>
+      <Radio name="test3" value="test 1" label="Label 1" viewOnly />
+      <Radio name="test3" value="test 2" label="Label 2" viewOnly defaultChecked />
+      <Radio name="test3" value="test 3" label="Label 3" viewOnly />
+    </div>
+  </Story>
+</Preview>
