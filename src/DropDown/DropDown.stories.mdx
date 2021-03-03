@@ -271,3 +271,74 @@ Demonstrates default rendering of the component with many items.
     </Fragment>
   </Story>
 </Preview>
+
+Demonstrates default rendering of the component with different groups
+
+<Preview>
+    <Story name="Different groups">
+        <DropDown
+            prompt="Select an item"
+            nameKey="name"
+            valueKey="id"
+            groupKey="organizationName"
+            items={[
+                {
+                    id: "1234",
+                    name: "Sample Subscription",
+                    organizationName: "Test Org 1"
+                },
+                {
+                    id: "9876",
+                    name: "Second Sample",
+                    organizationName: "Test Org 2"
+                }
+            ]} />
+    </Story>
+</Preview>
+
+Demonstrates default rendering of the component with the same group
+
+<Preview>
+    <Story name="Same group">
+        <DropDown
+            prompt="Select an item"
+            nameKey="name"
+            valueKey="id"
+            groupKey="organizationName"
+            items={[
+                {
+                    id: "1234",
+                    name: "Sample Subscription",
+                    organizationName: "Test Org 1"
+                },
+                {
+                    id: "9876",
+                    name: "Second Sample",
+                    organizationName: "Test Org 1"
+                }
+            ]} />
+    </Story>
+</Preview>
+
+Demonstrates default rendering of the component with no groups
+
+<Preview>
+    <Story name="No groups">
+        <DropDown
+            prompt="Select an item"
+            nameKey="name"
+            valueKey="id"
+            items={[
+                {
+                    id: "1234",
+                    name: "Sample Subscription",
+                    organizationName: "Test Org 1"
+                },
+                {
+                    id: "9876",
+                    name: "Second Sample",
+                    organizationName: "Test Org 2"
+                }
+            ]} />
+    </Story>
+</Preview>
