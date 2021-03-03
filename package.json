@@ -5,9 +5,8 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o docs",
     "prebuild": "rimraf build",
-    "build": "npm run build:cjs && npm run build:iife",
+    "build": "npm run build:cjs",
     "build:cjs": "babel --root-mode upward-optional src -d build",
-    "build:iife": "rollup -c",
     "postbuild": "node scripts/copyFiles.js",
     "postinstall": "husky install",
     "precommit": "lint-staged",
@@ -61,11 +60,6 @@
     "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.4.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^7.0.2"
+    "rimraf": "^3.0.2"
   }
 }
