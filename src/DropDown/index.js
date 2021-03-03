@@ -87,6 +87,13 @@ const Error = styled.div`
   height: 1em;
 `
 
+const groupBy = function(itemList, key) {
+  return itemList.reduce(function(accumulator, currentItem) {
+    ;(accumulator[currentItem[key]] = accumulator[currentItem[key]] || []).push(currentItem)
+    return accumulator
+  }, {})
+}
+
 const DropDown = props => {
   const {
     label,
@@ -94,6 +101,7 @@ const DropDown = props => {
     items,
     valueKey,
     nameKey,
+    groupKey,
     required,
     disabled,
     error,
@@ -101,11 +109,32 @@ const DropDown = props => {
   } = props
   const errorId = uniqueId('hw-input-text-error')
 
+  const itemToOption = (item, i) => {
+    const isObj = item instanceof Object
+    return (
+      <option key={i} className="hw-drop-down-option" value={isObj ? item[valueKey] : item}>
+        {isObj ? item[nameKey] : item}
+      </option>
+    )
+  }
+
+  const hasItems = items.length > 0
+
+  let groupedItems,
+    groupKeys = [],
+    hasOptGroup = false
+
+  if (hasItems && groupKey) {
+    groupedItems = groupBy(items, groupKey)
+    groupKeys = Object.keys(groupedItems)
+    hasOptGroup = groupKeys.length > 1
+  }
+
   return (
     <div className="hw-drop-down">
       <Label className="hw-drop-down-label" aria-disabled={disabled} disabled={disabled}>
         {label && (
-          <LabelText className="hw-drop-down-label-text">
+          <LabelText className="hw-drop-down-label-text" data-testid="label-message">
             {label}
             {required && ' *'}
           </LabelText>
@@ -124,24 +153,25 @@ const DropDown = props => {
               {prompt}
             </option>
           )}
-          {items &&
-            items.map((item, i) => {
-              const isObj = item instanceof Object
-              return (
-                <option
-                  key={i}
-                  className="hw-drop-down-option"
-                  value={isObj ? item[valueKey] : item}
-                >
-                  {isObj ? item[nameKey] : item}
-                </option>
-              )
-            })}
+          {hasItems
+            ? hasOptGroup
+              ? groupKeys.map((organizationKey, i) => (
+                  <optgroup label={organizationKey} key={organizationKey} data-testid="optgroup">
+                    {groupedItems[organizationKey].map(itemToOption)}
+                  </optgroup>
+                ))
+              : items.map(itemToOption)
+            : null}
         </Select>
 
         <Error id={errorId} className="hw-drop-down-error-container">
           {error && error.length && (
-            <Message className="hw-drop-down-error" type="error" showIcon={false}>
+            <Message
+              className="hw-drop-down-error"
+              type="error"
+              showIcon={false}
+              data-testid="error-message"
+            >
               {error}
             </Message>
           )}
@@ -166,6 +196,7 @@ DropDown.propTypes = {
   ).isRequired,
   nameKey: PropTypes.string,
   valueKey: PropTypes.string,
+  groupKey: PropTypes.string,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
