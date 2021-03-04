@@ -15,7 +15,7 @@ const Root = styled.a`
   color: ${props =>
     props.disabled ? props.theme.colorTextDisabled : props.theme.colorTextPrimary};
   padding: ${props => props.theme.spacingM};
-  font-size: 1.25em;
+  font-size: 1.25rem;
   text-align: center;
   text-decoration: none;
   border-bottom-width: 4px;
@@ -44,7 +44,7 @@ const Root = styled.a`
 
   @media screen and (max-width: 750px) {
     padding: 15px;
-    font-size: 1em;
+    font-size: 1rem;
   }
 
   @media screen and (-ms-high-contrast: active) {

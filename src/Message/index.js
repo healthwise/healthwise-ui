@@ -5,6 +5,7 @@ import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme, getThemeVariable } from '../Theme'
 import { InfoIcon, WarningIcon } from '../Icon'
+import { divide } from 'lodash'
 
 const icons = {
   info: <InfoIcon />,
@@ -31,14 +32,10 @@ const Root = styled.span`
 `
 
 const Icon = styled.div`
-  width: 2em;
-  height: 2em;
-  margin-right: 0.5em;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
   flex: 0 0 auto;
-`
-
-const Container = styled.div`
-  font-size: 1em;
 `
 
 class Message extends Component {
@@ -54,9 +51,7 @@ class Message extends Component {
         {...otherProps}
       >
         {showIcon && <Icon>{icons[type]}</Icon>}
-        <Container className={classNames('hw-message', `hw-message-${type}`, className)}>
-          {children}
-        </Container>
+        <div className={classNames('hw-message', `hw-message-${type}`, className)}>{children}</div>
       </Root>
     )
   }

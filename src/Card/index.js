@@ -1,47 +1,33 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import MuiCard from '@material-ui/core/Card'
-import MuiCardContent from '@material-ui/core/CardContent'
-import MuiCardMedia from '@material-ui/core/CardMedia'
-import { withStyles } from '@material-ui/core/styles'
-import styled, { withTheme } from 'styled-components'
 
-import ButtonGroup from '../ButtonGroup'
+import styled, { withTheme } from 'styled-components'
 import { defaultTheme } from '../Theme'
 
-// TODO: Material UI doesn't support overriding a theme locally by using the
-// theme prop, like styled-components does. The theme argument in the
-// withStyles function can only be updated using the MuiThemeProvider. The
-// @material-ui/styles package (currently in alpha) is supposed to release
-// with material-ui v4, and will support this functionality. Until then, we
-// need these inline default values, to support a component having a default
-// theme without requiring the consumer to use a ThemeProvider component in
-// their app.
-const Root = withStyles(theme => ({
-  root: {
-    background: theme.colorBackgroundLight || '#fff',
-  },
-}))(MuiCard)
+import ButtonGroup from '../ButtonGroup'
 
-const CardContent = withStyles(theme => ({
-  root: {
-    padding: theme.spacingL || '24px',
-    '& > *:first-child': {
-      marginTop: 0,
-    },
-    '& > *:last-child': {
-      marginBottom: 0,
-    },
-  },
-}))(MuiCardContent)
+const Root = withTheme(styled.div`
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px 0px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%),
+    0px 2px 1px -1px rgb(0 0 0 / 12%);
+  background: ${props => props.theme.colorBackgroundLight || '#fff'};
+`)
 
-const CardMedia = withStyles(theme => ({
-  root: {
-    height: 0,
-    paddingTop: '56.25%' /* 16:9 */,
-  },
-}))(MuiCardMedia)
+const CardContent = withTheme(styled.div`
+  padding: ${props => props.theme.spacingL || '24px'};
+  & > *:first-child {
+    margin-top: 0;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+`)
+
+const CardMedia = styled.img`
+  width: 100%;
+`
 
 const TitleContainer = styled.div`
   padding: ${props =>
@@ -86,9 +72,10 @@ class Card extends Component {
 
     return (
       <Root className={classNames('hw-card', className)} {...otherProps}>
-        {mediaSrc && <CardMedia className="hw-card-media" image={mediaSrc} title={mediaAltText} />}
+        {mediaSrc && <CardMedia className="hw-card-media" src={mediaSrc} alt={mediaAltText} />}
+
         {(title || subtitle) && (
-          <TitleContainer hasContent={hasContent} theme={theme}>
+          <TitleContainer className="hw-card-title-container" hasContent={hasContent} theme={theme}>
             {title && (
               <Title className="hw-card-title" theme={theme}>
                 {title}
@@ -101,10 +88,12 @@ class Card extends Component {
             )}
           </TitleContainer>
         )}
+
         {children && <CardContent className="hw-card-content">{children}</CardContent>}
+
         {actions && (
-          <Actions theme={theme}>
-            <ButtonGroup className="hw-card-actions">{actions}</ButtonGroup>
+          <Actions className="hw-card-actions" theme={theme}>
+            <ButtonGroup className="hw-card-actions-buttons">{actions}</ButtonGroup>
           </Actions>
         )}
       </Root>

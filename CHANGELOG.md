@@ -1,3 +1,21 @@
+# 3.0.0
+
+- **BREAKING**: Removed `Appbar`
+- **BREAKING**: Fixed `ButtonGroup` class name spelling
+- **BREAKING**: Migrated `Accordion` from Material-UI to home grown
+- **BREAKING**: Migrated `Card` from Material-UI to home grown
+- **BREAKING**: Cleaned up size declarations (mostly font sizes) on `ButtonSplit`, `Checkbox`, `Message`, `ProgressBar`, `Radio`, `References`, `Tab`, `TextArea`
+- **BREAKING**: Tidied up spacing for `Checkbox`, `Radio`, `References`
+- **BREAKING**: Changed to _rem_ units (from _em_) throughout app
+
+- `Accordion` TODO: animation?
+- `Table` TODO: swap for the new one
+- Overall TODO: accessibility testing on new components
+- Overall TODO: review & standardize font-size declarations
+- Overall TODO: wrap up the remaining EM to REM migration
+- Overall TODO?: components spread unknown props?
+- Overall TODO?: loading state (especially for form components)??
+
 # 2.1.3
 
 - Modified disabled states for `TextArea`, `InputText`, and `DropDown`

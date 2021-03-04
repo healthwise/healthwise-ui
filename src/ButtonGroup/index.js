@@ -27,7 +27,7 @@ class ButtonGroup extends React.Component {
     let { children, className, ...otherProps } = this.props
 
     return (
-      <Root className={classNames('hw-button-grouop', className)} {...otherProps}>
+      <Root className={classNames('hw-button-group', className)} {...otherProps}>
         {children}
       </Root>
     )

@@ -4,16 +4,15 @@ import styled, { withTheme } from 'styled-components'
 
 const Root = styled.fieldset`
   border: none;
-  margin: 2em 0;
+  margin: 2rem 0;
   padding: 0;
-  font-size: 0.8em;
+  font-size: 0.8rem;
 `
 
 const Legend = styled.legend`
   border: none;
   margin: 0;
   padding: 0;
-  font-size: 1em;
   line-height: normal;
   font-weight: 600;
 `
@@ -25,7 +24,7 @@ const OrderedList = styled.ol`
 `
 
 const ListItem = styled.li`
-  margin: 1em 0;
+  margin: 1rem 0;
 `
 
 class References extends Component {

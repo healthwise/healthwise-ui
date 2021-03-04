@@ -6,10 +6,10 @@ import Radio from '../Radio'
 import ScreenReaderOnly from '../ScreenReaderOnly'
 
 const Root = styled.div`
-  margin: 10px auto 2em;
+  margin: 10px auto 2rem;
 
   @media screen and (max-width: 750px) {
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
   }
 
   .hw-radio-wrapper .hw-radio-image .hw-radio-focus-outline {
@@ -46,8 +46,8 @@ const ScaleLabelText = styled.span`
   width: 30%;
   color: #363942;
   font-weight: 500;
-  line-height: 1em;
-  font-size: 0.75em;
+  line-height: 1rem;
+  font-size: 0.75rem;
 
   @media screen and (max-width: 750px) {
     width: 35%;
@@ -60,7 +60,7 @@ const ButtonDefault = styled.div`
   width: 9.09092%;
   height: ${props => (props.readonly ? '74px' : props.forPrint ? '80px' : 'auto')};
   background: #fff;
-  font-size: 1.25em;
+  font-size: 1.25rem;
   text-align: center;
   border: 2px solid #dde0e6;
   border-right: none;
@@ -88,7 +88,7 @@ const ButtonDefault = styled.div`
         ? `
       padding-top: 0;
       height: inherit;
-      line-height: 2em;
+      line-height: 2rem;
     `
         : ''}
 
@@ -107,7 +107,7 @@ const ButtonDefault = styled.div`
     ${props =>
       props.readonly
         ? `
-      padding: 0.25em;
+      padding: 0.25rem;
       border-color: #eee;
       height: auto;
       width: 9.09092%;
@@ -163,7 +163,7 @@ const ButtonLabel = styled.label`
 
 const ButtonLabelNumber = styled.span`
   display: block;
-  padding: ${props => (props.readonly ? '0' : '0.4em 0 0')};
+  padding: ${props => (props.readonly ? '0' : '0.4rem 0 0')};
 `
 
 class LikertScale extends React.Component {

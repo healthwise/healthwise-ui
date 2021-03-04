@@ -69,7 +69,6 @@ const Drawer = styled.div`
   button {
     all: unset;
     font-family: inherit;
-    font-size: 100%;
     line-height: inherit;
     margin: 0;
     border: none;

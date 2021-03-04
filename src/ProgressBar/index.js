@@ -58,7 +58,6 @@ const Root = styled.div`
 const Value = styled.div`
   position: absolute;
   top: 0;
-  font-size: 1em;
   line-height: 1;
   color: ${props => props.theme.colorTextPrimary};
 `

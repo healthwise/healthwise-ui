@@ -12,8 +12,8 @@ const Wrapper = styled.div`
 `
 
 const Label = styled.label`
-  margin-bottom: 0.25em;
-  font-size: 0.75em;
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
   letter-spacing: 0.5px;
 
   &[aria-disabled='true'] {
@@ -46,8 +46,7 @@ const TextArea = styled.textarea`
       : props.theme.colorBorder};
 
   min-height: 88px;
-  font-size: 1em;
-  line-height: 1.5em;
+  line-height: 1.5rem;
   resize: vertical;
   color: var(--color-text-primary, #424242);
   background: ${props => (props.viewOnly ? 'none' : props.theme.colorBackgroundLight)};
@@ -73,11 +72,11 @@ const ReadOnly = styled(TextArea)`
   min-height: 0;
 `
 const Subtext = styled.div`
-  font-size: 0.75em;
-  margin-top: 0.25em;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
   line-height: 1.7;
   letter-spacing: 0.5px;
-  height: 1em;
+  height: 1rem;
   display: inline-block;
   margin-right: 10px;
 `
