@@ -34,11 +34,10 @@ const Root = styled.button`
   font-style: normal;
   text-decoration: none;
   line-height: 1;
-  cursor: pointer;
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   box-shadow: ${props =>
     props.raised && !props.disabled ? '0 1px 3px 0 rgba(0, 0, 0, 0.1)' : 'none'};
-  opacity: ${props => (props.disabled ? '0.35' : '1')};
-  pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
+  opacity: ${props => (props.disabled ? '0.6' : '1')};
 
   :hover,
   :active {
@@ -47,7 +46,7 @@ const Root = styled.button`
   }
 
   :focus {
-    outline: ${getFocusIndicator};
+    outline: ${props => (props.disabled ? 'none' : getFocusIndicator)};
     outline-offset: ${props => props.theme.focusIndicatorOffset};
   }
 

@@ -7,18 +7,21 @@ import { defaultTheme } from '../Theme'
 import Message from '../Message'
 import { getKey } from '../KeyGen'
 
+const Wrapper = styled.div`
+  ${props => (props.disabled ? 'opacity: 0.7;' : '')}
+`
+
 const Label = styled.label`
   margin-bottom: 0.25rem;
   font-size: 0.75rem;
   letter-spacing: 0.5px;
 
   &[aria-disabled='true'] {
-    opacity: 0.5;
     cursor: not-allowed;
   }
 `
 
-const Wrapper = styled.div`
+const TextareaWrapper = styled.div`
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -29,20 +32,36 @@ const TextArea = styled.textarea`
   box-sizing: border-box;
   display: block;
   width: 100%;
-  padding: 0.5rem;
+  padding: ${props => (props.viewOnly ? '0.5rem 0' : '0.5rem')};
   margin: 0;
-  border: 1px solid ${props => (props.error ? props.theme.colorError : props.theme.colorBorder)};
+  border-width: 1px;
+  border-style: solid;
+  border-color: ${props =>
+    props.viewOnly
+      ? 'transparent'
+      : props.error
+      ? props.theme.colorError
+      : props.disabled
+      ? '#bbb'
+      : props.theme.colorBorder};
+
   min-height: 88px;
   line-height: 1.5rem;
   resize: vertical;
+  color: var(--color-text-primary, #424242);
+  background: ${props => (props.viewOnly ? 'none' : props.theme.colorBackgroundLight)};
+
+  ::placeholder {
+    color: ${props => props.theme.colorTextSecondary};
+    opacity: 1;
+  }
 
   &:disabled {
-    opacity: 0.5;
     cursor: not-allowed;
   }
 
   &:focus {
-    outline: ${props => props.theme.focusIndicator};
+    outline: ${props => (props.underlined || props.viewOnly ? 'none' : props.theme.focusIndicator)};
     outline-offset: ${props => props.theme.focusIndicatorOffset};
   }
 `
@@ -219,10 +238,10 @@ class Textarea extends React.Component {
       }
 
       // invalid callback
-      onInvalid(input.value, errorType)
+      if (onInvalid) onInvalid(input.value, errorType)
     } else {
       // valid callback
-      onValid(input.value)
+      if (onValid) onValid(input.value)
     }
 
     this.setState({
@@ -243,12 +262,15 @@ class Textarea extends React.Component {
       value,
       label,
       disabled,
+      viewOnly,
       error,
       required,
       maxCharacters,
       readonly,
       theme,
+      ...otherProps
     } = this.props
+
     const { isValid } = this.state
 
     let characterCounter = ''
@@ -294,8 +316,9 @@ class Textarea extends React.Component {
         {value || defaultValue || ''}
       </ReadOnly>
     ) : (
-      <Wrapper className={'hw-textarea-textarea-wrapper'}>
+      <TextareaWrapper className={'hw-textarea-textarea-wrapper'}>
         <TextArea
+          {...otherProps}
           className={'hw-textarea-textarea'}
           ref={el => {
             this.input = el
@@ -305,6 +328,8 @@ class Textarea extends React.Component {
           defaultValue={defaultValue}
           value={value}
           disabled={disabled}
+          viewOnly={viewOnly}
+          readOnly={viewOnly}
           error={error || !isValid}
           required={required}
           aria-required={required}
@@ -317,14 +342,14 @@ class Textarea extends React.Component {
         />
         {characterCounter}
         {errorLabel}
-      </Wrapper>
+      </TextareaWrapper>
     )
 
     return (
-      <div className={'hw-textarea'} aria-disabled={disabled}>
+      <Wrapper className={'hw-textarea'} aria-disabled={disabled} disabled={disabled}>
         {title}
         {textarea}
-      </div>
+      </Wrapper>
     )
   }
 }
@@ -336,7 +361,10 @@ Textarea.propTypes = {
   value: PropTypes.string,
   label: PropTypes.string,
   disabled: PropTypes.bool,
-  error: PropTypes.string,
+  viewOnly: PropTypes.bool,
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  validationErrors: PropTypes.object,
+  validators: PropTypes.object,
   required: PropTypes.bool,
   maxCharacters: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   onFocus: PropTypes.func,

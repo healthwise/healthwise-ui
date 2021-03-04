@@ -170,6 +170,7 @@ class SplitButton extends Component {
           onClick={e => {
             e.preventDefault()
             e.stopPropagation()
+            if (this.props.disabled) return false
             this.state.isOpen ? onToggleClick(true) : onToggleClick(false)
             this.setState({ isOpen: !this.state.isOpen }, () =>
               this.state.isOpen ? onOpen() : onClose()

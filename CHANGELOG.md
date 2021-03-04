@@ -16,6 +16,32 @@
 - Overall TODO?: components spread unknown props?
 - Overall TODO?: loading state (especially for form components)??
 
+# 2.1.3
+
+- Modified disabled states for `TextArea`, `InputText`, and `DropDown`
+- A few logic improvements for `Checkbox` and `Radio`
+
+# 2.1.2
+
+- Overriding browser default backgrounds for `viewOnly` state on `InputText` and `TextArea`
+- Added precommit testing, linting
+
+# 2.1.1
+
+- Iterating version for new `npm publish`
+
+# 2.1.0 (DEPRECATED - due to `npm publish` mistake)
+
+- Brought more consistency and accessibility to disabled states (`Accordion`, `Button`, `Checkbox`, `DropDown`, `InputText`, `Radio` & `TextArea`)
+- Added `viewOnly` prop for `Checkbox`, `InputText`, `Radio` & `TextArea` components (and associated stories)
+- Improved a few stories
+- Removed manual Storybook build-on-commit process (replaced by Github Action to build/deploy Storybook)
+
+# 2.0.3
+
+- Added pass through for props not explicitly defined in `TextArea` component
+- Added story using custom validator for `TextArea` component
+
 # 2.0.2
 
 - Updated to newest version of Storybook

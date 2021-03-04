@@ -6,8 +6,6 @@ name: Storybook Deploy
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build-and-deploy:
@@ -34,4 +32,4 @@ jobs:
       with:
         ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: storybook-static # The folder the action should deploy.
+        FOLDER: docs # The folder the action should deploy.
