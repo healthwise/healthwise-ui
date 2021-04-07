@@ -8,14 +8,6 @@
 - **BREAKING**: Tidied up spacing for `Checkbox`, `Radio`, `References`
 - **BREAKING**: Changed to _rem_ units (from _em_) throughout app
 
-- `Accordion` TODO: animation?
-- `Table` TODO: swap for the new one
-- Overall TODO: accessibility testing on new components
-- Overall TODO: review & standardize font-size declarations
-- Overall TODO: wrap up the remaining EM to REM migration
-- Overall TODO?: components spread unknown props?
-- Overall TODO?: loading state (especially for form components)??
-
 # 2.1.3
 
 - Modified disabled states for `TextArea`, `InputText`, and `DropDown`
