@@ -1,3 +1,8 @@
+# 3.0.1
+
+- Dependency updates: Storybook, core-js
+- Added .github to .npmignore
+
 # 3.0.0
 
 - **BREAKING**: Removed `Appbar`
