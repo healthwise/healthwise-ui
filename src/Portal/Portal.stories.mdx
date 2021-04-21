@@ -1,0 +1,51 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+
+import { Portal } from './index'
+
+<Meta
+  title="Components/Portal"
+  component={Portal}
+/>
+
+# Portal
+
+Demonstrates default rendering of Modal component.
+
+<Preview>
+  <Story name="default">
+    <div>
+      <h2>This is inside the React Root</h2>
+      <p>Scroll to the bottom to see outside the root.</p>
+      <Portal><h3>This is outside the React Root, in a Portal</h3></Portal>
+    </div>
+  </Story>
+</Preview>
+
+## Component API
+
+### Portal
+Renders content inside of a portal at the end of the DOM tree.
+
+### Example
+```jsx
+<Portal>
+  <div>Content goes here</div>
+</Portal>
+```
+
+### Portal Props
+
+| Prop | Type |	Required |
+|--- | --- | --- |
+| children | node | true |
+| type | string | false |
+
+#### children
+children: React.ReactNode
+
+The content to render inside of the portal.
+
+#### type
+Type: string default: healthwise-ui-portal
+
+The DOM element type to render.
