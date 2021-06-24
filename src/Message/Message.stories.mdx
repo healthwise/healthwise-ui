@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/addon-docs'
 
 import Message from './index'
 
@@ -31,3 +32,7 @@ Demonstrates alignment options of Message component.
     </Fragment>
   </Story>
 </Preview>
+
+## Props
+
+<ArgsTable of={Message} />
