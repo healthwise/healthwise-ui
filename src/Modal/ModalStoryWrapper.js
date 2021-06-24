@@ -7,7 +7,7 @@ class ModalContainer extends Component {
   constructor() {
     super()
     this.state = {
-      open: false,
+      isOpen: false,
     }
     this.handleClick = this.handleClick.bind(this)
     this.handleClose = this.handleClose.bind(this)
@@ -15,19 +15,19 @@ class ModalContainer extends Component {
 
   handleClick() {
     this.setState({
-      open: !this.state.open,
+      isOpen: !this.state.isOpen,
     })
   }
 
   handleClose() {
     this.setState({
-      open: false,
+      isOpen: false,
     })
   }
 
   render() {
     const props = {
-      open: this.state.open,
+      isOpen: this.state.isOpen,
       onClose: this.handleClose,
     }
 
