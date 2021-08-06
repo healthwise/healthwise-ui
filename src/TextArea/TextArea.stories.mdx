@@ -1,5 +1,6 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/addon-docs'
 
 import TextArea from './index'
 
@@ -105,3 +106,7 @@ Demonstrates a TextArea component using custom validators
     <TextArea label="TextArea Label" validators={validatorFuncs} onValid={action('isValid')} onInvalid={action('isNotValid')}  />
   </Story>
 </Preview>
+
+## Props
+
+<ArgsTable of={TextArea} />

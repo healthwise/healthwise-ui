@@ -39,8 +39,10 @@ const IconSpan = styled.span`
 
   /* Thank you, IE, and the horse you rode in on */
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    padding-bottom: 160%;
-    height: 1px;
+    padding-bottom: 5%;    
+    width: 10%;
+    height: auto;
+    max-height: 48.27px;
     overflow: visible;
     display: block;
   }
