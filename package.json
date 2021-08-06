@@ -61,7 +61,7 @@
     "@babel/preset-react": "^7.13.13",
     "@dump247/storybook-state": "^1.6.1",
     "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@storybook/addon-actions": "^6.3.0",
     "@storybook/addon-docs": "^6.3.0",
