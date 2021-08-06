@@ -1,3 +1,8 @@
+# 3.0.2
+
+- Dependency updates: Storybook
+- Added `ArgsTable` to all stories
+
 # 3.0.1
 
 - Dependency updates: Storybook, core-js
