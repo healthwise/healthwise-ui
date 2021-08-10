@@ -1,4 +1,4 @@
-import { Meta, Story, Preview} from '@storybook/addon-docs/blocks'
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
 import { action } from '@storybook/addon-actions'
 import { ArgsTable } from '@storybook/addon-docs'
 
@@ -15,7 +15,7 @@ default
     <div>
       <InputText onChange={action('onChange')} />
       <InputText underlined onChange={action('onChange')} />
-    </div>    
+    </div>
   </Story>
 </Preview>
 
@@ -37,11 +37,11 @@ label
     <div>
       <InputText label="Label" placeholder="Placeholder text" onChange={action('onChange')} />
       <InputText
-            label="Label"
-            underlined
-            placeholder="Placeholder text"
-            onChange={action('onChange')}
-          />
+        label="Label"
+        underlined
+        placeholder="Placeholder text"
+        onChange={action('onChange')}
+      />
     </div>
   </Story>
 </Preview>
@@ -114,6 +114,17 @@ view only
         value="Text to display only"
         onChange={action('onChange')}
       />
+    </div>
+  </Story>
+</Preview>
+
+loading
+
+<Preview>
+  <Story name="loading">
+    <div>
+      <InputText loading label="Label" onChange={action('onChange')} />
+      <InputText underlined loading label="Label" onChange={action('onChange')} />
     </div>
   </Story>
 </Preview>

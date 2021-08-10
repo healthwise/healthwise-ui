@@ -6,6 +6,7 @@ import styled, { withTheme } from 'styled-components'
 
 import { defaultTheme } from '../Theme'
 import Message from '../Message'
+import Ring from '../Ring'
 
 const Label = styled.label`
   width: 100%;
@@ -52,15 +53,12 @@ const LabelText = styled.span`
   color: ${props => props.theme.colorTextPrimary};
 `
 
-const Input = styled.input`
-  display: table-cell;
+const InputContainer = styled.div`
+  display: flex;
   width: 100%;
   height: 40px;
-  padding: ${props => (props.underlined || props.viewOnly ? '0' : '0 8px')};
-  color: ${props => props.theme.colorTextPrimary};
-  line-height: 30px;
-  vertical-align: middle;
-  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
   border: ${props =>
     props.underlined || props.viewOnly
       ? 'none'
@@ -71,6 +69,19 @@ const Input = styled.input`
       : `1px solid ${props.theme.colorTextPrimary}`};
   background: ${props =>
     props.underlined || props.viewOnly ? 'none' : props.theme.colorBackgroundLight};
+
+  :focus {
+    outline: ${props => (props.underlined || props.viewOnly ? 'none' : props.theme.focusIndicator)};
+    outline-offset: ${props => props.theme.focusIndicatorOffset};
+  }
+`
+
+const Input = styled.input`
+  flex: 1 0;
+  font-size: inherit;
+  background-color: transparent;
+  border: 0;
+  padding: ${props => (props.underlined || props.viewOnly ? '0' : '0 8px')};
   transition: border ease 0.2s;
   box-shadow: none;
 
@@ -80,8 +91,7 @@ const Input = styled.input`
   }
 
   :focus {
-    outline: ${props => (props.underlined || props.viewOnly ? 'none' : props.theme.focusIndicator)};
-    outline-offset: ${props => props.theme.focusIndicatorOffset};
+    outline: none;
   }
 
   :disabled {
@@ -188,7 +198,7 @@ class InputText extends Component {
 
     // if we're valid so far, run the custom validation
     if (isValid && validators) {
-      Object.keys(validators).forEach(function(key) {
+      Object.keys(validators).forEach(function (key) {
         // the "!!" gets us a boolean, regardless of what comes back
         const customIsValid = !!validators[key](input.value)
 
@@ -206,7 +216,7 @@ class InputText extends Component {
       // find the right error message
       if (!errorMessage) {
         // try to find a known message (via the HTML5 validity API)
-        Object.keys(validationErrors).forEach(function(key) {
+        Object.keys(validationErrors).forEach(function (key) {
           if (typeof validity[key] !== 'undefined' && validity[key] === true) {
             errorType = key
             errorMessage = validationErrors[key]
@@ -265,6 +275,7 @@ class InputText extends Component {
       autoFocus,
       focused,
       label,
+      loading,
       error,
       theme,
       onBlur, // eslint-disable-line no-unused-vars
@@ -293,26 +304,39 @@ class InputText extends Component {
             {required && ' *'}
           </LabelText>
         )}
-        <Input
+
+        <InputContainer
           className={classNames('hw-input-text', `hw-input-text-${type}`, className)}
           ref={this.input}
-          type={type}
-          placeholder={!viewOnly && placeholder}
-          required={required}
-          disabled={disabled}
-          readOnly={viewOnly || readonly}
-          viewOnly={viewOnly}
-          aria-required={required}
-          aria-describedby={this.errorId}
-          onFocus={!viewOnly && this.handleFocus}
-          onBlur={!viewOnly && this.handleBlur}
-          error={error || !isValid}
-          dirty={dirty}
           autoFocus={autoFocus || focused}
+          dirty={dirty}
+          error={error || !isValid}
           theme={theme}
           underlined={underlined}
+          viewOnly={viewOnly}
           {...otherProps}
-        />
+        >
+          <Input
+            type={type}
+            aria-required={required}
+            aria-describedby={this.errorId}
+            autoFocus={autoFocus || focused}
+            dirty={dirty}
+            disabled={disabled}
+            error={error || !isValid}
+            placeholder={!viewOnly && placeholder}
+            readOnly={viewOnly || readonly}
+            required={required}
+            theme={theme}
+            underlined={underlined}
+            viewOnly={viewOnly}
+            onFocus={!viewOnly && this.handleFocus}
+            onBlur={!viewOnly && this.handleBlur}
+            {...otherProps}
+          />
+          {loading && <Ring size={30} />}
+        </InputContainer>
+
         <Error id={this.errorId} className="hw-input-text-error-container">
           {!isValid && this.state.dirty && (
             <Message
@@ -354,6 +378,7 @@ InputText.propTypes = {
   underlined: PropTypes.bool,
   autoFocus: PropTypes.bool,
   label: PropTypes.node,
+  loading: PropTypes.bool,
   onBlur: PropTypes.func,
   error: PropTypes.string,
   validationErrors: PropTypes.object,
