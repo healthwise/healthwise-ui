@@ -7,6 +7,7 @@ import styled, { withTheme } from 'styled-components'
 import { defaultTheme } from '../Theme'
 import Message from '../Message'
 import Ring from '../Ring'
+import { CheckIcon, WarningIcon } from '../Icon'
 
 const Label = styled.label`
   width: 100%;
@@ -111,6 +112,24 @@ const Error = styled.div`
   font-size: 0.75rem;
   line-height: 1;
   height: 1rem;
+`
+
+const GreenIconContainer = styled.div`
+  svg {
+    width: 2em;
+    height: 2em;
+    padding-right: 5px;
+    fill: #0d8484;
+  }
+`
+
+const RedIconContainer = styled.div`
+  svg {
+    width: 2em;
+    height: 2em;
+    padding-right: 5px;
+    fill: #dd372f;
+  }
 `
 
 class InputText extends Component {
@@ -275,7 +294,7 @@ class InputText extends Component {
       autoFocus,
       focused,
       label,
-      loading,
+      externalValidation,
       error,
       theme,
       onBlur, // eslint-disable-line no-unused-vars
@@ -334,7 +353,17 @@ class InputText extends Component {
             onBlur={!viewOnly && this.handleBlur}
             {...otherProps}
           />
-          {loading && <Ring size={30} />}
+          {externalValidation === 'loading' && <Ring size={30} />}
+          {externalValidation === 'valid' && (
+            <GreenIconContainer>
+              <CheckIcon />
+            </GreenIconContainer>
+          )}
+          {externalValidation === 'invalid' && (
+            <RedIconContainer>
+              <WarningIcon />
+            </RedIconContainer>
+          )}
         </InputContainer>
 
         <Error id={this.errorId} className="hw-input-text-error-container">
@@ -378,7 +407,7 @@ InputText.propTypes = {
   underlined: PropTypes.bool,
   autoFocus: PropTypes.bool,
   label: PropTypes.node,
-  loading: PropTypes.bool,
+  externalValidation: PropTypes.oneOf(['loading', 'valid', 'invalid']),
   onBlur: PropTypes.func,
   error: PropTypes.string,
   validationErrors: PropTypes.object,

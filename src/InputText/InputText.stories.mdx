@@ -3,8 +3,32 @@ import { action } from '@storybook/addon-actions'
 import { ArgsTable } from '@storybook/addon-docs'
 
 import InputText from './index'
+import { createTheme } from '../Theme'
 
 <Meta title="Form Controls/InputText" component={InputText} />
+
+export const theme = createTheme()
+
+export const styles = {
+  row: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+  },
+  header: {
+    paddingLeft: '16px',
+  },
+  container: {
+    padding: '16px',
+  },
+  container_light: {
+    padding: '16px',
+    background: theme.colorBackgroundLight,
+  },
+  container_contrast: {
+    padding: '16px',
+    background: theme.colorBackgroundContrastDark,
+  },
+}
 
 # InputText
 
@@ -118,13 +142,53 @@ view only
   </Story>
 </Preview>
 
-loading
+externalValidation
 
 <Preview>
-  <Story name="loading">
+  <Story name="externalValidation">
     <div>
-      <InputText loading label="Label" onChange={action('onChange')} />
-      <InputText underlined loading label="Label" onChange={action('onChange')} />
+      <h4 style={styles.header}>Loading</h4>
+      <div style={styles.row}>
+        <div style={styles.container}>
+          <InputText label="Label" externalValidation="loading" onChange={action('onChange')} />
+        </div>
+        <div style={styles.container}>
+          <InputText
+            underlined
+            externalValidation="loading"
+            label="Label"
+            onChange={action('onChange')}
+          />
+        </div>
+      </div>
+      <h4 style={styles.header}>Valid</h4>
+      <div style={styles.row}>
+        <div style={styles.container}>
+          <InputText label="Label" externalValidation="valid" onChange={action('onChange')} />
+        </div>
+        <div style={styles.container}>
+          <InputText
+            underlined
+            externalValidation="valid"
+            label="Label"
+            onChange={action('onChange')}
+          />
+        </div>
+      </div>
+      <h4 style={styles.header}>Invalid</h4>
+      <div style={styles.row}>
+        <div style={styles.container}>
+          <InputText label="Label" externalValidation="invalid" onChange={action('onChange')} />
+        </div>
+        <div style={styles.container}>
+          <InputText
+            underlined
+            externalValidation="invalid"
+            label="Label"
+            onChange={action('onChange')}
+          />
+        </div>
+      </div>
     </div>
   </Story>
 </Preview>
