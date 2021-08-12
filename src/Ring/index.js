@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import styled, { keyframes, withTheme } from 'styled-components'
 import { defaultTheme, getThemeVariable } from '../Theme'
 
@@ -42,6 +43,7 @@ const Ring = props => {
   const circles = [...Array(4)].map((_, index) => {
     return (
       <RingCircle
+        className="hw-ring-circle"
         key={index}
         style={{
           borderColor: `${getThemeVariable('color')(props)} transparent transparent transparent`,
@@ -54,7 +56,10 @@ const Ring = props => {
     )
   })
   return (
-    <RingRoot className={className} style={{ width: size, height: size }}>
+    <RingRoot
+      className={classNames('hw-ring-root', className)}
+      style={{ width: size, height: size }}
+    >
       {circles}
     </RingRoot>
   )
