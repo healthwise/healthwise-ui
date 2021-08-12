@@ -45,7 +45,6 @@ const RingRoot = styled.div`
 
 const Ring = props => {
   const { className, size } = props
-  console.log('color: ', getThemeVariable('color')(props))
 
   const circles = [...Array(4)].map((_, index) => {
     return (
