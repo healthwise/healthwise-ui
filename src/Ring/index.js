@@ -14,13 +14,17 @@ const rotate = keyframes`
   }
 `
 const RingCircle = styled.div`
-  box-sizing: border-box;
   display: block;
   position: absolute;
+  box-sizing: border-box;
+  width: ${props => props.size * 0.8}px;
+  height: ${props => props.size * 0.8}px;
+  margin: ${props => props.size * 0.1}px;
   border: 8px solid #fff;
   border-radius: 50%;
+  border-width: ${props => props.size * 0.1}px;
+  border-color: ${props => props.borderColor} transparent transparent transparent;
   animation: ${rotate} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent;
   :nth-child(1) {
     animation-delay: -0.45s;
   }
@@ -35,31 +39,26 @@ const RingCircle = styled.div`
 const RingRoot = styled.div`
   display: inline-block;
   position: relative;
+  width: ${props => props.size}px;
+  height: ${props => props.size}px;
 `
 
 const Ring = props => {
   const { className, size } = props
+  console.log('color: ', getThemeVariable('color')(props))
 
   const circles = [...Array(4)].map((_, index) => {
     return (
       <RingCircle
         className="hw-ring-circle"
         key={index}
-        style={{
-          borderColor: `${getThemeVariable('color')(props)} transparent transparent transparent`,
-          width: size * 0.8,
-          height: size * 0.8,
-          margin: size * 0.1,
-          borderWidth: size * 0.1,
-        }}
+        size={size}
+        borderColor={getThemeVariable('color')(props)}
       />
     )
   })
   return (
-    <RingRoot
-      className={classNames('hw-ring-root', className)}
-      style={{ width: size, height: size }}
-    >
+    <RingRoot className={classNames('hw-ring-root', className)} size={size}>
       {circles}
     </RingRoot>
   )
