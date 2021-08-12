@@ -71,7 +71,7 @@ const InputContainer = styled.div`
   background: ${props =>
     props.underlined || props.viewOnly ? 'none' : props.theme.colorBackgroundLight};
 
-  :focus {
+  :focus-within {
     outline: ${props => (props.underlined || props.viewOnly ? 'none' : props.theme.focusIndicator)};
     outline-offset: ${props => props.theme.focusIndicatorOffset};
   }
