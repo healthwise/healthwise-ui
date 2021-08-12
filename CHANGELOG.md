@@ -1,3 +1,8 @@
+# 3.1.0
+
+- Added Ring Component
+- Added externalValidation prop to InputText component
+
 # 3.0.2
 
 - Dependency updates: Storybook
@@ -52,12 +57,14 @@
 # 2.0.1
 
 ## DropDown
+
 - Corrected errant prop, from `class` to `className`
 - Created fallback for undefined `items` prop
 
 # 2.0.0
 
 ## DropDown
+
 - **BREAKING**: Swapped dependency on `react-aria-menubutton` for a CSS-styled native `select`
 - **BREAKING**: Removed some class names attached to previous structure
 - **BREAKING**: Removed `onSelect` prop (in favor of `onChange`) & return value (for native)
@@ -69,39 +76,47 @@
 - Added, documented, & improved several Storybook stories
 
 ## LoadingIndicator
+
 - **BREAKING**: Migrated from rotating box to animated dots
 - **BREAKING**: Removed some class names attached to previous structure
 
 # 1.0.3
 
 ## Checkbox
+
 - Added `label` prop to `Checkbox`
 
 ## Radio
+
 - Added `label` prop to `Radio`
 
 # 1.0.2
 
 ## InputText
+
 - Swapped `InputText` ref over to createRef (to fix `ref` potentially being `null`)
 
 # 1.0.1
 
 ## SplitButton
+
 - Added `SplitButton` component
 
 # 1.0.0
 
 ## Modal
+
 - **BREAKING**: Removed `onEnter`, `onEntering`, `onExit`, and `onExiting` props
 - **BREAKING**: Mapped our `onClose` prop to the MaterialUI `onExited` handler (for a clearer API)
 
 # 0.0.20
 
 ## Checkbox
+
 - Removed `isRequired` prop type specification on `name` & `value`
 
 ## TextArea
+
 - Removed `isRequired` prop type specification on `onFocus`, `onBlur`, `onKeyDown`, & `onChange`
 - Changed default props for `defaultValue` & `value` from `null` to `undefined`
   - Otherwise, React triggers this warning: "Warning: [your component here] contains a textarea with both value and defaultValue props. Textarea elements must be either controlled or uncontrolled (specify either the value prop, or the defaultValue prop, but not both). Decide between using a controlled or uncontrolled textarea and remove one of these props. More info: https://fb.me/react-controlled-components"
@@ -109,10 +124,12 @@
 # 0.0.19
 
 ## DropDown
+
 - Added `error` prop on DropDown Form Control
 - Added story to DropDown stories to reflect `error` prop
 
 ## TextArea
+
 - Added `error` prop to TextArea Form Control
 - Added `required` prop to TextArea Form Control
 - Added stories to TextArea stories to reflect `error` prop

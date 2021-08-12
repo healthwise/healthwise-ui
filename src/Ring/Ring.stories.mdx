@@ -1,0 +1,50 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/addon-docs'
+
+import Ring from './index'
+
+<Meta title="UI Feedback/Ring" component={Ring} />
+
+# Ring
+
+Default Rendering.
+
+<Preview>
+  <Story name="default">
+    <Ring />
+  </Story>
+</Preview>
+
+With themes.
+
+<Preview>
+  <Story name="themes">
+    <Ring color="primary" />
+    <Ring color="primaryLight" />
+    <Ring color="primaryDark" />
+    <Ring color="primaryDarker" />
+    <Ring color="accent" />
+    <Ring color="accentDark" />
+    <Ring color="neutral" />
+    <Ring color="neutralLight" />
+    <Ring color="neutralDark" />
+  </Story>
+</Preview>
+
+With sizing.
+
+<Preview>
+  <Story name="size">
+    <Ring size={10} />
+    <Ring size={20} />
+    <Ring size={30} />
+    <Ring size={40} />
+    <Ring size={50} />
+    <Ring size={60} />
+    <Ring size={70} />
+    <Ring size={80} />
+    <Ring size={90} />
+    <Ring size={100} />
+  </Story>
+</Preview>
