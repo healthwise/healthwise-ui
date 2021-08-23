@@ -1,4 +1,3 @@
-
 # Healthwise UI
 
 Healthwise UI is a library of shared React components that you can use to quickly build an app using the Healthwise design language.
@@ -48,6 +47,14 @@ To run tests, run the following command
 ## Documentation
 
 [Documentation](https://healthwise.github.io/healthwise-ui/)
+
+In order to enable husky Git hooks manually run the following from the root directory:
+
+```
+npx --no-install husky install
+```
+
+More info about this bug at the link [here](https://github.com/typicode/husky/issues/851).
 
 ## Contributing
 

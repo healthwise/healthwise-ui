@@ -29,7 +29,6 @@
     "format": "npm run prettier -- --write",
     "lint": "eslint --ext .js",
     "postbuild": "node scripts/copyFiles.js",
-    "postinstall": "husky install",
     "prebuild": "rimraf build",
     "precommit": "lint-staged",
     "prepare": "husky install",
