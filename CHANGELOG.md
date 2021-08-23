@@ -1,3 +1,7 @@
+# 3.1.1
+
+- Removed husky install postinstall script and added a note about it in README
+
 # 3.1.0
 
 - Added Ring Component
