@@ -1,3 +1,13 @@
+# 3.2.0
+
+- Fixing the Modal component to be similar to it's @material-ui version
+- Adding publish scripts for use on windows
+
+# 3.1.2
+
+- dopublish script not working correctly, have to publish from build manually
+- removing prepare script
+
 # 3.1.1
 
 - Removed husky install postinstall script and added a note about it in README
