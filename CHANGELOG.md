@@ -1,11 +1,22 @@
+# 3.2.0
+
+- Fixing `Modal` component to be similar to it's @material-ui version
+- Adding publish scripts for use on windows
+- Reverting `Button` font-size to previous value before 3.0.0
+
+# 3.1.2
+
+- dopublish script not working correctly, have to publish from build manually
+- removing prepare script
+
 # 3.1.1
 
 - Removed husky install postinstall script and added a note about it in README
 
 # 3.1.0
 
-- Added Ring Component
-- Added externalValidation prop to InputText component
+- Added `Ring` Component
+- Added externalValidation prop to `InputText` component
 
 # 3.0.2
 
