@@ -32,6 +32,7 @@ const Root = styled.button`
       ? getThemeVariable('color')(props)
       : getThemeVariable('colorText')(props)};
   font-style: normal;
+  font-size: 1em;
   text-decoration: none;
   line-height: 1;
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
