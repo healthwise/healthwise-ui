@@ -40,21 +40,18 @@ const DialogContainer = styled.div`
 `
 
 const Dialog = styled.dialog`
-  box-sizing: border-box;
-  padding: 15px;
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 30vw;
+  max-width: ${props => props.maxWidth ?? '90vw'};
   border: 1px solid #000;
+  border-radius: 5px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.12), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-sizing: border-box;
   background-color: #fff;
-  min-height: 100vh;
-
-  @media screen and (min-width: 640px) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: calc(640px - (15px * 2)); /* == breakpoint - left+right margin */
-    min-height: auto;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.12), 0 15px 12px rgba(0, 0, 0, 0.22);
-  }
 `
 
 const DialogContent = styled.div`
@@ -87,6 +84,25 @@ class Modal extends Component {
     this.titleId = uniqueId('hw-modal-title')
   }
 
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClick, false)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClick, false)
+  }
+
+  handleClick = e => {
+    const { onBackdropClick, open } = this.props
+    if (this.node.contains(e.target)) {
+      // Click is inside
+      return
+    }
+
+    // Click is outside
+    open && onBackdropClick && onBackdropClick()
+  }
+
   render() {
     const {
       actions,
@@ -101,6 +117,7 @@ class Modal extends Component {
       // Filter out unsupported props
       /* eslint-disable */
       classes,
+      onBackdropClick,
       onEnter,
       onEntering,
       onExit,
@@ -116,15 +133,12 @@ class Modal extends Component {
     return (
       <DialogContainer open={open}>
         <Dialog
+          ref={node => (this.node = node)}
           {...otherProps}
           aria-labelledby={this.titleId}
           className={classNames('hw-modal', className)}
           open={open}
           // this is because the Material dialog ONLY fires its native onClose with escape or overlay click, not any time the modal is closed
-          onExited={() => {
-            onClose()
-            onExited && onExited()
-          }}
           scroll="paper"
           maxWidth={maxWidth}
         >
@@ -161,10 +175,11 @@ Modal.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   fullScreen: PropTypes.bool,
-  maxWidth: PropTypes.oneOf(['xs', 'sm', 'md', false]),
+  maxWidth: PropTypes.string,
   onClose: PropTypes.func,
   onEntered: PropTypes.func,
   onExited: PropTypes.func,
+  onBackdropClick: PropTypes.func,
   open: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   showTitle: PropTypes.bool,
@@ -177,7 +192,6 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   fullScreen: false,
-  maxWidth: 'sm',
   onClose: () => {},
   theme: defaultTheme,
   showTitle: true,
