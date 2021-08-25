@@ -48,17 +48,18 @@ const Dialog = styled.dialog`
   transform: translate(-50%, -50%);
   min-width: 30vw;
   max-width: ${props => props.maxWidth ?? '90vw'};
-  max-height: ${props => props.maxHeight ?? '90vh'};
+  max-height: 90vh;
   border: 1px solid #000;
   border-radius: 5px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.12), 0 15px 12px rgba(0, 0, 0, 0.22);
   box-sizing: border-box;
   background-color: #fff;
-  overflow: auto;
 `
 
 const DialogContent = styled.div`
   padding: 0;
+  max-height: 60vh;
+  overflow: auto;
 
   & > *:first-child {
     margin-bottom: 0;
