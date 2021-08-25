@@ -1,3 +1,7 @@
+# 3.2.1
+
+- Adding initial z-index to top level `Modal` container
+
 # 3.2.0
 
 - Fixing `Modal` component to be similar to it's @material-ui version
