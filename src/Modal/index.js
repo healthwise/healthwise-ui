@@ -34,6 +34,7 @@ const DialogContainer = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 1500;
   background: rgba(0, 0, 0, 0.5);
   transition: visibility 200ms linear;
   animation: ${props => (props.open ? fadeIn : fadeOut)} 200ms linear;
@@ -47,6 +48,7 @@ const Dialog = styled.dialog`
   transform: translate(-50%, -50%);
   min-width: 30vw;
   max-width: ${props => props.maxWidth ?? '90vw'};
+  max-height: 90vh;
   border: 1px solid #000;
   border-radius: 5px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.12), 0 15px 12px rgba(0, 0, 0, 0.22);
@@ -56,6 +58,8 @@ const Dialog = styled.dialog`
 
 const DialogContent = styled.div`
   padding: 0;
+  max-height: 60vh;
+  overflow: auto;
 
   & > *:first-child {
     margin-bottom: 0;
@@ -131,12 +135,12 @@ class Modal extends Component {
     const hasContent = React.Children.count(children) > 0
 
     return (
-      <DialogContainer open={open}>
+      <DialogContainer className={classNames('hw-modal', className)} open={open}>
         <Dialog
           ref={node => (this.node = node)}
           {...otherProps}
           aria-labelledby={this.titleId}
-          className={classNames('hw-modal', className)}
+          className={classNames('hw-modal-dialog', className)}
           open={open}
           // this is because the Material dialog ONLY fires its native onClose with escape or overlay click, not any time the modal is closed
           scroll="paper"

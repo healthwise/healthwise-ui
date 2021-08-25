@@ -1,3 +1,9 @@
+# 3.2.1
+
+- Adding initial z-index to top level `Modal` container
+- Updating classnames in `Modal` for user css targeting
+- Adding max-height to `Modal`
+
 # 3.2.0
 
 - Fixing `Modal` component to be similar to it's @material-ui version
