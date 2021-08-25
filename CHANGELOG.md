@@ -1,7 +1,7 @@
 # 3.2.1
 
 - Adding initial z-index to top level `Modal` container
-- Adding maxHeight prop to `Modal`
+- Adding max-height to `Modal`
 
 # 3.2.0
 
