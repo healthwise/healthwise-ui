@@ -112,7 +112,6 @@ class Modal extends Component {
       actions,
       children,
       className,
-      maxHeight,
       maxWidth,
       onClose,
       onExited,
@@ -145,7 +144,6 @@ class Modal extends Component {
           open={open}
           // this is because the Material dialog ONLY fires its native onClose with escape or overlay click, not any time the modal is closed
           scroll="paper"
-          maxHeight={maxHeight}
           maxWidth={maxWidth}
         >
           {showTitle && (
@@ -181,7 +179,6 @@ Modal.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   fullScreen: PropTypes.bool,
-  maxHeight: PropTypes.string,
   maxWidth: PropTypes.string,
   onClose: PropTypes.func,
   onEntered: PropTypes.func,
