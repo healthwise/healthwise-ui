@@ -36,10 +36,45 @@ Demonstrates a Modal with content.
   </Story>
 </Preview>
 
-Demonstrates a Modal with maxWidth.
+Demonstrates a Modal with Max Height.
 
 <Preview>
-  <Story name="maxWidth">
+  <Story name="max height">
+    <Modal
+      title="Lorem ipsum dolor sit amet"
+      open={false}
+      onClose={action('onClose')}
+      maxHeight="20vh"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </Modal>
+  </Story>
+</Preview>
+
+Demonstrates a Modal with Max Width.
+
+<Preview>
+  <Story name="max width">
     <Modal
       title="Lorem ipsum dolor sit amet"
       open={false}
@@ -88,7 +123,7 @@ Demonstrates a Modal with actions.
 Demonstrates a Modal with Backdrop Click.
 
 <Preview>
-  <Story name="Backdrop Click">
+  <Story name="backdrop click">
     <Modal
       title="Lorem ipsum dolor sit amet"
       open={false}

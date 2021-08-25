@@ -47,12 +47,14 @@ const Dialog = styled.dialog`
   left: 50%;
   transform: translate(-50%, -50%);
   min-width: 30vw;
-  max-width: ${props => (props.maxWidth ? props.maxWidth : '90vw')};
+  max-width: ${props => props.maxWidth ?? '90vw'};
+  max-height: ${props => props.maxHeight ?? '90vh'};
   border: 1px solid #000;
   border-radius: 5px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.12), 0 15px 12px rgba(0, 0, 0, 0.22);
   box-sizing: border-box;
   background-color: #fff;
+  overflow: auto;
 `
 
 const DialogContent = styled.div`
@@ -109,6 +111,7 @@ class Modal extends Component {
       actions,
       children,
       className,
+      maxHeight,
       maxWidth,
       onClose,
       onExited,
@@ -141,6 +144,7 @@ class Modal extends Component {
           open={open}
           // this is because the Material dialog ONLY fires its native onClose with escape or overlay click, not any time the modal is closed
           scroll="paper"
+          maxHeight={maxHeight}
           maxWidth={maxWidth}
         >
           {showTitle && (
@@ -176,6 +180,7 @@ Modal.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   fullScreen: PropTypes.bool,
+  maxHeight: PropTypes.string,
   maxWidth: PropTypes.string,
   onClose: PropTypes.func,
   onEntered: PropTypes.func,
