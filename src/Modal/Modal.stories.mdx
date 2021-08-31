@@ -16,7 +16,7 @@ Demonstrates default rendering of Modal component.
 
 <Preview>
   <Story name="default">
-    <Modal title="Lorem ipsum dolor sit amet" open={false} onClose={action('onClose')} />
+    <Modal title="Lorem ipsum dolor sit amet" open={false} />
   </Story>
 </Preview>
 
@@ -24,28 +24,7 @@ Demonstrates a Modal with content.
 
 <Preview>
   <Story name="with content">
-    <Modal title="Lorem ipsum dolor sit amet" open={false} onClose={action('onClose')}>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </Modal>
-  </Story>
-</Preview>
-
-Demonstrates a Modal with Max Width.
-
-<Preview>
-  <Story name="max width">
-    <Modal
-      title="Lorem ipsum dolor sit amet"
-      open={false}
-      onClose={action('onClose')}
-      maxWidth="600px"
-    >
+    <Modal title="Lorem ipsum dolor sit amet" open={false}>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -64,7 +43,6 @@ Demonstrates a Modal with actions.
     <Modal
       title="Are you sure you want to delete?"
       open={false}
-      onClose={action('onClose')}
       actions={[
         <Button key="action-1" onClick={action('Accept')} color="primary" rounded>
           Accept
@@ -169,7 +147,6 @@ Demonstrates a Modal with Backdrop Click.
     <Modal
       title="Lorem ipsum dolor sit amet"
       open={false}
-      onClose={action('onClose')}
       onBackdropClick={action('Backdrop Clicked!')}
     >
       <p>
