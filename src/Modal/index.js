@@ -47,7 +47,7 @@ const Dialog = styled.dialog`
   left: 50%;
   transform: translate(-50%, -50%);
   min-width: 30vw;
-  max-width: ${props => props.maxWidth ?? '90vw'};
+  max-width: 90vw;
   max-height: 90vh;
   border: 1px solid #000;
   border-radius: 5px;
@@ -86,6 +86,12 @@ class Modal extends Component {
   constructor(props) {
     super(props)
     this.titleId = uniqueId('hw-modal-title')
+
+    this.handleClose = this.handleClose.bind(this)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.open && !this.props.open) this.handleClose()
   }
 
   componentDidMount() {
@@ -107,12 +113,15 @@ class Modal extends Component {
     open && onBackdropClick && onBackdropClick()
   }
 
+  handleClose(event) {
+    this.props.onClose(event)
+  }
+
   render() {
     const {
       actions,
       children,
       className,
-      maxWidth,
       onClose,
       onExited,
       open,
@@ -144,7 +153,6 @@ class Modal extends Component {
           open={open}
           // this is because the Material dialog ONLY fires its native onClose with escape or overlay click, not any time the modal is closed
           scroll="paper"
-          maxWidth={maxWidth}
         >
           {showTitle && (
             <Title
@@ -178,8 +186,6 @@ Modal.propTypes = {
   actions: PropTypes.any,
   children: PropTypes.node,
   className: PropTypes.string,
-  fullScreen: PropTypes.bool,
-  maxWidth: PropTypes.string,
   onClose: PropTypes.func,
   onEntered: PropTypes.func,
   onExited: PropTypes.func,
@@ -195,7 +201,6 @@ Modal.propTypes = {
 }
 
 Modal.defaultProps = {
-  fullScreen: false,
   onClose: () => {},
   theme: defaultTheme,
   showTitle: true,
