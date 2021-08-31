@@ -86,6 +86,12 @@ class Modal extends Component {
   constructor(props) {
     super(props)
     this.titleId = uniqueId('hw-modal-title')
+
+    this.handleClose = this.handleClose.bind(this)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.open && !this.props.open) this.handleClose()
   }
 
   componentDidMount() {
@@ -105,6 +111,10 @@ class Modal extends Component {
 
     // Click is outside
     open && onBackdropClick && onBackdropClick()
+  }
+
+  handleClose(event) {
+    this.props.onClose(event)
   }
 
   render() {
