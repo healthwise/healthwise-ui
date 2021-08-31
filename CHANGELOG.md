@@ -1,3 +1,10 @@
+# 3.2.2
+
+- Removing maxWidth prop from `Modal`
+- Removing unused fullScreen prop from `Modal`
+- Fixing onClose event for `Modal`
+- Removing onClose stories for `Modal` since they are overidden by ModalStoryWrapper
+
 # 3.2.1
 
 - Adding initial z-index to top level `Modal` container
