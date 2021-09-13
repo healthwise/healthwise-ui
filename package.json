@@ -1,6 +1,6 @@
 {
   "name": "@healthwise-ui/core",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "description": "Shared React UI library that implements the Healthwise design language.",
   "main": "build/index.cjs.js",
   "module": "build/index.esm.js",
