@@ -1,3 +1,7 @@
+# 3.2.3
+
+- Fixing `InputText` data-qa attribute propagation
+
 # 3.2.2
 
 - Removing maxWidth prop from `Modal`
