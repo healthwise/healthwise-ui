@@ -303,6 +303,7 @@ class InputText extends Component {
       onValid, // eslint-disable-line no-unused-vars
       onInvalid, // eslint-disable-line no-unused-vars
       getValidator, // eslint-disable-line no-unused-vars
+      'data-qa': dataQa,
       ...otherProps
     } = this.props
     const { dirty, isValid } = this.state
@@ -351,6 +352,7 @@ class InputText extends Component {
             viewOnly={viewOnly}
             onFocus={!viewOnly && this.handleFocus}
             onBlur={!viewOnly && this.handleBlur}
+            data-qa={dataQa}
             {...otherProps}
           />
           {externalValidation === 'loading' && <Ring size={30} />}
