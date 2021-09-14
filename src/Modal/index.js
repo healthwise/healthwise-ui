@@ -41,7 +41,8 @@ const DialogContainer = styled.div`
 `
 
 const Dialog = styled.dialog`
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   position: relative;
   top: 50%;
   left: 50%;
@@ -49,6 +50,7 @@ const Dialog = styled.dialog`
   min-width: 30vw;
   max-width: 90vw;
   max-height: 90vh;
+  min-height: 150px;
   border: 1px solid #000;
   border-radius: 5px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.12), 0 15px 12px rgba(0, 0, 0, 0.22);
