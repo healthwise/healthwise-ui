@@ -1,3 +1,8 @@
+# 3.2.4
+
+- Changinge `Modal` layout to use flexbox
+- Giving `Modal` a minimum height
+
 # 3.2.3
 
 - Fixing `InputText` data-qa attribute propagation
