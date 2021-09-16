@@ -41,14 +41,18 @@ const DialogContainer = styled.div`
 `
 
 const Dialog = styled.dialog`
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   position: relative;
   top: 50%;
   left: 50%;
+  margin: 0;
   transform: translate(-50%, -50%);
-  min-width: 30vw;
-  max-width: 90vw;
-  max-height: 90vh;
+  min-width: 300px;
+  max-width: calc(100% - 25px);
+  max-height: calc(100% - 25px);
+  min-height: 150px;
   border: 1px solid #000;
   border-radius: 5px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.12), 0 15px 12px rgba(0, 0, 0, 0.22);
@@ -58,7 +62,7 @@ const Dialog = styled.dialog`
 
 const DialogContent = styled.div`
   padding: 0;
-  max-height: 60vh;
+  min-height: 25px;
   overflow: auto;
 
   & > *:first-child {
@@ -164,7 +168,7 @@ class Modal extends Component {
               {title}
             </Title>
           )}
-          {children && <DialogContent className="hw-modal-content">{children}</DialogContent>}
+          <DialogContent className="hw-modal-content">{children}</DialogContent>
           {showActions && (
             <Actions theme={theme}>
               <ButtonGroup className="hw-modal-actions">
