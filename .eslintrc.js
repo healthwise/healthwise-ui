@@ -4,22 +4,18 @@ module.exports = {
     ecmaVersion: 2019,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
-  extends: [
-    'react-app',
-    'eslint:recommended',
-    'eslint-config-prettier',
-  ],
+  extends: ['react-app', 'eslint:recommended', 'eslint-config-prettier', 'plugin:storybook/recommended'],
   rules: {
-    strict: ['error', 'never'],
+    strict: ['error', 'never']
   },
   env: {
-    browser: true,
+    browser: true
   },
   ignorePatterns: ['node_modules'],
   globals: {
-    __DEV__: 'readonly',
-  },
-}
+    __DEV__: 'readonly'
+  }
+};
