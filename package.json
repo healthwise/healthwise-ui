@@ -63,7 +63,7 @@
     "@dump247/storybook-state": "^1.6.1",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^20.0.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-node-resolve": "^15.2.0",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-controls": "^6.5.13",
     "@storybook/addon-docs": "^6.4.22",
