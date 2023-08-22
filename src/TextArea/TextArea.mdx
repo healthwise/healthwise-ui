@@ -1,0 +1,92 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as TextAreaStories from './TextArea.stories';
+
+import TextArea from './index'
+
+export const validatorFuncs = { 
+  typeMismatch: (val) => {
+    let regex = /^[a-z0-9]+$/i;
+    return regex.test(val);
+  }, 
+  tooShort: (val) => {
+    return val.length > 5;
+  }
+}
+
+<Meta of={TextAreaStories} />
+
+# TextArea
+
+Demonstrates default rendering of TextArea component
+
+<Preview>
+  <Story of={TextAreaStories.Default} />
+</Preview>
+
+Demonstrates TextArea with max characters
+
+<Preview>
+  <Story of={TextAreaStories.MaxCharacters} />
+</Preview>
+
+Demonstrates uncontrolled TextArea component
+
+<Preview>
+  <Story of={TextAreaStories.Uncontrolled} />
+</Preview>
+
+Demonstrates controlled TextArea component
+
+<Preview>
+  <Story of={TextAreaStories.Controlled} />
+</Preview>
+
+Demonstrates disabled TextArea component
+
+<Preview>
+  <Story of={TextAreaStories.Disabled} />
+</Preview>
+
+Demonstrates viewOnly TextArea component
+
+<Preview>
+  <Story of={TextAreaStories.ViewOnly} />
+</Preview>
+
+Demonstrates required TextArea component
+
+<Preview>
+  <Story of={TextAreaStories.Required} />
+</Preview>
+
+Demonstrates a TextArea component with a default error
+
+<Preview>
+  <Story of={TextAreaStories.DefaultError} />
+</Preview>
+
+Demonstrates a TextArea component with a text error message
+
+<Preview>
+  <Story of={TextAreaStories.TextError} />
+</Preview>
+
+Demonstrates a TextArea component with a text error message and max characters
+
+<Preview>
+  <Story of={TextAreaStories.ErrorAndMaxCharacters} />
+</Preview>
+
+Demonstrates a TextArea component using custom validators
+
+*Only Accepts Alpha Numeric strings of length greater than 5*
+
+<Preview>
+  <Story of={TextAreaStories.Validator} />
+</Preview>
+
+## Props
+
+<ArgsTable of={TextArea} />

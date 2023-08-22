@@ -1,0 +1,144 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as DropDownStories from './DropDown.stories';
+
+import DropDown from './index'
+
+export const ContainerDecorator = storyFn => <div style={{ maxWidth: '450px' }}>{storyFn()}</div>
+
+export const items = [
+  'First option',
+  'Second option',
+  'Lorem ipsum dolor sit amet consectetur adipiscing elit. Phasellus lorem tellus scelerisque ut fermentum sit amet semper vel neque.',
+]
+export const complexItems = [
+  { name: 'First complex option', value: 1 },
+  { name: 'Second complex option', value: 2 },
+  {
+    name:
+      'Lorem ipsum dolor sit amet consectetur adipiscing elit. Phasellus lorem tellus scelerisque ut fermentum sit amet semper vel neque.',
+    value: 3,
+  },
+]
+export const customKeyArray = [
+  { text: 'First custom key option', id: 1 },
+  { text: 'Second custom key option', id: 2 },
+  {
+    text:
+      'Lorem ipsum dolor sit amet consectetur adipiscing elit. Phasellus lorem tellus scelerisque ut fermentum sit amet semper vel neque.',
+    id: 3,
+  },
+]
+export const manyItemArray = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+  '18',
+  '19',
+  '20',
+]
+
+export const promptText = 'Select a value'
+
+<Meta of={DropDownStories} />
+
+# Dropdown
+
+Demonstrates default rendering of the component.
+
+<Preview>
+  <Story of={DropDownStories.Default} />
+</Preview>
+
+Demonstrates component with underline styling.
+
+<Preview>
+  <Story of={DropDownStories.Underlined} />
+</Preview>
+
+Demonstrates component with default prompt.
+
+<Preview>
+  <Story of={DropDownStories.Prompt} />
+</Preview>
+
+Demonstrates rendering of the component with a label
+
+<Preview>
+  <Story of={DropDownStories.Labeled} />
+</Preview>
+
+Demonstrates rendering of the component with a preset (and uncontrolled) value.
+
+<Preview>
+  <Story of={DropDownStories.PresetValue} />
+</Preview>
+
+Demonstrates rendering of the component with a set/controlled value.  The event is triggered, but the default text doesn't change.
+
+<Preview>
+  <Story of={DropDownStories.UnchangingValue} />
+</Preview>
+
+Demonstrates rendering of the component when disabled.
+
+<Preview>
+  <Story of={DropDownStories.Disabled} />
+</Preview>
+
+Demonstrates rendering of the component when required.
+
+<Preview>
+  <Story of={DropDownStories.Required} />
+</Preview>
+
+Error property without text (boolean):
+
+<Preview>
+  <Story of={DropDownStories.Error} />
+</Preview>
+
+Demonstrates rendering of the items from an array of objects.
+
+<Preview>
+  <Story of={DropDownStories.ComplexItemsObjectArray} />
+</Preview>
+
+Demonstrates rendering of the component with a preset value.
+
+<Preview>
+  <Story of={DropDownStories.ComplexItemsAndPresetValue} />
+</Preview>
+
+Use an array of objects, and specify the keys that reference each item's value and "friendly" name.
+
+When passing in an array of objects to the `items` prop, you can use the `valueKey` and `nameKey` props to identify the property names of the object(s) being passed in.
+
+<Preview>
+  <Story of={DropDownStories.CustomKeys} />
+</Preview>
+
+Demonstrates default rendering of the component with many items.
+
+<Preview>
+  <Story of={DropDownStories.ManyItems} />
+</Preview>
+
+## Props
+
+<ArgsTable of={DropDown} />

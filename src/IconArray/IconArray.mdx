@@ -1,0 +1,46 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as IconArrayStories from './IconArray.stories';
+
+import IconArray from './index';
+
+export const ContainerDecorator = storyFn => <div style={{ width: '200px' }}>{storyFn()}</div>
+
+<Meta of={IconArrayStories} />
+
+# IconArray
+
+Default, empty, 100 member icon array.
+
+<Preview>
+  <Story of={IconArrayStories.Default} />
+</Preview>
+
+With 23 of 100 males selected.
+
+<Preview>
+  <Story of={IconArrayStories.$23Of100MalesSelected} />
+</Preview>
+
+With 83-88 of 100 females highlighted.
+
+<Preview>
+  <Story of={IconArrayStories.$8388Of100FemalesSelected} />
+</Preview>
+
+With 11-14 of 25 persons selected - breaking every 5 persons.
+
+<Preview>
+  <Story of={IconArrayStories.$1214PeepsOutOf25} />
+</Preview>
+
+Responsive.
+
+<Preview>
+  <Story of={IconArrayStories.Responsive} />
+</Preview>
+
+## Props
+
+<ArgsTable of={IconArray} />

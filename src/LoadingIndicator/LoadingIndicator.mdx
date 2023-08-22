@@ -1,0 +1,37 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/blocks'
+import * as LoadingIndicatorStories from './LoadingIndicator.stories';
+
+import LoadingIndicator from './index'
+
+<Meta of={LoadingIndicatorStories} />
+
+export const styles = {
+  invertedContainer: {
+    background: '#424242',
+  },
+}
+
+# Loading Indicator
+
+Default rendering.
+
+<Preview>
+  <Story of={LoadingIndicatorStories.Default} />
+</Preview>
+
+With hidden text.
+
+<Preview>
+  <Story of={LoadingIndicatorStories.WithHiddenText} />
+</Preview>
+
+With inverted color.
+
+<Preview>
+  <Story of={LoadingIndicatorStories.Inverted} />
+</Preview>
+
+## Props
+
+<ArgsTable of={LoadingIndicator} />

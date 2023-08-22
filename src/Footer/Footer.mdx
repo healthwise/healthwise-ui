@@ -1,0 +1,19 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/blocks'
+import * as FooterStories from './Footer.stories';
+
+import Footer from './index'
+
+<Meta of={FooterStories} />
+
+# Footer
+
+Default rendering.
+
+<Preview>
+  <Story of={FooterStories.Default} />
+</Preview>
+
+## Props
+
+<ArgsTable of={Footer} />

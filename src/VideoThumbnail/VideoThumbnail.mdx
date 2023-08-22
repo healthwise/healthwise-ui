@@ -1,0 +1,27 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as VideoThumbnailStories from './VideoThumbnail.stories';
+
+import VideoThumbnail from './index'
+
+<Meta of={VideoThumbnailStories} />
+
+export const styles = {
+  container: {
+    width: '200px',
+    height: '100px'
+  }
+}
+
+# Video Thumbnail
+
+Demonstrates default rendering of VideoThumbnail component
+
+<Preview>
+  <Story of={VideoThumbnailStories.Default} />
+</Preview>
+
+## Props
+
+<ArgsTable of={VideoThumbnail} />

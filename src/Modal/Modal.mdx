@@ -1,0 +1,42 @@
+import { Meta, Story, Preview } from '@storybook/blocks'
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as ModalStories from './Modal.stories';
+
+import Modal from './index'
+import ModalStoryWrapper from './ModalStoryWrapper'
+import Button from '../Button'
+
+export const ContainerDecorator = storyFn => <ModalStoryWrapper>{storyFn()}</ModalStoryWrapper>
+
+<Meta of={ModalStories} />
+
+# Modal
+
+Demonstrates default rendering of Modal component.
+
+<Preview>
+  <Story of={ModalStories.Default} />
+</Preview>
+
+Demonstrates a Modal with content.
+
+<Preview>
+  <Story of={ModalStories.WithContent} />
+</Preview>
+
+Demonstrates a Modal with actions.
+
+<Preview>
+  <Story of={ModalStories.WithActions} />
+</Preview>
+
+Demonstrates a Modal with Backdrop Click.
+
+<Preview>
+  <Story of={ModalStories.BackdropClick} />
+</Preview>
+
+## Props
+
+<ArgsTable of={Modal} />

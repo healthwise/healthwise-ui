@@ -1,0 +1,26 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as PrintOnlyStories from './PrintOnly.stories';
+
+import PrintOnly from './index'
+
+<Meta of={PrintOnlyStories} />
+
+# Print Only
+
+Demonstrates a PrintOnly component with default options
+
+<Preview>
+  <Story of={PrintOnlyStories.Default} />
+</Preview>
+
+Demonstrates a PrintOnly component with HTML content
+
+<Preview>
+  <Story of={PrintOnlyStories.WithHtmlContent} />
+</Preview>
+
+## Props
+
+<ArgsTable of={PrintOnly} />

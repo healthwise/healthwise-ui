@@ -1,0 +1,20 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions';
+import { ArgsTable } from '@storybook/blocks'
+import * as ScreenReaderOnlyStories from './ScreenReaderOnly.stories';
+
+import ScreenReaderOnly from './index';
+
+<Meta of={ScreenReaderOnlyStories} />
+
+# ScreenReaderOnly
+
+Demonstrates basic rendering with defaults.
+
+<Preview>
+  <Story of={ScreenReaderOnlyStories.Default} />
+</Preview>
+
+## Props
+
+<ArgsTable of={ScreenReaderOnly} />

@@ -25,13 +25,13 @@ const RingCircle = styled.div`
   border-width: ${props => props.size * 0.1}px;
   border-color: ${props => props.borderColor} transparent transparent transparent;
   animation: ${rotate} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  :nth-child(1) {
+  &:nth-child(1) {
     animation-delay: -0.45s;
   }
-  :nth-child(2) {
+  &:nth-child(2) {
     animation-delay: -0.3s;
   }
-  :nth-child(3) {
+  &:nth-child(3) {
     animation-delay: -0.15s;
   }
 `

@@ -1,0 +1,57 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as ProgressBarStories from './ProgressBar.stories';
+
+import ProgressBar from './index'
+
+<Meta of={ProgressBarStories} />
+
+export const styles = {
+  container: {
+    width: '100%',
+    maxWidth: '600px'
+  }
+}
+
+# Progress Bar
+
+Demonstrates default rendering of ProgressBar component
+
+<Preview>
+  <Story of={ProgressBarStories.Default} />
+</Preview>
+
+Demonstrates default rendering of ProgressBar component with neutral color
+
+<Preview>
+  <Story of={ProgressBarStories.Neutral} />
+</Preview>
+
+Demonstrates default rendering of ProgressBar component without percentage
+
+<Preview>
+  <Story of={ProgressBarStories.WithoutTextPercentage} />
+</Preview>
+
+Demonstrates rendering of ProgressBar with indeterminate type
+
+<Preview>
+  <Story of={ProgressBarStories.IndeterminateType} />
+</Preview>
+
+Demonstrates rendering of ProgressBar using the query type
+
+<Preview>
+  <Story of={ProgressBarStories.QueryType} />
+</Preview>
+
+Demonstrates rendering of ProgressBar the buffer type
+
+<Preview>
+  <Story of={ProgressBarStories.BufferType} />
+</Preview>
+
+## Props
+
+<ArgsTable of={ProgressBar} />

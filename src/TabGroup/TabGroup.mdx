@@ -1,0 +1,51 @@
+import { Meta, Story, Preview } from '@storybook/blocks'
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as TabGroupStories from './TabGroup.stories';
+
+import Tab from '../Tab'
+import TabGroup from './index'
+
+<Meta of={TabGroupStories} />
+
+# Tab Group
+
+Demonstrates default rendering of a group of tabs.
+
+<Preview>
+  <Story of={TabGroupStories.Default} />
+</Preview>
+
+Demonstrates the various types of tabs.
+
+<Preview>
+  <Story of={TabGroupStories.WithAllStatuses} />
+</Preview>
+
+Demonstrates a TabGroup which doesn't stretch to fill available space.
+
+<Preview>
+  <Story of={TabGroupStories.WithoutStretching} />
+</Preview>
+
+Demonstrates a TabGroup which overflows its available space.
+
+<Preview>
+  <Story of={TabGroupStories.WithOverflow} />
+</Preview>
+
+Demonstrates a TabGroup which overflows its available space, and loads with the active tab shown.
+
+<Preview>
+  <Story of={TabGroupStories.WithOverflowAndActiveScrolled} />
+</Preview>
+
+Demonstrates tab with 'minWidth' prop set.
+
+<Preview>
+  <Story of={TabGroupStories.WithMinWidth} />
+</Preview>
+
+## Props
+
+<ArgsTable of={TabGroup} />

@@ -1,0 +1,49 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as CardStories from './Card.stories';
+
+import Button from '../Button'
+import Card from './index'
+
+export const ContainerDecorator = story => (
+  <div style={{ width: '100%', maxWidth: '480px' }}>{story()}</div>
+)
+
+<Meta of={CardStories} />
+
+# Card
+
+With defaults.
+
+<Preview>
+  <Story of={CardStories.WithDefaults} />
+</Preview>
+
+With content.
+
+<Preview>
+  <Story of={CardStories.WithContent} />
+</Preview>
+
+With media.
+
+<Preview>
+  <Story of={CardStories.WithMedia} />
+</Preview>
+
+With media and content.
+
+<Preview>
+  <Story of={CardStories.WithMediaAndContent} />
+</Preview>
+
+With actions.
+
+<Preview>
+  <Story of={CardStories.WithActions} />
+</Preview>
+
+## Props
+
+<ArgsTable of={Card} />

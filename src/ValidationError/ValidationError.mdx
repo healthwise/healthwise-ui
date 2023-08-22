@@ -1,0 +1,28 @@
+import { Meta, Story, Preview } from '@storybook/blocks'
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as ValidationErrorStories from './ValidationError.stories'
+
+import ValidationError from './index'
+
+export const styles = {
+  input: {
+    marginRight: '16px',
+    padding: '8px',
+    width: '200px',
+  },
+}
+
+<Meta of={ValidationErrorStories} />
+
+# ValidationError
+
+Demonstrates default rendering of ValidationError component.
+
+<Preview>
+  <Story of={ValidationErrorStories.Default} />
+</Preview>
+
+## Props
+
+<ArgsTable of={ValidationError} />
