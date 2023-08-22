@@ -55,16 +55,16 @@ const Input = styled.input`
   outline: 0;
   opacity: 0;
 
-  :focus + ${Svg} {
+  &:focus + ${Svg} {
     outline: ${props => props.theme.focusIndicator};
     outline-offset: ${props => props.theme.focusIndicatorOffset};
   }
 
-  :focus:invalid {
+  &:focus:invalid {
     border-color: ${props => props.theme.colorError};
   }
 
-  :checked + ${Svg} ${InnerCircle} {
+  &:checked + ${Svg} ${InnerCircle} {
     display: inline-block;
   }
 `

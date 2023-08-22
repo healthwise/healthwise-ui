@@ -1,0 +1,45 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as AccordionStories from './Accordion.stories';
+
+import Accordion from './index';
+import AccordionGroup from '../AccordionGroup/index'
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+Default rendering.
+
+<Preview>
+  <Story of={AccordionStories.Default} />
+</Preview>
+
+Expanded at load.
+
+<Preview>
+  <Story of={AccordionStories.ExpandedByDefault} />
+</Preview>
+
+Disabled.
+
+<Preview>
+  <Story of={AccordionStories.Disabled} />
+</Preview>
+
+Disabled & expanded.
+
+<Preview>
+  <Story of={AccordionStories.DisabledExpanded} />
+</Preview>
+
+Group of Accordions.
+
+<Preview>
+  <Story of={AccordionStories.GroupOfAccordions} />
+</Preview>
+
+## Props
+
+<ArgsTable of={AccordionGroup} />

@@ -1,0 +1,44 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as LikertScaleStories from './LikertScale.stories';
+
+import LikertScale from './index'
+
+<Meta of={LikertScaleStories} />
+
+# Likert Scale
+
+Default.
+
+<Preview>
+  <Story of={LikertScaleStories.WithDefaults} />
+</Preview>
+
+Selected answer & custom labels
+
+<Preview>
+  <Story of={LikertScaleStories.SelectedAnswerCustomLabels} />
+</Preview>
+
+With readonly
+
+<Preview>
+  <Story of={LikertScaleStories.WithReadonly} />
+</Preview>
+
+With range
+
+<Preview>
+  <Story of={LikertScaleStories.WithRange} />
+</Preview>
+
+With custom colors
+
+<Preview>
+  <Story of={LikertScaleStories.WithCustomColors} />
+</Preview>
+
+## Props
+
+<ArgsTable of={LikertScale} />

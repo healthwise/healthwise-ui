@@ -71,7 +71,7 @@ const InputContainer = styled.div`
   background: ${props =>
     props.underlined || props.viewOnly ? 'none' : props.theme.colorBackgroundLight};
 
-  :focus-within {
+  &:focus-within {
     outline: ${props => (props.underlined || props.viewOnly ? 'none' : props.theme.focusIndicator)};
     outline-offset: ${props => props.theme.focusIndicatorOffset};
   }
@@ -91,15 +91,15 @@ const Input = styled.input`
     opacity: 1;
   }
 
-  :focus {
+  &:focus {
     outline: none;
   }
 
-  :disabled {
+  &:disabled {
     cursor: not-allowed;
   }
 
-  :invalid:not(:focus) {
+  &:invalid:not(:focus) {
     border-color: ${props =>
       props.error && props.dirty && (!props.autoFocus || !props.focused)
         ? props.theme.colorError

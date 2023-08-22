@@ -1,0 +1,38 @@
+import { Meta, Story, Preview } from '@storybook/blocks'
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as RadioStories from './Radio.stories';
+
+import Radio from './index'
+
+<Meta of={RadioStories} />
+
+export const styles = {
+  container: {
+    padding: '16px',
+  },
+}
+
+# Radio
+
+Demonstrates default rendering of Radio component.
+
+<Preview>
+  <Story of={RadioStories.Default} />
+</Preview>
+
+Demonstrates a disabled Radio component.
+
+<Preview>
+  <Story of={RadioStories.Disabled} />
+</Preview>
+
+Demonstrates a view-only Radio component.
+
+<Preview>
+  <Story of={RadioStories.ViewOnly} />
+</Preview>
+
+## Props
+
+<ArgsTable of={Radio} />

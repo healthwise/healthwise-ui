@@ -1,0 +1,20 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as HealthwiseLogoStories from './HealthwiseLogo.stories';
+
+import HealthwiseLogo from './index'
+
+<Meta of={HealthwiseLogoStories} />
+
+# HealthwiseLogo
+
+Default.
+
+<Preview>
+  <Story of={HealthwiseLogoStories.WithDefaults} />
+</Preview>
+
+## Props
+
+<ArgsTable of={HealthwiseLogo} />

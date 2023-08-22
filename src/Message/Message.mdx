@@ -1,0 +1,27 @@
+import { Fragment } from 'react'
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as MessageStories from './Message.stories';
+
+import Message from './index'
+
+<Meta of={MessageStories} />
+
+# Message
+
+Demonstrates 'info', 'warning', and 'error' Message types.
+
+<Preview>
+  <Story of={MessageStories.MessageTypes} />
+</Preview>
+
+Demonstrates alignment options of Message component.
+
+<Preview>
+  <Story of={MessageStories.VariedAlignment} />
+</Preview>
+
+## Props
+
+<ArgsTable of={Message} />

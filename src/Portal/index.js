@@ -42,11 +42,7 @@ const Portal = ({ children, type = 'healthwise-ui-portal' }) => {
     }
   }, [type, forceUpdate])
 
-  return portalNode.current ? (
-    createPortal(children, portalNode.current)
-  ) : (
-    <span ref={mountNode} />
-  )
+  return portalNode.current ? createPortal(children, portalNode.current) : <span ref={mountNode} />
 }
 
 Portal.propTypes = {
@@ -54,9 +50,9 @@ Portal.propTypes = {
   type: PropTypes.string,
 }
 
-if (__DEV__) {
-  Portal.displayName = 'Portal'
-}
+// if (__DEV__) {
+//   Portal.displayName = 'Portal'
+// }
 
 export { Portal }
 export default Portal

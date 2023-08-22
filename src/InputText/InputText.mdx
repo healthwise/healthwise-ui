@@ -1,0 +1,98 @@
+import { Meta, Story, Preview } from '@storybook/blocks'
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as InputTextStories from './InputText.stories';
+
+import InputText from './index'
+import { createTheme } from '../Theme'
+
+<Meta of={InputTextStories} />
+
+export const theme = createTheme()
+
+export const styles = {
+  row: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+  },
+  header: {
+    paddingLeft: '16px',
+  },
+  container: {
+    padding: '16px',
+  },
+  container_light: {
+    padding: '16px',
+    background: theme.colorBackgroundLight,
+  },
+  container_contrast: {
+    padding: '16px',
+    background: theme.colorBackgroundContrastDark,
+  },
+}
+
+# InputText
+
+default
+
+<Preview>
+  <Story of={InputTextStories.Default} />
+</Preview>
+
+placeholder
+
+<Preview>
+  <Story of={InputTextStories.Placeholder} />
+</Preview>
+
+label
+
+<Preview>
+  <Story of={InputTextStories.Label} />
+</Preview>
+
+required
+
+<Preview>
+  <Story of={InputTextStories.Required} />
+</Preview>
+
+focus
+
+<Preview>
+  <Story of={InputTextStories.Focus} />
+</Preview>
+
+disabled
+
+<Preview>
+  <Story of={InputTextStories.Disabled} />
+</Preview>
+
+view only
+
+<Preview>
+  <Story of={InputTextStories.ViewOnly} />
+</Preview>
+
+externalValidation
+
+<Preview>
+  <Story of={InputTextStories.ExternalValidation} />
+</Preview>
+
+errors
+
+<Preview>
+  <Story of={InputTextStories.Errors} />
+</Preview>
+
+types
+
+<Preview>
+  <Story of={InputTextStories.Types} />
+</Preview>
+
+## Props
+
+<ArgsTable of={InputText} />

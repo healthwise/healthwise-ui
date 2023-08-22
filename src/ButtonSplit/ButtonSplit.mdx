@@ -1,0 +1,85 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as ButtonSplitStories from './ButtonSplit.stories';
+
+import SplitButton from './index'
+import Button from '../Button'
+
+import { createTheme } from '../Theme'
+import { ProfileIcon } from '../Icon'
+
+export const theme = createTheme()
+
+export const styles = {
+  row: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+  },
+  header: {
+    paddingLeft: '16px',
+  },
+  container: {
+    padding: '16px',
+  },
+  container_light: {
+    padding: '16px',
+    background: theme.colorBackgroundLight,
+  },
+  container_contrast: {
+    padding: '16px',
+    background: theme.colorBackgroundContrastDark,
+  },
+}
+
+export const items = ['First Option', 'Second Option', 'Third Option']
+
+export const onClickAction = action('onClick')
+export const handleClick = event => {
+  event.preventDefault()
+  onClickAction(event)
+}
+
+<Meta of={ButtonSplitStories} />
+
+# Button Split
+
+With defaults.
+
+<Preview>
+  <Story of={ButtonSplitStories.WithDefaults} />
+</Preview>
+
+With styles.
+
+<Preview>
+  <Story of={ButtonSplitStories.WithStyles} />
+</Preview>
+
+With icon only.
+
+<Preview>
+  <Story of={ButtonSplitStories.WithIconOnly} />
+</Preview>
+
+With links.
+
+<Preview>
+  <Story of={ButtonSplitStories.WithLinks} />
+</Preview>
+
+Disabled.
+
+<Preview>
+  <Story of={ButtonSplitStories.Disabled} />
+</Preview>
+
+Controlled.
+
+<Preview>
+  <Story of={ButtonSplitStories.Controlled} />
+</Preview>
+
+## Props
+
+<ArgsTable of={SplitButton} />

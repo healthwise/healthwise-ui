@@ -1,0 +1,77 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as ButtonStories from './Button.stories';
+
+import BlockHeading from './index'
+
+<Meta of={ButtonStories} />
+
+import { createTheme } from '../Theme'
+import { ProfileIcon } from '../Icon'
+import Button from './index'
+
+export const theme = createTheme()
+
+export const styles = {
+  row: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+  },
+  header: {
+    paddingLeft: '16px',
+  },
+  container: {
+    padding: '16px',
+  },
+  container_light: {
+    padding: '16px',
+    background: theme.colorBackgroundLight,
+  },
+  container_contrast: {
+    padding: '16px',
+    background: theme.colorBackgroundContrastDark,
+  },
+}
+
+export const onClickAction = action('onClick')
+export const handleClick = event => {
+  event.preventDefault()
+  onClickAction(event)
+}
+
+# Button
+
+With defaults.
+
+<Preview>
+  <Story of={ButtonStories.Defaults} />
+</Preview>
+
+With themes.
+
+<Preview>
+  <Story of={ButtonStories.Themes} />
+</Preview>
+
+With links.
+
+<Preview>
+  <Story of={ButtonStories.Links} />
+</Preview>
+
+With icon only.
+
+<Preview>
+  <Story of={ButtonStories.Icons} />
+</Preview>
+
+Disabled.
+
+<Preview>
+  <Story of={ButtonStories.Disabled} />
+</Preview>
+
+## Props
+
+<ArgsTable of={Button} />

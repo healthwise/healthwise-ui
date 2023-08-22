@@ -1,0 +1,47 @@
+import { Meta, Story, Preview } from '@storybook/blocks'
+import * as PortalStories from './Portal.stories';
+
+import { Portal } from './index'
+
+<Meta of={PortalStories} />
+
+# Portal
+
+Demonstrates default rendering of Portal component.
+
+<Preview>
+  <Story of={PortalStories.Default} />
+</Preview>
+
+## Component API
+
+### Portal
+
+Renders content inside of a portal at the end of the DOM tree.
+
+### Example
+
+```jsx
+<Portal>
+  <div>Content goes here</div>
+</Portal>
+```
+
+### Portal Props
+
+| Prop | Type |	Required |
+|--- | --- | --- |
+| children | node | true |
+| type | string | false |
+
+#### children
+
+children: React.ReactNode
+
+The content to render inside of the portal.
+
+#### type
+
+Type: string default: healthwise-ui-portal
+
+The DOM element type to render.

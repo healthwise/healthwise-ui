@@ -1,0 +1,33 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as ButtonGroupStories from './ButtonGroup.stories';
+
+import ButtonGroup from './index'
+import Button from '../Button'
+
+<Meta of={ButtonGroupStories} />
+
+# Button Group
+
+With defaults.
+
+<Preview>
+  <Story of={ButtonGroupStories.WithDefaults} />
+</Preview>
+
+Center aligned.
+
+<Preview>
+  <Story of={ButtonGroupStories.CenterAligned} />
+</Preview>
+
+Right aligned.
+
+<Preview>
+  <Story of={ButtonGroupStories.RightAligned} />
+</Preview>
+
+## Props
+
+<ArgsTable of={ButtonGroup} />

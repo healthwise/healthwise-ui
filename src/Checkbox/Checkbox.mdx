@@ -1,0 +1,38 @@
+import { Meta, Story, Preview} from '@storybook/blocks'
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as CheckboxStories from './Checkbox.stories';
+
+import Checkbox from './index'
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+default
+
+<Preview>
+  <Story of={CheckboxStories.Default} />
+</Preview>
+
+disabled
+
+<Preview>
+  <Story of={CheckboxStories.Disabled} />
+</Preview>
+
+viewOnly
+
+<Preview>
+  <Story of={CheckboxStories.ViewOnly} />
+</Preview>
+
+required
+
+<Preview>
+  <Story of={CheckboxStories.Required} />
+</Preview>
+
+## Props
+
+<ArgsTable of={Checkbox} />

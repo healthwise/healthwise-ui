@@ -1,0 +1,33 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as ReferencesStories from './References.stories';
+
+import References from './index'
+
+<Meta of={ReferencesStories} />
+
+export const styles = {
+  container: {
+    width: '100%',
+    maxWidth: '600px'
+  }
+}
+
+# References
+
+Demonstrates default rendering of references
+
+<Preview>
+  <Story of={ReferencesStories.Default} />
+</Preview>
+
+Demonstrates rendering of references with a different label
+
+<Preview>
+  <Story of={ReferencesStories.Label} />
+</Preview>
+
+## Props
+
+<ArgsTable of={References} />

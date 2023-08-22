@@ -57,29 +57,29 @@ const Input = styled.input`
   opacity: 0;
   cursor: pointer;
 
-  :focus ~ ${CheckedIconContainer}, :focus ~ ${UncheckedIconContainer} {
+  &:focus ~ ${CheckedIconContainer}, &:focus ~ ${UncheckedIconContainer} {
     outline: ${props => props.theme.focusIndicator};
     outline-offset: ${props => props.theme.focusIndicatorOffset};
   }
 
-  :disabled {
+  &:disabled {
     cursor: not-allowed;
   }
 
-  :disabled ~ ${CheckedIconContainer}, :disabled ~ ${UncheckedIconContainer} {
+  &:disabled ~ ${CheckedIconContainer}, &:disabled ~ ${UncheckedIconContainer} {
     pointer-events: none;
   }
 
-  :invalid ~ ${CheckedIconContainer} svg,
-  :invalid ~ ${UncheckedIconContainer} svg {
+  &:invalid ~ ${CheckedIconContainer} svg,
+  &:invalid ~ ${UncheckedIconContainer} svg {
     fill: ${props => props.theme.colorError};
   }
 
-  :checked ~ ${CheckedIconContainer} {
+  &:checked ~ ${CheckedIconContainer} {
     display: ${props => (props.viewOnly ? 'none' : 'block')};
   }
 
-  :not(:checked) ~ ${UncheckedIconContainer} {
+  &:not(:checked) ~ ${UncheckedIconContainer} {
     display: ${props => (props.viewOnly ? 'none' : 'block')};
   }
 `
@@ -130,9 +130,11 @@ class Checkbox extends React.Component {
             theme={theme}
             {...otherProps}
           />
+
           <CheckedIconContainer theme={theme}>
             <CheckboxCheckedIcon role="presentation" />
           </CheckedIconContainer>
+
           <UncheckedIconContainer theme={theme}>
             <CheckboxUncheckedIcon role="presentation" />
           </UncheckedIconContainer>

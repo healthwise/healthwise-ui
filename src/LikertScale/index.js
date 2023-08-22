@@ -69,12 +69,12 @@ const ButtonDefault = styled.div`
   padding-top: ${props => (props.readonly ? '27px' : props.forPrint ? '16px' : '0')};
   transition: all 0.5s ease-out;
 
-  :first-child {
+  &:first-child {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   }
 
-  :last-child {
+  &:last-child {
     border-right: 2px solid #dde0e6;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -207,14 +207,14 @@ class LikertScale extends React.Component {
   }
 
   getTextColor(alpha) {
-    const rgbaToRgb = function(colors, alpha) {
-      return colors.map(function(color) {
+    const rgbaToRgb = function (colors, alpha) {
+      return colors.map(function (color) {
         return (1 - alpha) * 255 + alpha * color
       })
     }
     // adapted from http://stackoverflow.com/a/3943023
-    const getLuminance = function(colors) {
-      colors = colors.map(function(c) {
+    const getLuminance = function (colors) {
+      colors = colors.map(function (c) {
         c = c / 255
         return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)
       })
@@ -414,7 +414,7 @@ LikertScale.defaultProps = {
   lightTextRgbColor: '255, 255, 255',
   readonly: false,
   forPrint: false,
-  onAnswer: function() {},
+  onAnswer: function () {},
 }
 
 export default withTheme(LikertScale)

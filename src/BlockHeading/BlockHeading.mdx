@@ -1,0 +1,20 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions'
+import { ArgsTable } from '@storybook/blocks'
+import * as BlockHeadingStories from './BlockHeading.stories';
+
+import BlockHeading from './index'
+
+<Meta of={BlockHeadingStories} />
+
+# Block Heading
+
+Default rendering.
+
+<Preview>
+  <Story of={BlockHeadingStories.WithContent} />
+</Preview>
+
+## Props
+
+<ArgsTable of={BlockHeading} />

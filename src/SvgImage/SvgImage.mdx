@@ -1,0 +1,19 @@
+import { Meta, Story, Preview } from '@storybook/blocks';
+import { ArgsTable } from '@storybook/blocks'
+import * as SvgImageStories from './SvgImage.stories';
+
+import SvgImage from './index';
+
+<Meta of={SvgImageStories} />
+
+# SvgImage
+
+Demonstrates default rendering of SvgImage component.
+
+<Preview>
+  <Story of={SvgImageStories.Default} />
+</Preview>
+
+## Props
+
+<ArgsTable of={SvgImage} />
