@@ -139,16 +139,6 @@ class Checkbox extends React.Component {
             <CheckboxUncheckedIcon role="presentation" />
           </UncheckedIconContainer>
 
-          {/* {checked || defaultChecked ? (
-            <CheckedIconContainer theme={theme}>
-              <CheckboxCheckedIcon role="presentation" />
-            </CheckedIconContainer>
-          ) : (
-            <UncheckedIconContainer theme={theme}>
-              <CheckboxUncheckedIcon role="presentation" />
-            </UncheckedIconContainer>
-          )} */}
-
           <LabelContent
             className="hw-checkbox-wrapper-label-text"
             checked={checked}
