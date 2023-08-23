@@ -1,6 +1,6 @@
 {
   "name": "@healthwise-ui/core",
-  "version": "3.2.5",
+  "version": "3.3.0",
   "description": "Shared React UI library that implements the Healthwise design language.",
   "main": "build/index.cjs.js",
   "module": "build/index.esm.js",
@@ -23,7 +23,7 @@
   "scripts": {
     "build": "npm run build:cjs && npm run build:iife",
     "build:cjs": "babel --root-mode upward-optional src -d build",
-    "build:iife": "rollup -c",
+    "build:iife": "rollup --bundleConfigAsCjs -c",
     "dopublish": "npm run build && npm publish ./build",
     "dopublish:dryrun": "npm run build && npm publish ./build --dry-run",
     "format": "npm run prettier -- --write",
